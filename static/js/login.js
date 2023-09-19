@@ -9,6 +9,7 @@ function login() {
             console.log("密码正确");
              localStorage.setItem("login", "true");
              localStorage.setItem("key", server_user.Key)
+             localStorage.setItem("User_Email", server_user.Email)
              APP.get_from_server();
              window.location = "../";
          }

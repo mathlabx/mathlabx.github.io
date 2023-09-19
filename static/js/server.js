@@ -14,7 +14,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const database = app.database();
 
 // 封装适应 JSON 数据的存储和检索函数
-/*const serverStorage = {
+const serverStorage = {
     
     setItem: (partition, key, data) => {
         const dataRef = database.ref(`${partition}/${key}`);
@@ -42,7 +42,7 @@ const database = app.database();
     clearPartition: (partition) => {
         console.error("Firebase Realtime Database does not support clearing a partition.");
     },
-}; */
+};
 
 /*
 

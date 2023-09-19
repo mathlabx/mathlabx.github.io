@@ -1,4 +1,4 @@
-/*// Firebase 配置信息
+// Firebase 配置信息
 const firebaseConfig = {
     apiKey: "AIzaSyDGdWiX7d8UsC5E09SjvuQJUK24JnZWQKc",
     authDomain: "mathscichem.firebaseapp.com",
@@ -42,7 +42,8 @@ const serverStorage = {
         console.error("Firebase Realtime Database does not support clearing a partition.");
     },
 };
-alert("包括文件");*/
+alert("包括文件");
+
 
 /*
 

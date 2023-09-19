@@ -1,12 +1,12 @@
 function login() {
-    console.log("尝试登录");
+    alert("尝试登录");
     var userinput_email = document.getElementById("l_email").value;
     var userinput_password = document.getElementById("l_password").value;
     let server_user = new Object();
     serverStorage.getItem("User", userinput_email).then((data) => {
         server_user = data;
         if (server_user.Password == userinput_password) {
-            console.log("密码正确");
+            alert("密码正确");
              localStorage.setItem("login", "true");
              localStorage.setItem("key", server_user.Key)
              localStorage.setItem("User_Email", server_user.Email)

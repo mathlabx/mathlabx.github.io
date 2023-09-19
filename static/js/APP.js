@@ -5,6 +5,7 @@ APP.account = new Object();
 APP.login = false;
 APP.get_from_server = function () {
     serverStorage.getItem("User", localStorage.getItem("User_Email")).then((data) => {
+        console.log(data);
         localStorage.setItem("User_Name", data.Name);
         localStorage.setItem("User_Info", data.Info);
     });

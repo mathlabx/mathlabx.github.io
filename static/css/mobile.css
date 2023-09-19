@@ -1,0 +1,25 @@
+/* Additional styles for mobile screens */
+/* You can customize these styles for smaller screens */
+.mobile-bar {
+    display: block;
+}
+
+/* Hide the top navigation bar on mobile */
+.top-bar {
+    display: none;
+}
+
+/* Center the Flow Elements on mobile */
+/* Override width and margin for all devices to center-align elements */
+.flow-element {
+    width: calc(100% - 25px); /* Ensure one element per row on mobile */
+    margin: 10px; /* Add margin to create spacing between elements and center-align them */
+    display: inline-block; /* Make elements display horizontally */
+    vertical-align: top; /* Align elements to the top */
+}
+
+/* Style for the Flow Element Image */
+.flow-element img {
+    max-width: 38%;
+    max-height: 38%; 
+}

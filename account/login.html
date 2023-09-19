@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/loading_motion.css">
+  <link rel="stylesheet" href="../static/css/account.css">
+  <script type="text/javascript" src="../static/js/APP.js"></script>
+  <script type="text/javascript" src="../static/js/loading_motion.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script type="module" src="../static/js/server.js"></script>
+  <script type="text/javascript" src="../static/js/login.js"></script>
+  <title>MathPhysChemLab | Login</title>
+</head>
+
+<body>
+  <!-- Loading Animation -->
+  <div class="loader">
+    <div class="loading-animation"></div>
+  </div>
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form">
+        <input type="text" id="r_username" placeholder="username" />
+        <input type="password" id="r_password" placeholder="password" />
+        <input type="text" id="r_email" placeholder="email address" />
+        <button onclick="registered();">create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form">
+        <input type="text" id="l_email" placeholder="email address" />
+        <input type="password" id="l_password" placeholder="password" />
+        <button onclick="login();">login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+  $('.message a').click(function () {
+    $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+  });
+</script>
+
+</html>

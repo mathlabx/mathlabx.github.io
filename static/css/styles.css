@@ -1,0 +1,158 @@
+/* Reset some default styles and set basic styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* Define the top navigation bar styles */
+.top-bar {
+    background-color: #202226;
+    color: #8A96E1;
+    padding: 1px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 1%;
+    height: 60px;
+    width: auto;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #8A96E1;
+}
+
+/* Style for the Flow Element Container (center the flow elements with 3% side margins) */
+.container {
+    text-align: center; /* Center-align the flow elements container */
+    margin: 0 3%; /* Add 3% side margins to the container */
+    box-sizing: border-box; /* Include margin in container width */
+}
+
+/* Style for the Flow Element */
+.flow-element {
+    background-color: rgb(138 150 225 / 28%);
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin: 10px; /* Add margin to create spacing between elements */
+    text-align: center;
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    height: 300px;
+    width: calc(100% - 20px); /* Ensure one element per row on mobile */
+    box-sizing: border-box; /* Include padding in element width */
+    min-height: 0; /* Ensure minimum height is not greater than width */
+}
+
+
+/* Style for the Flow Element that occupies a full row */
+.full-line {
+    background-color: rgb(138, 150, 225, 0.28);
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    min-height: 0;
+}
+
+/* Hover effect for the Flow Element */
+.flow-element:hover {
+    transform: scale(1.05); /* Slightly scale up the element */
+    background-color: rgba(138, 150, 225, 0.5); /* Slightly darken the background */
+    transition: transform 0.2s, background-color 0.2s; /* Add a smooth transition effect */
+}
+
+/* Style for the Flow Element Image */
+.flow-element img {
+    max-width: 50%;
+    max-height: 50%; 
+    height: auto;
+    border-radius: 15%; /* Make the image circular */
+    margin-top: 2%;
+    border: 2px solid #fff; /* Add a white border to the image */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a shadow to the image */
+}
+
+/* Style for the Flow Element Title */
+.flow-element h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #DCB6FF;
+}
+
+/* hot logo */
+.hot-tag {
+    vertical-align: super; /* Make it a superscript */
+    font-size: 10px; /* Adjust font size as needed */
+    border-radius: 5px;
+    color: red; /* Set color to red */
+}
+
+/* Style for the Flow Element Description */
+.flow-element p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/* Define the mobile bottom navigation styles */
+.mobile-bar {
+    background-color: #333;
+    color: #fff;
+    font-size: x-large;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: none;
+}
+
+.footer-home-button {
+    background-color: #DCB6FF;
+    color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px 20px;
+    width: 17%;
+    display: inline-block;
+}
+
+.footer-button {
+    background-color: #3d436761;
+    color: #fff;
+    border-radius: 25%;
+    padding: 10px 20px;
+    width: 17%;
+    display: inline-block;
+}
+
+/* Media Query for iPad and Larger Devices */
+@media (min-width: 768px) {
+    .container {
+        margin: 0 auto; /* Center the container on larger screens */
+        max-width: 1200px; /* Limit the container width on larger screens */
+    }
+}

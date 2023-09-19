@@ -6,6 +6,7 @@ function login() {
     serverStorage.getItem("User", userinput_email).then((data) => {
         server_user = data;
     });
+    console.log(server_user.Password +"="+ userinput_password)
     if (server_user.Password == userinput_password) {
        console.log("密码正确");
         localStorage.setItem("login", "true");

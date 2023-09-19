@@ -43,8 +43,6 @@ const serverStorage = {
     },
 };
 
-
-
 function login() {
     var userinput_email = document.getElementById("l_email").value;
     var userinput_password = document.getElementById("l_password").value;

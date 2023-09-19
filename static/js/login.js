@@ -1,4 +1,5 @@
 function login() {
+    console.log("尝试登录");
     var userinput_email = document.getElementById("l_email").value;
     var userinput_password = document.getElementById("l_password").value;
     let server_user = new Object();

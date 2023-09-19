@@ -6,6 +6,7 @@ function login() {
         server_user = data;
     });
     if (server_user.Password == userinput_password) {
+       console.log("密码正确");
         localStorage.setItem("login", "true");
         localStorage.setItem("key", server_user.Key)
         APP.get_from_server();

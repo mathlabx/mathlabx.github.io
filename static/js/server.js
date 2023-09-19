@@ -42,7 +42,6 @@ const serverStorage = {
         console.error("Firebase Realtime Database does not support clearing a partition.");
     },
 };
-alert("包括文件");
 
 
 /*

@@ -5,15 +5,14 @@ function login() {
     let server_user = new Object();
     serverStorage.getItem("User", userinput_email).then((data) => {
         server_user = data;
+        if (server_user.Password == userinput_password) {
+            console.log("密码正确");
+             localStorage.setItem("login", "true");
+             localStorage.setItem("key", server_user.Key)
+             APP.get_from_server();
+             window.location = "../";
+         }
     });
-    console.log(server_user.Password +"="+ userinput_password)
-    if (server_user.Password == userinput_password) {
-       console.log("密码正确");
-        localStorage.setItem("login", "true");
-        localStorage.setItem("key", server_user.Key)
-        APP.get_from_server();
-        window.location = "../";
-    }
 }
 
 function registered() {

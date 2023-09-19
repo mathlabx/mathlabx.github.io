@@ -15,7 +15,6 @@ const database = app.database();
 
 // 封装适应 JSON 数据的存储和检索函数
 const serverStorage = {
-    
     setItem: (partition, key, data) => {
         const dataRef = database.ref(`${partition}/${key}`);
         return dataRef.set(data); 
@@ -43,6 +42,7 @@ const serverStorage = {
         console.error("Firebase Realtime Database does not support clearing a partition.");
     },
 };
+alert("包括文件");
 
 /*
 

@@ -14,18 +14,17 @@ const app = firebase.initializeApp(firebaseConfig);
 const database = app.database();
 
 // 封装适应 JSON 数据的存储和检索函数
-const serverStorage = {
-    // 存储 JSON 数据到指定分区
+/*const serverStorage = {
+    
     setItem: (partition, key, data) => {
         const dataRef = database.ref(`${partition}/${key}`);
-        return dataRef.set(data); // 修复此处的 value 为 data
+        return dataRef.set(data); 
     },
 
-    // 获取 JSON 数据从指定分区
+    
     getItem: async (partition, key) => {
         const dataRef = database.ref(`${partition}/${key}`);
-        const snapshot = await dataRef.get(); // 使用 dataRef.get() 获取快照
-
+        const snapshot = await dataRef.get(); 
         if (snapshot.exists()) {
             return snapshot.val();
         } else {
@@ -33,17 +32,17 @@ const serverStorage = {
         }
     },
 
-    // 删除 JSON 数据从指定分区
+    
     removeItem: (partition, key) => {
         const dataRef = database.ref(`${partition}/${key}`);
-        return dataRef.remove(); // 删除数据
+        return dataRef.remove(); 
     },
 
-    // 清空指定分区的数据（慎用）
+    
     clearPartition: (partition) => {
         console.error("Firebase Realtime Database does not support clearing a partition.");
     },
-};
+}; */
 
 /*
 

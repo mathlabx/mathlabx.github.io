@@ -48,6 +48,5 @@ if (APP.login) {
 }
 
 window.addEventListener("load", function () {
-    app_update();
     user_page_update();
 })

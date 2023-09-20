@@ -28,3 +28,7 @@ function app_update() {
         container.append(new_flow);
     }
 }
+
+window.addEventListener("load", function () {
+    app_update();
+})

@@ -5,6 +5,7 @@ function login() {
     serverStorage.getItem("User", userinput_email).then((data) => {
         server_user = data;
         if (server_user.Password == userinput_password) {
+            alert("loi");
             localStorage.setItem("login", "true");
             localStorage.setItem("key", server_user.Key)
             localStorage.setItem("User_Email", server_user.Email)

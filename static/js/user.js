@@ -13,5 +13,5 @@ function user_page_update() {
 
 function login_b() {
     if (APP.login) window.location = "https://app.mathscichem.com/account/";
-    else window.location = "https://app.mathscichem.com/account/login.html"
+    else window.location = "https://app.mathscichem.com/account/login.html";
 }

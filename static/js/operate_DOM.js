@@ -22,8 +22,9 @@ function app_update() {
         let new_p = document.createElement("p");
         new_p.innerText = APP.apps[i].description;
         new_flow.append(new_p);
+        new_flow.url = APP.apps[i].url;
         new_flow.addEventListener("click", function () {
-            to_app(APP.apps[i].url);
+            to_app(this.url);
         });
         container.append(new_flow);
     }

@@ -33,8 +33,6 @@ function registered() {
     serverStorage.getItem("User", userinput_name).then((data) => {
         if (data) {
             alert("This username has already been registered, please use another username.");
-        } else if (data.Email == userinput_email) {
-            alert("This email has already been registered, please use another email.");
         } else {
             serverStorage.setItem("User", userinput_name, userData);
             setTimeout(() => {

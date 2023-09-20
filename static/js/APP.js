@@ -6,7 +6,7 @@ APP.login = false;
 APP.get_from_server = function () {
 var loco_name = localStorage.getItem("User_Name");
 if (loco_name) {
-  serverStorage.getItem("User", loco_email, (data) => {
+  serverStorage.getItem("User", loco_name, (data) => {
     console.log(data);
     localStorage.setItem("User_Name", data.Name);
     localStorage.setItem("User_Email", data.Email);

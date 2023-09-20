@@ -4,12 +4,14 @@ APP.liked = new Object();
 APP.account = new Object();
 APP.login = false;
 APP.get_from_server = function () {
-    var loco_email = localStorage.getItem("User_Email").then(
-        serverStorage.getItem("User", loco_email).then((data) => {
-            console.log(data);
-            localStorage.setItem("User_Name", data.Name);
-            localStorage.setItem("User_Info", data.Info);
-        }));
+var loco_email = localStorage.getItem("User_Email");
+if (loco_email) {
+  serverStorage.getItem("User", loco_email, (data) => {
+    console.log(data);
+    localStorage.setItem("User_Name", data.Name);
+    localStorage.setItem("User_Info", data.Info);
+  });
+}
 }
 
 if (localStorage.getItem("login") == "true") APP.login = true;

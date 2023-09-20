@@ -4,11 +4,12 @@ APP.liked = new Object();
 APP.account = new Object();
 APP.login = false;
 APP.get_from_server = function () {
-    serverStorage.getItem("User", localStorage.getItem("User_Email")).then((data) => {
-        console.log(data);
-        localStorage.setItem("User_Name", data.Name);
-        localStorage.setItem("User_Info", data.Info);
-    });
+    var loco_email = localStorage.getItem("User_Email").then(
+        serverStorage.getItem("User", loco_email).then((data) => {
+            console.log(data);
+            localStorage.setItem("User_Name", data.Name);
+            localStorage.setItem("User_Info", data.Info);
+        }));
 }
 
 if (localStorage.getItem("login") == "true") APP.login = true;
@@ -34,10 +35,10 @@ APP.account = {
     useremail: localStorage.getItem("User_Email"),
     userinfo: localStorage.getItem("User_Info"),
     $l: localStorage.getItem("key"),
-    $s :"not login"
+    $s: "not login"
 }
 
-if(APP.login){
+if (APP.login) {
     APP.account.$s = APP.account.$l;
     //暂时不适应key
 }

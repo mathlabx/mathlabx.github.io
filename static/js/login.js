@@ -1,20 +1,15 @@
 function login() {
-    alert("尝试登录");
     var userinput_email = document.getElementById("l_email").value;
     var userinput_password = document.getElementById("l_password").value;
-    let server_user = new Object();
-    serverStorage.getItem("User", userinput_email).then((data) => {
-        server_user = data;
-        alert(server_user.Password +"=="+ userinput_password);
-        if (server_user.Password == userinput_password) {
-            alert("密码正确");
-            localStorage.setItem("login", "true");
-            localStorage.setItem("key", server_user.Key)
-            localStorage.setItem("User_Email", server_user.Email)
-            APP.get_from_server();
-            window.location = "../";
-        }
-    });
+    // 从本地存储中获取 User_Email
+    var loco_email = localStorage.getItem("User_Email");
+    if (loco_email) {
+        serverStorage.getItem("User", loco_email, (data) => {
+            console.log(data);
+            localStorage.setItem("User_Name", data.Name);
+            localStorage.setItem("User_Info", data.Info);
+        });
+    }
 }
 
 function registered() {

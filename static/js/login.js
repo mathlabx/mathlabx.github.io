@@ -43,3 +43,9 @@ function registered() {
         }
     });
 }
+
+window.addEventListener("load", function () {
+    if (APP.login) {
+        window.location = "../";
+    }
+})

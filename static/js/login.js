@@ -1,9 +1,13 @@
 function login() {
     alert("尝试登录");
     var userinput_email = document.getElementById("l_email").value;
+    alert("尝试登录1");
     var userinput_password = document.getElementById("l_password").value;
+    alert("尝试登录2");
     let server_user = new Object();
+    alert("尝试登录3");
     serverStorage.getItem("User", userinput_email).then((data) => {
+        alert("尝试登录4");
         server_user = data;
         alert(server_user.Password +"=="+ userinput_password);
         if (server_user.Password == userinput_password) {

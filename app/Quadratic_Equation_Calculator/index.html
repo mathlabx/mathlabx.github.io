@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/loading_motion.css">
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="stylesheet" media="(min-width: 1000px)" href="../../static/css/desktop.css">
+    <link rel="stylesheet" media="(min-width: 616px) and (max-width: 999px)" href="../../static/css/tablet.css">
+    <link rel="stylesheet" media="(max-width: 615px)" href="../../static/css/mobile.css">
+    <script type="text/javascript" src="../../static/js/APP.js"></script>
+    <script type="text/javascript" src="../../static/js/loading_motion.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script type="text/javascript" src="../../static/js/server.js"></script>
+    <script type="text/javascript" src="../../static/js/user.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+    <title>Quadratic_Equation_Calculator</title>
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loading-animation"></div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="top-bar">
+        <div class="logo"><img src="./static/img/logo.png" class="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#" onclick="login_b();" id="username">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div id="container" class="container">
+
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <footer class="mobile-bar">
+        <div class="footer-button">Search</div>
+        <div class="footer-home-button">Home</div>
+        <div class="footer-button">My</div>
+    </footer>
+</body>
+
+</html>

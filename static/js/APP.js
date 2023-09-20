@@ -4,19 +4,18 @@ APP.liked = new Object();
 APP.account = new Object();
 APP.login = false;
 APP.get_from_server = function () {
-var loco_name = localStorage.getItem("User_Name");
-if (loco_name) {
-  serverStorage.getItem("User", loco_name, (data) => {
-    console.log(data);
-    localStorage.setItem("User_Name", data.Name);
-    localStorage.setItem("User_Email", data.Email);
-    localStorage.setItem("User_Info", data.Info);
-  });
-}
+    var loco_name = localStorage.getItem("User_Name");
+    if (loco_name) {
+        serverStorage.getItem("User", loco_name, (data) => {
+            console.log(data);
+            localStorage.setItem("User_Name", data.Name);
+            localStorage.setItem("User_Email", data.Email);
+            localStorage.setItem("User_Info", data.Info);
+        });
+    }
 }
 
-if (localStorage.getItem("login") == "true") APP.login = true;
-
+/*在此处配置APP的索引*/
 APP.apps = [{
     title: "QuizMatic Pro",
     description: "Generate math, physics, chemistry, and astrophysics tests for elementary to high school levels effortlessly. Enjoy a wide range of problem types, including calculations, word problems, judgments, and proofs.",
@@ -41,11 +40,12 @@ APP.account = {
     $s: "not login"
 }
 
+if (localStorage.getItem("login") == "true") APP.login = true;
+
 if (APP.login) {
     APP.account.$s = APP.account.$l;
     //暂时不适应key
 }
-
 
 window.addEventListener("load", function () {
     app_update();

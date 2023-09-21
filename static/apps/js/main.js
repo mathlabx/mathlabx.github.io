@@ -92,27 +92,33 @@ const Operate = {
 };
 
 function initializeDesmos(function_, targetElementId) {
-        var targetDiv = document.getElementById(targetElementId);
-        var calculator = Desmos.GraphingCalculator(targetDiv, {
-            settings: {
-                showToolBar: false,
-                expressionsCollapsed: true,
-            }
-        });
+    var targetDiv = document.getElementById(targetElementId);
+    var calculator = Desmos.GraphingCalculator(targetDiv, {
+        settings: {
+            showToolBar: false, // 隐藏工具栏
+            expressionsCollapsed: true, // 表达式列表默认隐藏
+        },
+        // 设置背景颜色
+        backgroundColor: '#f0f0f0', // 这里设置为灰色背景
+    });
 
-        calculator.setExpression({ id: 'graph1', latex: function_, color: Desmos.Colors.BLUE });
+    // 设置要绘制的函数表达式
+    calculator.setExpression({ id: 'graph1', latex: function_, color: Desmos.Colors.BLUE });
 
-        var toggleButton = document.createElement('button');
-        toggleButton.id = 'toggleButton';
-        toggleButton.style.display = 'none';
-        toggleButton.textContent = '';
-        targetDiv.appendChild(toggleButton);
+    // 创建按钮
+    var toggleButton = document.createElement('button');
+    toggleButton.id = 'toggleButton';
+    toggleButton.style.display = 'none';
+    toggleButton.textContent = '切换表达式列表';
+    targetDiv.appendChild(toggleButton);
 
-        toggleButton.addEventListener('click', function () {
-            calculator.updateSettings({ expressionsCollapsed: !calculator.getState().expressionsCollapsed });
-        });
+    // 切换表达式列表的显示状态
+    toggleButton.addEventListener('click', function () {
+        calculator.updateSettings({ expressionsCollapsed: !calculator.getState().expressionsCollapsed });
+    });
 
-        toggleButton.click();
+    // 自动点击按钮以隐藏表达式列表
+    toggleButton.click();
 }
 
 window.addEventListener("load", function () {

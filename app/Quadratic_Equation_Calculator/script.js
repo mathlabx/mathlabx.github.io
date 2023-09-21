@@ -35,6 +35,9 @@ function Quadratic_Equation_Calculator() {
       Operate.newSolution("方程图形：");
       const equation = `y = ${a}x^2 + ${b}x + ${c}`;
       Operate.newGraph(equation);
+
+      //添加重置按键
+      Operate.newRestart();
     });
   }
   

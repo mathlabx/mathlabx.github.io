@@ -78,6 +78,16 @@ const Operate = {
             initializeDesmos(f, new_graph.id);
         }, 400);
         return new_graph;
+    },
+
+    newRestart: () => {
+        let resetButton = document.createElement("button");
+        resetButton.textContent = "重置";
+        resetButton.addEventListener("click", function () {
+            div_container.innerHTML = "";
+            Quadratic_Equation_Calculator();
+        });
+        div_container.append(resetButton);
     }
 };
 

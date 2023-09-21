@@ -72,10 +72,10 @@ const Operate = {
     newGraph: (f) => {
         let new_graph = document.createElement("div");
         new_graph.className = "new_graph";
-        new_graph.id = [...Array(6)].map(() => String.fromCharCode(65 + Math.floor(Math.random() * 26) + (Math.random() < 0.5 ? 0 : 32))).join('');
+        new_graph.id = "newGraph";
         div_container.append(new_graph);
         setTimeout(() => {
-            initializeDesmos(f, new_graph.id);
+            initializeDesmos(f, "newGraph");
         }, 400);
         return new_graph;
     },

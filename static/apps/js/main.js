@@ -119,5 +119,5 @@ function initializeDesmos(function_, targetElementId) {
 
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
-    initializeDesmos("y = x^2", "graphContainer"); // 延迟一段时间后初始化 Decmos
+    initializeDesmos("y = x^2", "container"); // 延迟一段时间后初始化 Decmos
 });

@@ -1,5 +1,7 @@
 let div_container;
 
+/*BUG:  katex.render("y = 1x^2 + 3x + 3", document.getElementById("container"), { displayMode: true })*/
+
 const Operate = {
     newInput: (words) => {
         return new Promise((resolve, reject) => {

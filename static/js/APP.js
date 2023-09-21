@@ -49,4 +49,4 @@ if (APP.login) {
 
 window.addEventListener("load", function () {
     user_page_update();
-})
+});

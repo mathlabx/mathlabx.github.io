@@ -73,8 +73,7 @@ const Operate = {
         let new_graph = document.createElement("div");
         new_graph.className = "new_graph";
         new_graph.id = "newGraph";
-        new_graph.style.height = "50%";
-        
+        new_graph.style.height = "300px";
         div_container.append(new_graph);
         setTimeout(() => {
             initializeDesmos(f, "newGraph");

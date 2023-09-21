@@ -92,7 +92,6 @@ const Operate = {
 };
 
 function initializeDesmos(function_, targetElementId) {
-    setTimeout(function () {
         var targetDiv = document.getElementById(targetElementId);
         var calculator = Desmos.GraphingCalculator(targetDiv, {
             settings: {
@@ -114,10 +113,8 @@ function initializeDesmos(function_, targetElementId) {
         });
 
         toggleButton.click();
-    }, 400);
 }
 
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
-    initializeDesmos("y = x^2", "container"); // 延迟一段时间后初始化 Decmos
 });

@@ -40,7 +40,6 @@ function Quadratic_Equation_Calculator() {
   
   // 在页面加载时初始化
   window.addEventListener("load", function () {
-    div_container = document.getElementById("container");
-    Quadratic_Equation_Calculator(); // 启动一元二次方程计算器
+    Quadratic_Equation_Calculator();
   });
   

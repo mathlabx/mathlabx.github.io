@@ -82,29 +82,32 @@ const Operate = {
 };
 
 function initializeDesmos(function_, targetElementId) {
-    var targetDiv = document.getElementById(targetElementId);
-    var calculator = Desmos.GraphingCalculator(targetDiv, {
-        settings: {
-            showToolBar: false,
-            expressionsCollapsed: true,
-        }
-    });
+    setTimeout(function () {
+        var targetDiv = document.getElementById(targetElementId);
+        var calculator = Desmos.GraphingCalculator(targetDiv, {
+            settings: {
+                showToolBar: false,
+                expressionsCollapsed: true,
+            }
+        });
 
-    calculator.setExpression({ id: 'graph1', latex: function_, color: Desmos.Colors.BLUE });
+        calculator.setExpression({ id: 'graph1', latex: function_, color: Desmos.Colors.BLUE });
 
-    var toggleButton = document.createElement('button');
-    toggleButton.id = 'toggleButton';
-    toggleButton.style.display = 'none';
-    toggleButton.textContent = '';
-    targetDiv.appendChild(toggleButton);
+        var toggleButton = document.createElement('button');
+        toggleButton.id = 'toggleButton';
+        toggleButton.style.display = 'none';
+        toggleButton.textContent = '';
+        targetDiv.appendChild(toggleButton);
 
-    toggleButton.addEventListener('click', function () {
-        calculator.updateSettings({ expressionsCollapsed: !calculator.getState().expressionsCollapsed });
-    });
+        toggleButton.addEventListener('click', function () {
+            calculator.updateSettings({ expressionsCollapsed: !calculator.getState().expressionsCollapsed });
+        });
 
-    toggleButton.click();
+        toggleButton.click();
+    }, 400);
 }
 
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
+    initializeDesmos("y = x^2", "graphContainer"); // 延迟一段时间后初始化 Decmos
 });

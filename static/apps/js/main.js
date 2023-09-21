@@ -55,11 +55,8 @@ const Operate = {
         let new_step = document.createElement("div");
         new_step.className = "new_step";
 
-        // 获取 HTML 元素的内容并转换为字符串
-        const stepString = step.textContent;
-
         // 使用 KaTeX 渲染数学公式
-        katex.render(stepString, new_step, { displayMode: true });
+        katex.render(step, new_step, { displayMode: true });
 
         div_container.append(new_step);
         return new_step;
@@ -69,11 +66,8 @@ const Operate = {
         let new_solution = document.createElement("div");
         new_solution.className = "new_solution";
 
-        // 获取 HTML 元素的内容并转换为字符串
-        const solutionString = solution.textContent;
-
         // 使用 KaTeX 渲染数学公式
-        katex.render(solutionString, new_solution, { displayMode: true });
+        katex.render(solution, new_solution, { displayMode: true });
 
         div_container.append(new_solution);
         return new_solution;

@@ -28,6 +28,7 @@ const Operate = {
             return inputValues;
         });
         new_input.append(new_input_sb);
+        div_container.append(new_input);
         return new_input;
     },
 
@@ -38,6 +39,7 @@ const Operate = {
         new_start_p.innerHTML = start;
         new_start.append(new_start_p);
         div_container.append(new_start);
+        return new_start;
     },
 
     newStep: (step) => {
@@ -47,6 +49,7 @@ const Operate = {
         new_step_p.innerHTML = step;
         new_step.append(new_step_p);
         div_container.append(new_step);
+        return new_step;
     },
 
     newSolution: (solution) => {
@@ -56,6 +59,7 @@ const Operate = {
         new_solution_p.innerHTML = solution;
         new_solution.append(new_solution_p);
         div_container.append(new_solution);
+        return new_solution;
     },
 
     newGraph: (f) => {
@@ -66,6 +70,7 @@ const Operate = {
         setTimeout(() => {
             initializeDesmos(f, new_graph.id);
         }, 400);
+        return new_graph;
     }
 };
 

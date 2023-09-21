@@ -2,34 +2,41 @@ let div_container;
 
 const Operate = {
     newInput: (words) => {
-        let new_input = document.createElement("div");
-        new_input.className = "new_input";
-        for (var i = 0; i < words.length; i++) {
-            let new_input_label = document.createElement("label");
-            new_input_label.className = "new_input_label";
-            new_input_label.innerHTML = words[i];
-            let new_input_input = document.createElement("input");
-            new_input_input.className = "new_input_input";
-            new_input_input.id = "input_" + i;
-            let break_line = document.createElement("br");
-            new_input.append(new_input_label);
-            new_input.append(new_input_input);
-            new_input.append(break_line);
-        }
-        let new_input_sb = document.createElement("button");
-        new_input_sb.textContent = "提交";
-        new_input_sb.addEventListener("click", function () {
-            let inputValues = [];
+        return new Promise((resolve, reject) => {
+            let new_input = document.createElement("div");
+            new_input.className = "new_input";
+
             for (var i = 0; i < words.length; i++) {
-                let inputId = "input_" + i;
-                let inputElement = document.getElementById(inputId);
-                inputValues.push(inputElement.value);
+                let new_input_label = document.createElement("label");
+                new_input_label.className = "new_input_label";
+                new_input_label.innerHTML = words[i];
+                let new_input_input = document.createElement("input");
+                new_input_input.className = "new_input_input";
+                new_input_input.id = "input_" + i;
+                let break_line = document.createElement("br");
+                new_input.append(new_input_label);
+                new_input.append(new_input_input);
+                new_input.append(break_line);
             }
-            return inputValues;
+
+            let new_input_sb = document.createElement("button");
+            new_input_sb.textContent = "提交";
+            new_input_sb.addEventListener("click", function () {
+                let inputValues = [];
+                for (var i = 0; i < words.length; i++) {
+                    let inputId = "input_" + i;
+                    let inputElement = document.getElementById(inputId);
+                    inputValues.push(inputElement.value);
+                }
+                // 使用 resolve 将输入值传递到外部
+                resolve(inputValues);
+            });
+
+            new_input.append(new_input_sb);
+            // 将新的输入区域添加到页面
+            let div_container = document.getElementById("container"); // 假设有一个名为 "container" 的容器元素
+            div_container.append(new_input);
         });
-        new_input.append(new_input_sb);
-        div_container.append(new_input);
-        return new_input;
     },
 
     newStart: (start) => {

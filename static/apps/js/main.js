@@ -1,4 +1,5 @@
 let div_container;
+let new_HR = document.createElement("hr");
 
 const Operate = {
     newInput: (words) => {
@@ -40,7 +41,6 @@ const Operate = {
     },
 
     newStart: (start) => {
-        let new_HR = document.createElement("hr");
         let new_start = document.createElement("div");
         new_start.className = "new_start";
         let new_start_p = document.createElement("p");
@@ -69,6 +69,7 @@ const Operate = {
         // 使用 KaTeX 渲染数学公式
         katex.render(solution, new_solution, { displayMode: true });
 
+        div_container.append(new_HR);
         div_container.append(new_solution);
         return new_solution;
     },

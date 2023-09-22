@@ -1,11 +1,32 @@
-body{
+body {
     background-color: black;
 }
 
-hr{
+hr {
     width: 100%;
 }
 
-.new_start{
-    
+button{
+    background-color: rgba(255, 255, 255, 0.249);
 }
+
+.new_start {
+    color: rgb(200, 200, 200);
+    font-size: large;
+    font-style: oblique;
+}
+
+.new_input {}
+
+.new_input_label {
+    width: 100%;
+}
+
+.new_input_input {
+    background-color: rgba(255, 255, 255, 0.249);
+}
+
+.new_solution{
+    font-weight: bold;
+}
+

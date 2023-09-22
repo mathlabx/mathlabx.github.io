@@ -4,5 +4,5 @@ window.addEventListener('load', function () {
     setTimeout(() => {
         document.body.classList.add('loaded');
         document.body.style.overflow = 'auto';
-    }, 3000);
+    }, 1500);
 });

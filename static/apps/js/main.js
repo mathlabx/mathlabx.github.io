@@ -88,7 +88,7 @@ const Operate = {
 
     newRestart: () => {
         let resetDiv = document.createElement("div");
-        resetDiv = className = "resetDiv";
+        resetDiv.className = "resetDiv";
         let resetButton = document.createElement("button");
         resetButton.textContent = "重置";
         resetButton.addEventListener("click", function () {

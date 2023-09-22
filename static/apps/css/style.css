@@ -15,7 +15,8 @@ button {
 .new_step,
 .new_start,
 .new_input,
-.new_graph {
+.new_graph,
+.resetDiv {
     background-color: rgb(138 150 225 / 28%);
     border: 1px solid #ddd;
     display: inline-block;

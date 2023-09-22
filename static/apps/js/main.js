@@ -87,13 +87,16 @@ const Operate = {
     },
 
     newRestart: () => {
+        let resetDiv = document.createElement("div");
+        resetDiv = className = "resetDiv";
         let resetButton = document.createElement("button");
         resetButton.textContent = "重置";
         resetButton.addEventListener("click", function () {
             div_container.innerHTML = "";
             Quadratic_Equation_Calculator();
         });
-        div_container.append(resetButton);
+        resetDiv.append(resetButton);
+        div_container.append(resetDiv);
     }
 };
 

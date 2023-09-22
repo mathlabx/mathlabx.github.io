@@ -38,6 +38,7 @@ button {
 
 .new_input_label {
     width: 100%;
+    display: block;
 }
 
 .new_input_input {

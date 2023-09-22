@@ -8,6 +8,12 @@ hr {
 }
 
 button {
+    margin: 10px;
+    border-radius: 10px;
+    height: 30px;
+    width: 170px;
+    color: white;
+    font-weight: bold;
     background-color: rgba(255, 255, 255, 0.249);
 }
 
@@ -20,13 +26,19 @@ button {
     background-color: rgb(138 150 225 / 28%);
     border: 1px solid #ddd;
     display: inline-block;
-    margin: 10px; /* Add margin to create spacing between elements */
+    margin: 10px;
+    /* Add margin to create spacing between elements */
     text-align: center;
-    border-radius: 10px; /* Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    width: calc(100% - 20px); /* Ensure one element per row on mobile */
-    box-sizing: border-box; /* Include padding in element width */
-    min-height: 0; /* Ensure minimum height is not greater than width */
+    border-radius: 10px;
+    /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Add a subtle shadow */
+    width: calc(100% - 20px);
+    /* Ensure one element per row on mobile */
+    box-sizing: border-box;
+    /* Include padding in element width */
+    min-height: 0;
+    /* Ensure minimum height is not greater than width */
 }
 
 

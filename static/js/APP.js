@@ -15,23 +15,6 @@ APP.get_from_server = function () {
     }
 }
 
-/*在此处配置APP的索引*/
-APP.apps = [{
-    title: "QuizMatic Pro",
-    description: "Generate math, physics, chemistry, and astrophysics tests for elementary to high school levels effortlessly. Enjoy a wide range of problem types, including calculations, word problems, judgments, and proofs.",
-    img: "https://app.mathscichem.com/static/img/app/x.png",
-    full_line: true,
-    hot: true,
-    url: "https://app.mathscichem.com/app/x/"
-}, {
-    title: "Quadratic Equation Calculator",
-    description: "quadratic equation calculatorQuadratic Equation Calculator is a calculator that can calculate various forms of Quadratic Equation.",
-    img: "pic.png",
-    full_line: false,
-    hot: false,
-    url: "https://app.mathscichem.com/app/Quadratic_Equation_Calculator/"
-}];
-
 APP.account = {
     username: localStorage.getItem("User_Name"),
     useremail: localStorage.getItem("User_Email"),

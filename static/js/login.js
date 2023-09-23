@@ -33,8 +33,20 @@ function registered() {
     var userinput_gender = document.getElementById("r_gender").value;
     var userinput_img = document.getElementById("r_img").value;
 
-    // 验证用户名长度
-    if (userinput_name.length < 6) {
+    // 验证邮箱格式和是否填写
+    if (!userinput_email) {
+        markInvalidInput("r_email", "邮箱不能为空");
+        return;
+    } else if (!isValidEmail(userinput_email)) {
+        markInvalidInput("r_email", "请输入有效的邮箱地址");
+        return;
+    }
+
+    // 验证用户名是否只包含英文字母和下划线
+    if (!isValidUsername(userinput_name)) {
+        markInvalidInput("r_username", "用户名只能包含英文字母和下划线");
+        return;
+    } else if (userinput_name.length < 6) {
         markInvalidInput("r_username", "用户名必须至少包含 6 个字符");
         return;
     }
@@ -79,6 +91,19 @@ function registered() {
         }
     });
 }
+
+// 验证邮箱格式的函数
+function isValidEmail(email) {
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+// 验证用户名的函数，只包含英文字母和下划线
+function isValidUsername(username) {
+    var usernamePattern = /^[a-zA-Z_]+$/;
+    return usernamePattern.test(username);
+}
+
 
 // 验证密码复杂性的函数
 function isValidPassword(password) {

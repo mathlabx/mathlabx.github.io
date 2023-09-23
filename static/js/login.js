@@ -78,32 +78,47 @@ function registered() {
         markInvalidInput("r_img", "Please enter a valid image URL");
         return;
     } else {
-        userinput_img = addHttpsToImageUrl(userinput_img);
+        // Use a new Image object to load and check the image
+        var img = new Image();
+        img.src = userinput_img;
+
+        img.onload = function () {
+            // The image loaded successfully, you can access its width and height
+            if (img.width > 0 && img.height > 0) {
+                // If the image has width and height, it's a valid image
+                // Proceed with registration logic here
+                const userData = {
+                    Name: userinput_name,
+                    Email: userinput_email,
+                    Password: userinput_password,
+                    Info: userinput_info,
+                    Gender: userinput_gender,
+                    Img: userinput_img,
+                    Key: Date.parse(new Date())
+                };
+
+                serverStorage.getItem("User", userinput_name.toLowerCase()).then((data) => {
+                    if (data) {
+                        alert("This username has already been registered, please use another username.");
+                    } else {
+                        serverStorage.setItem("User", (userinput_name).toLowerCase(), userData);
+                        setTimeout(() => {
+                            document.getElementById("l_username").value = userinput_name;
+                            document.getElementById("l_password").value = userinput_password;
+                            login();
+                        }, 1500);
+                    }
+                });
+            } else {
+                markInvalidInput("r_img", "The provided URL does not contain a valid image");
+            }
+        };
+
+        img.onerror = function () {
+            // An error occurred while loading the image
+            markInvalidInput("r_img", "Error loading the image from the provided URL");
+        };
     }
-
-    // If all inputs are valid, proceed with the registration logic
-    const userData = {
-        Name: userinput_name,
-        Email: userinput_email,
-        Password: userinput_password,
-        Info: userinput_info,
-        Gender: userinput_gender,
-        Img: userinput_img,
-        Key: Date.parse(new Date())
-    };
-
-    serverStorage.getItem("User", userinput_name.toLowerCase()).then((data) => {
-        if (data) {
-            alert("This username has already been registered, please use another username.");
-        } else {
-            serverStorage.setItem("User", (userinput_name).toLowerCase(), userData);
-            setTimeout(() => {
-                document.getElementById("l_username").value = userinput_name;
-                document.getElementById("l_password").value = userinput_password;
-                login();
-            }, 1500);
-        }
-    });
 }
 
 // Function to validate image URL format and add "https://" if missing

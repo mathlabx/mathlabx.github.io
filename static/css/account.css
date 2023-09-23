@@ -140,3 +140,39 @@ body {
   margin: auto;
   margin-top: 20px;
 }
+
+/* CSS for gender selection */
+.gender-select {
+  margin: 15px 0;
+  /* 调整上下间距 */
+  text-align: left;
+  /* 文本左对齐 */
+}
+
+.gender-select label {
+  font-size: 16px;
+  /* 文本大小 */
+  color: #333;
+  /* 文本颜色 */
+  display: block;
+  /* 块级显示 */
+  margin-bottom: 8px;
+  /* 底部间距 */
+}
+
+.gender-select select {
+  width: 100%;
+  /* 宽度占满容器 */
+  padding: 10px;
+  /* 内边距 */
+  font-size: 14px;
+  /* 文本大小 */
+  border: 1px solid #ccc;
+  /* 边框 */
+  border-radius: 5px;
+  /* 圆角边框 */
+  background-color: #f9f9f9;
+  /* 背景颜色 */
+  color: #333;
+  /* 文本颜色 */
+}

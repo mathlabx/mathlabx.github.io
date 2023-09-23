@@ -27,7 +27,7 @@ function login() {
 
 function registered() {
     var userinput_email = document.getElementById("r_email").value;
-    var userinput_name = document.getElementById("r_username").value;
+    var userinput_name = (document.getElementById("r_username").value).toLowerCase() ;
     var userinput_password = document.getElementById("r_password").value;
     const userData = {
         Name: userinput_name,

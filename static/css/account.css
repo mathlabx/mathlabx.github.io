@@ -115,25 +115,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.account-block{
-  background-color: rgb(138 150 225 / 28%);
-  border: 1px solid #ddd;
-  display: inline-block;
-  margin: 10px;
-  /* Add margin to create spacing between elements */
-  text-align: center;
-  border-radius: 10px;
-  /* Add rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  /* Add a subtle shadow */
-  width: calc(100% - 20px);
-  /* Ensure one element per row on mobile */
-  box-sizing: border-box;
-  /* Include padding in element width */
-  min-height: 0;
-  /* Ensure minimum height is not greater than width */
+.account-block {
+
 }
 
-#container{
+#container {
+  background-color: rgb(138 150 225 / 28%);
+  border: 1px solid #ddd;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+  min-height: 0;
   margin: auto;
 }

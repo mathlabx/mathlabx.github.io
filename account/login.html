@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../static/img/logo_s.png">
   <link rel="stylesheet" href="../static/css/loading_motion.css">
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <link rel="stylesheet" media="(min-width: 1000px)" href="../static/css/desktop.css">
+  <link rel="stylesheet" media="(min-width: 616px) and (max-width: 999px)" href="../static/css/tablet.css">
+  <link rel="stylesheet" media="(max-width: 615px)" href="../static/css/mobile.css">
   <link rel="stylesheet" href="../static/css/account.css">
   <script type="text/javascript" src="../static/js/APP.js"></script>
   <script type="text/javascript" src="../app/index.js"></script>
@@ -22,24 +26,49 @@
   <div class="loader">
     <div class="loading-animation"></div>
   </div>
-  <div class="login-page">
-    <div class="form">
-      <form class="register-form">
-        <input type="text" id="r_username" placeholder="username" />
-        <input type="password" id="r_password" placeholder="password" />
-        <input type="email" id="r_email" placeholder="email address" />
-        <button type="button" onclick="registered();">create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="login-form">
-        <input type="text" id="l_username" placeholder="username" />
-        <input type="password" id="l_password" placeholder="password" />
-        <button type="button" onclick="login();">login</button>
-        <p class="message">Not registered? <a href="#">Create an account</a></p>
-      </form>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-bar">
+    <div class="logo"><img src="./static/img/logo.png" class="logo"></div>
+    <nav>
+      <ul>
+        <li><a href="https://app.mathscichem.com">Home</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#" onclick="login_b();" id="username">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="login-page">
+      <div class="form">
+        <form class="register-form">
+          <input type="text" id="r_username" placeholder="username" />
+          <input type="password" id="r_password" placeholder="password" />
+          <input type="email" id="r_email" placeholder="email address" />
+          <button type="button" onclick="registered();">create</button>
+          <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+          <input type="text" id="l_username" placeholder="username" />
+          <input type="password" id="l_password" placeholder="password" />
+          <button type="button" onclick="login();">login</button>
+          <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+      </div>
     </div>
-  </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <footer class="mobile-bar">
+    <div class="footer-button">Search</div>
+    <div class="footer-button" onclick="window.location='../'">Home</div>
+    <div class="footer-home-button" onclick="login_b();">My</div>
+  </footer>
+
 </body>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
   $('.message a').click(function () {

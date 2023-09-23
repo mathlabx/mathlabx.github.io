@@ -15,7 +15,7 @@ function login() {
             localStorage.setItem("User_Img", server_user.Img);
             localStorage.setItem("User_Gender", server_user.Gender);
             localStorage.setItem("User_Password", server_user.Password);
-            APP.get_from_server();
+           /* APP.get_from_server();*/
             setTimeout(() => {
                 window.location = "../";
             }, 1000);

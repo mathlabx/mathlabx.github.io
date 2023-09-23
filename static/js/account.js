@@ -9,5 +9,8 @@ function userinfo_loader() {
 
 
 window.addEventListener("load", function () {
+    if (!APP.login) {
+        window.location = "./login.html";
+    }
     userinfo_loader();
 });

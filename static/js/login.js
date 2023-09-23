@@ -68,6 +68,7 @@ function registered() {
         return;
     }
 
+    alert(userinput_gender.value == "null");
     if (userinput_gender.value == "null") {
         markInvalidInput("r_gender", "请选择性别");
         return;

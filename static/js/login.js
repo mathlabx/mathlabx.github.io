@@ -44,7 +44,7 @@ function registered() {
 
     // 验证用户名长度和字符
     if (!isValidUsername(userinput_name)) {
-        markInvalidInput("r_username", "用户名只能包含英文字母和下划线");
+        markInvalidInput("r_username", "用户名只能包含英文字母数字，和下划线");
         return;
     } else if (userinput_name.length < 6 || userinput_name.length > 16) {
         markInvalidInput("r_username", "用户名必须在 6 到 16 个字符之间");
@@ -104,12 +104,11 @@ function isValidEmail(email) {
     return emailPattern.test(email);
 }
 
-// 验证用户名的函数，只包含英文字母和下划线
+// 验证用户名的函数，允许包含英文字母、下划线和阿拉伯数字
 function isValidUsername(username) {
-    var usernamePattern = /^[a-zA-Z_]+$/;
+    var usernamePattern = /^[a-zA-Z0-9_]+$/;
     return usernamePattern.test(username);
 }
-
 
 // 验证密码复杂性的函数
 function isValidPassword(password) {

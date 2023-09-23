@@ -42,12 +42,12 @@ function registered() {
         return;
     }
 
-    // 验证用户名是否只包含英文字母和下划线
+    // 验证用户名长度和字符
     if (!isValidUsername(userinput_name)) {
         markInvalidInput("r_username", "用户名只能包含英文字母和下划线");
         return;
-    } else if (userinput_name.length < 6) {
-        markInvalidInput("r_username", "用户名必须至少包含 6 个字符");
+    } else if (userinput_name.length < 6 || userinput_name.length > 16) {
+        markInvalidInput("r_username", "用户名必须在 6 到 16 个字符之间");
         return;
     }
 

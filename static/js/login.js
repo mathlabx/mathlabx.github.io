@@ -32,15 +32,40 @@ function registered() {
     var userinput_info = document.getElementById("r_info").value;
     var userinput_gender = document.getElementById("r_gender").value;
     var userinput_img = document.getElementById("r_img").value;
+
+    // 验证用户名长度
+    if (userinput_name.length < 6) {
+        markInvalidInput("r_username", "用户名必须至少包含 6 个字符");
+        return;
+    }
+
+    // 验证密码复杂性
+    if (!isValidPassword(userinput_password)) {
+        markInvalidInput("r_password", "密码必须包含字母、大小写字母、数字和至少一个特殊字符，且至少 10 个字符");
+        return;
+    }
+
+    if (!userinput_info) {
+        markInvalidInput("r_info", "个人信息不能为空");
+        return;
+    }
+
+    if (!userinput_gender) {
+        markInvalidInput("r_gender", "请选择性别");
+        return;
+    }
+
+    // 如果所有输入都有效，继续执行注册逻辑
     const userData = {
         Name: userinput_name,
         Email: userinput_email,
         Password: userinput_password,
         Info: userinput_info,
-        Gender: userinput_gender.value,
+        Gender: userinput_gender,
         Img: userinput_img,
         Key: Date.parse(new Date())
     };
+
     serverStorage.getItem("User", userinput_name.toLowerCase()).then((data) => {
         if (data) {
             alert("This username has already been registered, please use another username.");
@@ -53,6 +78,21 @@ function registered() {
             }, 1500);
         }
     });
+}
+
+// 验证密码复杂性的函数
+function isValidPassword(password) {
+    // 密码必须包含字母、大小写字母、数字和至少一个特殊字符，且至少 10 个字符
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{10,}$/;
+    return passwordPattern.test(password);
+}
+
+// 标记输入框为无效，并显示错误消息
+function markInvalidInput(inputId, errorMessage) {
+    var inputElement = document.getElementById(inputId);
+    inputElement.style.borderColor = "red";
+    inputElement.setCustomValidity(errorMessage);
+    inputElement.reportValidity();
 }
 
 window.addEventListener("load", function () {

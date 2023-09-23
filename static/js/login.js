@@ -4,9 +4,9 @@ function login() {
     let server_user = new Object();
     serverStorage.getItem("User", userinput_username).then((data) => {
         server_user = data;
-        if (typeof server_user.Password === 'undefined' || server_user.Password === null) {
+        if (server_user && (server_user.Password === null || typeof server_user.Password === 'undefined')) {
             alert("Wrong Username...");
-        } else if (server_user.Password == userinput_password) {
+        } else if (server_user && server_user.Password == userinput_password) {
             localStorage.setItem("login", "true");
             localStorage.setItem("key", server_user.Key);
             localStorage.setItem("User_Name", server_user.Name);

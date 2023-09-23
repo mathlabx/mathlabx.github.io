@@ -12,7 +12,6 @@ APP.get_from_server = function () {
             localStorage.setItem("User_Email", data.Email);
             localStorage.setItem("User_Info", data.Info);
             localStorage.setItem("User_Img", data.Img);
-            localStorage.setItem("User_Bio", data.Bio);
             localStorage.setItem("User_Gender", data.Gender);
             localStorage.setItem("User_Password", data.Password);
         });
@@ -24,7 +23,6 @@ APP.account = {
     useremail: localStorage.getItem("User_Email"),
     userinfo: localStorage.getItem("User_Info"),
     userimg: localStorage.getItem("User_Img"),
-    userbio: localStorage.getItem("User_Bio"),
     usergender: localStorage.getItem("User_Gender"),
     userpassword: localStorage.getItem("User_Password"),
     $l: localStorage.getItem("key"),

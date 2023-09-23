@@ -33,47 +33,47 @@ function registered() {
     var userinput_gender = document.getElementById("r_gender").value;
     var userinput_img = document.getElementById("r_img").value;
 
-    // 验证邮箱格式和是否填写
+    // Validate email format and whether it's filled
     if (!userinput_email) {
-        markInvalidInput("r_email", "邮箱不能为空");
+        markInvalidInput("r_email", "Email cannot be empty");
         return;
     } else if (!isValidEmail(userinput_email)) {
-        markInvalidInput("r_email", "请输入有效的邮箱地址");
+        markInvalidInput("r_email", "Please enter a valid email address");
         return;
     }
 
-    // 验证用户名长度和字符
+    // Validate username length and characters
     if (!isValidUsername(userinput_name)) {
-        markInvalidInput("r_username", "用户名只能包含英文字母数字，和下划线");
+        markInvalidInput("r_username", "Username can only contain alphanumeric characters and underscores");
         return;
     } else if (userinput_name.length < 6 || userinput_name.length > 16) {
-        markInvalidInput("r_username", "用户名必须在 6 到 16 个字符之间");
+        markInvalidInput("r_username", "Username must be between 6 and 16 characters");
         return;
     }
 
-    // 验证密码复杂性
+    // Validate password complexity
     if (!isValidPassword(userinput_password)) {
-        markInvalidInput("r_password", "密码必须包含字母、大小写字母、数字和至少一个特殊字符，且至少 10 个字符");
+        markInvalidInput("r_password", "Password must contain letters, both uppercase and lowercase, numbers, and at least one special character, and be at least 10 characters long");
         return;
     }
 
     if (!userinput_info) {
-        markInvalidInput("r_info", "个人信息不能为空");
+        markInvalidInput("r_info", "Bio cannot be empty");
         return;
     }
 
-    // 验证个人信息字符数
+    // Validate bio character length
     if (userinput_info.length > 40) {
-        markInvalidInput("r_info", "个人信息不能超过 40 个字符");
+        markInvalidInput("r_info", "Bio cannot exceed 40 characters");
         return;
     }
 
     if (userinput_gender == "null") {
-        markInvalidInput("r_gender", "请选择性别");
+        markInvalidInput("r_gender", "Please select a gender");
         return;
     }
 
-    // 如果所有输入都有效，继续执行注册逻辑
+    // If all inputs are valid, proceed with the registration logic
     const userData = {
         Name: userinput_name,
         Email: userinput_email,
@@ -98,21 +98,20 @@ function registered() {
     });
 }
 
-// 验证邮箱格式的函数
+// Function to validate email format
 function isValidEmail(email) {
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
 
-// 验证用户名的函数，允许包含英文字母、下划线和阿拉伯数字
+// Function to validate username, allowing alphanumeric characters and underscores
 function isValidUsername(username) {
     var usernamePattern = /^[a-zA-Z0-9_]+$/;
     return usernamePattern.test(username);
 }
 
-// 验证密码复杂性的函数
+// Function to validate password complexity
 function isValidPassword(password) {
-    // 密码必须包含字母、大小写字母、数字和至少一个特殊字符，且至少 10 个字符
     var lowercaseRegex = /[a-z]/;
     var uppercaseRegex = /[A-Z]/;
     var digitRegex = /\d/;
@@ -127,23 +126,23 @@ function isValidPassword(password) {
     var errorMessage = "";
 
     if (!isLowercaseValid) {
-        errorMessage += "密码必须包含小写字母。";
+        errorMessage += "Password must contain lowercase letters. ";
     }
 
     if (!isUppercaseValid) {
-        errorMessage += "密码必须包含大写字母。";
+        errorMessage += "Password must contain uppercase letters. ";
     }
 
     if (!isDigitValid) {
-        errorMessage += "密码必须包含数字。";
+        errorMessage += "Password must contain numbers. ";
     }
 
     if (!isSpecialCharValid) {
-        errorMessage += "密码必须包含特殊字符(@, #, $, %, ^, &, *, !)。";
+        errorMessage += "Password must contain special characters (@, #, $, %, ^, &, *, !). ";
     }
 
     if (!isLengthValid) {
-        errorMessage += "密码长度必须至少为 10 个字符。";
+        errorMessage += "Password must be at least 10 characters long. ";
     }
 
     if (errorMessage) {
@@ -154,7 +153,7 @@ function isValidPassword(password) {
     return true;
 }
 
-// 标记输入框为无效，并显示错误消息
+// Function to mark input fields as invalid and display error messages
 function markInvalidInput(inputId, errorMessage) {
     var inputElement = document.getElementById(inputId);
     inputElement.style.borderColor = "red";

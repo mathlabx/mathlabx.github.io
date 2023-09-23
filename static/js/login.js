@@ -7,10 +7,13 @@ function login() {
         server_user = data;
         if (server_user.Password == userinput_password) {
             localStorage.setItem("login", "true");
-            localStorage.setItem("key", server_user.Key)
-            localStorage.setItem("User_Name", server_user.Name)
-            localStorage.setItem("User_Info", server_user.Info)
-            localStorage.setItem("User_Email", server_user.Email)
+            localStorage.setItem("key", server_user.Key);
+            localStorage.setItem("User_Name", server_user.Name);
+            localStorage.setItem("User_Info", server_user.Info);
+            localStorage.setItem("User_Email", server_user.Email);
+            localStorage.setItem("User_Img", server_user.Img);
+            localStorage.setItem("User_Gender", server_user.Gender);
+            localStorage.setItem("User_Password", server_user.Password);
             APP.get_from_server();
             setTimeout(() => {
                 window.location = "../";

@@ -27,7 +27,7 @@ function login() {
 
 function registered() {
     var userinput_email = document.getElementById("r_email").value;
-    var userinput_name = (document.getElementById("r_username").value).toLowerCase();
+    var userinput_name = document.getElementById("r_username").value;
     var userinput_password = document.getElementById("r_password").value;
     const userData = {
         Name: userinput_name,
@@ -39,7 +39,7 @@ function registered() {
         if (data) {
             alert("This username has already been registered, please use another username.");
         } else {
-            serverStorage.setItem("User", userinput_name, userData);
+            serverStorage.setItem("User", (userinput_name).toLowerCase(), userData);
             setTimeout(() => {
                 document.getElementById("l_username").value = userinput_name;
                 document.getElementById("l_password").value = userinput_password;

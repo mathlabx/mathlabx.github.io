@@ -35,7 +35,7 @@ function registered() {
         Password: userinput_password,
         Key: Date.parse(new Date())
     };
-    serverStorage.getItem("User", userinput_name).then((data) => {
+    serverStorage.getItem("User", userinput_name.toLowerCase()).then((data) => {
         if (data) {
             alert("This username has already been registered, please use another username.");
         } else {

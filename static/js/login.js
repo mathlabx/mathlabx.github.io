@@ -2,6 +2,7 @@ function login() {
     var userinput_username = document.getElementById("l_username").value;
     var userinput_password = document.getElementById("l_password").value;
     let server_user = new Object();
+    server_user.Password = "";
     serverStorage.getItem("User", userinput_username).then((data) => {
         server_user = data;
         if (server_user.Password == userinput_password) {

@@ -44,9 +44,17 @@
     <div class="login-page">
       <div class="form">
         <form class="register-form">
-          <input type="text" id="r_username" placeholder="username" />
-          <input type="password" id="r_password" placeholder="password" />
+          <input type="text" id="r_username" placeholder="username(login)" />
           <input type="email" id="r_email" placeholder="email address" />
+          <input type="password" id="r_password" placeholder="password" />
+          <input type="text" id="r_info" placeholder="Bio" />
+          <label for="gender">Gender：</label>
+          <select id="r_gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="url" id="r_img" placeholder="Avatar URL" />
           <button type="button" onclick="registered();">create</button>
           <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>

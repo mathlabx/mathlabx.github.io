@@ -29,10 +29,16 @@ function registered() {
     var userinput_email = document.getElementById("r_email").value;
     var userinput_name = document.getElementById("r_username").value;
     var userinput_password = document.getElementById("r_password").value;
+    var userinput_info = document.getElementById("r_info").value;
+    var userinput_gender = document.getElementById("r_gender").value;
+    var userinput_img = document.getElementById("r_img").value;
     const userData = {
         Name: userinput_name,
         Email: userinput_email,
         Password: userinput_password,
+        Info: userinput_info,
+        Gender: userinput_gender.value,
+        Img: userinput_img,
         Key: Date.parse(new Date())
     };
     serverStorage.getItem("User", userinput_name.toLowerCase()).then((data) => {

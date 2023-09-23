@@ -1,30 +1,3 @@
-function login() {
-    var userinput_username = (document.getElementById("l_username").value).toLowerCase();
-    var userinput_password = document.getElementById("l_password").value;
-    let server_user = new Object();
-    serverStorage.getItem("User", userinput_username).then((data) => {
-        server_user = data;
-        if (server_user && (server_user.Password === null || typeof server_user.Password === 'undefined')) {
-            alert("Wrong Username...");
-        } else if (server_user && server_user.Password == userinput_password) {
-            localStorage.setItem("login", "true");
-            localStorage.setItem("key", server_user.Key);
-            localStorage.setItem("User_Name", server_user.Name);
-            localStorage.setItem("User_Info", server_user.Info);
-            localStorage.setItem("User_Email", server_user.Email);
-            localStorage.setItem("User_Img", server_user.Img);
-            localStorage.setItem("User_Gender", server_user.Gender);
-            localStorage.setItem("User_Password", server_user.Password);
-            APP.get_from_server();
-            setTimeout(() => {
-                window.location = "../";
-            }, 1000);
-        } else {
-            alert("Wrong Password...");
-        }
-    });
-}
-
 function registered() {
     var userinput_email = document.getElementById("r_email").value;
     var userinput_name = document.getElementById("r_username").value;
@@ -73,6 +46,14 @@ function registered() {
         return;
     }
 
+    // Validate and modify image URL
+    if (!isValidImageUrl(userinput_img)) {
+        markInvalidInput("r_img", "Please enter a valid image URL");
+        return;
+    } else {
+        userinput_img = addHttpsToImageUrl(userinput_img);
+    }
+
     // If all inputs are valid, proceed with the registration logic
     const userData = {
         Name: userinput_name,
@@ -96,6 +77,19 @@ function registered() {
             }, 1500);
         }
     });
+}
+
+// Function to validate image URL format and add "https://" if missing
+function isValidImageUrl(imageUrl) {
+    var imageUrlPattern = /^(https?:\/\/)?\S+\.(jpg|jpeg|png|gif|bmp)$/;
+    return imageUrlPattern.test(imageUrl);
+}
+
+function addHttpsToImageUrl(imageUrl) {
+    if (!/^https?:\/\//i.test(imageUrl)) {
+        imageUrl = 'https://' + imageUrl;
+    }
+    return imageUrl;
 }
 
 // Function to validate email format

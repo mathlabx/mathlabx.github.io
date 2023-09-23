@@ -1,5 +1,5 @@
 function login() {
-    var userinput_username = document.getElementById("l_username").value;
+    var userinput_username = (document.getElementById("l_username").value).toLowerCase();
     var userinput_password = document.getElementById("l_password").value;
     let server_user = new Object();
     serverStorage.getItem("User", userinput_username).then((data) => {
@@ -27,7 +27,7 @@ function login() {
 
 function registered() {
     var userinput_email = document.getElementById("r_email").value;
-    var userinput_name = (document.getElementById("r_username").value).toLowerCase() ;
+    var userinput_name = (document.getElementById("r_username").value).toLowerCase();
     var userinput_password = document.getElementById("r_password").value;
     const userData = {
         Name: userinput_name,

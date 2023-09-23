@@ -117,6 +117,13 @@ body {
 
 .account-block {
 
+  display: inline-block;
+  margin: 10px;
+  /* Add margin to create spacing between elements */
+  text-align: center;
+  border-radius: 10px;
+  /* Add rounded corners */
+  width: calc(100% - 20px);
 }
 
 #container {

@@ -137,4 +137,5 @@ body {
   box-sizing: border-box;
   min-height: 0;
   margin: auto;
+  margin-top: 20px;
 }

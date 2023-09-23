@@ -62,6 +62,12 @@ function registered() {
         return;
     }
 
+    // 验证个人信息字符数
+    if (userinput_info.length > 40) {
+        markInvalidInput("r_info", "个人信息不能超过 40 个字符");
+        return;
+    }
+
     if (!userinput_gender) {
         markInvalidInput("r_gender", "请选择性别");
         return;

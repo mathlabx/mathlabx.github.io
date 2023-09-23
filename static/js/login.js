@@ -83,8 +83,45 @@ function registered() {
 // 验证密码复杂性的函数
 function isValidPassword(password) {
     // 密码必须包含字母、大小写字母、数字和至少一个特殊字符，且至少 10 个字符
-    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]{10,}$/;
-    return passwordPattern.test(password);
+    var lowercaseRegex = /[a-z]/;
+    var uppercaseRegex = /[A-Z]/;
+    var digitRegex = /\d/;
+    var specialCharRegex = /[@#$%^&*!]/;
+
+    var isLowercaseValid = lowercaseRegex.test(password);
+    var isUppercaseValid = uppercaseRegex.test(password);
+    var isDigitValid = digitRegex.test(password);
+    var isSpecialCharValid = specialCharRegex.test(password);
+    var isLengthValid = password.length >= 10;
+
+    var errorMessage = "";
+
+    if (!isLowercaseValid) {
+        errorMessage += "密码必须包含小写字母。";
+    }
+
+    if (!isUppercaseValid) {
+        errorMessage += "密码必须包含大写字母。";
+    }
+
+    if (!isDigitValid) {
+        errorMessage += "密码必须包含数字。";
+    }
+
+    if (!isSpecialCharValid) {
+        errorMessage += "密码必须包含特殊字符(@, #, $, %, ^, &, *, !)。";
+    }
+
+    if (!isLengthValid) {
+        errorMessage += "密码长度必须至少为 10 个字符。";
+    }
+
+    if (errorMessage) {
+        markInvalidInput("r_password", errorMessage);
+        return false;
+    }
+
+    return true;
 }
 
 // 标记输入框为无效，并显示错误消息

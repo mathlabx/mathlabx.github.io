@@ -42,9 +42,12 @@ nav a {
 
 /* Style for the Flow Element Container (center the flow elements with 3% side margins) */
 .container {
-    text-align: center; /* Center-align the flow elements container */
-    margin: 0 3%; /* Add 3% side margins to the container */
-    box-sizing: border-box; /* Include margin in container width */
+    text-align: center;
+    /* Center-align the flow elements container */
+    margin: 0 3%;
+    /* Add 3% side margins to the container */
+    box-sizing: border-box;
+    /* Include margin in container width */
 }
 
 /* Style for the Flow Element */
@@ -52,14 +55,20 @@ nav a {
     background-color: rgb(138 150 225 / 28%);
     border: 1px solid #ddd;
     display: inline-block;
-    margin: 10px; /* Add margin to create spacing between elements */
+    margin: 10px;
+    /* Add margin to create spacing between elements */
     text-align: center;
-    border-radius: 10px; /* Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    border-radius: 10px;
+    /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Add a subtle shadow */
     height: 300px;
-    width: calc(100% - 20px); /* Ensure one element per row on mobile */
-    box-sizing: border-box; /* Include padding in element width */
-    min-height: 0; /* Ensure minimum height is not greater than width */
+    width: calc(100% - 20px);
+    /* Ensure one element per row on mobile */
+    box-sizing: border-box;
+    /* Include padding in element width */
+    min-height: 0;
+    /* Ensure minimum height is not greater than width */
 }
 
 
@@ -78,20 +87,26 @@ nav a {
 
 /* Hover effect for the Flow Element */
 .flow-element:hover {
-    transform: scale(1.05); /* Slightly scale up the element */
-    background-color: rgba(138, 150, 225, 0.5); /* Slightly darken the background */
-    transition: transform 0.2s, background-color 0.2s; /* Add a smooth transition effect */
+    transform: scale(1.05);
+    /* Slightly scale up the element */
+    background-color: rgba(138, 150, 225, 0.5);
+    /* Slightly darken the background */
+    transition: transform 0.2s, background-color 0.2s;
+    /* Add a smooth transition effect */
 }
 
 /* Style for the Flow Element Image */
 .flow-element img {
     max-width: 50%;
-    max-height: 50%; 
+    max-height: 50%;
     height: auto;
-    border-radius: 15%; /* Make the image circular */
+    border-radius: 15%;
+    /* Make the image circular */
     margin-top: 2%;
-    border: 2px solid #fff; /* Add a white border to the image */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a shadow to the image */
+    border: 2px solid #fff;
+    /* Add a white border to the image */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    /* Add a shadow to the image */
 }
 
 /* Style for the Flow Element Title */
@@ -103,10 +118,13 @@ nav a {
 
 /* hot logo */
 .hot-tag {
-    vertical-align: super; /* Make it a superscript */
-    font-size: 10px; /* Adjust font size as needed */
+    vertical-align: super;
+    /* Make it a superscript */
+    font-size: 10px;
+    /* Adjust font size as needed */
     border-radius: 5px;
-    color: red; /* Set color to red */
+    color: red;
+    /* Set color to red */
 }
 
 /* Style for the Flow Element Description */
@@ -120,6 +138,7 @@ nav a {
 
 /* Define the mobile bottom navigation styles */
 .mobile-bar {
+    z-index: 1;
     background-color: #333;
     color: #fff;
     font-size: x-large;
@@ -152,7 +171,9 @@ nav a {
 /* Media Query for iPad and Larger Devices */
 @media (min-width: 768px) {
     .container {
-        margin: 0 auto; /* Center the container on larger screens */
-        max-width: 1200px; /* Limit the container width on larger screens */
+        margin: 0 auto;
+        /* Center the container on larger screens */
+        max-width: 1200px;
+        /* Limit the container width on larger screens */
     }
 }

@@ -17,3 +17,9 @@
 .full-line {
     width: calc(81% - 20px) !important;
 }
+
+.container{
+    width: 40% !important;
+    margin: 5%;
+    margin-top: 20px;
+}

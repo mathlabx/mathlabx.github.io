@@ -7,10 +7,14 @@
 
 /* Override width and margin for all devices to center-align elements */
 .flow-element {
-    width: calc(20% - 20px); /* Approximately 3 elements per row with spacing */
-    margin: 10px; /* Add margin to create spacing between elements and center-align them */
-    display: inline-block; /* Make elements display horizontally */
-    vertical-align: top; /* Align elements to the top */
+    width: calc(20% - 20px);
+    /* Approximately 3 elements per row with spacing */
+    margin: 10px;
+    /* Add margin to create spacing between elements and center-align them */
+    display: inline-block;
+    /* Make elements display horizontally */
+    vertical-align: top;
+    /* Align elements to the top */
 }
 
 /* Style for the Flow Element that occupies a full row */
@@ -18,7 +22,7 @@
     width: calc(81% - 20px) !important;
 }
 
-.container{
+.container {
     width: 40% !important;
     margin: 5%;
     margin-top: 20px;

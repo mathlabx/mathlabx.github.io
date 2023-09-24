@@ -35,3 +35,7 @@
 .massage {
     font-size: medium !important;
 }
+
+main {
+    padding-bottom: 80px;
+}

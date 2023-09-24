@@ -182,7 +182,7 @@ img#u_img {
   text-security: disc;
 }
 
-@media (max-width: 615px) {
+@media (min-width: 1000px) {
   .container {
     width: 40% !important;
     margin: 5% !important;

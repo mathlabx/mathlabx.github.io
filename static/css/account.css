@@ -181,3 +181,12 @@ img#u_img {
   -webkit-text-security: disc;
   text-security: disc;
 }
+
+@media (max-width: 615px) {
+  .container {
+    width: 40% !important;
+    margin: 5%;
+    margin-top: 20px;
+    float: left;
+  }
+}

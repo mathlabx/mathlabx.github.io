@@ -7,7 +7,7 @@ function login() {
         if (server_user && (server_user.Password === null || typeof server_user.Password === 'undefined')) {
             alert("Wrong Username...");
         } else if (server_user && server_user.Password == userinput_password) {
-            localStorage.setItem("login", "true");
+            sessionStorage.setItem("login", "true");
             localStorage.setItem("key", server_user.Key);
             localStorage.setItem("User_Name", server_user.Name);
             localStorage.setItem("User_Info", server_user.Info);

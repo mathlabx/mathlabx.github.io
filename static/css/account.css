@@ -139,7 +139,7 @@ body {
   min-height: 0;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px !important;
 }
 
 .gender-select {

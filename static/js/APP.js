@@ -34,7 +34,7 @@ APP.account = {
     $s: "not login"
 }
 
-if (sessionStorage.getItem("login") == "true") APP.login = true;
+if (localStorage.getItem("login") == "true") APP.login = true;
 
 if (APP.login) {
     APP.account.$s = APP.account.$l;

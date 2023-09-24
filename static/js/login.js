@@ -7,7 +7,7 @@ function login() {
         if (server_user && (server_user.Password === null || typeof server_user.Password === 'undefined')) {
             alert("Wrong Username...");
         } else if (server_user && server_user.Password == userinput_password) {
-            sessionStorage.setItem("login", "true");
+            localStorage.setItem("login", "true");
             localStorage.setItem("key", server_user.Key);
             localStorage.setItem("User_Name", server_user.Name);
             localStorage.setItem("User_Info", server_user.Info);
@@ -15,7 +15,7 @@ function login() {
             localStorage.setItem("User_Img", server_user.Img);
             localStorage.setItem("User_Gender", server_user.Gender);
             localStorage.setItem("User_Password", server_user.Password);
-           /* APP.get_from_server();*/
+            /* APP.get_from_server();*/
             setTimeout(() => {
                 window.location = "../";
             }, 1000);

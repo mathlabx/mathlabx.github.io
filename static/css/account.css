@@ -152,5 +152,30 @@ body {
 }
 
 img#u_img {
+  box-shadow: 10px 10px;
+  border-radius: 5%;
   height: 120px;
+}
+
+#u_name {
+  font-weight: bold;
+}
+
+#u_email {
+  font-size: large;
+  color: #949494;
+}
+
+#u_info {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+#u_gender {
+  font-weight: lighter;
+}
+
+#u_password {
+  -webkit-text-security: disc;
+  text-security: disc;
 }

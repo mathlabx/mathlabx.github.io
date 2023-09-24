@@ -63,7 +63,7 @@ function registered() {
     }
 
     // Validate bio character length
-    if (userinput_info.length > 40) {
+    if (userinput_info.length > 60) {
         markInvalidInput("r_info", "Bio cannot exceed 40 characters");
         return;
     }

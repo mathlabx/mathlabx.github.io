@@ -3,10 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../static/img/logo_s.png">
-    <link rel="stylesheet" href="../static/css/loading_motion.css">
-    <link rel="stylesheet" href="../static/css/account.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/loading_motion.css">
     <link rel="stylesheet" href="../static/css/styles.css">
     <link rel="stylesheet" media="(min-width: 1000px)" href="../static/css/desktop.css">
@@ -15,12 +13,12 @@
     <script type="text/javascript" src="../static/js/APP.js"></script>
     <script type="text/javascript" src="../app/index.js"></script>
     <script type="text/javascript" src="../static/js/loading_motion.js"></script>
+    <!--<script type="text/javascript" src="../static/js/likes.js"></script>-->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script type="text/javascript" src="../static/js/server.js"></script>
     <script type="text/javascript" src="../static/js/user.js"></script>
-    <script type="text/javascript" src="../static/js/account.js"></script>
-    <title>MathPhysChemLab | Login</title>
+    <title>MathPhysChemLab</title>
 </head>
 
 <body>
@@ -31,7 +29,7 @@
 
     <!-- Top Navigation Bar -->
     <header class="top-bar">
-        <div class="logo"><img src="../../static/img/logo.png" class="logo"></div>
+        <div class="logo"><img src="../static/img/logo.png" class="logo"></div>
         <nav>
             <ul>
                 <li><a href="https://app.mathscichem.com">Home</a></li>
@@ -44,31 +42,15 @@
     <!-- Main Content -->
     <main>
         <div id="container" class="container">
-            <div class="account-block">
-                <img id="u_img">
-            </div>
-            <div id="u_name" class="account-block"></div>
-            <div id="u_email" class="account-block"></div>
-            <div id="u_info" class="account-block"></div>
-            <div id="u_gender" class="account-block"></div>
-            <div id="u_password" class="account-block"></div>
-        </div>
-        <div id="container" class="container">
-            <div class="account-block account-side" onclick="window.location='../class/'">My Class</div>
-        </div>
-        <div id="container" class="container">
-            <div class="account-block account-side" onclick="window.location='../likes/'">My Likes</div>
-        </div>
-        <div id="container" class="container">
-            <div class="account-block account-side" onclick="window.location='../friends/'">Friends</div>
+
         </div>
     </main>
 
     <!-- Mobile Bottom Navigation -->
     <footer class="mobile-bar">
         <div class="footer-button">Search</div>
-        <div class="footer-button" onclick="window.location='../'">Home</div>
-        <div class="footer-home-button" onclick="login_b();">My</div>
+        <div class="footer-home-button">Home</div>
+        <div class="footer-button" onclick="login_b();">My</div>
     </footer>
 </body>
 

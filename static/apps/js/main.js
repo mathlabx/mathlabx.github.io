@@ -115,7 +115,7 @@ function initializeDesmos(function_, targetElementId) {
     for (var i = 0; i < function_.length; i++) {
         calculator.setExpression({
             id: 'graph' + i,
-            latex: function_[i].latex,
+            latex: function_[i],
             color: Desmos.Colors.BLUE,
         });
     }

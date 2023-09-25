@@ -112,7 +112,13 @@ function initializeDesmos(function_, targetElementId) {
     });
 
     // 设置要绘制的函数表达式
-    calculator.setExpression({ id: 'graph1', latex: function_, color: Desmos.Colors.BLUE });
+    for (var i = 0; i < function_.length; i++) {
+        calculator.setExpression({
+            id: 'graph' + i,
+            latex: function_[i].latex,
+            color: Desmos.Colors.BLUE,
+        });
+    }
 
     // 创建按钮
     var toggleButton = document.createElement('button');

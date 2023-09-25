@@ -93,7 +93,7 @@ const Operate = {
         resetButton.textContent = "重置";
         resetButton.addEventListener("click", function () {
             div_container.innerHTML = "";
-            Quadratic_Equation_Calculator();
+            main();
         });
         resetDiv.append(resetButton);
         div_container.append(resetDiv);
@@ -132,4 +132,5 @@ function initializeDesmos(function_, targetElementId) {
 
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
+    main();
 });

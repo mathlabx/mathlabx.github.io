@@ -21,7 +21,7 @@ const Operate = {
             }
 
             let new_input_sb = document.createElement("button");
-            new_input_sb.textContent = "提交";
+            new_input_sb.textContent = "Submit";
             new_input_sb.addEventListener("click", function () {
                 let inputValues = [];
                 for (var i = 0; i < words.length; i++) {
@@ -90,7 +90,7 @@ const Operate = {
         let resetDiv = document.createElement("div");
         resetDiv.className = "resetDiv";
         let resetButton = document.createElement("button");
-        resetButton.textContent = "重置";
+        resetButton.textContent = "Re-Start";
         resetButton.addEventListener("click", function () {
             div_container.innerHTML = "";
             main();

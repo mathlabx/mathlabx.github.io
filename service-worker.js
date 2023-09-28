@@ -7,8 +7,36 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
             return cache.addAll([
-                '/index.html'
-                // 添加其他需要缓存的资源
+                '/index.html',
+                '/account/index.html',
+                '/class/index.html',
+                '/friends/index.html',
+                '/likes/index.html',
+                '/search/index.html',
+                '/setting/index.html',
+                '/static/apps/css/style.css',
+                '/static/apps/js/main.js',
+                '/static/css/account.css',
+                '/static/css/desktop.css',
+                '/static/css/loading_motion.css',
+                '/static/css/mobile.css',
+                '/static/css/styles.css',
+                '/static/css/tablet.css',
+                '/static/js/account.js',
+                '/static/js/APP.js',
+                '/static/js/likes.js',
+                '/static/js/loading_motion.js',
+                '/static/js/login.js',
+                '/static/js/operate_DOM.js',
+                '/static/js/server.js',
+                '/static/js/user.js',
+                '/static/xml/site_map.xml',
+                '/static/img/logo_s.png',
+                '/static/img/logo.png',
+                '/static/img/app/Quadratic_Equation_Calculator.jpg',
+                '/static/img/app/Three_Variable_Linear_Equation_Calculator.jpg',
+                '/static/img/app/Two_Variable_Linear_Equation_Calculator.jpg',
+                '/static/img/app/x.png'
             ]);
         })
     );

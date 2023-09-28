@@ -8,7 +8,7 @@ self.addEventListener('install', function (event) {
         caches.open(CACHE_NAME).then(function (cache) {
             return cache.addAll([
                 '/index.html',
-                /*'/account/index.html',
+                '/account/index.html',
                 '/class/index.html',
                 '/friends/index.html',
                 '/likes/index.html',
@@ -35,7 +35,7 @@ self.addEventListener('install', function (event) {
                 '/static/img/app/Quadratic_Equation_Calculator.jpg',
                 '/static/img/app/Three_Variable_Linear_Equation_Calculator.jpg',
                 '/static/img/app/Two_Variable_Linear_Equation_Calculator.jpg',
-                '/static/img/app/x.png'*/
+                '/static/img/app/x.png'
             ]);
         })
     );

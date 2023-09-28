@@ -46,7 +46,7 @@ window.addEventListener("load", function () {
 
     // 注册Service Worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+        navigator.serviceWorker.register('https://app.mathscichem.com/service-worker.js').then(function (registration) {
             // 注册成功
             console.log('Service Worker 注册成功:', registration);
         }).catch(function (error) {

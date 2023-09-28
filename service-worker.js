@@ -3,11 +3,17 @@ var cacheStorageKey = 'my-cache';
 var cacheList = [
     '/',
     '/index.html',
+    '/account/',
     '/account/index.html',
+    '/class/',
     '/class/index.html',
+    '/friends/',
     '/friends/index.html',
+    '/likes/',
     '/likes/index.html',
+    '/search/',
     '/search/index.html',
+    '/setting/',
     '/setting/index.html',
     '/static/apps/css/style.css',
     '/static/apps/js/main.js',
@@ -30,7 +36,18 @@ var cacheList = [
     '/static/img/app/Quadratic_Equation_Calculator.jpg',
     '/static/img/app/Three_Variable_Linear_Equation_Calculator.jpg',
     '/static/img/app/Two_Variable_Linear_Equation_Calculator.jpg',
-    '/static/img/app/x.png'
+    '/static/img/app/x.png',
+    '/app/x/',
+    '/app/x/index.html',
+    '/app/Quadratic_Equation_Calculator/',
+    '/app/Quadratic_Equation_Calculator/index.html',
+    '/app/Quadratic_Equation_Calculator/script.js',
+    '/app/Two_Variable_Linear_Equation_Calculator/',
+    '/app/Two_Variable_Linear_Equation_Calculator/index.html',
+    '/app/Two_Variable_Linear_Equation_Calculator/script.js',
+    '/app/Three_Variable_Linear_Equation_Calculator/',
+    '/app/Three_Variable_Linear_Equation_Calculator/index.html',
+    '/app/Three_Variable_Linear_Equation_Calculator/script.js'
 ];
 
 self.addEventListener('install', function (e) {

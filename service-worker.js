@@ -30,7 +30,6 @@ self.addEventListener('install', function (event) {
                 '/static/js/operate_DOM.js',
                 '/static/js/server.js',
                 '/static/js/user.js',
-                '/static/xml/site_map.xml',
                 '/static/img/logo_s.png',
                 '/static/img/logo.png',
                 '/static/img/app/Quadratic_Equation_Calculator.jpg',

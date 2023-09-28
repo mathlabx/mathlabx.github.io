@@ -43,15 +43,15 @@ if (APP.login) {
 
 window.addEventListener("load", function () {
     user_page_update();
-
-    // 注册Service Worker
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('https://app.mathscichem.com/service-worker.js').then(function (registration) {
-            // 注册成功
-            console.log('Service Worker 注册成功:', registration);
+            if (registration.installing) {
+                console.log('Service Worker installing');
+            } else if (registration.active) {
+                console.log('Service Worker active');
+            }
         }).catch(function (error) {
-            // 注册失败
-            console.log('Service Worker 注册失败:', error);
+            console.log('Service Worker registration failed:', error);
         });
     }
 });

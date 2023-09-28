@@ -82,35 +82,13 @@ self.addEventListener('activate', function (e) {
 self.addEventListener('fetch', function (e) {
     e.respondWith(
         caches.match(e.request).then(function (response) {
-            // 尝试从缓存中获取资源
             if (response != null) {
                 console.log(`fetch: ${e.request.url} from cache`);
                 return response;
+            } else {
+                console.log(`fetch: ${e.request.url} from http`);
+                return fetch(e.request.url);
             }
-
-            // 检查网络连接是否可用
-            if (!navigator.onLine) {
-                // 如果网络不可用，返回离线页面或其他备用内容
-                console.log('fetch: Network is not available');
-                return caches.match('/offline.html'); // 替换为你的离线页面或备用内容路径
-            }
-
-            // 如果网络可用，从网络获取资源并更新缓存
-            console.log(`fetch: ${e.request.url} from http (online)`);
-            return fetch(e.request).then(function (response) {
-                if (response.status === 200) {
-                    // 将获取到的资源存储在缓存中
-                    var responseClone = response.clone();
-                    caches.open(cacheStorageKey).then(function (cache) {
-                        cache.put(e.request, responseClone);
-                    });
-                }
-                return response;
-            }).catch(function () {
-                // 如果网络请求失败，返回离线页面或其他备用内容
-                console.log('fetch: Network request failed');
-                return caches.match('/offline.html'); // 替换为你的离线页面或备用内容路径
-            });
         })
     );
 });

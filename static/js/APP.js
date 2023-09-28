@@ -43,4 +43,15 @@ if (APP.login) {
 
 window.addEventListener("load", function () {
     user_page_update();
+
+    // 注册Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+            // 注册成功
+            console.log('Service Worker 注册成功:', registration);
+        }).catch(function (error) {
+            // 注册失败
+            console.log('Service Worker 注册失败:', error);
+        });
+    }
 });

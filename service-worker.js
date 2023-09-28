@@ -81,27 +81,36 @@ self.addEventListener('activate', function (e) {
 
 self.addEventListener('fetch', function (e) {
     e.respondWith(
-        // 在此处检查网络连接状态
-        fetch(e.request).then(function (response) {
-            // 如果网络可用，则直接从网络获取资源
-            if (navigator.onLine) {
-                console.log(`fetch: ${e.request.url} from http`);
+        caches.match(e.request).then(function (response) {
+            // 尝试从缓存中获取资源
+            if (response != null) {
+                console.log(`fetch: ${e.request.url} from cache`);
                 return response;
             }
 
-            // 否则尝试从缓存中获取资源
-            return caches.match(e.request).then(function (cachedResponse) {
-                if (cachedResponse) {
-                    console.log(`fetch: ${e.request.url} from cache`);
-                    return cachedResponse;
-                } else {
-                    console.log(`fetch: ${e.request.url} not found in cache`);
-                    return fetch(e.request);
+            // 检查网络连接是否可用
+            if (!navigator.onLine) {
+                // 如果网络不可用，返回离线页面或其他备用内容
+                console.log('fetch: Network is not available');
+                return caches.match('/offline.html'); // 替换为你的离线页面或备用内容路径
+            }
+
+            // 如果网络可用，从网络获取资源并更新缓存
+            console.log(`fetch: ${e.request.url} from http (online)`);
+            return fetch(e.request).then(function (response) {
+                if (response.status === 200) {
+                    // 将获取到的资源存储在缓存中
+                    var responseClone = response.clone();
+                    caches.open(cacheStorageKey).then(function (cache) {
+                        cache.put(e.request, responseClone);
+                    });
                 }
+                return response;
+            }).catch(function () {
+                // 如果网络请求失败，返回离线页面或其他备用内容
+                console.log('fetch: Network request failed');
+                return caches.match('/offline.html'); // 替换为你的离线页面或备用内容路径
             });
-        }).catch(function () {
-            // 如果网络不可用并且缓存中也没有匹配的资源，则返回离线页面或其他备用内容
-            return caches.match('/offline.html'); // 替换为你的离线页面或备用内容路径
         })
     );
 });

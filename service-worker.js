@@ -8,13 +8,13 @@ self.addEventListener('install', function (event) {
         caches.open(CACHE_NAME).then(function (cache) {
             return cache.addAll([
                 '/index.html',
-                '/account/index.html',
+                /*'/account/index.html',
                 '/class/index.html',
                 '/friends/index.html',
                 '/likes/index.html',
                 '/search/index.html',
                 '/setting/index.html',
-               /* '/static/apps/css/style.css',
+                '/static/apps/css/style.css',
                 '/static/apps/js/main.js',
                 '/static/css/account.css',
                 '/static/css/desktop.css',

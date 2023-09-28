@@ -43,6 +43,7 @@ if (APP.login) {
 
 window.addEventListener("load", function () {
     user_page_update();
+    /*
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('https://app.mathscichem.com/service-worker.js').then(function (registration) {
             if (registration.installing) {
@@ -53,5 +54,5 @@ window.addEventListener("load", function () {
         }).catch(function (error) {
             console.log('Service Worker registration failed:', error);
         });
-    }
+    }*/
 });

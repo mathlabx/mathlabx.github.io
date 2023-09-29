@@ -43,6 +43,7 @@ button {
 
 /* Media Query for iPhone and sm */
 @media (max-width: 500px) {
+
     .new_solution,
     .new_step,
     .new_start,
@@ -78,11 +79,15 @@ button {
 .new_check {}
 
 .new_check_label {
-    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: xx-large;
+    width: 80%;
     display: block;
 }
 
 .new_check_check {
+    transform: scale(2.0);
     background-color: rgba(255, 255, 255, 0.249);
     margin-bottom: 2%;
     text-align: center;

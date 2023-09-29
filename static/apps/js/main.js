@@ -1,5 +1,4 @@
 let div_container;
-let new_HR = document.createElement("hr");
 
 const Operate = {
     newInput: (words) => {
@@ -41,6 +40,7 @@ const Operate = {
     },
 
     newStart: (start) => {
+        let new_HR = document.createElement("hr");
         div_container.append(new_HR);
         let new_start = document.createElement("div");
         new_start.className = "new_start";
@@ -63,6 +63,7 @@ const Operate = {
     },
 
     newSolution: (solution) => {
+        let new_HR = document.createElement("hr");
         div_container.append(new_HR);
         let new_solution = document.createElement("div");
         new_solution.className = "new_solution";

@@ -9,23 +9,26 @@ const X_Operate = {
             new_input.className = "new_input";
 
             for (var i = 0; i < words.length; i++) {
-                let new_input_label = document.createElement("label");
-                new_input_label.className = "new_input_label";
-                new_input_label.innerHTML = words[i];
+                (function (index) { // 使用闭包保存当前循环的索引
+                    let new_input_label = document.createElement("label");
+                    new_input_label.className = "new_input_label";
+                    new_input_label.innerHTML = words[index];
 
-                let new_input_input = document.createElement("input");
-                new_input_input.className = "new_input_input";
-                new_input_input.type = "checkbox"; // 使用复选框来表示选择状态
-                new_input_input.id = "input_" + i;
+                    let new_input_input = document.createElement("input");
+                    new_input_input.className = "new_input_input";
+                    new_input_input.type = "checkbox"; // 使用复选框来表示选择状态
+                    new_input_input.id = "input_" + index;
 
-                new_input_input.addEventListener("change", function () {
-                    selectedValues[i] = new_input_input.checked; // 更新选中状态数组
-                });
+                    new_input_input.addEventListener("change", function () {
+                        selectedValues[index] = new_input_input.checked; // 更新选中状态数组
+                    });
 
-                let break_line = document.createElement("br");
-                new_input.append(new_input_label);
-                new_input.append(new_input_input);
-                new_input.append(break_line);
+                    let break_line = document.createElement("br");
+                    new_input.append(new_input_label);
+                    new_input.append(new_input_input);
+                    new_input.append(break_line);
+                })(i); // 立即调用闭包函数并传入当前的索引
+
             }
 
             let new_input_sb = document.createElement("button");

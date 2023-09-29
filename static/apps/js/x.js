@@ -25,6 +25,12 @@ const X_Operate = {
                         selectedValues[index] = new_check_check.checked; // 更新选中状态数组
                     });
 
+                    // 添加点击事件监听器来切换勾选框状态
+                    new_check.addEventListener("click", function () {
+                        new_check_check.checked = !new_check_check.checked; // 切换勾选框的状态
+                        selectedValues[index] = new_check_check.checked; // 更新选中状态数组
+                    });
+
                     let break_line = document.createElement("br");
                     new_check.append(new_check_label);
                     new_check.append(new_check_check);

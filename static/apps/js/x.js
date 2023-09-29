@@ -14,7 +14,7 @@ const X_Operate = {
                     new_check_label.className = "new_check_label";
                     new_check_label.innerHTML = words[index];
     
-                    let new_check_check = document.createElement("check");
+                    let new_check_check = document.createElement("input");
                     new_check_check.className = "new_check_check";
                     new_check_check.type = "checkbox"; // 使用复选框来表示选择状态
                     new_check_check.id = "check_" + index;

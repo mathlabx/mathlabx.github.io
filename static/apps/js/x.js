@@ -5,10 +5,10 @@ const X_Operate = {
     newCheck: (words) => {
         return new Promise((resolve, reject) => {
             let selectedValues = new Array(words.length).fill(false); // 创建一个与输入长度相同的数组，初始值为false
-            let new_check = document.createElement("div");
-            new_check.className = "new_check";
 
             for (var i = 0; i < words.length; i++) {
+                let new_check = document.createElement("div");
+                new_check.className = "new_check";
                 (function (index) { // 使用闭包保存当前循环的索引
                     let new_check_label = document.createElement("label");
                     new_check_label.className = "new_check_label";
@@ -37,10 +37,9 @@ const X_Operate = {
                 // 使用 resolve 将选中状态数组传递到外部
                 resolve(selectedValues);
             });
-
-            new_check.append(new_check_sb);
-            // 将新的输入区域添加到页面
-            div_container.append(new_check);
+            
+            // 将按钮添加到页面
+            div_container.append(new_check_sb);
         });
     },
 

@@ -5,12 +5,13 @@ const X_Operate = {
     newCheck: (words) => {
         return new Promise((resolve, reject) => {
             let selectedValues = new Array(words.length).fill(false); // 创建一个与输入长度相同的数组，初始值为false
-            let div_container = document.createElement("div"); // 创建外部容器
-            div_container.id = "container"; // 设置容器的 ID，如果尚未设置的话
-            document.body.appendChild(div_container); // 将容器添加到页面中
+            let div_container = document.getElementById("container"); // 获取容器元素
 
             for (var i = 0; i < words.length; i++) {
                 (function (index) { // 使用闭包保存当前循环的索引
+                    let new_check = document.createElement("div");
+                    new_check.className = "new_check";
+
                     let new_check_label = document.createElement("label");
                     new_check_label.className = "new_check_label";
                     new_check_label.innerHTML = words[index];
@@ -25,9 +26,11 @@ const X_Operate = {
                     });
 
                     let break_line = document.createElement("br");
-                    div_container.appendChild(new_check_label);
-                    div_container.appendChild(new_check_check);
-                    div_container.appendChild(break_line);
+                    new_check.append(new_check_label);
+                    new_check.append(new_check_check);
+                    new_check.append(break_line);
+
+                    div_container.append(new_check); // 将每个新的勾选框流元素添加到容器中
                 })(i); // 立即调用闭包函数并传入当前的索引
             }
 
@@ -38,8 +41,7 @@ const X_Operate = {
                 resolve(selectedValues);
             });
 
-            // 将按钮添加到页面
-            div_container.appendChild(new_check_sb);
+            div_container.append(new_check_sb); // 在循环外部添加按钮到容器中
         });
     },
 

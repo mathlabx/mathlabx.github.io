@@ -41,12 +41,12 @@ const Operate = {
     },
 
     newStart: (start) => {
+        div_container.append(new_HR);
         let new_start = document.createElement("div");
         new_start.className = "new_start";
         let new_start_p = document.createElement("p");
         new_start_p.innerHTML = start;
         new_start.append(new_start_p);
-        div_container.append(new_HR);
         div_container.append(new_start);
         return new_start;
     },
@@ -63,13 +63,13 @@ const Operate = {
     },
 
     newSolution: (solution) => {
+        div_container.append(new_HR);
         let new_solution = document.createElement("div");
         new_solution.className = "new_solution";
 
         // 使用 KaTeX 渲染数学公式
         katex.render(solution, new_solution, { displayMode: true });
 
-        div_container.append(new_HR);
         div_container.append(new_solution);
         return new_solution;
     },

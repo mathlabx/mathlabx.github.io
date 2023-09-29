@@ -20,7 +20,7 @@ button {
 .new_solution,
 .new_step,
 .new_start,
-.new_input,
+.new_check,
 .new_graph,
 .resetDiv {
     background-color: rgb(138 150 225 / 28%);
@@ -48,14 +48,14 @@ button {
     font-style: oblique;
 }
 
-.new_input {}
+.new_check {}
 
-.new_input_label {
+.new_check_label {
     width: 100%;
     display: block;
 }
 
-.new_input_input {
+.new_check_check {
     background-color: rgba(255, 255, 255, 0.249);
     margin-bottom: 2%;
     text-align: center;

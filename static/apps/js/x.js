@@ -21,12 +21,6 @@ const X_Operate = {
                     new_check_check.type = "checkbox"; // 使用复选框来表示选择状态
                     new_check_check.id = "check_" + index;
 
-                    // 添加点击事件监听器来切换勾选框状态
-                    new_check.addEventListener("click", function () {
-                        new_check_check.checked = !new_check_check.checked; // 切换勾选框的状态
-                        selectedValues[index] = new_check_check.checked; // 更新选中状态数组
-                    });
-
                     // 添加复选框的 change 事件监听器来更新选中状态数组
                     new_check_check.addEventListener("change", function () {
                         selectedValues[index] = new_check_check.checked; // 更新选中状态数组

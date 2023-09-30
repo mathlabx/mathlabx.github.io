@@ -27,11 +27,6 @@ const X_Operate = {
                         selectedValues[index] = new_check_check.checked; // 更新选中状态数组
                     });
 
-                    // 添加复选框的 change 事件监听器来更新选中状态数组
-                    new_check_check.addEventListener("change", function () {
-                        selectedValues[index] = new_check_check.checked; // 更新选中状态数组
-                    });
-
                     let break_line = document.createElement("br");
                     new_check.append(new_check_label);
                     new_check.append(new_check_check);

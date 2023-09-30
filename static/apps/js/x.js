@@ -43,7 +43,7 @@ const X_Operate = {
             }
 
             let new_check_sb = document.createElement("button");
-            new_check_sb.textContent = "Submit";
+            new_check_sb.textContent = "Continue";
             new_check_sb.addEventListener("click", function () {
                 // 使用 resolve 将选中状态数组传递到外部
                 resolve(selectedValues);

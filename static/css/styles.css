@@ -40,6 +40,22 @@ nav a {
     color: #8A96E1;
 }
 
+.types {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.type {
+    width: 100px;
+    height: 50px;
+    background-color: aqua;
+    border-right: 1px solid;
+    white-space: nowrap;
+    display: inline-block;
+}
+
 /* Style for the Flow Element Container (center the flow elements with 3% side margins) */
 .container {
     text-align: center;

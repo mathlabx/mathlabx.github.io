@@ -53,6 +53,9 @@ button {
 .new_input_label {
     width: 100%;
     display: block;
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .new_input_input {

@@ -10,6 +10,7 @@ body {
 /* Define the top navigation bar styles */
 .top-bar {
     top: 0;
+    z-index: 10000;
     width: 100%;
     position: fixed;
     background-color: #202226;

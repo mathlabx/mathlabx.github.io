@@ -1,11 +1,12 @@
 let div_container;
 
 const Operate = {
-    newInput: (words, formIndex) => {
+    newInput: (words) => {
+        const formIndex = Math.floor(Math.random() * 1000000); // 生成一个随机的 formIndex
         return new Promise((resolve, reject) => {
             let new_input = document.createElement("div");
             new_input.className = "new_input";
-    
+
             for (var i = 0; i < words.length; i++) {
                 let new_input_label = document.createElement("label");
                 new_input_label.className = "new_input_label";
@@ -18,7 +19,7 @@ const Operate = {
                 new_input.append(new_input_input);
                 new_input.append(break_line);
             }
-    
+
             let new_input_sb = document.createElement("button");
             new_input_sb.textContent = "Submit";
             new_input_sb.addEventListener("click", function () {
@@ -31,7 +32,7 @@ const Operate = {
                 // 使用 resolve 将输入值传递到外部
                 resolve(inputValues);
             });
-    
+
             new_input.append(new_input_sb);
             // 将新的输入区域添加到页面
             let div_container = document.getElementById("container"); // 假设有一个名为 "container" 的容器元素

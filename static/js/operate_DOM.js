@@ -57,7 +57,12 @@ function app_update(typ) {
     }
 }
 
+let isLoaded = false; // 添加一个标志来检查是否已经加载过
+
 window.addEventListener("load", function () {
-    typs_update();
-    app_update(true);
+    if (!isLoaded) { // 检查是否已经加载过
+        typs_update();
+        app_update(true);
+        isLoaded = true; // 设置标志为 true，表示已经加载过
+    }
 });

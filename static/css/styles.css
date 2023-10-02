@@ -71,6 +71,17 @@ nav a {
     display: inline-block;
 }
 
+/* 隐藏滚动条但允许滚动内容（适用于WebKit内核浏览器） */
+.types::-webkit-scrollbar {
+    width: 0;
+    /* 隐藏垂直滚动条 */
+}
+
+.types::-webkit-scrollbar-thumb {
+    background: transparent;
+    /* 隐藏滚动条拖动块 */
+}
+
 /* Style for the Flow Element Container (center the flow elements with 3% side margins) */
 .container {
     text-align: center;

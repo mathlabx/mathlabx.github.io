@@ -1,4 +1,8 @@
 /* Additional styles for mobile screens */
+body {
+    padding-top: 0px;
+}
+
 /* You can customize these styles for smaller screens */
 .mobile-bar {
     display: block;

@@ -46,6 +46,7 @@ nav a {
 }
 
 .types {
+    top: 3px;
     text-align: center;
     white-space: nowrap;
     overflow-x: scroll;

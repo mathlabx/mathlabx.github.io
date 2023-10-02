@@ -5,6 +5,7 @@ function typs_update() {
         new_types.className = "type";
         new_types.innerHTML = APP.typs[i];
         new_types.addEventListener("click", function () {
+            console.log("事件");
             app_update(this.innerHTML);
         });
         container.append(new_types);
@@ -62,6 +63,7 @@ let isLoaded = false; // 添加一个标志来检查是否已经加载过
 window.addEventListener("load", function () {
     if (!isLoaded) { // 检查是否已经加载过
         typs_update();
+        console.log("页面加载");
         app_update(true);
         isLoaded = true; // 设置标志为 true，表示已经加载过
     }

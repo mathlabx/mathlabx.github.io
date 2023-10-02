@@ -1,3 +1,14 @@
+function typs_update() {
+    let container = document.getElementById("types");
+    for (i = 0; i < APP.typs.length; i++) {
+        let new_types = document.createElement("div");
+        new_types.className = "type";
+        new_types.innerHTML = APP.typs[i];
+        container.append(new_types);
+    }
+}
+
+
 function app_update() {
     function to_app(url) {
         window.location = url;
@@ -31,5 +42,6 @@ function app_update() {
 }
 
 window.addEventListener("load", function () {
+    typs_update();
     app_update();
 })

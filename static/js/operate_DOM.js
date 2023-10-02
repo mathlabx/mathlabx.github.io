@@ -1,6 +1,6 @@
 function typs_update() {
     let container = document.getElementById("types");
-    for (i = 0; i < APP.typs.length; i++) {
+    for (var i = 0; i < APP.typs.length; i++) {
         let new_types = document.createElement("div");
         new_types.className = "type";
         new_types.innerHTML = APP.typs[i];
@@ -20,7 +20,7 @@ function app_update(typ) {
     function types_have(types, find) {
         console.log("types_have(types, find)");
         let return_f = false;
-        for (i = 0; i < types.length; i++) {
+        for (var i = 0; i < types.length; i++) {
             console.log("types_have:" + i);
             if (types[i] == find) return_f = true;
         }
@@ -29,7 +29,7 @@ function app_update(typ) {
     let container = document.getElementById("container");
     container.innerHTML = "";
     console.log("Lenth:" + APP.apps.length);
-    for (i = 0; i < APP.apps.length; i++) {
+    for (var i = 0; i < APP.apps.length; i++) {
         console.log(i);
         if (types_have(APP.apps[i].types, typ) || typ) {
             console.log(true);

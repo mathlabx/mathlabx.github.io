@@ -5,7 +5,6 @@ function typs_update() {
         new_types.className = "type";
         new_types.innerHTML = APP.typs[i];
         new_types.addEventListener("click", function () {
-            console.log("事件");
             app_update(this.innerHTML);
         });
         container.append(new_types);
@@ -32,7 +31,7 @@ function app_update(typ) {
     for (var i = 0; i < APP.apps.length; i++) {
         console.log(i);
         if (types_have(APP.apps[i].types, typ) || typ) {
-            console.log(true);
+            console.log(types_have(APP.apps[i].types, typ) + "+" + APP.apps[i].types + "+" + typ);
             let new_flow = document.createElement("div");
             new_flow.className = "flow-element";
             if (APP.apps[i].full_line == true) new_flow.className += " full-line";

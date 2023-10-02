@@ -21,14 +21,16 @@ function app_update(typ) {
         console.log("types_have(types, find)");
         let return_f = false;
         for (i = 0; i < types.length; i++) {
+            console.log("types_have:" + i);
             if (types[i] == find) return_f = true;
         }
         return return_f;
     }
     let container = document.getElementById("container");
     container.innerHTML = "";
+    console.log("Lenth:" + APP.apps.length);
     for (i = 0; i < APP.apps.length; i++) {
-        console.log(APP.apps.length);
+        console.log(i);
         if (types_have(APP.apps[i].types, typ) || typ) {
             console.log(true);
             let new_flow = document.createElement("div");

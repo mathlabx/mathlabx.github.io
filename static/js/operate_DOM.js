@@ -5,7 +5,7 @@ function typs_update() {
         new_types.className = "type";
         new_types.innerHTML = APP.typs[i];
         new_types.addEventListener("click", function () {
-            this.innerHTML
+            app_update(this.innerHTML);
         });
         container.append(new_types);
     }

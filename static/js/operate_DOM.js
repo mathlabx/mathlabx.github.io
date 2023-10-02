@@ -1,5 +1,4 @@
 function typs_update() {
-    console.log("typs_update()");
     let container = document.getElementById("types");
     for (i = 0; i < APP.typs.length; i++) {
         let new_types = document.createElement("div");
@@ -14,11 +13,12 @@ function typs_update() {
 
 
 function app_update(typ) {
-    console.log("app_update(typ)");
     function to_app(url) {
+        console.log("to_app(url)");
         window.location = url;
     }
     function types_have(types, find) {
+        console.log("types_have(types, find)");
         let return_f = false;
         for (i = 0; i < types.length; i++) {
             if (types[i] == find) return_f = true;
@@ -28,7 +28,9 @@ function app_update(typ) {
     let container = document.getElementById("container");
     container.innerHTML = "";
     for (i = 0; i < APP.apps.length; i++) {
+        console.log(i);
         if (types_have(APP.apps[i].types, typ) || typ) {
+            console.log(true);
             let new_flow = document.createElement("div");
             new_flow.className = "flow-element";
             if (APP.apps[i].full_line == true) new_flow.className += " full-line";

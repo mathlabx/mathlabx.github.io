@@ -14,7 +14,6 @@ function typs_update() {
 
 function app_update(typ) {
     function to_app(url) {
-        console.log("to_app(url)");
         window.location = url;
     }
     function types_have(types, find) {
@@ -28,7 +27,7 @@ function app_update(typ) {
     let container = document.getElementById("container");
     container.innerHTML = "";
     for (i = 0; i < APP.apps.length; i++) {
-        console.log(i);
+        console.log(APP.apps.length);
         if (types_have(APP.apps[i].types, typ) || typ) {
             console.log(true);
             let new_flow = document.createElement("div");

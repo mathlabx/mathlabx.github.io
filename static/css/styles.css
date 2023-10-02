@@ -56,9 +56,14 @@ nav a {
 }
 
 .type {
-    width: 100px;
+    font-size: x-large;
+    line-height: 50px;
+    border-radius: 10px;
+    margin-right: 1%;
+    margin-left: 1%;
+    width: 200px;
     height: 50px;
-    background-color: aqua;
+    background-color: #8a96e1;
     border-right: 1px solid;
     white-space: nowrap;
     display: inline-block;

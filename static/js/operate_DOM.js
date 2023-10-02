@@ -1,4 +1,5 @@
 function typs_update() {
+    console.log("typs_update()");
     let container = document.getElementById("types");
     for (i = 0; i < APP.typs.length; i++) {
         let new_types = document.createElement("div");
@@ -13,6 +14,7 @@ function typs_update() {
 
 
 function app_update(typ) {
+    console.log("app_update(typ)");
     function to_app(url) {
         window.location = url;
     }

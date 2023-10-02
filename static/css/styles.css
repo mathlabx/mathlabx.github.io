@@ -47,6 +47,7 @@ nav a {
 
 .types {
     top: 3px;
+    margin-bottom: -20px;
     text-align: center;
     white-space: nowrap;
     overflow-x: scroll;
@@ -57,7 +58,7 @@ nav a {
 
 .type {
     font-size: x-large;
-    overflow-y: auto;
+    overflow-x: hidden;
     max-height: 100%;
     line-height: 50px;
     border-radius: 10px;

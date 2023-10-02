@@ -17,21 +17,16 @@ function app_update(typ) {
         window.location = url;
     }
     function types_have(types, find) {
-        console.log("types_have(types, find)");
         let return_f = false;
         for (var i = 0; i < types.length; i++) {
-            console.log("types_have:" + i);
             if (types[i] == find) return_f = true;
         }
         return return_f;
     }
     let container = document.getElementById("container");
     container.innerHTML = "";
-    console.log("Lenth:" + APP.apps.length);
     for (var i = 0; i < APP.apps.length; i++) {
-        console.log(i);
-        if (types_have(APP.apps[i].types, typ) || typ) {
-            console.log(types_have(APP.apps[i].types, typ) + "+" + APP.apps[i].types + "+" + typ);
+        if (types_have(APP.apps[i].types, typ) || typ == true) {
             let new_flow = document.createElement("div");
             new_flow.className = "flow-element";
             if (APP.apps[i].full_line == true) new_flow.className += " full-line";
@@ -59,13 +54,7 @@ function app_update(typ) {
     }
 }
 
-let isLoaded = false; // 添加一个标志来检查是否已经加载过
-
 window.addEventListener("load", function () {
-    if (!isLoaded) { // 检查是否已经加载过
-        typs_update();
-        console.log("页面加载");
-        app_update(true);
-        isLoaded = true; // 设置标志为 true，表示已经加载过
-    }
+    typs_update();
+    app_update(true);
 });

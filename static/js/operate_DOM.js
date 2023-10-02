@@ -26,7 +26,7 @@ function app_update(typ) {
     let container = document.getElementById("container");
     container.innerHTML = "";
     for (i = 0; i < APP.apps.length; i++) {
-        if (types_have(APP.apps[i].types, typ)) {
+        if (types_have(APP.apps[i].types, typ) || typ) {
             let new_flow = document.createElement("div");
             new_flow.className = "flow-element";
             if (APP.apps[i].full_line == true) new_flow.className += " full-line";
@@ -56,5 +56,5 @@ function app_update(typ) {
 
 window.addEventListener("load", function () {
     typs_update();
-    app_update("ALL");
+    app_update(true);
 });

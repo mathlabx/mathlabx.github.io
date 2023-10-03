@@ -19,7 +19,7 @@ function login() {
                     localStorage.setItem("key", data.Key);
                     localStorage.setItem("User_Name", data.Name);
                     localStorage.setItem("User_Info", data.Info);
-                    localStorage.setItem("User_Email", data.Email);
+                    localStorage.setItem("User_Email", user.email);
                     localStorage.setItem("User_Img", data.Img);
                     localStorage.setItem("User_Gender", data.Gender);
                     localStorage.setItem("User_Password", data.Password);

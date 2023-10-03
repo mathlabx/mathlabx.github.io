@@ -1,6 +1,6 @@
 // 用户登录函数
 function login() {
-    var userinput_username = (document.getElementById("l_username").value).toLowerCase();
+    var userinput_username = (document.getElementById("l_email").value).toLowerCase();
     var userinput_password = document.getElementById("l_password").value;
 
     // 使用 Firebase 用户认证登录

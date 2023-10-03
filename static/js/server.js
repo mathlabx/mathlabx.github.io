@@ -17,13 +17,13 @@ const database = app.database();
 const serverStorage = {
     setItem: (partition, key, data) => {
         const dataRef = database.ref(`${partition}/${key}`);
-        return dataRef.set(data); 
+        return dataRef.set(data);
     },
 
-    
+
     getItem: async (partition, key) => {
         const dataRef = database.ref(`${partition}/${key}`);
-        const snapshot = await dataRef.get(); 
+        const snapshot = await dataRef.get();
         if (snapshot.exists()) {
             return snapshot.val();
         } else {
@@ -31,18 +31,33 @@ const serverStorage = {
         }
     },
 
-    
+
     removeItem: (partition, key) => {
         const dataRef = database.ref(`${partition}/${key}`);
-        return dataRef.remove(); 
+        return dataRef.remove();
     },
 
-    
+
     clearPartition: (partition) => {
         console.error("Firebase Realtime Database does not support clearing a partition.");
     },
 };
 
+// 验证当前用户状态
+function checkCurrentUser() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // 用户已登录
+            console.log("当前用户已登录:", user);
+            // 在这里可以添加代码，处理已登录用户的操作
+        } else {
+            // 用户未登录
+            console.log("当前用户未登录");
+            localStorage.clear();
+            // 在这里可以添加代码，处理未登录用户的操作
+        }
+    });
+}
 
 /*
 

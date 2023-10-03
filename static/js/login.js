@@ -192,3 +192,42 @@ function checkCurrentUser() {
 window.addEventListener("load", function () {
     checkCurrentUser();
 });
+
+function showForgotPasswordForm() {
+    var loginForm = document.querySelector(".login-form");
+    var forgotPasswordForm = document.querySelector(".forgot-password-form");
+
+    // 隐藏登录表单，显示密码重置表单
+    loginForm.style.display = "none";
+    forgotPasswordForm.style.display = "block";
+}
+
+// 添加密码重置表单的 HTML
+var forgotPasswordFormHTML = `
+    <form class="forgot-password-form" style="display: none;">
+        <input type="email" id="reset_email" placeholder="e-mail" />
+        <button type="button" onclick="resetPassword();">Reset Password</button>
+        <p class="message"><a href="#" onclick="showLoginForm()">Back to Login</a></p>
+    </form>
+`;
+
+// 插入密码重置表单到页面
+document.querySelector(".login-page .form").insertAdjacentHTML("beforeend", forgotPasswordFormHTML);
+
+function resetPassword() {
+    var resetEmail = document.getElementById("reset_email").value;
+
+    // 使用 Firebase 用户认证发送密码重置邮件
+    firebase.auth().sendPasswordResetEmail(resetEmail)
+        .then(() => {
+            // 密码重置邮件已成功发送
+            alert("Password reset email sent. Please check your email.");
+            showLoginForm(); // 返回登录表单
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Password reset email error:", errorMessage);
+            alert("Password reset email error: " + errorMessage);
+        });
+}

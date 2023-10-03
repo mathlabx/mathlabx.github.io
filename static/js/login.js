@@ -68,11 +68,11 @@ function registered() {
             };
 
             // 使用 Firebase 实时数据库存储用户信息
-            serverStorage.setItem("User", userinput_name.toLowerCase(), userData);
+            serverStorage.setItem("User", user.uid, userData);
 
             // 注册成功后跳转或执行其他操作
             setTimeout(() => {
-                document.getElementById("l_username").value = userinput_name;
+                document.getElementById("l_email").value = userinput_email;
                 document.getElementById("l_password").value = userinput_password;
                 login();
             }, 1500);

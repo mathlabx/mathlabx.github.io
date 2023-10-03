@@ -22,6 +22,7 @@ function login() {
                     localStorage.setItem("User_Email", data.Email);
                     localStorage.setItem("User_Img", data.Img);
                     localStorage.setItem("User_Gender", data.Gender);
+                    localStorage.setItem("User_Password", data.Password);
                     // 本地存储其他用户信息
                 }
             });
@@ -41,7 +42,6 @@ function login() {
         });
 }
 
-// 用户注册函数
 function registered() {
     var userinput_email = document.getElementById("r_email").value;
     var userinput_name = document.getElementById("r_username").value;
@@ -68,7 +68,7 @@ function registered() {
             };
 
             // 使用 Firebase 实时数据库存储用户信息
-            serverStorage.setItem("User", userinput_username.toLowerCase(), userData);
+            serverStorage.setItem("User", userinput_name.toLowerCase(), userData);
 
             // 注册成功后跳转或执行其他操作
             setTimeout(() => {

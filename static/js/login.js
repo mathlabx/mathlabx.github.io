@@ -177,12 +177,11 @@ function checkCurrentUser() {
         if (user) {
             // 用户已登录
             console.log("当前用户已登录:", user);
-
             // 在这里可以添加代码，处理已登录用户的操作
         } else {
             // 用户未登录
             console.log("当前用户未登录");
-
+            localStorage.clear();
             // 在这里可以添加代码，处理未登录用户的操作
         }
     });

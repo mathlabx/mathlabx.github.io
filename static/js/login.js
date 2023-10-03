@@ -188,11 +188,6 @@ function checkCurrentUser() {
     });
 }
 
-// 页面加载时检查当前用户状态
-window.addEventListener("load", function () {
-    checkCurrentUser();
-});
-
 function showForgotPasswordForm() {
     window.open("./resetPassword.html");
 }

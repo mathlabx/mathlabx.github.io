@@ -43,6 +43,7 @@ if (APP.login) {
 
 window.addEventListener("load", function () {
     user_page_update();
+    checkCurrentUser();
     /*
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('https://app.mathscichem.com/service-worker.js').then(function (registration) {

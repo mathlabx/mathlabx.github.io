@@ -205,7 +205,6 @@ function resetPassword() {
         .then(() => {
             // 密码重置邮件已成功发送
             alert("Password reset email sent. Please check your email.");
-            showLoginForm(); // 返回登录表单
         })
         .catch((error) => {
             const errorCode = error.code;

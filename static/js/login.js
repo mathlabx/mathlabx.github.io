@@ -14,7 +14,7 @@ function login() {
             localStorage.setItem("login", "true");
 
             // 获取其他用户信息并保存在本地存储中
-            serverStorage.getItem("User", userinput_username).then((data) => {
+            serverStorage.getItem("User", user.uid).then((data) => {
                 if (data) {
                     localStorage.setItem("key", data.Key);
                     localStorage.setItem("User_Name", data.Name);

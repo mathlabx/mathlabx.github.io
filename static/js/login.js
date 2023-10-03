@@ -37,8 +37,9 @@ function login() {
             const errorMessage = error.message;
             console.error("用户登录失败:", errorMessage);
 
-            // 在这里可以处理登录失败的情况，例如显示错误消息给用户
-            alert("登录失败：" + errorMessage);
+            // 使用 markInvalidInput 函数显示错误消息
+            markInvalidInput("l_username", errorMessage);
+            markInvalidInput("l_password", errorMessage);
         });
 }
 
@@ -82,8 +83,9 @@ function registered() {
             const errorMessage = error.message;
             console.error("用户注册失败:", errorMessage);
 
-            // 在这里可以处理注册失败的情况，例如显示错误消息给用户
-            alert("注册失败：" + errorMessage);
+            // 使用 markInvalidInput 函数显示错误消息
+            markInvalidInput("r_email", errorMessage);
+            markInvalidInput("r_password", errorMessage);
         });
 }
 

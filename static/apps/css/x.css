@@ -25,6 +25,7 @@ button {
 .new_graph,
 .resetDiv {
     background-color: rgb(138 150 225 / 28%);
+    word-wrap: break-word;
     border: 1px solid #ddd;
     display: inline-block;
     margin: 10px;

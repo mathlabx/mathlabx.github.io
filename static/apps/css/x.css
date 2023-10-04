@@ -34,42 +34,13 @@ button {
     /* Add rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     /* Add a subtle shadow */
-    width: calc(46% - 20px);
+    width: calc(100% - 20px);
     /* Ensure one element per row on mobile */
     box-sizing: border-box;
     /* Include padding in element width */
     min-height: 0;
     /* Ensure minimum height is not greater than width */
 }
-
-/* Media Query for iPhone and sm */
-@media (max-width: 500px) {
-
-    .new_solution,
-    .new_step,
-    .new_start,
-    .new_check,
-    .new_graph,
-    .resetDiv {
-        background-color: rgb(138 150 225 / 28%);
-        border: 1px solid #ddd;
-        display: inline-block;
-        margin: 10px;
-        /* Add margin to create spacing between elements */
-        text-align: center;
-        border-radius: 10px;
-        /* Add rounded corners */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        /* Add a subtle shadow */
-        width: calc(100% - 20px);
-        /* Ensure one element per row on mobile */
-        box-sizing: border-box;
-        /* Include padding in element width */
-        min-height: 0;
-        /* Ensure minimum height is not greater than width */
-    }
-}
-
 
 .new_start {
     color: rgb(200, 200, 200);

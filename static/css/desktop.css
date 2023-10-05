@@ -19,5 +19,5 @@
 
 /* Style for the Flow Element that occupies a full row */
 .full-line {
-    width: calc(81% - 20px) !important;
+    width: calc(100% - 20px) !important;
 }

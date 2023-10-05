@@ -105,7 +105,7 @@ nav a {
     /* Add rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     /* Add a subtle shadow */
-    height: 300px;
+    height: 350px;
     width: calc(100% - 20px);
     /* Ensure one element per row on mobile */
     box-sizing: border-box;

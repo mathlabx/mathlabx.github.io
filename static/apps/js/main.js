@@ -193,6 +193,10 @@ function add_like_click() {
 
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
-    add_like_click();
+    setTimeout(() => {
+        if (APP.login) {
+            add_like_click();
+        }
+    }, 100);
     main();
 });

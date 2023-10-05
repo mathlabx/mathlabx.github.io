@@ -23,12 +23,14 @@ const Operate = {
             let new_input_sb = document.createElement("button");
             new_input_sb.textContent = "Submit";
             new_input_sb.addEventListener("click", function () {
+                window_load(false, 0);
                 let inputValues = [];
                 for (var i = 0; i < words.length; i++) {
                     let inputId = "input_" + formIndex + "_" + i; // 使用表单索引作为前缀
                     let inputElement = document.getElementById(inputId);
                     inputValues.push(inputElement.value);
                 }
+                window_load(true, 900);
                 // 使用 resolve 将输入值传递到外部
                 resolve(inputValues);
             });

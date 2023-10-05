@@ -7,7 +7,7 @@
 
 /* Override width and margin for all devices to center-align elements */
 .flow-element {
-    width: calc(20% - 20px);
+    width: calc(25% - 20px);
     /* Approximately 3 elements per row with spacing */
     margin: 10px;
     /* Add margin to create spacing between elements and center-align them */

@@ -140,18 +140,50 @@ function initializeDesmos(function_, targetElementId) {
     toggleButton.click();
 }
 
-function add_likes(div_) {
+function find_like(url) {
+    let back = null;
+    let Local_like = JSON.parse(localStorage.getItem("Like"));
+    for (let i = 0; i < Local_like.length; i++) {
+        if (Local_like[i] == url) {
+            back = i;
+        }
+    }
+    return back;
+}
 
+function add_likes(div_) {
+    let page_url = window.location.href;
+    let Local_like = JSON.parse(localStorage.getItem("Like"));
+    if (find_like(page_url) != null) {
+        let new_arry = new Array();
+        for (let i = 0; i < Local_like.length; i++) {
+            if (Local_like[i] != page_url) {
+                new_arry.push(Local_like[i]);
+            }
+        }
+        Local_like = new_arry;
+    } else {
+        Local_like.push(page_url);
+    }
+    const userData = {
+        Name: localStorage.getItem("User_Name"),
+        Info: localStorage.getItem("User_Info"),
+        Gender: localStorage.getItem("User_Gender"),
+        Img: localStorage.getItem("User_Img"),
+        Like: Local_like
+    };
+    serverStorage.setItem("User", localStorage.getItem("UID"), userData);
+    localStorage.setItem("Like", JSON.stringify(Local_like));
 }
 
 function add_like_click() {
     let like_click = document.createElement("div");
     like_click.className = "like-btn";
-    like_click.addEventListener("click", function () {
-        add_likes(this);
-    });
     let like_click_i = document.createElement("i");
     like_click_i.className = "like-btn-i";
+    like_click_i.addEventListener("click", function () {
+        add_likes(this);
+    });
     like_click.append(like_click_i);
     div_container.append(like_click);
 }

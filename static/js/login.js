@@ -17,12 +17,14 @@ function login() {
             serverStorage.getItem("User", user.uid).then((data) => {
                 if (data) {
                     localStorage.setItem("key", data.Key);
+                    localStorage.setItem("UID", user.uid);
                     localStorage.setItem("User_Name", data.Name);
                     localStorage.setItem("User_Info", data.Info);
                     localStorage.setItem("User_Email", user.email);
                     localStorage.setItem("User_Img", data.Img);
                     localStorage.setItem("User_Gender", data.Gender);
                     localStorage.setItem("User_Password", data.Password);
+                    localStorage.setItem("Like", JSON.stringify(Like));
                     // 本地存储其他用户信息
                 }
             });
@@ -66,6 +68,7 @@ function registered() {
                 Info: userinput_info,
                 Gender: userinput_gender,
                 Img: userinput_img,
+                Like: new Array
             };
 
             // 使用 Firebase 实时数据库存储用户信息

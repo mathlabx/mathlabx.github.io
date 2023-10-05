@@ -180,6 +180,9 @@ function add_like_click() {
     let like_click = document.createElement("div");
     like_click.className = "like-btn";
     let like_click_i = document.createElement("i");
+    if (find_like(window.location.href) != null) {
+        like_click_i.style.backgroundColor = "red";
+    }
     like_click_i.className = "like-btn-i";
     like_click_i.addEventListener("click", function () {
         add_likes(this);

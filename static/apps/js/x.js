@@ -54,9 +54,9 @@ const X_Operate = {
     },
 
     newPage: () => {
-        window_load(false);
+        window_load(false, 0);
         div_container.innerHTML = "";
-        window_load(true);
+        window_load(true, 1000);
     }
 };
 

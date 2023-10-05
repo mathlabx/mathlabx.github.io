@@ -1,19 +1,17 @@
 // Wait for the page to load
 window.addEventListener('load', function () {
     // Add 'loaded' class to the body element
-    window_load(true);
+    window_load(true,1500);
 });
 
-function window_load(loaded) {
+function window_load(loaded, time) {
     if (loaded) {
         setTimeout(() => {
             document.body.classList.add('loaded');
             document.body.style.overflow = 'auto';
-        }, 1500);
+        }, time);
     } else {
-        setTimeout(() => {
-            document.body.classList.remove('loaded');
-            document.body.style.overflow = '';
-        }, 1500);
+        document.body.classList.remove('loaded');
+        document.body.style.overflow = '';
     }
 }

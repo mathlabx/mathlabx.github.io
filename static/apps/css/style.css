@@ -85,8 +85,8 @@ button {
 
 .like-btn-i {
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 100%;
+    height: 100%;
     mask-size: 100% 100%;
     -webkit-mask-size: 100% 100%;
     background-color: white;

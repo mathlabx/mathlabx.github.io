@@ -13,6 +13,7 @@ function typs_update() {
 
 
 function app_update(typ) {
+    window_load(false, 0);
     function to_app(url) {
         window.location = url;
     }
@@ -52,6 +53,7 @@ function app_update(typ) {
             container.append(new_flow);
         }
     }
+    window_load(true, 900);
 }
 
 window.addEventListener("load", function () {

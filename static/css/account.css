@@ -143,13 +143,14 @@ body {
 }
 
 .gender-select {
+  height: 46px;
+  margin-bottom: 15px;
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  color: #333;
+  border-radius: 2px;
+  color: #9f9e9e;
+  background-color: rgb(138 150 225 / 28%);
 }
 
 img#u_img {

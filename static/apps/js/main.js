@@ -140,7 +140,24 @@ function initializeDesmos(function_, targetElementId) {
     toggleButton.click();
 }
 
+function add_likes(div_) {
+
+}
+
+function add_like_click() {
+    let like_click = document.createElement("div");
+    like_click.className = "like-btn";
+    like_click.addEventListener("click", function () {
+        add_likes(this);
+    });
+    let like_click_i = document.createElement("i");
+    like_click_i.className = "like-btn-i";
+    like_click.append(like_click_i);
+    div_container.append(like_click);
+}
+
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
+    add_like_click();
     main();
 });

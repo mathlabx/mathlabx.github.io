@@ -66,3 +66,30 @@ button {
     height: 25px;
     border-radius: 10px;
 }
+
+.like-btn {
+    right: 16px;
+    bottom: 114px;
+    position: fixed;
+    z-index: 99;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+}
+
+.like-btn-i {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    background-color: #000000;
+    mask-image: url(../img/heroicons-music_note-circle.svg);
+    -webkit-mask-image: url(../img/heroicons-music_note-circle.svg);
+}

@@ -75,7 +75,7 @@ button {
     width: 32px;
     height: 32px;
     cursor: pointer;
-    background-color: LightSlateGray;
+    background-color: #9b9b9bad;
     border-radius: 2px;
     display: flex;
     align-items: center;

@@ -10,7 +10,6 @@ function login() {
             console.log("用户登录成功:", user);
 
             // 在这里可以添加代码，处理用户登录成功后的操作
-            // 例如：在本地存储中保存用户认证状态
             localStorage.setItem("login", "true");
 
             // 获取其他用户信息并保存在本地存储中

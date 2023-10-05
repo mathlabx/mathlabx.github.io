@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
     window_load(true);
 });
 
-function window_load(lodaed) {
+function window_load(loaded) {
     if (loaded) {
         setTimeout(() => {
             document.body.classList.add('loaded');

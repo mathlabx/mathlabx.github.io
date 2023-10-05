@@ -75,7 +75,7 @@ button {
     width: 32px;
     height: 32px;
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: LightSlateGray;
     border-radius: 2px;
     display: flex;
     align-items: center;
@@ -89,7 +89,7 @@ button {
     height: 1em;
     mask-size: 100% 100%;
     -webkit-mask-size: 100% 100%;
-    background-color: #000000;
+    background-color: white;
     mask-image: url(../img/heroicons-music_note-circle.svg);
     -webkit-mask-image: url(../img/heroicons-music_note-circle.svg);
 }

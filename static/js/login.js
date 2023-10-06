@@ -23,8 +23,10 @@ function login() {
                     localStorage.setItem("User_Img", data.Img);
                     localStorage.setItem("User_Gender", data.Gender);
                     localStorage.setItem("User_Password", data.Password);
-                    localStorage.setItem("Like", JSON.stringify(data.Like));
-                    // 本地存储其他用户信息
+
+                    // 确保"Like"字段是数组，如果不是，则初始化为空数组
+                    const likeArray = Array.isArray(data.Like) ? data.Like : [];
+                    localStorage.setItem("Like", JSON.stringify(likeArray)); // 获取并存储Like字段
                 }
             });
 

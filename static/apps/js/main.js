@@ -154,11 +154,10 @@ function find_like(url) {
 function add_likes(div_) {
     let page_url = window.location.href;
     let Local_like = JSON.parse(localStorage.getItem("Like"));
-    let like_click_i = document.getElementById("like_i");
     if (find_like(window.location.href) != null) {
-        like_click_i.style.backgroundColor = "red";
+        div_.style.backgroundColor = "red";
     } else {
-        like_click_i.style.backgroundColor = "white";
+        div_.style.backgroundColor = "white";
     }
     if (find_like(page_url) != null) {
         let new_arry = new Array();

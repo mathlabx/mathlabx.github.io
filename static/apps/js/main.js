@@ -141,9 +141,9 @@ function initializeDesmos(function_, targetElementId) {
 }
 
 function add_likes(div_) {
-    console.log(div_);
     let page_url = window.location.href;
     let Local_like = JSON.parse(localStorage.getItem("Like"));
+    console.log(find_like(window.location.href));
     if (find_like(window.location.href) != null) {
         div_.style.backgroundColor = "red";
     } else {

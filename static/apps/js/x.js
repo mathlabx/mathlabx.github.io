@@ -156,12 +156,12 @@ const X_Operate = {
                         };
                     }, 1000);
 
-                    // 使用闭包来确保在事件处理程序中引用正确的索引 i
-                    (function (index) {
-                        new_range.addEventListener("input", function () {
-                            results[index] = new_range.value;
-                        });
-                    })(i);
+                    // 添加事件处理程序到滑块元素
+                    new_range.addEventListener("input", function () {
+                        console.log(results[i]);
+                        console.log(new_range.value);
+                        results[i] = new_range.value;
+                    });
 
                     new_slider_container.append(new_span);
                     new_slider_container.append(document.createElement("br"));

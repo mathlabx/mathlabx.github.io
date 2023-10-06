@@ -130,7 +130,6 @@ const X_Operate = {
                     new_slider_container.className = "slider-container";
                     new_range = document.createElement("input");
                     elementId = formIndex + "_" + i + "_" + "myRange";
-                    alert(i);
                     new_range.type = "range";
                     new_range.min = String(settings[i].Range[0]);
                     new_range.max = String(settings[i].Range[1]);
@@ -141,18 +140,16 @@ const X_Operate = {
                     let spanId = formIndex + "_" + i + "_" + "slide_value";
                     new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
-                    setTimeout(() => {
-                        var slider = document.getElementById(elementId);
-                        alert(elementId);
-                        var sliderValue = document.getElementById(spanId);
-                        alert(spanId);
-                        console.log(slider);
-                        console.log(sliderValue);
-                        slider.oninput = function () {
-                            sliderValue.innerHTML = this.value;
-                        };
-                    }, 1000);
-
+                    function close_box(ii) {
+                        var slider = document.getElementById(ii);
+                        setTimeout(() => {
+                            var sliderValue = document.getElementById(spanId);
+                            slider.oninput = function () {
+                                sliderValue.innerHTML = this.value;
+                            };
+                        }, 1000);
+                    }
+                    close_box(elementId);
                     // 添加事件处理程序到滑块元素
                     new_range.addEventListener("input", function () {
                         results[i] = new_range.value;

@@ -106,7 +106,32 @@ const X_Operate = {
                     }, 1000);
                 }
             } else if (settings[i].Typ == "range") {
-
+                let new_container_tab_td_1 = document.createElement("td");
+                new_container_tab_td_1.innerHTML = settings[i].Name;
+                let new_container_tab_td_2 = document.createElement("td");
+                let new_slider_container = document.createElement("div");
+                new_slider_container.className = "slider-container";
+                let new_range = document.createElement("input");
+                new_range.type = "range";
+                new_range.min = String(settings[i].Range[0]);
+                new_range.max = String(settings[i].Range[1]);
+                new_range.value = String(settings[i].Range[2]);
+                new_range.class = "slider";
+                new_range.id = formIndex + "_" + i + "_" + "myRange";
+                let new_span = document.createElement("span");
+                new_span.id = formIndex + "_" + i + "_" + "slide_value";
+                setTimeout(() => {
+                    var slider = document.getElementById(formIndex + "_" + i + "_" + "myRange");
+                    var sliderValue = document.getElementById(formIndex + "_" + i + "_" + "slide_value");
+                    slider.oninput = function () {
+                        sliderValue.innerHTML = this.value;
+                    };
+                }, 1000);
+                new_slider_container.append(new_span);
+                new_slider_container.append(new_range);
+                new_container_tab_td_2.append(new_slider_container);
+                new_container_tab_tr.append(new_container_tab_td_1);
+                new_container_tab_tr.append(new_container_tab_td_2);
             }
             new_container_tab.append(new_container_tab_tr);
             new_container.append(new_container_tab);

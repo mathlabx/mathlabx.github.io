@@ -156,19 +156,19 @@ const X_Operate = {
                         };
                     }, 1000);
 
-                    new_slider_container.append(new_span);
-                    new_slider_container.append(document.createElement("br"));
-                    new_slider_container.append(new_range);
-                    new_container_tab_td_2.append(new_slider_container);
-                    new_container_tab_tr.append(new_container_tab_td_1);
-                    new_container_tab_tr.append(new_container_tab_td_2);
-
                     // 使用闭包来确保在事件处理程序中引用正确的索引 i
                     (function (index) {
                         new_range.addEventListener("input", function () {
                             results[index] = new_range.value;
                         });
                     })(i);
+
+                    new_slider_container.append(new_span);
+                    new_slider_container.append(document.createElement("br"));
+                    new_slider_container.append(new_range);
+                    new_container_tab_td_2.append(new_slider_container);
+                    new_container_tab_tr.append(new_container_tab_td_1);
+                    new_container_tab_tr.append(new_container_tab_td_2);
                 }
 
                 new_container_tab.append(new_container_tab_tr);

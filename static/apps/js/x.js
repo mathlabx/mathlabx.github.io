@@ -143,6 +143,8 @@ const X_Operate = {
                     setTimeout(() => {
                         var slider = document.getElementById(elementId);
                         var sliderValue = document.getElementById(spanId);
+                        console.log(slider);
+                        console.log(sliderValue);
                         slider.oninput = function () {
                             sliderValue.innerHTML = this.value;
                         };

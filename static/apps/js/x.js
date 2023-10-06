@@ -141,14 +141,6 @@ const X_Operate = {
                     new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
 
-                    var slider = document.getElementById(elementId);
-                    var sliderValue = document.getElementById(spanId);
-                    slider.oninput = function () {
-                        console.log(sliderValue.innerHTML);
-                        console.log(this.value);
-                        sliderValue.innerHTML = this.value;
-                    };
-
                     // 添加事件处理程序到滑块元素
                     new_range.addEventListener("input", function () {
                         results[i] = new_range.value;
@@ -166,6 +158,14 @@ const X_Operate = {
                 new_container_tab.append(new_container_tab_tr);
                 new_container.append(new_container_tab);
                 new_start.append(new_container);
+
+                var slider = document.getElementById(elementId);
+                var sliderValue = document.getElementById(spanId);
+                slider.oninput = function () {
+                    console.log(sliderValue.innerHTML);
+                    console.log(this.value);
+                    sliderValue.innerHTML = this.value;
+                };
             }
 
             let submitButton = document.createElement("button");

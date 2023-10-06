@@ -154,6 +154,7 @@ function find_like(url) {
 function add_likes(div_) {
     let page_url = window.location.href;
     let Local_like = JSON.parse(localStorage.getItem("Like"));
+    let like_click_i = document.getElementById("like_i");
     if (find_like(window.location.href) != null) {
         like_click_i.style.backgroundColor = "red";
     } else {
@@ -185,6 +186,7 @@ function add_like_click() {
     let like_click = document.createElement("div");
     like_click.className = "like-btn";
     let like_click_i = document.createElement("i");
+    like_click_i.id = "like_i";
     like_click_i.className = "like-btn-i";
     like_click_i.addEventListener("click", function () {
         add_likes(this);

@@ -158,9 +158,8 @@ const X_Operate = {
 
                     // 添加事件处理程序到滑块元素
                     new_range.addEventListener("input", function () {
-                        console.log(results[i]);
-                        console.log(new_range.value);
                         results[i] = new_range.value;
+                        document.getElementById(spanId).innerHTML = new_range.value;
                     });
 
                     new_slider_container.append(new_span);

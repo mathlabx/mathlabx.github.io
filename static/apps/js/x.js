@@ -157,6 +157,7 @@ const X_Operate = {
                     }, 1000);
 
                     // 添加事件处理程序到滑块元素
+                    document.getElementById(spanId).innerHTML = new_range.value;
                     new_range.addEventListener("input", function () {
                         results[i] = new_range.value;
                         document.getElementById(spanId).innerHTML = new_range.value;

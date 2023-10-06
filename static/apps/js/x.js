@@ -77,81 +77,114 @@ const X_Operate = {
     },
 
     newSetting: (title, settings) => {
-        const formIndex = Math.floor(Math.random() * 1000000); // 生成一个随机的 formIndex
-        let new_start = document.createElement("div");
-        new_start.className = "new_start";
-        let new_start_p = document.createElement("p");
-        new_start_p.innerHTML = title;
-        new_start.append(new_start_p);
-        for (let i = 0; i < settings.length; i++) {
-            let new_container = document.createElement("div");
-            new_container.className = "settings_flow";
-            let new_container_tab = document.createElement("table");
-            new_container_tab.className = "settings_flow_tab";
-            let new_container_tab_tr = document.createElement("tr");
-            if (settings[i].Typ == "check" || settings[i].Typ == "checked") {
-                let new_container_tab_td_1 = document.createElement("td");
-                let new_p = document.createElement("p");
-                new_p.innerHTML = settings[i].Name;
-                new_container_tab_td_1.append(new_p);
-                let new_container_tab_td_2 = document.createElement("td");
-                let new_toggle_switch = document.createElement("div");
-                new_toggle_switch.className = "toggle-switch";
-                let new_toggle_switch_label = document.createElement("label");
-                new_toggle_switch_label.className = "switch";
-                let new_toggle_switch_cheakbox = document.createElement("input");
-                new_toggle_switch_cheakbox.id = formIndex + "_" + i;
-                new_toggle_switch_cheakbox.type = "checkbox";
-                let new_slider_round = document.createElement("span");
-                new_slider_round.className = "slider round";
-                new_toggle_switch_label.append(new_toggle_switch_cheakbox);
-                new_toggle_switch_label.append(new_slider_round);
-                new_toggle_switch.append(new_toggle_switch_label);
-                new_container_tab_td_2.append(new_toggle_switch);
-                new_container_tab_tr.append(new_container_tab_td_1);
-                new_container_tab_tr.append(new_container_tab_td_2);
-                if (settings[i].Typ == "checked") {
+        return new Promise((resolve, reject) => {
+            const formIndex = Math.floor(Math.random() * 1000000); // 生成一个随机的 formIndex
+            let new_start = document.createElement("div");
+            new_start.className = "new_start";
+            let new_start_p = document.createElement("p");
+            new_start_p.innerHTML = title;
+            new_start.append(new_start_p);
+
+            // 用于存储每个设置项的结果
+            let results = {};
+
+            for (let i = 0; i < settings.length; i++) {
+                let new_container = document.createElement("div");
+                new_container.className = "settings_flow";
+                let new_container_tab = document.createElement("table");
+                new_container_tab.className = "settings_flow_tab";
+                let new_container_tab_tr = document.createElement("tr");
+
+                if (settings[i].Typ == "check" || settings[i].Typ == "checked") {
+                    let new_container_tab_td_1 = document.createElement("td");
+                    let new_p = document.createElement("p");
+                    new_p.innerHTML = settings[i].Name;
+                    new_container_tab_td_1.append(new_p);
+                    let new_container_tab_td_2 = document.createElement("td");
+                    let new_toggle_switch = document.createElement("div");
+                    new_toggle_switch.className = "toggle-switch";
+                    let new_toggle_switch_label = document.createElement("label");
+                    new_toggle_switch_label.className = "switch";
+                    let new_toggle_switch_cheakbox = document.createElement("input");
+                    let elementId = formIndex + "_" + i; // 生成唯一的ID
+                    new_toggle_switch_cheakbox.id = elementId;
+                    new_toggle_switch_cheakbox.type = "checkbox";
+                    let new_slider_round = document.createElement("span");
+                    new_slider_round.className = "slider round";
+                    new_toggle_switch_label.append(new_toggle_switch_cheakbox);
+                    new_toggle_switch_label.append(new_slider_round);
+                    new_toggle_switch.append(new_toggle_switch_label);
+                    new_container_tab_td_2.append(new_toggle_switch);
+                    new_container_tab_tr.append(new_container_tab_td_1);
+                    new_container_tab_tr.append(new_container_tab_td_2);
+
+                    if (settings[i].Typ == "checked") {
+                        setTimeout(() => {
+                            document.getElementById(elementId).click();
+                        }, 1000);
+                    }
+
+                    // 监听复选框的变化，将结果存入results对象
+                    new_toggle_switch_cheakbox.addEventListener("change", function () {
+                        results[elementId] = new_toggle_switch_cheakbox.checked;
+                    });
+                } else if (settings[i].Typ == "range") {
+                    let new_container_tab_td_1 = document.createElement("td");
+                    let new_p = document.createElement("p");
+                    new_p.innerHTML = settings[i].Name;
+                    new_container_tab_td_1.append(new_p);
+                    let new_container_tab_td_2 = document.createElement("td");
+                    let new_slider_container = document.createElement("div");
+                    new_slider_container.className = "slider-container";
+                    let new_range = document.createElement("input");
+                    let elementId = formIndex + "_" + i + "_" + "myRange"; // 生成唯一的ID
+                    new_range.type = "range";
+                    new_range.min = String(settings[i].Range[0]);
+                    new_range.max = String(settings[i].Range[1]);
+                    new_range.value = String(settings[i].Range[2]);
+                    new_range.class = "slider";
+                    new_range.id = elementId;
+                    let new_span = document.createElement("span");
+                    let spanId = formIndex + "_" + i + "_" + "slide_value"; // 生成唯一的ID
+                    new_span.id = spanId;
+
                     setTimeout(() => {
-                        document.getElementById(formIndex + "_" + i).click();
+                        var slider = document.getElementById(elementId);
+                        var sliderValue = document.getElementById(spanId);
+                        slider.oninput = function () {
+                            sliderValue.innerHTML = this.value;
+                        };
                     }, 1000);
+
+                    new_slider_container.append(new_span);
+                    new_slider_container.append(document.createElement("br"));
+                    new_slider_container.append(new_range);
+                    new_container_tab_td_2.append(new_slider_container);
+                    new_container_tab_tr.append(new_container_tab_td_1);
+                    new_container_tab_tr.append(new_container_tab_td_2);
+
+                    // 监听滑块的变化，将结果存入results对象
+                    new_range.addEventListener("input", function () {
+                        results[elementId] = new_range.value;
+                    });
                 }
-            } else if (settings[i].Typ == "range") {
-                let new_container_tab_td_1 = document.createElement("td");
-                let new_p = document.createElement("p");
-                new_p.innerHTML = settings[i].Name;
-                new_container_tab_td_1.append(new_p);
-                let new_container_tab_td_2 = document.createElement("td");
-                let new_slider_container = document.createElement("div");
-                new_slider_container.className = "slider-container";
-                let new_range = document.createElement("input");
-                new_range.type = "range";
-                new_range.min = String(settings[i].Range[0]);
-                new_range.max = String(settings[i].Range[1]);
-                new_range.value = String(settings[i].Range[2]);
-                new_range.class = "slider";
-                new_range.id = formIndex + "_" + i + "_" + "myRange";
-                let new_span = document.createElement("span");
-                new_span.id = formIndex + "_" + i + "_" + "slide_value";
-                setTimeout(() => {
-                    var slider = document.getElementById(formIndex + "_" + i + "_" + "myRange");
-                    var sliderValue = document.getElementById(formIndex + "_" + i + "_" + "slide_value");
-                    slider.oninput = function () {
-                        sliderValue.innerHTML = this.value;
-                    };
-                }, 1000);
-                new_slider_container.append(new_span);
-                new_slider_container.append(document.createElement("br"));
-                new_slider_container.append(new_range);
-                new_container_tab_td_2.append(new_slider_container);
-                new_container_tab_tr.append(new_container_tab_td_1);
-                new_container_tab_tr.append(new_container_tab_td_2);
+
+                new_container_tab.append(new_container_tab_tr);
+                new_container.append(new_container_tab);
+                new_start.append(new_container);
             }
-            new_container_tab.append(new_container_tab_tr);
-            new_container.append(new_container_tab);
-            new_start.append(new_container)
-        }
-        div_container.append(new_start);
-    },
+
+            // 添加提交按钮
+            let submitButton = document.createElement("button");
+            submitButton.textContent = "提交";
+            submitButton.addEventListener("click", function () {
+                resolve(results); // 解析Promise，返回包含所有设置结果的对象
+            });
+            new_start.append(submitButton);
+
+            div_container.append(new_start);
+        });
+    }
 };
 
 window.addEventListener("load", function () {

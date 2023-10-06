@@ -140,6 +140,7 @@ const X_Operate = {
                     let spanId = formIndex + "_" + i + "_" + "slide_value";
                     new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
+                    /*闭包*/
                     function close_box(ii) {
                         var slider = document.getElementById(ii);
                         setTimeout(() => {

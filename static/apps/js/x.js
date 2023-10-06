@@ -66,7 +66,54 @@ const X_Operate = {
         window_load(false, 0);
         div_container.innerHTML = "";
         window_load(true, 1000);
-    }
+    },
+
+    newSetting: (title, settings) => {
+        const formIndex = Math.floor(Math.random() * 1000000); // 生成一个随机的 formIndex
+        let new_start = document.createElement("div");
+        new_start.className = "new_start";
+        let new_start_p = document.createElement("p");
+        new_start_p.innerHTML = title;
+        new_start.append(new_start_p);
+        for (let i = 0; i < settings.length; i++) {
+            let new_container = document.createElement("div");
+            new_container.className = "settings_flow";
+            let new_container_tab = document.createElement("table");
+            new_container_tab.className = "settings_flow_tab";
+            let new_container_tab_tr = document.createElement("tr");
+            if (settings[i].Typ == "check" || settings[i].Typ == "checked") {
+                let new_container_tab_td_1 = document.createElement("td");
+                new_container_tab_td_1.innerHTML = settings[i].Name;
+                let new_container_tab_td_2 = document.createElement("td");
+                let new_toggle_switch = document.createElement("div");
+                new_toggle_switch.className = "toggle-switch";
+                let new_toggle_switch_label = document.createElement("label");
+                new_toggle_switch_label.className = "switch";
+                let new_toggle_switch_cheakbox = document.createElement("input");
+                new_toggle_switch_cheakbox.id = formIndex + "_" + i;
+                new_toggle_switch_cheakbox.type = "checkbox";
+                let new_slider_round = document.createElement("span");
+                new_slider_round.className = "slider round";
+                new_toggle_switch_label.append(new_toggle_switch_cheakbox);
+                new_toggle_switch_label.append(new_slider_round);
+                new_toggle_switch.append(new_toggle_switch_label);
+                new_container_tab_td_2.append(new_toggle_switch);
+                new_container_tab_tr.append(new_container_tab_td_1);
+                new_container_tab_tr.append(new_container_tab_td_2);
+                if (settings[i].Typ == "checked") {
+                    setTimeout(() => {
+                        document.getElementById(formIndex + "_" + i).click();
+                    }, 1000);
+                }
+            } else if (settings[i].Typ == "range") {
+
+            }
+            new_container_tab.append(new_container_tab_tr);
+            new_container.append(new_container_tab);
+            new_start.append(new_container)
+        }
+        div_container.append(new_start);
+    },
 };
 
 window.addEventListener("load", function () {

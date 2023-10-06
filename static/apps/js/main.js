@@ -180,6 +180,9 @@ function add_likes(div_) {
     };
     serverStorage.setItem("User", localStorage.getItem("UID"), userData);
     localStorage.setItem("Like", JSON.stringify(Local_like));
+    like_click_i.addEventListener("click", function () {
+        add_likes(div_);
+    });
 }
 
 function add_like_click() {

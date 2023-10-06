@@ -163,9 +163,12 @@ const X_Operate = {
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
 
-                    new_range.addEventListener("input", function () {
-                        results[i] = new_range.value;
-                    }.bind(this, i));
+                    // 使用闭包来确保在事件处理程序中引用正确的索引 i
+                    (function (index) {
+                        new_range.addEventListener("input", function () {
+                            results[index] = new_range.value;
+                        });
+                    })(i);
                 }
 
                 new_container_tab.append(new_container_tab_tr);

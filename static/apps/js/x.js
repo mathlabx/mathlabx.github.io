@@ -144,7 +144,9 @@ const X_Operate = {
                     setTimeout(() => {
                         var slider = document.getElementById(elementId);
                         var sliderValue = document.getElementById(spanId);
-                        slider.oninput = function () {
+                        slider.onchange = function () {
+                            console.log(sliderValue.innerHTML);
+                            console.log(this.value);
                             sliderValue.innerHTML = this.value;
                         };
                     }, 1000);

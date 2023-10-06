@@ -133,5 +133,5 @@ input:checked+.slider:before {
 }
 
 td {
-    width: 100vh;
+    width: 50vh;
 }

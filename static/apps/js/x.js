@@ -91,7 +91,9 @@ const X_Operate = {
             let new_container_tab_tr = document.createElement("tr");
             if (settings[i].Typ == "check" || settings[i].Typ == "checked") {
                 let new_container_tab_td_1 = document.createElement("td");
-                new_container_tab_td_1.innerHTML = settings[i].Name;
+                let new_p = document.createElement("p");
+                new_p.innerHTML = settings[i].Name;
+                new_container_tab_td_1.append(new_p);
                 let new_container_tab_td_2 = document.createElement("td");
                 let new_toggle_switch = document.createElement("div");
                 new_toggle_switch.className = "toggle-switch";
@@ -115,7 +117,9 @@ const X_Operate = {
                 }
             } else if (settings[i].Typ == "range") {
                 let new_container_tab_td_1 = document.createElement("td");
-                new_container_tab_td_1.innerHTML = settings[i].Name;
+                let new_p = document.createElement("p");
+                new_p.innerHTML = settings[i].Name;
+                new_container_tab_td_1.append(new_p);
                 let new_container_tab_td_2 = document.createElement("td");
                 let new_slider_container = document.createElement("div");
                 new_slider_container.className = "slider-container";

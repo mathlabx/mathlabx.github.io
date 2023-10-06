@@ -130,6 +130,7 @@ const X_Operate = {
                     new_slider_container.className = "slider-container";
                     new_range = document.createElement("input");
                     elementId = formIndex + "_" + i + "_" + "myRange";
+                    alert(i);
                     new_range.type = "range";
                     new_range.min = String(settings[i].Range[0]);
                     new_range.max = String(settings[i].Range[1]);

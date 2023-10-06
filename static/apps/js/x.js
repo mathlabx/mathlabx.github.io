@@ -145,9 +145,8 @@ const X_Operate = {
                     new_range.class = "slider";
                     new_range.id = elementId;
                     let new_span = document.createElement("span");
-                    new_span.innerHTML = settings[i].Range[2];
-                    alert(settings[i].Range[2]);
                     let spanId = formIndex + "_" + i + "_" + "slide_value";
+                    new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
 
                     setTimeout(() => {

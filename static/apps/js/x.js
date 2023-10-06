@@ -140,13 +140,10 @@ const X_Operate = {
                     let spanId = formIndex + "_" + i + "_" + "slide_value";
                     new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
-
                     setTimeout(() => {
                         var slider = document.getElementById(elementId);
                         var sliderValue = document.getElementById(spanId);
                         slider.oninput = function () {
-                            console.log(sliderValue.innerHTML);
-                            console.log(this.value);
                             sliderValue.innerHTML = this.value;
                         };
                     }, 1000);
@@ -154,7 +151,7 @@ const X_Operate = {
                     // 添加事件处理程序到滑块元素
                     new_range.addEventListener("input", function () {
                         results[i] = new_range.value;
-                       // document.getElementById(spanId).innerHTML = new_range.value;
+                        // document.getElementById(spanId).innerHTML = new_range.value;
                     });
 
                     new_slider_container.append(new_span);

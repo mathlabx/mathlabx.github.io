@@ -142,7 +142,9 @@ const X_Operate = {
                     new_span.id = spanId;
                     setTimeout(() => {
                         var slider = document.getElementById(elementId);
+                        alert(elementId);
                         var sliderValue = document.getElementById(spanId);
+                        alert(spanId);
                         console.log(slider);
                         console.log(sliderValue);
                         slider.oninput = function () {

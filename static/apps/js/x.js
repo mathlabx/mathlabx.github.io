@@ -86,6 +86,7 @@ const X_Operate = {
             new_start.append(new_start_p);
 
             let results = {};
+            let elementId;
 
             for (let i = 0; i < settings.length; i++) {
                 let new_container = document.createElement("div");
@@ -105,7 +106,7 @@ const X_Operate = {
                     let new_toggle_switch_label = document.createElement("label");
                     new_toggle_switch_label.className = "switch";
                     let new_toggle_switch_cheakbox = document.createElement("input");
-                    let elementId = formIndex + "_" + i;
+                    elementId = formIndex + "_" + i;
                     new_toggle_switch_cheakbox.id = elementId;
                     new_toggle_switch_cheakbox.type = "checkbox";
                     let new_slider_round = document.createElement("span");

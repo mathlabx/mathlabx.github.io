@@ -192,10 +192,10 @@ function add_like_click() {
     }
     like_click_i.id = "like_i";
     like_click_i.className = "like-btn-i";
-    like_click_i.addEventListener("click", function () {
+    like_click.append(like_click_i);
+    document.getElementById("like_i").addEventListener("click", function () {
         add_likes(document.getElementById("like_i"));
     });
-    like_click.append(like_click_i);
     div_container.append(like_click);
 }
 

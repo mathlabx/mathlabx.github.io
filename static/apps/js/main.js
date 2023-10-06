@@ -140,17 +140,6 @@ function initializeDesmos(function_, targetElementId) {
     toggleButton.click();
 }
 
-function find_like(url) {
-    let back = null;
-    let Local_like = JSON.parse(localStorage.getItem("Like"));
-    for (let i = 0; i < Local_like.length; i++) {
-        if (Local_like[i] == url) {
-            back = i;
-        }
-    }
-    return back;
-}
-
 function add_likes(div_) {
     let page_url = window.location.href;
     let Local_like = JSON.parse(localStorage.getItem("Like"));

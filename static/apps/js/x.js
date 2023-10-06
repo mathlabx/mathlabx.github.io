@@ -85,9 +85,9 @@ const X_Operate = {
             new_start_p.innerHTML = title;
             new_start.append(new_start_p);
 
-            let results = {};
-            let elementId;
-            let new_range; 
+            let results = [];
+            let elementId; // 声明elementId变量在循环外部
+            let new_range; // 声明new_range变量在循环外部
 
             for (let i = 0; i < settings.length; i++) {
                 let new_container = document.createElement("div");
@@ -126,7 +126,7 @@ const X_Operate = {
                     }
 
                     new_toggle_switch_cheakbox.addEventListener("change", function () {
-                        results[elementId] = new_toggle_switch_cheakbox.checked;
+                        results[i] = new_toggle_switch_cheakbox.checked;
                     });
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
@@ -137,7 +137,7 @@ const X_Operate = {
                     let new_slider_container = document.createElement("div");
                     new_slider_container.className = "slider-container";
                     new_range = document.createElement("input");
-                    let elementId = formIndex + "_" + i + "_" + "myRange";
+                    elementId = formIndex + "_" + i + "_" + "myRange";
                     new_range.type = "range";
                     new_range.min = String(settings[i].Range[0]);
                     new_range.max = String(settings[i].Range[1]);
@@ -164,7 +164,7 @@ const X_Operate = {
                     new_container_tab_tr.append(new_container_tab_td_2);
 
                     new_range.addEventListener("input", function () {
-                        results[elementId] = new_range.value;
+                        results[i] = new_range.value;
                     });
                 }
 
@@ -176,7 +176,6 @@ const X_Operate = {
             let submitButton = document.createElement("button");
             submitButton.textContent = "提交";
             submitButton.addEventListener("click", function () {
-                results[elementId] = new_range.value;
                 resolve(results);
             });
             new_start.append(submitButton);

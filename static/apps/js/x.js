@@ -140,6 +140,7 @@ const X_Operate = {
                     };
                 }, 1000);
                 new_slider_container.append(new_span);
+                new_slider_container.append(document.createElement("br"));
                 new_slider_container.append(new_range);
                 new_container_tab_td_2.append(new_slider_container);
                 new_container_tab_tr.append(new_container_tab_td_1);

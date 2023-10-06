@@ -53,6 +53,15 @@ const X_Operate = {
         });
     },
 
+    newTitle: () => {
+        let new_start = document.createElement("div");
+        new_start.className = "new_start";
+        let new_start_p = document.createElement("p");
+        new_start_p.innerHTML = start;
+        new_start.append(new_start_p);
+        div_container.append(new_start);
+    },
+
     newPage: () => {
         window_load(false, 0);
         div_container.innerHTML = "";

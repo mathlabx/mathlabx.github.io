@@ -165,7 +165,7 @@ const X_Operate = {
 
                     new_range.addEventListener("input", function () {
                         results[i] = new_range.value;
-                    });
+                    }.bind(this, i));
                 }
 
                 new_container_tab.append(new_container_tab_tr);

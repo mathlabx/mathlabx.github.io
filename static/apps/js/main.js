@@ -186,6 +186,11 @@ function add_like_click() {
     let like_click = document.createElement("div");
     like_click.className = "like-btn";
     let like_click_i = document.createElement("i");
+    if (find_like(window.location.href) != null) {
+        like_click_i.style.backgroundColor = "red";
+    } else {
+        like_click_i.style.backgroundColor = "white";
+    }
     like_click_i.id = "like_i";
     like_click_i.className = "like-btn-i";
     like_click_i.addEventListener("click", function () {

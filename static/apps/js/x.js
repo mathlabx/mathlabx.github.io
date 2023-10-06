@@ -87,6 +87,7 @@ const X_Operate = {
 
             let results = {};
             let elementId;
+            let new_range; 
 
             for (let i = 0; i < settings.length; i++) {
                 let new_container = document.createElement("div");
@@ -135,7 +136,7 @@ const X_Operate = {
                     let new_container_tab_td_2 = document.createElement("td");
                     let new_slider_container = document.createElement("div");
                     new_slider_container.className = "slider-container";
-                    let new_range = document.createElement("input");
+                    new_range = document.createElement("input");
                     let elementId = formIndex + "_" + i + "_" + "myRange";
                     new_range.type = "range";
                     new_range.min = String(settings[i].Range[0]);

@@ -143,12 +143,6 @@ function initializeDesmos(function_, targetElementId) {
 function add_likes(div_) {
     let page_url = window.location.href;
     let Local_like = JSON.parse(localStorage.getItem("Like"));
-    console.log(find_like(window.location.href));
-    if (find_like(window.location.href) != null) {
-        div_.style.backgroundColor = "red";
-    } else {
-        div_.style.backgroundColor = "white";
-    }
     if (find_like(page_url) != null) {
         let new_arry = new Array();
         for (let i = 0; i < Local_like.length; i++) {
@@ -169,6 +163,11 @@ function add_likes(div_) {
     };
     serverStorage.setItem("User", localStorage.getItem("UID"), userData);
     localStorage.setItem("Like", JSON.stringify(Local_like));
+    if (find_like(window.location.href) != null) {
+        div_.style.backgroundColor = "red";
+    } else {
+        div_.style.backgroundColor = "white";
+    }
 }
 
 function add_like_click() {

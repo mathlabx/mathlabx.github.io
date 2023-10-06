@@ -23,7 +23,7 @@ function login() {
                     localStorage.setItem("User_Img", data.Img);
                     localStorage.setItem("User_Gender", data.Gender);
                     localStorage.setItem("User_Password", data.Password);
-                    localStorage.setItem("Like", JSON.stringify(Like));
+                    localStorage.setItem("Like", JSON.stringify(data.Like));
                     // 本地存储其他用户信息
                 }
             });
@@ -67,7 +67,7 @@ function registered() {
                 Info: userinput_info,
                 Gender: userinput_gender,
                 Img: userinput_img,
-                Like: ["https://app.mathscichem.com/app/Two_Variable_Linear_Equation_Calculator/"]
+                Like: []
             };
 
             // 使用 Firebase 实时数据库存储用户信息

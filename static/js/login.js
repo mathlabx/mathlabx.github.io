@@ -67,7 +67,7 @@ function registered() {
                 Info: userinput_info,
                 Gender: userinput_gender,
                 Img: userinput_img,
-                Like: new Array
+                Like: new Array()
             };
 
             // 使用 Firebase 实时数据库存储用户信息

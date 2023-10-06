@@ -132,7 +132,7 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
-tr {
+td {
     width: 100vh;
 }
 

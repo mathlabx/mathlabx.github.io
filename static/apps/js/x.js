@@ -1,6 +1,14 @@
 let div_container;
 let new_HR = document.createElement("hr");
 
+/*
+setx=[
+    {Name:"Img",Typ:"checked"},
+    {Name:"Img2",Typ:"range",Range:[1,10,5]}
+];
+X_Operate.newSetting("Setting",setx);
+*/
+
 const X_Operate = {
     newCheck: (words) => {
         return new Promise((resolve, reject) => {

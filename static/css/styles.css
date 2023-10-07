@@ -96,15 +96,16 @@ nav a {
 /* Style for the Flow Element */
 .flow-element {
     background-color: rgb(138 150 225 / 28%);
-    border: 1px solid #ddd;
+    border: 2px solid #5D4037;
+    /* Increased border width and changed border color */
     display: inline-block;
     margin: 10px;
     /* Add margin to create spacing between elements */
     text-align: center;
     border-radius: 10px;
     /* Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    /* Add a subtle shadow */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    /* Increased shadow and opacity for a stronger shadow effect */
     height: 350px;
     width: calc(100% - 20px);
     /* Ensure one element per row on mobile */
@@ -112,6 +113,13 @@ nav a {
     /* Include padding in element width */
     min-height: 0;
     /* Ensure minimum height is not greater than width */
+    transition: transform 0.3s ease-in-out;
+    /* Added a smooth transform transition on hover */
+}
+
+.flow-element:hover {
+    transform: scale(1.05);
+    /* Scale up the element slightly on hover */
 }
 
 

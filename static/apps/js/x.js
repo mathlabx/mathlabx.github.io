@@ -165,6 +165,7 @@ const X_Operate = {
                     }
                     close_box(elementId, spanId, settings[i].Range[0], settings[i].Range[1]);
                     // 添加事件处理程序到滑块元素
+                    results[i] = settings[i].Range[2];
                     new_range.addEventListener("input", function () {
                         results[i] = new_range.value;
                         // document.getElementById(spanId).innerHTML = new_range.value;

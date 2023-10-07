@@ -141,23 +141,31 @@ const X_Operate = {
                     new_span.contentEditable = "true";
                     new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
-                    function close_box(ii, spanId) {
+                    function close_box(ii, spanId, min, max) {
                         setTimeout(function () {
                             var slider = document.getElementById(ii);
                             var sliderValue = document.getElementById(spanId);
+
                             // 监听滑块的输入事件
                             slider.addEventListener("input", function () {
                                 // 将滑块的值同步到 span 元素的内容
                                 sliderValue.innerHTML = slider.value;
                             });
+
                             // 监听 span 元素的输入事件
                             sliderValue.addEventListener("input", function () {
-                                // 将 span 元素的内容同步到滑块的值
-                                slider.value = sliderValue.innerHTML;
+                                var inputValue = parseFloat(sliderValue.innerHTML); // 将输入的文本转换为数字
+                                if (!isNaN(inputValue) && inputValue >= min && inputValue <= max) {
+                                    // 如果输入是有效的数字且在范围内，将其设置为滑块的值
+                                    slider.value = inputValue;
+                                } else {
+                                    // 如果输入无效或超出范围，恢复为滑块的当前值
+                                    sliderValue.innerHTML = slider.value;
+                                }
                             });
                         }, 1000);
                     }
-                    close_box(elementId, spanId);
+                    close_box(elementId, spanId, settings[i].Range[0], settings[i].Range[1]);
                     // 添加事件处理程序到滑块元素
                     new_range.addEventListener("input", function () {
                         results[i] = new_range.value;

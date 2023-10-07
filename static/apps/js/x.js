@@ -225,8 +225,8 @@ const X_Operate = {
     newStep: (step, red, ka) => {
         let new_step = document.createElement("div");
         new_step.className = "new_step";
-        if (red) { 
-            new_step.style.color = "red"; 
+        if (red) {
+            new_step.style.color = "red";
         }
 
         if (ka) {
@@ -237,6 +237,11 @@ const X_Operate = {
         }
 
         div_container.append(new_step);
+    },
+
+    newHr: () => {
+        let new_HR = document.createElement("hr");
+        div_container.append(new_HR);
     }
 };
 

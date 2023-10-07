@@ -138,7 +138,7 @@ const X_Operate = {
                     new_range.id = elementId;
                     let new_span = document.createElement("span");
                     let spanId = formIndex + "_" + i + "_" + "slide_value";
-                    new_span.contenteditable = "true";
+                    new_span.contentEditable = "true";
                     new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
                     function close_box(ii, spanId) {

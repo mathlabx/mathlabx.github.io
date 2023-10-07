@@ -102,6 +102,9 @@ const X_Operate = {
                     elementId = formIndex + "_" + i;
                     new_toggle_switch_cheakbox.id = elementId;
                     new_toggle_switch_cheakbox.type = "checkbox";
+                    new_toggle_switch_cheakbox.addEventListener("load", function () {
+                        document.getElementById(elementId).click();
+                    });
                     let new_slider_round = document.createElement("span");
                     new_slider_round.className = "slider round";
                     new_toggle_switch_label.append(new_toggle_switch_cheakbox);
@@ -110,11 +113,6 @@ const X_Operate = {
                     new_container_tab_td_2.append(new_toggle_switch);
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
-
-                    if (settings[i].Typ == "checked") {
-                        document.getElementById(elementId).click();
-                    }
-
                     new_toggle_switch_cheakbox.addEventListener("change", function () {
                         results[i] = new_toggle_switch_cheakbox.checked;
                     });

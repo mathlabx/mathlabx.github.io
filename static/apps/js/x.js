@@ -152,6 +152,10 @@ const X_Operate = {
                                 sliderValue.innerHTML = slider.value;
                             });
 
+                            sliderValue.addEventListener("input", function () {
+                                results[i] = this.value;
+                            });
+
                             // 监听 span 元素的输入事件
                             sliderValue.addEventListener("input", function () {
                                 var inputValue = parseFloat(sliderValue.innerHTML); // 将输入的文本转换为数字
@@ -169,10 +173,6 @@ const X_Operate = {
                     // 添加事件处理程序到滑块元素
                     results[i] = settings[i].Range[2];
                     new_range.addEventListener("input", function () {
-                        results[i] = this.value;
-                    });
-                    var sliderValue = document.getElementById(spanId);
-                    sliderValue.addEventListener("input", function () {
                         results[i] = this.value;
                     });
                     new_slider_container.append(new_span);

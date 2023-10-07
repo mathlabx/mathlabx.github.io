@@ -84,6 +84,7 @@ const X_Operate = {
             for (let i = 0; i < settings.length; i++) {
                 let new_container = document.createElement("div");
                 new_container.className = "settings_flow";
+                if (!settings[i].show) new_container.style.display = "none";
                 let new_container_tab = document.createElement("table");
                 new_container_tab.className = "settings_flow_tab";
                 let new_container_tab_tr = document.createElement("tr");

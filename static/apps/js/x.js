@@ -170,7 +170,7 @@ const X_Operate = {
                     // 添加事件处理程序到滑块元素
                     results[i] = settings[i].Range[2];
                     new_range.addEventListener("input", function () {
-                        results[i] = new_range.value;
+                        results[i] = this.value;
                         // document.getElementById(spanId).innerHTML = new_range.value;
                     });
 

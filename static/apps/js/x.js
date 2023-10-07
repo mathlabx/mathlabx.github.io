@@ -145,12 +145,16 @@ const X_Operate = {
                         setTimeout(function () {
                             var slider = document.getElementById(ii);
                             var sliderValue = document.getElementById(spanId);
-                            sliderValue.oninput = function () {
-                                slider.value = this.innerHTML;
-                            }
-                            slider.oninput = function () {
-                                sliderValue.innerHTML = this.value;
-                            };
+                            // 监听滑块的输入事件
+                            slider.addEventListener("input", function () {
+                                // 将滑块的值同步到 span 元素的内容
+                                sliderValue.innerHTML = slider.value;
+                            });
+                            // 监听 span 元素的输入事件
+                            sliderValue.addEventListener("input", function () {
+                                // 将 span 元素的内容同步到滑块的值
+                                slider.value = sliderValue.innerHTML;
+                            });
                         }, 1000);
                     }
                     close_box(elementId, spanId);

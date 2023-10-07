@@ -171,6 +171,7 @@ const X_Operate = {
                     new_range.addEventListener("input", function () {
                         results[i] = this.value;
                     });
+                    var sliderValue = document.getElementById(spanId);
                     sliderValue.addEventListener("input", function () {
                         results[i] = this.value;
                     });

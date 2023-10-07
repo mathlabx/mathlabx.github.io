@@ -102,9 +102,11 @@ const X_Operate = {
                     elementId = formIndex + "_" + i;
                     new_toggle_switch_cheakbox.id = elementId;
                     new_toggle_switch_cheakbox.type = "checkbox";
-                    new_toggle_switch_cheakbox.addEventListener("load", function () {
-                        document.getElementById(elementId).click();
-                    });
+                    if (settings[i].Typ == "checked") {
+                        new_toggle_switch_cheakbox.addEventListener("load", function () {
+                            this.click();
+                        });
+                    }
                     let new_slider_round = document.createElement("span");
                     new_slider_round.className = "slider round";
                     new_toggle_switch_label.append(new_toggle_switch_cheakbox);

@@ -214,7 +214,9 @@ const X_Operate = {
         for (let i = 0; i < choose.length; i++) {
             let submitButton = document.createElement("button");
             submitButton.textContent = choose[i].Name;
-            submitButton.addEventListener("click", choose[i].Func());
+            submitButton.addEventListener("click", function () {
+                choose[i].Func();
+            });
             new_start.append(submitButton);
         }
         div_container.append(new_start);

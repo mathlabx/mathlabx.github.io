@@ -58,18 +58,10 @@ const Operate = {
         let new_step = document.createElement("div");
         new_step.className = "new_step";
 
-        try {
-            // 尝试解析数学表达式，如果成功，不会抛出错误
-            katex.parse(step);
+        // 使用 KaTeX 渲染数学公式
+        katex.render(step, new_step, { displayMode: true });
 
-            // 如果解析成功，将 step 添加到 new_step 作为纯文本
-            new_step.textContent = step;
-
-            div_container.append(new_step);
-        } catch (error) {
-            // 如果解析失败，您可以在此处处理错误，例如显示错误消息
-            console.error("解析数学表达式失败:", error);
-        }
+        div_container.append(new_step);
     },
 
     newSolution: (solution) => {

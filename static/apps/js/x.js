@@ -112,9 +112,7 @@ const X_Operate = {
                     new_container_tab_tr.append(new_container_tab_td_2);
 
                     if (settings[i].Typ == "checked") {
-                        setTimeout(() => {
-                            document.getElementById(elementId).click();
-                        }, 1000);
+                        document.getElementById(elementId).click();
                     }
 
                     new_toggle_switch_cheakbox.addEventListener("change", function () {

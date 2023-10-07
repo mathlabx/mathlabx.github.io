@@ -109,6 +109,9 @@ const X_Operate = {
                                 document.getElementById(Id).click();
                                 results[i] = new_toggle_switch_cheakbox.checked;
                                 if (settings[i].Typ == "check") results[i] = false;
+                                new_toggle_switch_cheakbox.addEventListener("change", function () {
+                                    results[i] = new_toggle_switch_cheakbox.checked;
+                                });
                             }, 1000);
                         }
                         close_box(elementId);

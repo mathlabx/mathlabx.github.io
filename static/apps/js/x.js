@@ -56,7 +56,7 @@ const X_Operate = {
     newTitle: (title) => {
         let new_start = document.createElement("div");
         new_start.className = "new_start";
-        let new_start_p = document.createElement("p");
+        let new_start_p = document.createElement("h2");
         new_start_p.innerHTML = title;
         new_start.append(new_start_p);
         div_container.append(new_start);
@@ -73,7 +73,7 @@ const X_Operate = {
             const formIndex = Math.floor(Math.random() * 1000000);
             let new_start = document.createElement("div");
             new_start.className = "new_start";
-            let new_start_p = document.createElement("p");
+            let new_start_p = document.createElement("h2");
             new_start_p.innerHTML = title;
             new_start.append(new_start_p);
 
@@ -170,11 +170,9 @@ const X_Operate = {
                     results[i] = settings[i].Range[2];
                     new_range.addEventListener("input", function () {
                         results[i] = this.value;
-                        // document.getElementById(spanId).innerHTML = new_range.value;
                     });
                     sliderValue.addEventListener("input", function () {
                         results[i] = this.value;
-                        // document.getElementById(spanId).innerHTML = new_range.value;
                     });
                     new_slider_container.append(new_span);
                     new_slider_container.append(document.createElement("br"));
@@ -190,7 +188,7 @@ const X_Operate = {
             }
 
             let submitButton = document.createElement("button");
-            submitButton.textContent = "提交";
+            submitButton.textContent = "Continue";
             submitButton.addEventListener("click", function () {
                 resolve(results);
             });
@@ -201,7 +199,20 @@ const X_Operate = {
     },
 
     newResult: (generated_numbers, words, choose) => {
-
+        let new_start = document.createElement("div");
+        new_start.className = "new_start";
+        let new_title = document.createElement("h2");
+        new_title.innerHTML = "Generation completed";
+        new_start.append(new_title);
+        let results_numbers = document.createElement("h1");
+        results_numbers.innerHTML = generated_numbers + " Generated!";
+        new_start.append(results_numbers);
+        for (let i = 0; i < choose.length; i++) {
+            let submitButton = document.createElement("button");
+            submitButton.textContent = choose[i];
+            new_start.append(submitButton);
+        }
+        div_container.append(new_start);
     }
 };
 

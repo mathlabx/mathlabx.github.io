@@ -43,6 +43,11 @@ button {
     /* Ensure minimum height is not greater than width */
 }
 
+.new_step {
+    font-size: large;
+    padding: 30px;
+}
+
 .new_start {
     color: rgb(200, 200, 200);
     font-size: large;

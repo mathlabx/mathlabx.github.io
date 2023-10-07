@@ -204,6 +204,9 @@ const X_Operate = {
         let new_title = document.createElement("h2");
         new_title.innerHTML = "Generation completed";
         new_start.append(new_title);
+        let new_p = document.createElement("p");
+        new_p.innerHTML = words;
+        new_start.append(new_p);
         let results_numbers = document.createElement("h1");
         results_numbers.innerHTML = generated_numbers + " Generated!";
         new_start.append(results_numbers);

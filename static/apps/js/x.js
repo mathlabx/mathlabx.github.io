@@ -105,8 +105,8 @@ const X_Operate = {
                     if (settings[i].Typ == "checked") {
                         function close_box(Id) {
                             setTimeout(() => {
-                                results[i] = new_toggle_switch_cheakbox.checked;
                                 document.getElementById(Id).click();
+                                results[i] = new_toggle_switch_cheakbox.checked;
                             }, 1000);
                         }
                         close_box(elementId);

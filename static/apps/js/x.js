@@ -138,13 +138,16 @@ const X_Operate = {
                     new_range.id = elementId;
                     let new_span = document.createElement("span");
                     let spanId = formIndex + "_" + i + "_" + "slide_value";
+                    new_span.contenteditable = "true";
                     new_span.innerHTML = String(settings[i].Range[2]);
                     new_span.id = spanId;
                     function close_box(ii, spanId) {
                         setTimeout(function () {
                             var slider = document.getElementById(ii);
                             var sliderValue = document.getElementById(spanId);
-
+                            sliderValue.onchange = function () {
+                                slider.value = this.innerHTML;
+                            }
                             slider.oninput = function () {
                                 sliderValue.innerHTML = this.value;
                             };
@@ -179,6 +182,10 @@ const X_Operate = {
 
             document.getElementById("container").append(new_start);
         });
+    },
+
+    newResult: (generated_numbers) => {
+
     }
 };
 

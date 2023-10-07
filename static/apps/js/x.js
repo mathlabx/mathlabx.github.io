@@ -105,6 +105,7 @@ const X_Operate = {
                     if (settings[i].Typ == "checked") {
                         function close_box(Id) {
                             setTimeout(() => {
+                                results[i] = new_toggle_switch_cheakbox.checked;
                                 document.getElementById(Id).click();
                             }, 1000);
                         }
@@ -118,9 +119,6 @@ const X_Operate = {
                     new_container_tab_td_2.append(new_toggle_switch);
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
-                    new_toggle_switch_cheakbox.addEventListener("change", function () {
-                        results[i] = new_toggle_switch_cheakbox.checked;
-                    });
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");

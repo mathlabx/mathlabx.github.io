@@ -206,7 +206,7 @@ const X_Operate = {
         new_title.innerHTML = "Generation completed";
         new_start.append(new_title);
         let results_numbers = document.createElement("h1");
-        results_numbers.innerHTML = generated_numbers + " Generated!";
+        results_numbers.innerHTML = generated_numbers + " Questions Generated!";
         new_start.append(results_numbers);
         let new_p = document.createElement("p");
         new_p.innerHTML = words;

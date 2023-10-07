@@ -172,7 +172,10 @@ const X_Operate = {
                         results[i] = this.value;
                         // document.getElementById(spanId).innerHTML = new_range.value;
                     });
-
+                    sliderValue.addEventListener("input", function () {
+                        results[i] = this.value;
+                        // document.getElementById(spanId).innerHTML = new_range.value;
+                    });
                     new_slider_container.append(new_span);
                     new_slider_container.append(document.createElement("br"));
                     new_slider_container.append(new_range);
@@ -197,7 +200,7 @@ const X_Operate = {
         });
     },
 
-    newResult: (generated_numbers) => {
+    newResult: (generated_numbers, words, choose) => {
 
     }
 };

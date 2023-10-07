@@ -222,9 +222,12 @@ const X_Operate = {
         div_container.append(new_start);
     },
 
-    newStep: (step, ka) => {
+    newStep: (step, red, ka) => {
         let new_step = document.createElement("div");
         new_step.className = "new_step";
+        if (red) { 
+            new_step.style.color = "red"; 
+        }
 
         if (ka) {
             // 使用 KaTeX 渲染数学公式

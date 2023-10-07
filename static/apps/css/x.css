@@ -48,6 +48,10 @@ button {
     padding: 30px;
 }
 
+.new_step::before {
+    content: "Answer: ";
+}
+
 .new_start {
     color: rgb(200, 200, 200);
     font-size: large;

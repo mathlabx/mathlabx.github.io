@@ -153,7 +153,7 @@ const X_Operate = {
                             });
 
                             sliderValue.addEventListener("input", function () {
-                                results[i] = this.value;
+                                results[i] = Number(this.innerHTML);
                             });
 
                             // 监听 span 元素的输入事件

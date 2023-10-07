@@ -203,5 +203,5 @@ const X_Operate = {
 
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
-    main();
+    loadScripts(scriptsToLoad, main);
 });

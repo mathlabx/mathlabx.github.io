@@ -146,6 +146,8 @@ const X_Operate = {
                             var slider = document.getElementById(ii);
                             var sliderValue = document.getElementById(spanId);
                             sliderValue.onchange = function () {
+                                console.log(slider.value);
+                                console.log(this.innerHTML);
                                 slider.value = this.innerHTML;
                             }
                             slider.oninput = function () {

@@ -36,9 +36,7 @@ APP.account = {
 
 APP.log = function (message = "Loading...", duration = 3000) {
     let container = null;
-
-    // 隐藏已存在的加载提示
-    hideExistingLoading();
+    let timeoutId = null;
 
     // 创建一个居中的文字元素的容器
     container = document.createElement("div");
@@ -63,8 +61,13 @@ APP.log = function (message = "Loading...", duration = 3000) {
     // 将容器添加到文档中
     document.body.appendChild(container);
 
+    // 隐藏已存在的加载提示并重新计时
+    if (timeoutId) {
+        clearTimeout(timeoutId);
+    }
+
     // 定时隐藏加载提示
-    setTimeout(() => {
+    timeoutId = setTimeout(() => {
         hide();
     }, duration);
 
@@ -73,13 +76,7 @@ APP.log = function (message = "Loading...", duration = 3000) {
             // 从文档中移除加载提示容器
             document.body.removeChild(container);
             container = null;
-        }
-    }
-
-    function hideExistingLoading() {
-        // 如果已经存在加载提示，先隐藏它
-        if (container) {
-            hide();
+            clearTimeout(timeoutId);
         }
     }
 

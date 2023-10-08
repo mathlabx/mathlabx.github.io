@@ -108,7 +108,7 @@ const X_Operate = {
                             setTimeout(() => {
                                 document.getElementById(Id).click();
                                 results[i] = document.getElementById(Id).checked;
-                                if (settings[i].Typ == "check") results[i] = false;
+                              //  if (settings[i].Typ == "check") results[i] = false;
                             }, 600);
                         }
                         close_box(elementId);

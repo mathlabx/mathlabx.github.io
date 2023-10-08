@@ -48,7 +48,7 @@ button {
     padding: 30px;
 }
 
-.new_step::before {
+.Answer::before {
     content: "Answer: ";
 }
 

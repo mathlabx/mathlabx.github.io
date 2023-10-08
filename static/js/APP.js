@@ -34,6 +34,56 @@ APP.account = {
     $s: "not login"
 }
 
+APP.log = function () {
+    let container = null;
+
+    function show(message = "Loading...", duration = 3000) {
+        // 如果已经存在加载提示，先隐藏它
+        hide();
+
+        // 创建一个居中的文字元素的容器
+        container = document.createElement("div");
+        container.style.position = "fixed";
+        container.style.top = "50%";
+        container.style.left = "50%";
+        container.style.transform = "translate(-50%, -50%)";
+        container.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+        container.style.color = "white";
+        container.style.padding = "20px";
+        container.style.borderRadius = "5px";
+        container.style.zIndex = "1000";
+
+        // 创建加载文字元素并设置文本内容
+        const loadingText = document.createElement("div");
+        loadingText.textContent = message;
+
+        // 将加载文字元素添加到容器中
+        container.appendChild(loadingText);
+
+        // 将容器添加到文档中
+        document.body.appendChild(container);
+
+        // 定时隐藏加载提示
+        setTimeout(() => {
+            hide();
+        }, duration);
+    }
+
+    function hide() {
+        if (container) {
+            // 从文档中移除加载提示容器
+            document.body.removeChild(container);
+            container = null;
+        }
+    }
+
+    return { show, hide };
+}
+
+// 显示加载提示
+//APP.log.show("加载中，请稍候...", 5000); 
+
+
 if (localStorage.getItem("login") == "true") APP.login = true;
 
 if (APP.login) {

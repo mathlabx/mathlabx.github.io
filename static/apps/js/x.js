@@ -117,8 +117,6 @@ const X_Operate = {
                         setTimeout(() => {
                             document.getElementById(Id).addEventListener("change", function () {
                                 results[i] = document.getElementById(Id).checked;
-                                console.log(results[i]);
-                                console.log(document.getElementById(Id).checked);
                             });
                         }, 600);
                     }

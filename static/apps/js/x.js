@@ -103,6 +103,7 @@ const X_Operate = {
                     elementId = formIndex + "_" + i;
                     new_toggle_switch_cheakbox.id = elementId;
                     new_toggle_switch_cheakbox.type = "checkbox";
+                    console.log(settings[i]);
                     if (settings[i].Typ == "checked" && settings[i].show == true) {
                         function close_box(Id) {
                             setTimeout(() => {

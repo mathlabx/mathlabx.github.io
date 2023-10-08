@@ -109,16 +109,18 @@ const X_Operate = {
                                 document.getElementById(Id).click();
                                 results[i] = document.getElementById(Id).checked;
                                 if (settings[i].Typ == "check") results[i] = false;
-                            }, 1000);
+                            }, 600);
                         }
                         close_box(elementId);
                     }
                     function close_box_l(Id) {
-                        document.getElementById(Id).addEventListener("change", function () {
-                            results[i] = document.getElementById(Id).checked;
-                            console.log(results[i]);
-                            console.log(document.getElementById(Id).checked);
-                        });
+                        setTimeout(() => {
+                            document.getElementById(Id).addEventListener("change", function () {
+                                results[i] = document.getElementById(Id).checked;
+                                console.log(results[i]);
+                                console.log(document.getElementById(Id).checked);
+                            });
+                        }, 600);
                     }
                     close_box_l(elementId);
                     let new_slider_round = document.createElement("span");

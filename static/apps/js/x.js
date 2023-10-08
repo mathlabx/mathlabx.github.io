@@ -109,8 +109,11 @@ const X_Operate = {
                                 document.getElementById(Id).click();
                                 results[i] = document.getElementById(Id).checked;
                                 if (settings[i].Typ == "check") results[i] = false;
+                                console.log("a");
                                 document.getElementById(Id).addEventListener("change", function () {
                                     results[i] = document.getElementById(Id).checked;
+                                    console.log(results[i]);
+                                    console.log(document.getElementById(Id).checked);
                                 });
                             }, 1000);
                         }

@@ -107,10 +107,10 @@ const X_Operate = {
                         function close_box(Id) {
                             setTimeout(() => {
                                 document.getElementById(Id).click();
-                                results[i] = new_toggle_switch_cheakbox.checked;
+                                results[i] = document.getElementById(Id).checked;
                                 if (settings[i].Typ == "check") results[i] = false;
-                                new_toggle_switch_cheakbox.addEventListener("change", function () {
-                                    results[i] = new_toggle_switch_cheakbox.checked;
+                                document.getElementById(Id).addEventListener("change", function () {
+                                    results[i] = document.getElementById(Id).checked;
                                 });
                             }, 1000);
                         }

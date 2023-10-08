@@ -109,16 +109,18 @@ const X_Operate = {
                                 document.getElementById(Id).click();
                                 results[i] = document.getElementById(Id).checked;
                                 if (settings[i].Typ == "check") results[i] = false;
-                                console.log("a");
-                                document.getElementById(Id).addEventListener("change", function () {
-                                    results[i] = document.getElementById(Id).checked;
-                                    console.log(results[i]);
-                                    console.log(document.getElementById(Id).checked);
-                                });
                             }, 1000);
                         }
                         close_box(elementId);
                     }
+                    function close_box_l(Id) {
+                        document.getElementById(Id).addEventListener("change", function () {
+                            results[i] = document.getElementById(Id).checked;
+                            console.log(results[i]);
+                            console.log(document.getElementById(Id).checked);
+                        });
+                    }
+                    close_box_l(elementId);
                     let new_slider_round = document.createElement("span");
                     new_slider_round.className = "slider round";
                     new_toggle_switch_label.append(new_toggle_switch_cheakbox);

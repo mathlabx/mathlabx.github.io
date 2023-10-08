@@ -236,6 +236,7 @@ const X_Operate = {
         new_step.className = "new_step";
         if (red) {
             new_step.style.color = "red";
+            new_step.className += " Answer";
         }
 
         if (ka) {

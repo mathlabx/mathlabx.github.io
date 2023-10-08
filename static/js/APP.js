@@ -38,6 +38,9 @@ APP.log = function (message = "Loading...", duration = 3000) {
     // 使用固定的id标识加载提示容器
     const containerId = "loading-container";
 
+    //打印到控制台
+    console.log("Log: " + message);
+
     // 查找已存在的容器并删除
     const existingContainer = document.getElementById(containerId);
     if (existingContainer) {

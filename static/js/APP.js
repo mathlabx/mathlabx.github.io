@@ -44,6 +44,7 @@ APP.log = function () {
         // 创建一个居中的文字元素的容器
         container = document.createElement("div");
         container.style.position = "fixed";
+        container.style.zIndex = "999999";
         container.style.top = "50%";
         container.style.left = "50%";
         container.style.transform = "translate(-50%, -50%)";

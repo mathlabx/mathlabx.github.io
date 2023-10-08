@@ -35,11 +35,18 @@ APP.account = {
 }
 
 APP.log = function (message = "Loading...", duration = 3000) {
-    let container = null;
-    let timeoutId = null;
+    // 使用固定的id标识加载提示容器
+    const containerId = "loading-container";
+
+    // 查找已存在的容器并删除
+    const existingContainer = document.getElementById(containerId);
+    if (existingContainer) {
+        document.body.removeChild(existingContainer);
+    }
 
     // 创建一个居中的文字元素的容器
-    container = document.createElement("div");
+    const container = document.createElement("div");
+    container.id = containerId; // 设置id
     container.style.position = "fixed";
     container.style.zIndex = "999999";
     container.style.top = "50%";
@@ -61,22 +68,16 @@ APP.log = function (message = "Loading...", duration = 3000) {
     // 将容器添加到文档中
     document.body.appendChild(container);
 
-    // 隐藏已存在的加载提示并重新计时
-    if (timeoutId) {
-        clearTimeout(timeoutId);
-    }
-
     // 定时隐藏加载提示
-    timeoutId = setTimeout(() => {
+    setTimeout(() => {
         hide();
     }, duration);
 
     function hide() {
-        if (container) {
-            // 从文档中移除加载提示容器
-            document.body.removeChild(container);
-            container = null;
-            clearTimeout(timeoutId);
+        // 查找已存在的容器并删除
+        const existingContainer = document.getElementById(containerId);
+        if (existingContainer) {
+            document.body.removeChild(existingContainer);
         }
     }
 

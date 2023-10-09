@@ -24,6 +24,33 @@ function app_update(typ) {
         }
         return return_f;
     }
+    
+    function new_ads_flow() {
+        // 创建一个新的script元素
+        var scriptElement = document.createElement("script");
+        scriptElement.async = true;
+        scriptElement.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3037105534785562";
+        scriptElement.crossOrigin = "anonymous";
+
+        // 创建ins元素
+        var insElement = document.createElement("ins");
+        insElement.className = "adsbygoogle";
+        insElement.style.display = "block";
+        insElement.setAttribute("data-ad-format", "fluid");
+        insElement.setAttribute("data-ad-layout-key", "-dq-a+49-4i-5u");
+        insElement.setAttribute("data-ad-client", "ca-pub-3037105534785562");
+        insElement.setAttribute("data-ad-slot", "3489283943");
+
+        // 创建最后一个script元素
+        var scriptElement2 = document.createElement("script");
+        scriptElement2.textContent = "(adsbygoogle = window.adsbygoogle || []).push({});";
+
+        // 将这些元素添加到容器中
+        container.appendChild(scriptElement);
+        container.appendChild(insElement);
+        container.appendChild(scriptElement2);
+    }
+
     let container = document.getElementById("container");
     container.innerHTML = "";
     for (var i = 0; i < APP.apps.length; i++) {

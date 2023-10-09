@@ -1,4 +1,3 @@
-
 window.addEventListener("load", function () {
     let new_ad_API = document.createElement("script");
     new_ad_API.async = true;
@@ -6,3 +5,13 @@ window.addEventListener("load", function () {
     crossorigin = "anonymous";
     document.head.append(new_ad_API);
 });
+
+APP.Ads = {
+    /*
+    none
+    few
+    medium
+    more
+    */
+    amount = "medium"
+}

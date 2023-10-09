@@ -25,23 +25,38 @@ function app_update(typ) {
         return return_f;
     }
 
+    // 生成正态分布随机数
+    function generateRandomNormal() {
+        var mean = 0.5; // 平均值
+        var stdDeviation = 0.15; // 标准差，可以根据需要调整
+
+        var u1 = Math.random();
+        var u2 = Math.random();
+        var z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+
+        return mean + stdDeviation * z;
+    }
+
+    // 根据APP.Ads.amount来确定概率
     function shouldShowAd() {
-        // 根据APP.Ads.amount来确定概率
         var probability = 0;
         switch (APP.Ads.amount) {
             case "none":
                 probability = 0; // 不显示广告
                 break;
             case "few":
-                probability = 0.2; // 20%的概率显示广告
+                probability = generateRandomNormal(); // 使用正态分布生成随机数
                 break;
             case "medium":
-                probability = 0.5; // 50%的概率显示广告
+                probability = generateRandomNormal(); // 使用正态分布生成随机数
                 break;
             case "more":
-                probability = 0.8; // 80%的概率显示广告
+                probability = generateRandomNormal(); // 使用正态分布生成随机数
                 break;
         }
+
+        // 限制概率在0到1之间
+        probability = Math.min(1, Math.max(0, probability));
 
         // 生成随机数，如果小于概率则返回true，否则返回false
         var randomValue = Math.random();

@@ -5,13 +5,3 @@ window.addEventListener("load", function () {
     crossorigin = "anonymous";
     document.head.append(new_ad_API);
 });
-
-APP.Ads = {
-    /*
-    none
-    few
-    medium
-    more
-    */
-    amount = "few"
-}

@@ -91,6 +91,17 @@ APP.log = function (message = "Loading...", duration = 3000) {
 //APP.log("加载中，请稍候...", 5000); // 在5秒后自动隐藏加载提示
 
 
+APP.Ads = {
+    /*
+    none
+    few
+    medium
+    more
+    */
+    amount = "few"
+}
+
+
 if (localStorage.getItem("login") == "true") APP.login = true;
 
 if (APP.login) {

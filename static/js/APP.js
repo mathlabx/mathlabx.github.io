@@ -98,7 +98,7 @@ APP.Ads = {
     medium
     more
     */
-    amount = "few"
+    amount: "few"
 }
 
 

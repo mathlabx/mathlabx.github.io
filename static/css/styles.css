@@ -94,7 +94,8 @@ nav a {
 }
 
 /* Style for the Flow Element */
-.flow-element {
+.flow-element,
+.adsbygoogle {
     background-color: rgb(138 150 225 / 28%);
     border: 1px solid #ddd;
     display: inline-block;

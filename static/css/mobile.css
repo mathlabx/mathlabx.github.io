@@ -15,7 +15,8 @@ body {
 
 /* Center the Flow Elements on mobile */
 /* Override width and margin for all devices to center-align elements */
-.flow-element {
+.flow-element,
+.adsbygoogle {
     width: calc(100% - 25px);
     /* Ensure one element per row on mobile */
     margin: 10px;

@@ -1,11 +1,16 @@
 /* Additional styles for tablet screens */
 /* You can customize these styles for tablets */
 /* Override width and margin for all devices to center-align elements */
-.flow-element {
-    width: calc(49.5% - 20px); /* Approximately 3 elements per row with spacing */
-    margin: 10px; /* Add margin to create spacing between elements and center-align them */
-    display: inline-block; /* Make elements display horizontally */
-    vertical-align: top; /* Align elements to the top */
+.flow-element,
+.adsbygoogle {
+    width: calc(49.5% - 20px);
+    /* Approximately 3 elements per row with spacing */
+    margin: 10px;
+    /* Add margin to create spacing between elements and center-align them */
+    display: inline-block;
+    /* Make elements display horizontally */
+    vertical-align: top;
+    /* Align elements to the top */
 }
 
 /* Style for the Flow Element that occupies a full row */

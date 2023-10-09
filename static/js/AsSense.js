@@ -13,5 +13,5 @@ APP.Ads = {
     medium
     more
     */
-    amount = "medium"
+    amount = "few"
 }

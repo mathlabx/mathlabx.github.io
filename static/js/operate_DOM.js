@@ -24,7 +24,30 @@ function app_update(typ) {
         }
         return return_f;
     }
-    
+
+    function shouldShowAd() {
+        // 根据APP.Ads.amount来确定概率
+        var probability = 0;
+        switch (APP.Ads.amount) {
+            case "none":
+                probability = 0; // 不显示广告
+                break;
+            case "few":
+                probability = 0.2; // 20%的概率显示广告
+                break;
+            case "medium":
+                probability = 0.5; // 50%的概率显示广告
+                break;
+            case "more":
+                probability = 0.8; // 80%的概率显示广告
+                break;
+        }
+
+        // 生成随机数，如果小于概率则返回true，否则返回false
+        var randomValue = Math.random();
+        return randomValue < probability;
+    }
+
     function new_ads_flow() {
         // 创建一个新的script元素
         var scriptElement = document.createElement("script");
@@ -78,6 +101,7 @@ function app_update(typ) {
                 to_app(this.url);
             });
             container.append(new_flow);
+            if (shouldShowAd()) new_ads_flow(); //添加流广告
         }
     }
     window_load(true, 900);

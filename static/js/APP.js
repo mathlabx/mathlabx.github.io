@@ -34,14 +34,9 @@ APP.account = {
     $s: "not login"
 }
 
-/*
 async function pause(milliseconds) {
-  return new Promise(resolve => setTimeout(resolve, milliseconds));
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
-
-// 使用 await 暂停一段时间
-await pause(1000); // 暂停一秒钟
-*/
 
 APP.log = function (message = "Loading...", duration = 3000) {
     // 使用固定的id标识加载提示容器
@@ -92,6 +87,9 @@ APP.log = function (message = "Loading...", duration = 3000) {
             document.body.removeChild(existingContainer);
         }
     }
+
+    // 使用 await 暂停一段时间
+    await pause(1); // 暂停一秒钟
 
     return { hide };
 }

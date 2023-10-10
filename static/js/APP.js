@@ -89,7 +89,7 @@ APP.log = function (message = "Loading...", duration = 3000) {
     }
 
     // 使用 await 暂停一段时间
-    await pause(1); // 暂停一毫秒
+    //await pause(1); // 暂停一毫秒
 
     return { hide };
 }

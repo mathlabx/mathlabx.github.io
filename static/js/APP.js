@@ -38,7 +38,7 @@ async function pause(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
-APP.log = async function (message = "Loading...", duration = 3000) {
+APP.log = function (message = "Loading...", duration = 3000) {
     // 使用固定的id标识加载提示容器
     const containerId = "loading-container";
 
@@ -87,9 +87,6 @@ APP.log = async function (message = "Loading...", duration = 3000) {
             document.body.removeChild(existingContainer);
         }
     }
-
-    // 使用 await 暂停一段时间
-    await pause(1); // 暂停一毫秒
 
     return { hide };
 }

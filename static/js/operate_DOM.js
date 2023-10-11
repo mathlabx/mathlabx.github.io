@@ -27,7 +27,7 @@ function app_update(typ) {
 
     // 生成正态分布随机数
     function generateRandomSmall() {
-        var mean = 0.2; // 平均值
+        var mean = 0.8; // 平均值
         var stdDeviation = 0.15; // 标准差，可以根据需要调整
 
         var u1 = Math.random();
@@ -51,7 +51,7 @@ function app_update(typ) {
 
     // 生成正态分布随机数
     function generateRandomMore() {
-        var mean = 0.7; // 平均值
+        var mean = 0.3; // 平均值
         var stdDeviation = 0.15; // 标准差，可以根据需要调整
 
         var u1 = Math.random();
@@ -119,7 +119,7 @@ function app_update(typ) {
         customAdContainer.appendChild(scriptElement2);
 
         // 将自定义容器添加到页面的某个元素
-        var container = document.getElementById('container'); 
+        var container = document.getElementById('container');
         container.appendChild(customAdContainer);
     }
 

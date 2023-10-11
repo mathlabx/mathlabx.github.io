@@ -107,7 +107,7 @@ nav a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     /* Add a subtle shadow */
     height: 350px;
-    width: calc(100% - 20px);
+    width: calc(25% - 20px);
     /* Ensure one element per row on mobile */
     box-sizing: border-box;
     /* Include padding in element width */

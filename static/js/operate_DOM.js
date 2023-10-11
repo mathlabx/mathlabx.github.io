@@ -25,9 +25,21 @@ function app_update(typ) {
         return return_f;
     }
 
-    // 生成正态分布随机数
-    function generateRandomSmall() {
-        var mean = 0.8; // 平均值
+    // 生成低概率的正态分布随机数
+    function generateRandomLow() {
+        var mean = 0.3; // 低概率对应的平均值
+        var stdDeviation = 0.1; // 标准差，可以根据需要调整
+
+        var u1 = Math.random();
+        var u2 = Math.random();
+        var z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+
+        return mean + stdDeviation * z;
+    }
+
+    // 生成中概率的正态分布随机数
+    function generateRandomMedium() {
+        var mean = 0.5; // 中概率对应的平均值
         var stdDeviation = 0.15; // 标准差，可以根据需要调整
 
         var u1 = Math.random();
@@ -37,22 +49,10 @@ function app_update(typ) {
         return mean + stdDeviation * z;
     }
 
-    // 生成正态分布随机数
-    function generateRandomNormal() {
-        var mean = 0.5; // 平均值
-        var stdDeviation = 0.15; // 标准差，可以根据需要调整
-
-        var u1 = Math.random();
-        var u2 = Math.random();
-        var z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
-
-        return mean + stdDeviation * z;
-    }
-
-    // 生成正态分布随机数
-    function generateRandomMore() {
-        var mean = 0.3; // 平均值
-        var stdDeviation = 0.15; // 标准差，可以根据需要调整
+    // 生成高概率的正态分布随机数
+    function generateRandomHigh() {
+        var mean = 0.7; // 高概率对应的平均值
+        var stdDeviation = 0.2; // 标准差，可以根据需要调整
 
         var u1 = Math.random();
         var u2 = Math.random();

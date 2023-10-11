@@ -26,8 +26,32 @@ function app_update(typ) {
     }
 
     // 生成正态分布随机数
+    function generateRandomSmall() {
+        var mean = 0.2; // 平均值
+        var stdDeviation = 0.15; // 标准差，可以根据需要调整
+
+        var u1 = Math.random();
+        var u2 = Math.random();
+        var z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+
+        return mean + stdDeviation * z;
+    }
+
+    // 生成正态分布随机数
     function generateRandomNormal() {
         var mean = 0.5; // 平均值
+        var stdDeviation = 0.15; // 标准差，可以根据需要调整
+
+        var u1 = Math.random();
+        var u2 = Math.random();
+        var z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+
+        return mean + stdDeviation * z;
+    }
+
+    // 生成正态分布随机数
+    function generateRandomMore() {
+        var mean = 0.7; // 平均值
         var stdDeviation = 0.15; // 标准差，可以根据需要调整
 
         var u1 = Math.random();
@@ -45,13 +69,13 @@ function app_update(typ) {
                 probability = 0; // 不显示广告
                 break;
             case "few":
-                probability = generateRandomNormal(); // 使用正态分布生成随机数
+                probability = generateRandomSmall(); // 使用正态分布生成随机数
                 break;
             case "medium":
                 probability = generateRandomNormal(); // 使用正态分布生成随机数
                 break;
             case "more":
-                probability = generateRandomNormal(); // 使用正态分布生成随机数
+                probability = generateRandomMore(); // 使用正态分布生成随机数
                 break;
         }
 
@@ -64,6 +88,12 @@ function app_update(typ) {
     }
 
     function new_ads_flow() {
+        // 创建一个自定义容器元素
+        var customAdContainer = document.createElement("div");
+
+        // 设置容器的样式，以控制广告的布局
+        customAdContainer.className = "adsbygoogle";
+
         // 创建一个新的script元素
         var scriptElement = document.createElement("script");
         scriptElement.async = true;
@@ -84,9 +114,13 @@ function app_update(typ) {
         scriptElement2.textContent = "(adsbygoogle = window.adsbygoogle || []).push({});";
 
         // 将这些元素添加到容器中
-        container.appendChild(scriptElement);
-        container.appendChild(insElement);
-        container.appendChild(scriptElement2);
+        customAdContainer.appendChild(scriptElement);
+        customAdContainer.appendChild(insElement);
+        customAdContainer.appendChild(scriptElement2);
+
+        // 将自定义容器添加到页面的某个元素
+        var container = document.getElementById('your-container-id'); // 请替换 'your-container-id' 为实际的容器ID
+        container.appendChild(customAdContainer);
     }
 
     let container = document.getElementById("container");

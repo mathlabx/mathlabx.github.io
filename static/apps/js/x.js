@@ -109,7 +109,7 @@ const X_Operate = {
                             setTimeout(() => {
                                 document.getElementById(Id).click();
                                 results[i] = document.getElementById(Id).checked;
-                              //  if (settings[i].Typ == "check") results[i] = false;
+                                //  if (settings[i].Typ == "check") results[i] = false;
                             }, 600);
                         }
                         close_box(elementId);
@@ -232,6 +232,7 @@ const X_Operate = {
         div_container.append(new_start);
     },
 
+    new_Step_arr: [],
     newStep: (step, red, ka) => {
         let new_step = document.createElement("div");
         new_step.className = "new_step";
@@ -247,7 +248,16 @@ const X_Operate = {
             new_step.innerHTML = step;
         }
 
-        div_container.append(new_step);
+        X_Operate.new_Step_arr.push(new_step);
+
+        if (red) {
+            let new_big_div = document.createElement("div");
+            for (let i = 0; i < X_Operate.new_Step_arr.length; i++) {
+                new_big_div.append(X_Operate.new_Step_arr[i]);
+            }
+            div_container.append(new_big_div);
+            X_Operate.new_Step_arr = new Array();
+        }
     },
 
     newHr: () => {

@@ -252,6 +252,7 @@ const X_Operate = {
 
         if (red) {
             let new_big_div = document.createElement("div");
+            new_big_div.className = "bd_new_step";
             for (let i = 0; i < X_Operate.new_Step_arr.length; i++) {
                 new_big_div.append(X_Operate.new_Step_arr[i]);
             }

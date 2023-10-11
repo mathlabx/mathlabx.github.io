@@ -119,7 +119,7 @@ function app_update(typ) {
         customAdContainer.appendChild(scriptElement2);
 
         // 将自定义容器添加到页面的某个元素
-        var container = document.getElementById('your-container-id'); // 请替换 'your-container-id' 为实际的容器ID
+        var container = document.getElementById('container'); 
         container.appendChild(customAdContainer);
     }
 

@@ -38,7 +38,7 @@ function login() {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error("用户登录失败:", errorMessage);
+            APP.log("User login failed:", errorMessage);
 
             // 使用 markInvalidInput 函数显示错误消息
             markInvalidInput("l_username", errorMessage);

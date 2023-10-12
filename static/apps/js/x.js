@@ -137,11 +137,13 @@ const X_Operate = {
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                         let new_start_p;
-                        if (containsBIG(settings[i].Name) && !containsReg(settings[i].Name)) {
-                            new_start_p = document.createElement("h3");
-                            titleBIG(settings[i].Name);
-                        } else {
-                            new_start_p = document.createElement("h4");
+                        if (!containsReg(settings[i].Name)) {
+                            if (containsBIG(settings[i].Name)) {
+                                new_start_p = document.createElement("h3");
+                                titleBIG(settings[i].Name);
+                            } else {
+                                new_start_p = document.createElement("h4");
+                            }
                         }
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         if (!settings[i].show) new_start_p.style.display = "none";
@@ -191,11 +193,13 @@ const X_Operate = {
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                         let new_start_p;
-                        if (containsBIG(settings[i].Name) && !containsReg(settings[i].Name)) {
-                            new_start_p = document.createElement("h3");
-                            titleBIG(settings[i].Name);
-                        } else {
-                            new_start_p = document.createElement("h4");
+                        if (!containsReg(settings[i].Name)) {
+                            if (containsBIG(settings[i].Name)) {
+                                new_start_p = document.createElement("h3");
+                                titleBIG(settings[i].Name);
+                            } else {
+                                new_start_p = document.createElement("h4");
+                            }
                         }
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         if (!settings[i].show) new_start_p.style.display = "none";

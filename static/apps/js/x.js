@@ -85,6 +85,7 @@ const X_Operate = {
         let titleBIG_Store = new Array();
         function titleBIG(inputString) {
             // 检查输入字符串是否包含关键词
+            console.log(titleBIG_Store);
             inputString = extractTextBeforeSeparator(extractTextBeforeSeparator(inputString, " | ", 0), "&BIG", 0);
             for (const keyword of titleBIG_Store) {
                 if (inputString.includes(keyword)) {

@@ -69,6 +69,30 @@ const X_Operate = {
     },
 
     newSetting: (title, settings) => {
+        function containsBIG(inputString) {
+            // 关键词数组，用于匹配KaTeX表达式
+            const keywords = ["&BIG"]; // 添加更多关键词以匹配更多表达式
+
+            // 检查输入字符串是否包含关键词
+            for (const keyword of keywords) {
+                if (inputString.includes(keyword)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        let titleBIG_Store = new Array();
+        function titleBIG(inputString) {
+            // 检查输入字符串是否包含关键词
+            for (const keyword of titleBIG_Store) {
+                if (inputString.includes(keyword)) {
+                    return true;
+                }
+            }
+            titleBIG_Store.push(inputString);
+            return false;
+        }
         function extractTextBeforeSeparator(inputString, separator, w) {
             const parts = inputString.split(separator);
             return parts[w];
@@ -97,8 +121,14 @@ const X_Operate = {
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
-                        let new_start_p = document.createElement("h3");
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                        let new_start_p;
+                        if (containsBIG(settings[i].Name)) {
+                            new_start_p = document.createElement("h3");
+                            titleBIG(settings[i].Name);
+                        } else {
+                            new_start_p = document.createElement("h4");
+                        }
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
@@ -145,8 +175,14 @@ const X_Operate = {
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
-                        let new_start_p = document.createElement("h3");
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                        let new_start_p;
+                        if (containsBIG(settings[i].Name)) {
+                            new_start_p = document.createElement("h3");
+                            titleBIG(settings[i].Name);
+                        } else {
+                            new_start_p = document.createElement("h4");
+                        }
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);

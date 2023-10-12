@@ -68,10 +68,10 @@ const X_Operate = {
         window_load(true, 1000);
     },
 
-    newSetting: (title, settings) => {
+    newSetting: (title, settings, w) => {
         function extractTextBeforeSeparator(inputString, separator) {
             const parts = inputString.split(separator);
-            return parts[0];
+            return parts[w];
         }
         let last_title = "";
         return new Promise((resolve, reject) => {
@@ -97,9 +97,9 @@ const X_Operate = {
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ") != last_title) {
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
                         let new_start_p = document.createElement("h3");
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
                     }
                     new_p.innerHTML = settings[i].Name;
@@ -143,9 +143,9 @@ const X_Operate = {
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ") != last_title) {
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
                         let new_start_p = document.createElement("h3");
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
                     }
                     new_p.innerHTML = settings[i].Name;

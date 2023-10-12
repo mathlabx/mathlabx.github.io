@@ -98,13 +98,12 @@ const X_Operate = {
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    console.log(settings[i].show);
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
-                        console.log(settings[i].show);
                         let new_start_p;
                         if (last_title_on == 0) new_start_p = document.createElement("h3")
                         else new_start_p = document.createElement("h4");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         last_title_on = 0;
@@ -149,7 +148,6 @@ const X_Operate = {
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
                 } else if (settings[i].Typ == "range" && settings[i].show == true) {
-                    console.log(settings[i].show);
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
@@ -157,6 +155,7 @@ const X_Operate = {
                         if (last_title_on == 0) new_start_p = document.createElement("h3")
                         else new_start_p = document.createElement("h4");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         last_title_on = 0;

@@ -96,10 +96,11 @@ const X_Operate = {
                 let new_container_tab_tr = document.createElement("tr");
 
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
-                    console.log(settings[i].show);
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
+                    console.log(settings[i].show);
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
+                        console.log(settings[i].show);
                         let new_start_p;
                         if (last_title_on == 0) new_start_p = document.createElement("h3")
                         else new_start_p = document.createElement("h4");

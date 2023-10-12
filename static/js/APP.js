@@ -100,7 +100,7 @@ APP.Ads = {
     more
     high
     */
-    amount: "low"
+    amount: "none"
 }
 
 

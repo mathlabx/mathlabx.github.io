@@ -135,8 +135,8 @@ const X_Operate = {
                             new_start_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&BIG", 0), " | ", 0);
                             if (!settings[i].show) new_start_p.style.display = "none";
                             new_start.append(new_start_p);
-                            last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         }
+                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                         new_container_tab_td_1.append(new_p);
                         let new_container_tab_td_2 = document.createElement("td");
@@ -190,8 +190,8 @@ const X_Operate = {
                             new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                             if (!settings[i].show) new_start_p.style.display = "none";
                             new_start.append(new_start_p);
-                            last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         }
+                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                         new_container_tab_td_1.append(new_p);
                         let new_container_tab_td_2 = document.createElement("td");

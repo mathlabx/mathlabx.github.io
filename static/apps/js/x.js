@@ -125,6 +125,7 @@ const X_Operate = {
                         let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                            console.log("in");
                             let new_start_p;
                             if (containsBIG(settings[i].Name)) {
                                 new_start_p = document.createElement("h3");
@@ -180,6 +181,7 @@ const X_Operate = {
                         let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                            console.log("in");
                             let new_start_p;
                             if (containsBIG(settings[i].Name)) {
                                 new_start_p = document.createElement("h3");

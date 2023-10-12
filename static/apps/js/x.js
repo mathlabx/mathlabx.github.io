@@ -112,15 +112,15 @@ const X_Operate = {
             let new_range; // 声明new_range变量在循环外部
 
             for (let i = 0; i < settings.length; i++) {
-                let new_container = document.createElement("div");
-                new_container.className = "settings_flow";
-                if (!settings[i].show) new_container.style.display = "none";
-                let new_container_tab = document.createElement("table");
-                new_container_tab.className = "settings_flow_tab";
-                let new_container_tab_tr = document.createElement("tr");
+                (function (index) {
+                    let new_container = document.createElement("div");
+                    new_container.className = "settings_flow";
+                    if (!settings[i].show) new_container.style.display = "none";
+                    let new_container_tab = document.createElement("table");
+                    new_container_tab.className = "settings_flow_tab";
+                    let new_container_tab_tr = document.createElement("tr");
 
-                if (settings[i].Typ == "check" || (settings[i].Typ == "checked" && settings[i].show == true)) {
-                    (function (index) {
+                    if (settings[i].Typ == "check" || (settings[i].Typ == "checked" && settings[i].show == true)) {
                         // 创建一个闭包，捕获当前循环变量i的值
                         let new_container_tab_td_1 = document.createElement("td");
                         let new_p = document.createElement("p");
@@ -176,10 +176,7 @@ const X_Operate = {
                         new_container_tab_td_2.append(new_toggle_switch);
                         new_container_tab_tr.append(new_container_tab_td_1);
                         new_container_tab_tr.append(new_container_tab_td_2);
-                    })(i);
-                } else if (settings[i].Typ == "range") {
-                    (function (index) {
-                        // 创建一个闭包，捕获当前循环变量i的值
+                    } else if (settings[i].Typ == "range") {
                         let new_container_tab_td_1 = document.createElement("td");
                         let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
@@ -254,12 +251,12 @@ const X_Operate = {
                         new_container_tab_td_2.append(new_slider_container);
                         new_container_tab_tr.append(new_container_tab_td_1);
                         new_container_tab_tr.append(new_container_tab_td_2);
-                    })(i);
-                }
+                    }
 
-                new_container_tab.append(new_container_tab_tr);
-                new_container.append(new_container_tab);
-                new_start.append(new_container);
+                    new_container_tab.append(new_container_tab_tr);
+                    new_container.append(new_container_tab);
+                    new_start.append(new_container);
+                })(i);
             }
 
             let submitButton = document.createElement("button");

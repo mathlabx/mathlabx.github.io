@@ -94,7 +94,7 @@ const X_Operate = {
                 new_container_tab.className = "settings_flow_tab";
                 let new_container_tab_tr = document.createElement("tr");
 
-                if (settings[i].Typ == "check" || settings[i].Typ == "checked") {
+                if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
@@ -144,7 +144,7 @@ const X_Operate = {
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
                         let new_start_p = document.createElement("h3");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);

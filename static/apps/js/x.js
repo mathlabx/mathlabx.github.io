@@ -74,6 +74,7 @@ const X_Operate = {
             return parts[w];
         }
         let last_title = "";
+        let last_title_on = 0;
         return new Promise((resolve, reject) => {
             const formIndex = Math.floor(Math.random() * 1000000);
             let new_start = document.createElement("div");
@@ -98,11 +99,15 @@ const X_Operate = {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
-                        let new_start_p = document.createElement("h3");
+                        let new_start_p;
+                        if (last_title_on == 0) new_start_p = document.createElement("h3")
+                        else new_start_p = document.createElement("h4");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        last_title_on = 0;
                     }
+                    last_title_on++;
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
@@ -145,10 +150,13 @@ const X_Operate = {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
-                        let new_start_p = document.createElement("h3");
+                        let new_start_p;
+                        if (last_title_on == 0) new_start_p = document.createElement("h3")
+                        else new_start_p = document.createElement("h4");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        last_title_on = 0;
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);

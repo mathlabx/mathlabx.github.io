@@ -68,8 +68,8 @@ const X_Operate = {
         window_load(true, 1000);
     },
 
-    newSetting: (title, settings, w) => {
-        function extractTextBeforeSeparator(inputString, separator) {
+    newSetting: (title, settings) => {
+        function extractTextBeforeSeparator(inputString, separator, w) {
             const parts = inputString.split(separator);
             return parts[w];
         }
@@ -102,7 +102,7 @@ const X_Operate = {
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
                     }
-                    new_p.innerHTML = settings[i].Name;
+                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
                     let new_toggle_switch = document.createElement("div");
@@ -148,7 +148,7 @@ const X_Operate = {
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
                     }
-                    new_p.innerHTML = settings[i].Name;
+                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
                     let new_slider_container = document.createElement("div");

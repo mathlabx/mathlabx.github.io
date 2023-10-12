@@ -182,8 +182,6 @@ const X_Operate = {
                         // 创建一个闭包，捕获当前循环变量i的值
                         let new_container_tab_td_1 = document.createElement("td");
                         let new_p = document.createElement("p");
-                        let new_container_tab_td_1 = document.createElement("td");
-                        let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                             let new_start_p;

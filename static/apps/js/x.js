@@ -71,7 +71,20 @@ const X_Operate = {
     newSetting: (title, settings) => {
         function containsBIG(inputString) {
             // 关键词数组，用于匹配KaTeX表达式
-            const keywords = ["&BIG"]; // 添加更多关键词以匹配更多表达式
+            const keywords = ["&BIG"];
+
+            // 检查输入字符串是否包含关键词
+            for (const keyword of keywords) {
+                if (inputString.includes(keyword)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        function containsReg(inputString) {
+            // 关键词数组，用于匹配KaTeX表达式
+            const keywords = ["&Reg"];
 
             // 检查输入字符串是否包含关键词
             for (const keyword of keywords) {

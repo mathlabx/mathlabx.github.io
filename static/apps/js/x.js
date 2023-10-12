@@ -125,6 +125,7 @@ const X_Operate = {
                         let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
                         console.log(extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title);
+                        console.log(titleBIG(settings[i].Name) == false);
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                             console.log("in");
                             let new_start_p;
@@ -182,6 +183,7 @@ const X_Operate = {
                         let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
                         console.log(extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title);
+                        console.log(titleBIG(settings[i].Name) == false);
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                             console.log("in");
                             let new_start_p;

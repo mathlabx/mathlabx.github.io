@@ -84,16 +84,17 @@ const X_Operate = {
         }
         let titleBIG_Store = new Array();
         function titleBIG(inputString) {
-            // 检查输入字符串是否包含关键词
-            console.log(titleBIG_Store);
-            inputString = extractTextBeforeSeparator(extractTextBeforeSeparator(inputString, " | ", 0), "&BIG", 0);
-            for (const keyword of titleBIG_Store) {
-                if (inputString.includes(keyword)) {
-                    return true;
-                }
+            // 提取关键词
+            const keyword = extractTextBeforeSeparator(extractTextBeforeSeparator(inputString, " | ", 0), "&BIG", 0);
+
+            if (titleBIG_Store.includes(keyword)) {
+                // 如果关键词已存在于数组中，返回 true
+                return true;
+            } else {
+                // 如果关键词不在数组中，添加关键词到数组并返回 false
+                titleBIG_Store.push(keyword);
+                return false;
             }
-            titleBIG_Store.push(inputString);
-            return false;
         }
         function extractTextBeforeSeparator(inputString, separator, w) {
             const parts = inputString.split(separator);

@@ -73,6 +73,7 @@ const X_Operate = {
             const parts = inputString.split(separator);
             return parts[w];
         }
+        let last_title = "";
         return new Promise((resolve, reject) => {
             const formIndex = Math.floor(Math.random() * 1000000);
             let new_start = document.createElement("div");
@@ -92,24 +93,17 @@ const X_Operate = {
                 let new_container_tab = document.createElement("table");
                 new_container_tab.className = "settings_flow_tab";
                 let new_container_tab_tr = document.createElement("tr");
+
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name[0], " | ", 0) < 2 && settings[i].show == true) {
-                        let new_start_p;
-                        if (settings[i].Name[1] == 0) {
-                            new_start_p = document.createElement("h3");
-                            let new_HR = document.createElement("hr");
-                            new_HR.style.width = "80%";
-                            new_start.append(new_HR);
-                        } else {
-                            new_start_p = document.createElement("h4");
-                        }
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name[0], " | ", 0);
-                        if (!settings[i].show) new_start_p.style.display = "none";
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
+                        let new_start_p = document.createElement("h3");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
+                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
-                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name[0], " | ", 1);
+                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
                     let new_toggle_switch = document.createElement("div");
@@ -147,24 +141,16 @@ const X_Operate = {
                     new_container_tab_td_2.append(new_toggle_switch);
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
-                } else if (settings[i].Typ == "range" && settings[i].show == true) {
+                } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name[0], " | ", 0) < 2 && settings[i].show == true) {
-                        let new_start_p;
-                        if (settings[i].Name[1] == 0) {
-                            new_start_p = document.createElement("h3");
-                            let new_HR = document.createElement("hr");
-                            new_HR.style.width = "80%";
-                            new_start.append(new_HR);
-                        } else {
-                            new_start_p = document.createElement("h4");
-                        }
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name[0], " | ", 0);
-                        if (!settings[i].show) new_start_p.style.display = "none";
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
+                        let new_start_p = document.createElement("h3");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
+                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
-                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name[0], " | ", 1);
+                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
                     let new_slider_container = document.createElement("div");

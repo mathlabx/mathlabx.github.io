@@ -69,6 +69,11 @@ const X_Operate = {
     },
 
     newSetting: (title, settings) => {
+        function extractTextBeforeSeparator(inputString, separator) {
+            const parts = inputString.split(separator);
+            return parts[0];
+        }
+        let last_title = "";
         return new Promise((resolve, reject) => {
             const formIndex = Math.floor(Math.random() * 1000000);
             let new_start = document.createElement("div");
@@ -92,6 +97,11 @@ const X_Operate = {
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ") != last_title) {
+                        let new_start_p = document.createElement("h3");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ");
+                        new_start.append(new_start_p);
+                    }
                     new_p.innerHTML = settings[i].Name;
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
@@ -133,6 +143,11 @@ const X_Operate = {
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ") != last_title) {
+                        let new_start_p = document.createElement("h3");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ");
+                        new_start.append(new_start_p);
+                    }
                     new_p.innerHTML = settings[i].Name;
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");

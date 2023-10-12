@@ -130,7 +130,7 @@ const X_Operate = {
                         } else {
                             new_start_p = document.createElement("h4");
                         }
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        new_start_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&BIG", 0), " | ", 0);
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);

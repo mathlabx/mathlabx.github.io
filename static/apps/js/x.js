@@ -148,7 +148,7 @@ const X_Operate = {
                         }
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
-                    new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&BIG", 0), " | ", 1);
+                    new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
                     let new_toggle_switch = document.createElement("div");
@@ -204,7 +204,7 @@ const X_Operate = {
                         }
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
-                    new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&BIG", 0), " | ", 1);
+                    new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
                     let new_slider_container = document.createElement("div");

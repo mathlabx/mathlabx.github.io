@@ -94,14 +94,18 @@ const X_Operate = {
                 let new_container_tab = document.createElement("table");
                 new_container_tab.className = "settings_flow_tab";
                 let new_container_tab_tr = document.createElement("tr");
-
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
                         let new_start_p;
                         if (last_title_on == 0) new_start_p = document.createElement("h3")
-                        else new_start_p = document.createElement("h4");
+                        else {
+                            new_start_p = document.createElement("h4");
+                            let new_HR = document.createElement("hr");
+                            new_HR.style.width = "80%";
+                            new_start.append(new_HR);
+                        }
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
@@ -153,7 +157,12 @@ const X_Operate = {
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
                         let new_start_p;
                         if (last_title_on == 0) new_start_p = document.createElement("h3")
-                        else new_start_p = document.createElement("h4");
+                        else {
+                            new_start_p = document.createElement("h4");
+                            let new_HR = document.createElement("hr");
+                            new_HR.style.width = "80%";
+                            new_start.append(new_HR);
+                        }
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);

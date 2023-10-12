@@ -101,6 +101,7 @@ const X_Operate = {
                         let new_start_p = document.createElement("h3");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
+                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
@@ -147,6 +148,7 @@ const X_Operate = {
                         let new_start_p = document.createElement("h3");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                         new_start.append(new_start_p);
+                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);

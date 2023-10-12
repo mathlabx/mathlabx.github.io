@@ -96,6 +96,7 @@ const X_Operate = {
                 let new_container_tab_tr = document.createElement("tr");
 
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
+                    console.log(settings[i].show);
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
@@ -147,6 +148,7 @@ const X_Operate = {
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
                 } else if (settings[i].Typ == "range" && settings[i].show == true) {
+                    console.log(settings[i].show);
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {

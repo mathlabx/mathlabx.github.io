@@ -146,7 +146,7 @@ const X_Operate = {
                     new_container_tab_td_2.append(new_toggle_switch);
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
-                } else if (settings[i].Typ == "range") {
+                } else if (settings[i].Typ == "range" && settings[i].show == true) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {

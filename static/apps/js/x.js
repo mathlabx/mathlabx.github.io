@@ -100,6 +100,7 @@ const X_Operate = {
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title) {
                         let new_start_p = document.createElement("h3");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
@@ -147,6 +148,7 @@ const X_Operate = {
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
                         let new_start_p = document.createElement("h3");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }

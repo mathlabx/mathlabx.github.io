@@ -94,11 +94,13 @@ APP.log = function (message = "Loading...", duration = 3000) {
 APP.Ads = {
     /*
     none
+    low
     few
     medium
     more
+    high
     */
-    amount: "few"
+    amount: "low"
 }
 
 

@@ -25,6 +25,18 @@ function app_update(typ) {
         return return_f;
     }
 
+    // 生成极小概率的正态分布随机数
+    function generateRandomVeryLow() {
+        var mean = 0.1; // 极小概率对应的平均值
+        var stdDeviation = 0.05; // 标准差，可以根据需要调整
+
+        var u1 = Math.random();
+        var u2 = Math.random();
+        var z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+
+        return mean + stdDeviation * z;
+    }
+
     // 生成低概率的正态分布随机数
     function generateRandomLow() {
         var mean = 0.3; // 低概率对应的平均值
@@ -61,12 +73,27 @@ function app_update(typ) {
         return mean + stdDeviation * z;
     }
 
+    // 生成极高概率的正态分布随机数
+    function generateRandomVeryHigh() {
+        var mean = 0.9; // 极高概率对应的平均值
+        var stdDeviation = 0.2; // 标准差，可以根据需要调整
+
+        var u1 = Math.random();
+        var u2 = Math.random();
+        var z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+
+        return mean + stdDeviation * z;
+    }
+
     // 根据APP.Ads.amount来确定概率
     function shouldShowAd() {
         var probability = 0;
         switch (APP.Ads.amount) {
             case "none":
                 probability = 0; // 不显示广告
+                break;
+            case "low":
+                probability = generateRandomVeryLow(); // 使用正态分布生成随机数
                 break;
             case "few":
                 probability = generateRandomLow(); // 使用正态分布生成随机数
@@ -76,6 +103,9 @@ function app_update(typ) {
                 break;
             case "more":
                 probability = generateRandomHigh(); // 使用正态分布生成随机数
+                break;
+            case "high":
+                probability = generateRandomVeryHigh(); // 使用正态分布生成随机数
                 break;
         }
 

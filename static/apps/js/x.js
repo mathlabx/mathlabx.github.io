@@ -74,7 +74,7 @@ const X_Operate = {
             return parts[w];
         }
         let last_title = "";
-        let last_title_on = 0;
+        let last_title_on = true;
         return new Promise((resolve, reject) => {
             const formIndex = Math.floor(Math.random() * 1000000);
             let new_start = document.createElement("div");
@@ -99,12 +99,14 @@ const X_Operate = {
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
                         let new_start_p;
-                        if (last_title_on == 0) {
+                        if (last_title != (extractTextBeforeSeparator(settings[i].Name, " | ", 0))) {
+                            last_title_on = !last_title_on;
+                        }
+                        if (last_title_on) {
                             new_start_p = document.createElement("h3");
                             let new_HR = document.createElement("hr");
                             new_HR.style.width = "80%";
                             new_start.append(new_HR);
-                            last_title_on = 0;
                         } else {
                             new_start_p = document.createElement("h4");
                         }
@@ -112,7 +114,6 @@ const X_Operate = {
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        last_title_on++;
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
@@ -157,12 +158,14 @@ const X_Operate = {
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && settings[i].show == true) {
                         let new_start_p;
-                        if (last_title_on == 0) {
+                        if (last_title != (extractTextBeforeSeparator(settings[i].Name, " | ", 0))) {
+                            last_title_on = !last_title_on;
+                        }
+                        if (new_start_p) {
                             new_start_p = document.createElement("h3");
                             let new_HR = document.createElement("hr");
                             new_HR.style.width = "80%";
                             new_start.append(new_HR);
-                            last_title_on = 0;
                         } else {
                             new_start_p = document.createElement("h4");
                         }
@@ -170,7 +173,6 @@ const X_Operate = {
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        last_title_on++;
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);

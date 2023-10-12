@@ -104,6 +104,7 @@ const X_Operate = {
                             let new_HR = document.createElement("hr");
                             new_HR.style.width = "80%";
                             new_start.append(new_HR);
+                            last_title_on = 0;
                         } else {
                             new_start_p = document.createElement("h4");
                         }
@@ -111,9 +112,8 @@ const X_Operate = {
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        last_title_on = 0;
+                        last_title_on++;
                     }
-                    last_title_on++;
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
@@ -162,6 +162,7 @@ const X_Operate = {
                             let new_HR = document.createElement("hr");
                             new_HR.style.width = "80%";
                             new_start.append(new_HR);
+                            last_title_on = 0;
                         } else {
                             new_start_p = document.createElement("h4");
                         }
@@ -169,7 +170,7 @@ const X_Operate = {
                         if (!settings[i].show) new_start_p.style.display = "none";
                         new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        last_title_on = 0;
+                        last_title_on++;
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     new_container_tab_td_1.append(new_p);

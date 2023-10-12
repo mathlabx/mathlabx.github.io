@@ -124,7 +124,7 @@ const X_Operate = {
                         let new_container_tab_td_1 = document.createElement("td");
                         let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
-                        console.log(extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false);
+                        console.log(extractTextBeforeSeparator(settings[i].Name, " | ", 0));
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                             console.log("in");
                             let new_start_p;
@@ -181,7 +181,7 @@ const X_Operate = {
                         let new_container_tab_td_1 = document.createElement("td");
                         let new_p = document.createElement("p");
                         console.log("i:" + i + "; eTBS:" + extractTextBeforeSeparator(settings[i].Name, " | ", 0) + "!=" + last_title + "; " + titleBIG(settings[i].Name));
-                        console.log(extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false);
+                        console.log(extractTextBeforeSeparator(settings[i].Name, " | ", 0));
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                             console.log("in");
                             let new_start_p;

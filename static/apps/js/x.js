@@ -84,17 +84,15 @@ const X_Operate = {
         }
         let titleBIG_Store = new Array();
         function titleBIG(inputString) {
-            // 提取关键词
-            const keyword = extractTextBeforeSeparator(extractTextBeforeSeparator(inputString, " | ", 0), "&BIG", 0);
-
-            if (titleBIG_Store.includes(keyword)) {
-                // 如果关键词已存在于数组中，返回 true
-                return true;
-            } else {
-                // 如果关键词不在数组中，添加关键词到数组并返回 false
-                titleBIG_Store.push(keyword);
-                return false;
+            // 检查输入字符串是否包含关键词
+            inputString = extractTextBeforeSeparator(extractTextBeforeSeparator(inputString, " | ", 0), "&BIG", 0);
+            for (const keyword of titleBIG_Store) {
+                if (inputString.includes(keyword)) {
+                    return true;
+                }
             }
+            titleBIG_Store.push(inputString);
+            return false;
         }
         function extractTextBeforeSeparator(inputString, separator, w) {
             const parts = inputString.split(separator);
@@ -114,150 +112,146 @@ const X_Operate = {
             let new_range; // 声明new_range变量在循环外部
 
             for (let i = 0; i < settings.length; i++) {
-                (function (index) {
-                    let new_container = document.createElement("div");
-                    new_container.className = "settings_flow";
-                    if (!settings[i].show) new_container.style.display = "none";
-                    let new_container_tab = document.createElement("table");
-                    new_container_tab.className = "settings_flow_tab";
-                    let new_container_tab_tr = document.createElement("tr");
+                let new_container = document.createElement("div");
+                new_container.className = "settings_flow";
+                if (!settings[i].show) new_container.style.display = "none";
+                let new_container_tab = document.createElement("table");
+                new_container_tab.className = "settings_flow_tab";
+                let new_container_tab_tr = document.createElement("tr");
 
-                    if (settings[i].Typ == "check" || (settings[i].Typ == "checked" && settings[i].show == true)) {
-                        let new_container_tab_td_1 = document.createElement("td");
-                        let new_p = document.createElement("p");
-                        console.log([titleBIG(settings[i].Name), titleBIG(settings[i].Name) == false]);
-                        if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
-                            let new_start_p;
-                            if (containsBIG(settings[i].Name)) {
-                                new_start_p = document.createElement("h3");
-                                titleBIG(settings[i].Name);
-                            } else {
-                                new_start_p = document.createElement("h4");
-                            }
-                            new_start_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&BIG", 0), " | ", 0);
-                            if (!settings[i].show) new_start_p.style.display = "none";
-                            new_start.append(new_start_p);
+                if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
+                    let new_container_tab_td_1 = document.createElement("td");
+                    let new_p = document.createElement("p");
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                        let new_start_p;
+                        if (containsBIG(settings[i].Name)) {
+                            new_start_p = document.createElement("h3");
+                            titleBIG(settings[i].Name);
+                        } else {
+                            new_start_p = document.createElement("h4");
                         }
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show) new_start_p.style.display = "none";
+                        new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
-                        new_container_tab_td_1.append(new_p);
-                        let new_container_tab_td_2 = document.createElement("td");
-                        let new_toggle_switch = document.createElement("div");
-                        new_toggle_switch.className = "toggle-switch";
-                        let new_toggle_switch_label = document.createElement("label");
-                        new_toggle_switch_label.className = "switch";
-                        let new_toggle_switch_cheakbox = document.createElement("input");
-                        elementId = formIndex + "_" + i;
-                        new_toggle_switch_cheakbox.id = elementId;
-                        new_toggle_switch_cheakbox.type = "checkbox";
-                        console.log(settings[i]);
-                        if (settings[i].Typ == "checked" && settings[i].show == true) {
-                            function close_box(Id) {
-                                setTimeout(() => {
-                                    document.getElementById(Id).click();
-                                    results[i] = document.getElementById(Id).checked;
-                                    //  if (settings[i].Typ == "check") results[i] = false;
-                                }, 600);
-                            }
-                            close_box(elementId);
-                        }
-                        function close_box_l(Id) {
+                    }
+                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
+                    new_container_tab_td_1.append(new_p);
+                    let new_container_tab_td_2 = document.createElement("td");
+                    let new_toggle_switch = document.createElement("div");
+                    new_toggle_switch.className = "toggle-switch";
+                    let new_toggle_switch_label = document.createElement("label");
+                    new_toggle_switch_label.className = "switch";
+                    let new_toggle_switch_cheakbox = document.createElement("input");
+                    elementId = formIndex + "_" + i;
+                    new_toggle_switch_cheakbox.id = elementId;
+                    new_toggle_switch_cheakbox.type = "checkbox";
+                    console.log(settings[i]);
+                    if (settings[i].Typ == "checked" && settings[i].show == true) {
+                        function close_box(Id) {
                             setTimeout(() => {
-                                document.getElementById(Id).addEventListener("change", function () {
-                                    results[i] = document.getElementById(Id).checked;
-                                });
+                                document.getElementById(Id).click();
+                                results[i] = document.getElementById(Id).checked;
+                                //  if (settings[i].Typ == "check") results[i] = false;
                             }, 600);
                         }
-                        close_box_l(elementId);
-                        let new_slider_round = document.createElement("span");
-                        new_slider_round.className = "slider round";
-                        new_toggle_switch_label.append(new_toggle_switch_cheakbox);
-                        new_toggle_switch_label.append(new_slider_round);
-                        new_toggle_switch.append(new_toggle_switch_label);
-                        new_container_tab_td_2.append(new_toggle_switch);
-                        new_container_tab_tr.append(new_container_tab_td_1);
-                        new_container_tab_tr.append(new_container_tab_td_2);
-                    } else if (settings[i].Typ == "range") {
-                        let new_container_tab_td_1 = document.createElement("td");
-                        let new_p = document.createElement("p");
-                        console.log([titleBIG(settings[i].Name), titleBIG(settings[i].Name) == false]);
-                        if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
-                            let new_start_p;
-                            if (containsBIG(settings[i].Name)) {
-                                new_start_p = document.createElement("h3");
-                                titleBIG(settings[i].Name);
-                            } else {
-                                new_start_p = document.createElement("h4");
-                            }
-                            new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                            if (!settings[i].show) new_start_p.style.display = "none";
-                            new_start.append(new_start_p);
-                        }
-                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
-                        new_container_tab_td_1.append(new_p);
-                        let new_container_tab_td_2 = document.createElement("td");
-                        let new_slider_container = document.createElement("div");
-                        new_slider_container.className = "slider-container";
-                        new_range = document.createElement("input");
-                        elementId = formIndex + "_" + i + "_" + "myRange";
-                        new_range.type = "range";
-                        new_range.min = String(settings[i].Range[0]);
-                        new_range.max = String(settings[i].Range[1]);
-                        new_range.value = String(settings[i].Range[2]);
-                        new_range.className = "";
-                        new_range.id = elementId;
-                        let new_span = document.createElement("span");
-                        let spanId = formIndex + "_" + i + "_" + "slide_value";
-                        new_span.contentEditable = "true";
-                        new_span.innerHTML = String(settings[i].Range[2]);
-                        new_span.id = spanId;
-                        function close_box(ii, spanId, min, max) {
-                            setTimeout(function () {
-                                var slider = document.getElementById(ii);
-                                var sliderValue = document.getElementById(spanId);
-
-                                // 监听滑块的输入事件
-                                slider.addEventListener("input", function () {
-                                    // 将滑块的值同步到 span 元素的内容
-                                    sliderValue.innerHTML = slider.value;
-                                });
-
-                                sliderValue.addEventListener("input", function () {
-                                    results[i] = Number(this.innerHTML);
-                                });
-
-                                // 监听 span 元素的输入事件
-                                sliderValue.addEventListener("input", function () {
-                                    var inputValue = parseFloat(sliderValue.innerHTML); // 将输入的文本转换为数字
-                                    if (!isNaN(inputValue) && inputValue >= min && inputValue <= max) {
-                                        // 如果输入是有效的数字且在范围内，将其设置为滑块的值
-                                        slider.value = inputValue;
-                                    } else {
-                                        // 如果输入无效或超出范围，恢复为滑块的当前值
-                                        sliderValue.innerHTML = slider.value;
-                                    }
-                                });
-                            }, 1000);
-                        }
-                        close_box(elementId, spanId, settings[i].Range[0], settings[i].Range[1]);
-                        // 添加事件处理程序到滑块元素
-                        results[i] = settings[i].Range[2];
-                        new_range.addEventListener("input", function () {
-                            results[i] = this.value;
-                        });
-                        new_slider_container.append(new_span);
-                        new_slider_container.append(document.createElement("br"));
-                        new_slider_container.append(new_range);
-                        new_container_tab_td_2.append(new_slider_container);
-                        new_container_tab_tr.append(new_container_tab_td_1);
-                        new_container_tab_tr.append(new_container_tab_td_2);
+                        close_box(elementId);
                     }
+                    function close_box_l(Id) {
+                        setTimeout(() => {
+                            document.getElementById(Id).addEventListener("change", function () {
+                                results[i] = document.getElementById(Id).checked;
+                            });
+                        }, 600);
+                    }
+                    close_box_l(elementId);
+                    let new_slider_round = document.createElement("span");
+                    new_slider_round.className = "slider round";
+                    new_toggle_switch_label.append(new_toggle_switch_cheakbox);
+                    new_toggle_switch_label.append(new_slider_round);
+                    new_toggle_switch.append(new_toggle_switch_label);
+                    new_container_tab_td_2.append(new_toggle_switch);
+                    new_container_tab_tr.append(new_container_tab_td_1);
+                    new_container_tab_tr.append(new_container_tab_td_2);
+                } else if (settings[i].Typ == "range") {
+                    let new_container_tab_td_1 = document.createElement("td");
+                    let new_p = document.createElement("p");
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                        let new_start_p;
+                        if (containsBIG(settings[i].Name)) {
+                            new_start_p = document.createElement("h3");
+                            titleBIG(settings[i].Name);
+                        } else {
+                            new_start_p = document.createElement("h4");
+                        }
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show) new_start_p.style.display = "none";
+                        new_start.append(new_start_p);
+                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                    }
+                    new_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
+                    new_container_tab_td_1.append(new_p);
+                    let new_container_tab_td_2 = document.createElement("td");
+                    let new_slider_container = document.createElement("div");
+                    new_slider_container.className = "slider-container";
+                    new_range = document.createElement("input");
+                    elementId = formIndex + "_" + i + "_" + "myRange";
+                    new_range.type = "range";
+                    new_range.min = String(settings[i].Range[0]);
+                    new_range.max = String(settings[i].Range[1]);
+                    new_range.value = String(settings[i].Range[2]);
+                    new_range.className = "";
+                    new_range.id = elementId;
+                    let new_span = document.createElement("span");
+                    let spanId = formIndex + "_" + i + "_" + "slide_value";
+                    new_span.contentEditable = "true";
+                    new_span.innerHTML = String(settings[i].Range[2]);
+                    new_span.id = spanId;
+                    function close_box(ii, spanId, min, max) {
+                        setTimeout(function () {
+                            var slider = document.getElementById(ii);
+                            var sliderValue = document.getElementById(spanId);
 
-                    new_container_tab.append(new_container_tab_tr);
-                    new_container.append(new_container_tab);
-                    new_start.append(new_container);
-                })(i);
+                            // 监听滑块的输入事件
+                            slider.addEventListener("input", function () {
+                                // 将滑块的值同步到 span 元素的内容
+                                sliderValue.innerHTML = slider.value;
+                            });
+
+                            sliderValue.addEventListener("input", function () {
+                                results[i] = Number(this.innerHTML);
+                            });
+
+                            // 监听 span 元素的输入事件
+                            sliderValue.addEventListener("input", function () {
+                                var inputValue = parseFloat(sliderValue.innerHTML); // 将输入的文本转换为数字
+                                if (!isNaN(inputValue) && inputValue >= min && inputValue <= max) {
+                                    // 如果输入是有效的数字且在范围内，将其设置为滑块的值
+                                    slider.value = inputValue;
+                                } else {
+                                    // 如果输入无效或超出范围，恢复为滑块的当前值
+                                    sliderValue.innerHTML = slider.value;
+                                }
+                            });
+                        }, 1000);
+                    }
+                    close_box(elementId, spanId, settings[i].Range[0], settings[i].Range[1]);
+                    // 添加事件处理程序到滑块元素
+                    results[i] = settings[i].Range[2];
+                    new_range.addEventListener("input", function () {
+                        results[i] = this.value;
+                    });
+                    new_slider_container.append(new_span);
+                    new_slider_container.append(document.createElement("br"));
+                    new_slider_container.append(new_range);
+                    new_container_tab_td_2.append(new_slider_container);
+                    new_container_tab_tr.append(new_container_tab_td_1);
+                    new_container_tab_tr.append(new_container_tab_td_2);
+                }
+
+                new_container_tab.append(new_container_tab_tr);
+                new_container.append(new_container_tab);
+                new_start.append(new_container);
             }
 
             let submitButton = document.createElement("button");

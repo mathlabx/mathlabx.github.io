@@ -137,7 +137,7 @@ const X_Operate = {
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                         let new_start_p;
-                        if (containsBIG(settings[i].Name)) {
+                        if (containsBIG(settings[i].Name) && !containsReg(settings[i].Name)) {
                             new_start_p = document.createElement("h3");
                             titleBIG(settings[i].Name);
                         } else {
@@ -191,7 +191,7 @@ const X_Operate = {
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                         let new_start_p;
-                        if (containsBIG(settings[i].Name)) {
+                        if (containsBIG(settings[i].Name) && !containsReg(settings[i].Name)) {
                             new_start_p = document.createElement("h3");
                             titleBIG(settings[i].Name);
                         } else {

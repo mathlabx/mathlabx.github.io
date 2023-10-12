@@ -70,7 +70,6 @@ const X_Operate = {
 
     newSetting: (title, settings) => {
         function containsBIG(inputString) {
-            // 关键词数组，用于匹配KaTeX表达式
             const keywords = ["&BIG"];
 
             // 检查输入字符串是否包含关键词
@@ -83,7 +82,6 @@ const X_Operate = {
             return false;
         }
         function containsReg(inputString) {
-            // 关键词数组，用于匹配KaTeX表达式
             const keywords = ["&Reg"];
 
             // 检查输入字符串是否包含关键词
@@ -144,10 +142,10 @@ const X_Operate = {
                             } else {
                                 new_start_p = document.createElement("h4");
                             }
+                            new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                            if (!settings[i].show) new_start_p.style.display = "none";
+                            new_start.append(new_start_p);
                         }
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        if (!settings[i].show) new_start_p.style.display = "none";
-                        new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&BIG", 0), " | ", 1);
@@ -200,10 +198,10 @@ const X_Operate = {
                             } else {
                                 new_start_p = document.createElement("h4");
                             }
+                            new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                            if (!settings[i].show) new_start_p.style.display = "none";
+                            new_start.append(new_start_p);
                         }
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                        if (!settings[i].show) new_start_p.style.display = "none";
-                        new_start.append(new_start_p);
                         last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
                     new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&BIG", 0), " | ", 1);

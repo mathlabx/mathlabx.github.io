@@ -123,8 +123,7 @@ const X_Operate = {
                     if (settings[i].Typ == "check" || (settings[i].Typ == "checked" && settings[i].show == true)) {
                         let new_container_tab_td_1 = document.createElement("td");
                         let new_p = document.createElement("p");
-                        console.log(titleBIG(settings[i].Name));
-                        console.log(titleBIG(settings[i].Name) == false);
+                        console.log([titleBIG(settings[i].Name), titleBIG(settings[i].Name) == false]);
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                             let new_start_p;
                             if (containsBIG(settings[i].Name)) {
@@ -179,8 +178,7 @@ const X_Operate = {
                     } else if (settings[i].Typ == "range") {
                         let new_container_tab_td_1 = document.createElement("td");
                         let new_p = document.createElement("p");
-                        console.log(titleBIG(settings[i].Name));
-                        console.log(titleBIG(settings[i].Name) == false);
+                        console.log([titleBIG(settings[i].Name), titleBIG(settings[i].Name) == false]);
                         if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                             let new_start_p;
                             if (containsBIG(settings[i].Name)) {

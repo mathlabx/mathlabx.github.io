@@ -90,7 +90,7 @@ const X_Operate = {
                     return true;
                 }
             }
-            titleBIG_Store.push(inputString);
+            titleBIG_Store.push(extractTextBeforeSeparator(inputString, "&BIG", 0));
             return false;
         }
         function extractTextBeforeSeparator(inputString, separator, w) {

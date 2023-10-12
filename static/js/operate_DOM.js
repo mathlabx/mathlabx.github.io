@@ -69,13 +69,13 @@ function app_update(typ) {
                 probability = 0; // 不显示广告
                 break;
             case "few":
-                probability = generateRandomSmall(); // 使用正态分布生成随机数
+                probability = generateRandomLow(); // 使用正态分布生成随机数
                 break;
             case "medium":
-                probability = generateRandomNormal(); // 使用正态分布生成随机数
+                probability = generateRandomMedium(); // 使用正态分布生成随机数
                 break;
             case "more":
-                probability = generateRandomMore(); // 使用正态分布生成随机数
+                probability = generateRandomHigh(); // 使用正态分布生成随机数
                 break;
         }
 

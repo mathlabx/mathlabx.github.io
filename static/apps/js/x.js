@@ -181,19 +181,23 @@ const X_Operate = {
                     new_toggle_switch_cheakbox.type = "checkbox";
                     console.log(settings[i]);
                     if (settings[i].Typ == "checked" && settings[i].show == true) {
+                        function close_box(Id) {
+                            setTimeout(() => {
+                                document.getElementById(Id).click();
+                                results[i] = document.getElementById(Id).checked;
+                                //  if (settings[i].Typ == "check") results[i] = false;
+                            }, 600);
+                        }
+                        close_box(elementId);
+                    }
+                    function close_box_l(Id) {
                         setTimeout(() => {
-                            const checkbox = document.getElementById(elementId);
-                            checkbox.click();
-                            results[i] = checkbox.checked;
-                            //  if (settings[i].Typ == "check") results[i] = false;
+                            document.getElementById(Id).addEventListener("change", function () {
+                                results[i] = document.getElementById(Id).checked;
+                            });
                         }, 600);
                     }
-                    setTimeout(() => {
-                        const checkbox = document.getElementById(elementId);
-                        checkbox.addEventListener("change", () => {
-                            results[i] = checkbox.checked;
-                        });
-                    }, 600);
+                    close_box_l(elementId);
                     let new_slider_round = document.createElement("span");
                     new_slider_round.className = "slider round";
                     new_toggle_switch_label.append(new_toggle_switch_cheakbox);

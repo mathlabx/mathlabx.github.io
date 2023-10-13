@@ -21,21 +21,10 @@ var isFormOpen = false;
 
 function toggleForm() {
     var formContainer = document.getElementById('formContainer');
-    var join_button = document.getElementById('join_button');
 
     if (!formContainer) {
         openForm();
         return;
-    }
-
-    if (isFormOpen) {
-        formContainer.style.display = 'none';
-        join_button.style.display = 'none';
-        join_button.textContent = 'Open';
-    } else {
-        formContainer.style.display = 'flex';
-        join_button.style.display = 'flex';
-        join_button.textContent = 'Close';
     }
 
     isFormOpen = !isFormOpen;

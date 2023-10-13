@@ -205,8 +205,11 @@ async function creat_class() {
         const snapshot = await classQuery.once('value');
         if (snapshot.exists()) {
             const classData = snapshot.val();
-            console.log("Class name:", classData.name);
-            console.log("Class description:", classData.description);
+            const values = Object.values(classData);
+            for (const classItem of values) {
+                console.log("Class name:", classItem.name);
+                console.log("Class description:", classItem.description);
+            }
         } else {
             // 生成随机的 7 位 16 进制字符
             const classroomCode = generateRandomCode();
@@ -217,6 +220,23 @@ async function creat_class() {
                 name: classroomName,
                 description: classroomDescription
             });
+
+            const createdClassQuery = classesRef.orderByChild('code').equalTo(classroomCode);
+            const createdSnapshot = await createdClassQuery.once('value');
+            if (createdSnapshot.exists()) {
+                const createdClassData = createdSnapshot.val();
+                const values = Object.values(createdClassData);
+                for (const createdClassItem of values) {
+                    console.log("Created Class ID:", createdClassItem.code);
+                    console.log("Created Class name:", createdClassItem.name);
+                    console.log("Created Class description:", createdClassItem.description);
+                    document.getElementById("7d_code").value = createdClassItem.code;
+                    setTimeout(() => {
+                        join_class();
+                    }, 100);
+                }
+            }
+
             console.log("Data created successfully.");
         }
     }

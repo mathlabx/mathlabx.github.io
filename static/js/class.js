@@ -236,7 +236,6 @@ async function creat_class() {
                     }, 100);
                 }
             }
-
             console.log("Data created successfully.");
         }
     }

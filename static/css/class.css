@@ -10,18 +10,13 @@
 }
 
 .type_title {
-    font-size: x-large;
+    float: left;
     overflow-x: hidden;
     max-height: 100%;
     line-height: 50px;
-    border-radius: 10px;
-    margin-left: 1%;
-    width: 200px;
+    margin-left: 5%;
     height: 50px;
-    background-color: #8a96e1;
-    border-right: 1px solid;
     white-space: nowrap;
-    display: inline-block;
 }
 
 .type_join {
@@ -37,4 +32,10 @@
     border-right: 1px solid;
     white-space: nowrap;
     display: inline-block;
+}
+
+@media (max-width: 615px) {
+    .types {
+        display: grid;
+    }
 }

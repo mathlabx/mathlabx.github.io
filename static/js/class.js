@@ -47,6 +47,7 @@ function openForm() {
     formContainer.className = 'form-container';
 
     var classroomCodeInput = createInput('Classroom 7-digit Code');
+    classroomCodeInput.id = "7d_code";
     formContainer.appendChild(classroomCodeInput);
 
     var classroomCodeError = document.createElement('div');
@@ -65,6 +66,7 @@ function openForm() {
     formContainer.appendChild(submitButton);
 
     var classroomNameInput = createInput('Class name');
+    classroomNameInput.id = "classroomNameInput";
     formContainer.appendChild(classroomNameInput);
 
     var classroomNameError = document.createElement('div');
@@ -72,6 +74,7 @@ function openForm() {
     formContainer.appendChild(classroomNameError);
 
     var classroomDescriptionInput = createTextArea('Class introduction');
+    classroomDescriptionInput.id = "classroomDescriptionInput";
     formContainer.appendChild(classroomDescriptionInput);
 
     var classroomDescriptionError = document.createElement('div');
@@ -79,6 +82,7 @@ function openForm() {
     formContainer.appendChild(classroomDescriptionError);
 
     var createButton = document.createElement('button');
+    createButton.id = "createButton";
     createButton.style.padding = '10px';
     createButton.style.color = 'white';
     createButton.style.border = 'none';
@@ -107,7 +111,7 @@ function createTextArea(placeholder) {
 
 var classroomCode;
 function validateJoin() {
-    var classroomCodeInput = document.getElementById('formContainer').children[0];
+    var classroomCodeInput = document.getElementById('7d_code');
     classroomCode = classroomCodeInput.value;
 
     var classroomCodeRegex = /^[0-9A-Fa-f]{7}$/;
@@ -126,8 +130,8 @@ function validateJoin() {
 var classroomName;
 var classroomDescription;
 function validateCreate() {
-    var classroomNameInput = document.getElementById('formContainer').children[2];
-    var classroomDescriptionInput = document.getElementById('formContainer').children[5];
+    var classroomNameInput = document.getElementById('classroomNameInput');
+    var classroomDescriptionInput = document.getElementById('classroomDescriptionInput');
 
     classroomName = classroomNameInput.value;
     classroomDescription = classroomDescriptionInput.value;

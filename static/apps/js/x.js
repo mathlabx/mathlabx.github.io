@@ -123,14 +123,6 @@ const X_Operate = {
             let new_range; // 声明new_range变量在循环外部
 
             let recs = [];
-            function rec_settings_t(rec) {
-                console.log(recs);
-                if (recs.includes(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
-                    return true;
-                } else {
-                    recs.push(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
-                }
-            }
 
             for (let i = 0; i < settings.length; i++) {
                 let new_container = document.createElement("div");
@@ -141,6 +133,14 @@ const X_Operate = {
                 let new_container_tab_tr = document.createElement("tr");
 
                 if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
+                    function rec_settings_t(rec) {
+                        console.log(recs);
+                        if (recs.includes(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
+                            return true;
+                        } else {
+                            recs.push(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
+                        }
+                    }
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
@@ -197,6 +197,14 @@ const X_Operate = {
                     new_container_tab_tr.append(new_container_tab_td_1);
                     new_container_tab_tr.append(new_container_tab_td_2);
                 } else if (settings[i].Typ == "range") {
+                    function rec_settings_t(rec) {
+                        console.log(recs);
+                        if (recs.includes(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
+                            return true;
+                        } else {
+                            recs.push(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
+                        }
+                    }
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {

@@ -236,24 +236,27 @@ function generateRandomCode() {
 window.addEventListener("load", function () {
     if (!APP.login) window.location = "../account/login.html";
     setTimeout(() => {
-        serverStorage.getItem("User", APP.account.UID).then((data) => {
-            if (data) {
-                const classesRef = firebase.database().ref('classes');
-                const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
+        async function load() {
+            serverStorage.getItem("User", APP.account.UID).then((data) => {
+                if (data) {
+                    const classesRef = firebase.database().ref('classes');
+                    const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
 
-                const snapshot = await classQuery.once('value');
-                if (snapshot.exists()) {
-                    const classData = snapshot.val();
-                    console.log("Class name:", classData.name);
-                    console.log("Class description:", classData.description);
-                    APP.class = classData;
-                    if (!APP.class) APP.class = [];
-                } else {
-                    console.log("Data does not exist.");
+                    const snapshot = await classQuery.once('value');
+                    if (snapshot.exists()) {
+                        const classData = snapshot.val();
+                        console.log("Class name:", classData.name);
+                        console.log("Class description:", classData.description);
+                        APP.class = classData;
+                        if (!APP.class) APP.class = [];
+                    } else {
+                        console.log("Data does not exist.");
+                    }
+                    document.getElementById("join_button").onclick = toggleForm;
+                    class_update();
                 }
-                document.getElementById("join_button").onclick = toggleForm;
-                class_update();
-            }
-        });
+            });
+        }
+        load();
     }, 300);
 });

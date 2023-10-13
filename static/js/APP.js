@@ -24,6 +24,7 @@ APP.get_from_server = function () {
 }
 
 APP.account = {
+    UID: localStorage.getItem("UID"),
     username: localStorage.getItem("User_Name"),
     useremail: localStorage.getItem("User_Email"),
     userinfo: localStorage.getItem("User_Info"),

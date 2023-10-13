@@ -4,7 +4,7 @@ function class_update() {
         let new_flow = document.createElement("div");
         new_flow.className = "flow-element";
         let new_title = document.createElement("h2");
-        new_title.innerHTML = APP.class[i].title;
+        new_title.innerHTML = APP.class[i].name;
         new_flow.append(new_title);
         let new_p = document.createElement("p");
         new_p.innerText = APP.class[i].description;
@@ -248,7 +248,7 @@ window.addEventListener("load", function () {
                             const classData = snapshot.val();
                             console.log("Class name:", classData.name);
                             console.log("Class description:", classData.description);
-                            APP.class = classData;
+                            APP.class.push(classData);
                             if (!APP.class) APP.class = [];
                         } else {
                             console.log("Data does not exist.");

@@ -10,7 +10,7 @@ function class_update() {
         new_p.innerText = APP.class[i].description;
         new_flow.append(new_p);
         new_flow.addEventListener("click", function () {
-            into_class(APP.class.code);
+            into_class(APP.class[i].code);
         });
         container.append(new_flow);
     }

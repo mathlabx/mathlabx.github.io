@@ -18,9 +18,10 @@ function class_update() {
 
 //课堂加入，创建
 var isFormOpen = false;
+var formContainer = null;
 
 function toggleForm() {
-    var formContainer = document.getElementById('formContainer');
+    formContainer = document.getElementById('formContainer');
     var form_button = document.getElementById("join_button");
     if (isFormOpen) {
         formContainer.style.display = 'none';
@@ -38,7 +39,7 @@ function toggleForm() {
 }
 
 function openForm() {
-    var formContainer = document.createElement('div');
+    formContainer = document.createElement('div');
     formContainer.id = 'formContainer';
     formContainer.className = 'form-container';
 

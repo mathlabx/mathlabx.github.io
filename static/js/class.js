@@ -1,13 +1,13 @@
 function class_update() {
     let container = document.getElementById("container");
-    for (i = 0; i < APP.Class.length; i++) {
+    for (i = 0; i < APP.class.length; i++) {
         let new_flow = document.createElement("div");
         new_flow.className = "flow-element";
         let new_title = document.createElement("h2");
-        new_title.innerHTML = APP.Class[i].title;
+        new_title.innerHTML = APP.class[i].title;
         new_flow.append(new_title);
         let new_p = document.createElement("p");
-        new_p.innerText = APP.Class[i].description;
+        new_p.innerText = APP.class[i].description;
         new_flow.append(new_p);
         new_flow.addEventListener("click", function () {
 
@@ -168,7 +168,7 @@ window.addEventListener("load", function () {
     setTimeout(() => {
         serverStorage.getItem("User", APP.account.UID).then((data) => {
             if (data) {
-                APP.Class = data.Class;
+                APP.class = data.Class;
                 document.getElementById("join_button").onclick = openForm();
                 class_update();
             }

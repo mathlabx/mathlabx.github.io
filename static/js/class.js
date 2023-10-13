@@ -248,7 +248,11 @@ window.addEventListener("load", function () {
                             const classData = snapshot.val();
                             console.log("Class name:", classData.name);
                             console.log("Class description:", classData.description);
-                            APP.class.push(classData);
+                            APP.class.push({
+                                code: classData.code,
+                                name: classData.name,
+                                description: classData.description
+                            });
                             if (!APP.class) APP.class = [];
                         } else {
                             console.log("Data does not exist.");

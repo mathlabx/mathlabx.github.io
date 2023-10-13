@@ -22,7 +22,7 @@ var formContainer = null;
 
 function toggleForm() {
     var form_button = document.getElementById("join_button");
-    
+
     if (isFormOpen) {
         formContainer.style.display = 'none';
         form_button.innerHTML = "Join/Create Class";
@@ -30,6 +30,7 @@ function toggleForm() {
         openForm();
         form_button.innerHTML = "Close";
     }
+
     if (!formContainer) {
         openForm();
         return;
@@ -85,8 +86,6 @@ function openForm() {
     formContainer.appendChild(createButton);
 
     document.body.appendChild(formContainer);
-
-    toggleForm();
 }
 
 function createInput(placeholder) {

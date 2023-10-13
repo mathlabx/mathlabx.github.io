@@ -7,7 +7,6 @@
     overflow-y: hidden;
     position: relative;
     z-index: 9999;
-    background-color: grey;
 }
 
 .type_title {
@@ -18,29 +17,36 @@
     margin-left: 5%;
     height: 50px;
     white-space: nowrap;
+    margin-top: 1%;
 }
 
 .type_join {
+    margin-right: 5%;
+    float: right;
+    margin: auto;
     font-size: x-large;
     overflow-x: hidden;
     max-height: 100%;
     line-height: 50px;
     border-radius: 10px;
-    margin-left: 1%;
     width: 200px;
     height: 50px;
     background-color: #8a96e1;
     border-right: 1px solid;
     white-space: nowrap;
     display: inline-block;
+    margin-right: 3%;
+    margin-top: 1%;
 }
 
 @media (max-width: 615px) {
     .types {
         display: grid;
+        background-color: grey;
     }
 
     .type_join {
         margin: 0 auto;
+        float: none;
     }
 }

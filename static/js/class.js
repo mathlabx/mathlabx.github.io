@@ -246,6 +246,7 @@ window.addEventListener("load", function () {
                         const snapshot = await classQuery.once('value');
                         if (snapshot.exists()) {
                             const classData = snapshot.val();
+                            console.log("Class ID:", classData.code);
                             console.log("Class name:", classData.name);
                             console.log("Class description:", classData.description);
                             APP.class.push({

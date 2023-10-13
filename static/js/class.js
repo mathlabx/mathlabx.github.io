@@ -45,7 +45,6 @@ function openForm() {
     var submitButton = document.createElement('button');
     submitButton.textContent = 'Join';
     submitButton.style.padding = '10px';
-    submitButton.style.backgroundColor = '#4CAF50';
     submitButton.style.color = 'white';
     submitButton.style.border = 'none';
     submitButton.style.borderRadius = '4px';
@@ -69,7 +68,6 @@ function openForm() {
 
     var createButton = document.createElement('button');
     createButton.style.padding = '10px';
-    createButton.style.backgroundColor = '#4CAF50';
     createButton.style.color = 'white';
     createButton.style.border = 'none';
     createButton.style.borderRadius = '4px';

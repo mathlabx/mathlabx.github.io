@@ -70,16 +70,7 @@ function registered() {
                 Gender: userinput_gender,
                 Img: userinput_img,
                 Like: [],
-                Class: [
-                    {
-                        title: "8 th G",
-                        description: "Class Room"
-                    },
-                    {
-                        title: "9 th G",
-                        description: "Class Room 2"
-                    }
-                ]
+                Class: []
             };
 
             // 使用 Firebase 实时数据库存储用户信息

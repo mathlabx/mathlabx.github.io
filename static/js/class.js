@@ -132,8 +132,8 @@ function validateCreate() {
     classroomName = classroomNameInput.value;
     classroomDescription = classroomDescriptionInput.value;
 
-    var classroomNameLength = classroomName.length;
-    var classroomDescriptionLength = classroomDescription.length;
+    var classroomNameRegex = /^.{5,20}$/;
+    var classroomDescriptionRegex = /^.{10,35}$/;
 
     var classroomNameError = document.getElementById('formContainer').children[3];
     var classroomDescriptionError = document.getElementById('formContainer').children[6];
@@ -144,13 +144,13 @@ function validateCreate() {
     var isNameValid = true;
     var isDescriptionValid = true;
 
-    if (classroomNameLength < 5 || classroomNameLength > 15) {
-        setInvalidInput(classroomNameInput, 'Class name must be between 5 and 15 characters.', classroomNameError);
+    if (!classroomNameRegex.test(classroomName)) {
+        setInvalidInput(classroomNameInput, 'Class name must be 5-20 characters.', classroomNameError);
         isNameValid = false;
     }
 
-    if (classroomDescriptionLength < 10 || classroomDescriptionLength > 35) {
-        setInvalidInput(classroomDescriptionInput, 'Class introduction must be between 10 and 35 characters.', classroomDescriptionError);
+    if (!classroomDescriptionRegex.test(classroomDescription)) {
+        setInvalidInput(classroomDescriptionInput, 'Class introduction must be 10-35 characters.', classroomDescriptionError);
         isDescriptionValid = false;
     }
 

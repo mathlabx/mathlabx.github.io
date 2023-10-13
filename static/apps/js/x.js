@@ -124,10 +124,10 @@ const X_Operate = {
 
             let recs = [];
             function rec_settings_t(rec) {
-                if (recs.includes(new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
+                if (recs.includes(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
                     return true;
                 } else {
-                    recs.push(new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
+                    recs.push(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
                 }
             }
 

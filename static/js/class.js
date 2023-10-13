@@ -192,14 +192,29 @@ async function creat_class() {
             console.log("Class name:", classData.name);
             console.log("Class description:", classData.description);
         } else {
+            // 生成随机的 7 位 16 进制字符
+            const classroomCode = generateRandomCode();
+
             const newClassRef = push(classesRef);
             set(newClassRef, {
+                code: classroomCode,
                 name: classroomName,
                 description: classroomDescription
             });
             console.log("Data created successfully.");
         }
     }
+}
+
+// 生成随机的 7 位 16 进制字符
+function generateRandomCode() {
+    let result = '';
+    const characters = 'ABCDEF0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < 7; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
 
 window.addEventListener("load", function () {

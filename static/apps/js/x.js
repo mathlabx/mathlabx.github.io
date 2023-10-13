@@ -122,6 +122,15 @@ const X_Operate = {
             let elementId; // 声明elementId变量在循环外部
             let new_range; // 声明new_range变量在循环外部
 
+            let recs = [];
+            function rec_settings_t(rec) {
+                if (recs.includes(new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
+                    return true;
+                } else {
+                    recs.push(new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
+                }
+            }
+
             for (let i = 0; i < settings.length; i++) {
                 let new_container = document.createElement("div");
                 new_container.className = "settings_flow";
@@ -136,7 +145,7 @@ const X_Operate = {
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                         let new_start_p;
                         if (!containsReg(settings[i].Name)) {
-                            if (containsBIG(settings[i].Name)) {
+                            if (containsBIG(settings[i].Name) || !rec_settings_t(settings[i].Name)) {
                                 new_start_p = document.createElement("h3");
                                 titleBIG(settings[i].Name);
                             } else {
@@ -192,7 +201,7 @@ const X_Operate = {
                     if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
                         let new_start_p;
                         if (!containsReg(settings[i].Name)) {
-                            if (containsBIG(settings[i].Name)) {
+                            if (containsBIG(settings[i].Name) || !rec_settings_t(settings[i].Name)) {
                                 new_start_p = document.createElement("h3");
                                 titleBIG(settings[i].Name);
                             } else {

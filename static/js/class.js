@@ -159,7 +159,7 @@ window.addEventListener("load", function () {
             if (data) {
                 APP.class = data.Class;
                 if (!APP.class) APP.class = [];
-                document.getElementById("join_button").onclick = openForm();
+                document.getElementById("join_button").onclick = openForm;
                 class_update();
             }
         });

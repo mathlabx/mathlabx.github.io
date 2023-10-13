@@ -60,6 +60,7 @@ function openForm() {
     submitButton.style.border = 'none';
     submitButton.style.borderRadius = '4px';
     submitButton.style.cursor = 'pointer';
+    submitButton.onclick = join_class;
     submitButton.onclick = validateJoin;
     formContainer.appendChild(submitButton);
 
@@ -84,6 +85,7 @@ function openForm() {
     createButton.style.borderRadius = '4px';
     createButton.style.cursor = 'pointer';
     createButton.textContent = 'Create';
+    createButton.onclick = creat_class;
     createButton.onclick = validateCreate;
     formContainer.appendChild(createButton);
 
@@ -103,9 +105,10 @@ function createTextArea(placeholder) {
     return textarea;
 }
 
+var classroomCode;
 function validateJoin() {
     var classroomCodeInput = document.getElementById('formContainer').children[0];
-    var classroomCode = classroomCodeInput.value;
+    classroomCode = classroomCodeInput.value;
 
     var classroomCodeRegex = /^[0-9A-Fa-f]{7}$/;
     var classroomCodeError = document.getElementById('formContainer').children[1];
@@ -120,12 +123,14 @@ function validateJoin() {
     return true;
 }
 
+var classroomName;
+var classroomDescription;
 function validateCreate() {
     var classroomNameInput = document.getElementById('formContainer').children[2];
     var classroomDescriptionInput = document.getElementById('formContainer').children[5];
 
-    var classroomName = classroomNameInput.value;
-    var classroomDescription = classroomDescriptionInput.value;
+    classroomName = classroomNameInput.value;
+    classroomDescription = classroomDescriptionInput.value;
 
     var classroomNameRegex = /^.{5,20}$/;
     var classroomDescriptionRegex = /^.{10,35}$/;
@@ -159,6 +164,44 @@ function setInvalidInput(inputElement, errorMessage, errorElement) {
     errorElement.textContent = errorMessage;
 }
 
+async function join_class() {
+    if (validateJoin()) {
+        const classesRef = ref(database, 'classes');
+        const classQuery = query(child(classesRef, 'code'), equalTo(classroomCode));
+
+        const snapshot = await get(classQuery);
+        if (snapshot.exists()) {
+            const classData = snapshot.val();
+            console.log("Class name:", classData.name);
+            console.log("Class description:", classData.description);
+        } else {
+            console.log("Data does not exist.");
+        }
+    }
+}
+
+// 在 creat_class 函数中检查数据是否存在，如果不存在则创建
+async function creat_class() {
+    if (validateCreate()) {
+        const classesRef = ref(database, 'classes');
+        const classQuery = query(child(classesRef, 'name'), equalTo(classroomName));
+
+        const snapshot = await get(classQuery);
+        if (snapshot.exists()) {
+            const classData = snapshot.val();
+            console.log("Class name:", classData.name);
+            console.log("Class description:", classData.description);
+        } else {
+            const newClassRef = push(classesRef);
+            set(newClassRef, {
+                name: classroomName,
+                description: classroomDescription
+            });
+            console.log("Data created successfully.");
+        }
+    }
+}
+
 window.addEventListener("load", function () {
     if (!APP.login) window.location = "../account/login.html";
     setTimeout(() => {
@@ -171,4 +214,4 @@ window.addEventListener("load", function () {
             }
         });
     }, 300);
-})
+});

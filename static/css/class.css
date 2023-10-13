@@ -7,6 +7,7 @@
     overflow-y: hidden;
     position: relative;
     z-index: 9999;
+    background-color: grey;
 }
 
 .type_title {

@@ -21,8 +21,8 @@ var isFormOpen = false;
 var formContainer = null;
 
 function toggleForm() {
-    formContainer = document.getElementById('formContainer');
     var form_button = document.getElementById("join_button");
+    
     if (isFormOpen) {
         formContainer.style.display = 'none';
         form_button.innerHTML = "Join/Create Class";

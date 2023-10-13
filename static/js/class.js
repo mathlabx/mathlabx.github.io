@@ -246,15 +246,20 @@ window.addEventListener("load", function () {
                         const snapshot = await classQuery.once('value');
                         if (snapshot.exists()) {
                             const classData = snapshot.val();
-                            console.log("Class ID:", classData.code);
-                            console.log("Class name:", classData.name);
-                            console.log("Class description:", classData.description);
-                            APP.class.push({
-                                code: classData.code,
-                                name: classData.name,
-                                description: classData.description
-                            });
-                            if (!APP.class) APP.class = [];
+                            for (const key in classData) {
+                                if (Object.hasOwnProperty.call(classData, key)) {
+                                    const classItem = classData[key];
+                                    console.log("Class ID:", classData.code);
+                                    console.log("Class name:", classData.name);
+                                    console.log("Class description:", classData.description);
+                                    APP.class.push({
+                                        code: classData.code,
+                                        name: classData.name,
+                                        description: classData.description
+                                    });
+                                    if (!APP.class) APP.class = [];
+                                }
+                            }
                         } else {
                             console.log("Data does not exist.");
                         }

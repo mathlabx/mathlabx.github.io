@@ -33,5 +33,6 @@ function class_update() {
 }
 
 window.addEventListener("load", function () {
+    if (!APP.login) window.location = "../account/login.html";
     class_update();
 })

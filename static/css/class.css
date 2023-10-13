@@ -45,6 +45,10 @@
         background-color: grey;
     }
 
+    .type_title {
+        margin-left: 0%;
+    }
+
     .type_join {
         margin: 0 auto;
         float: none;

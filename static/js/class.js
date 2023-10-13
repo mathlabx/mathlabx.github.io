@@ -246,24 +246,22 @@ window.addEventListener("load", function () {
                         const snapshot = await classQuery.once('value');
                         if (snapshot.exists()) {
                             const classData = snapshot.val();
-                            for (const key in classData) {
-                                if (Object.hasOwnProperty.call(classData, key)) {
-                                    const classItem = classData[key];
-                                    console.log("Class ID:", classData.code);
-                                    console.log("Class name:", classData.name);
-                                    console.log("Class description:", classData.description);
-                                    APP.class.push({
-                                        code: classData.code,
-                                        name: classData.name,
-                                        description: classData.description
-                                    });
-                                    if (!APP.class) APP.class = [];
-                                }
+                            const values = Object.values(classData);
+                            for (const classItem of values) {
+                                console.log("Class ID:", classItem.code);
+                                console.log("Class name:", classItem.name);
+                                console.log("Class description:", classItem.description);
+                                APP.class.push({
+                                    code: classItem.code,
+                                    name: classItem.name,
+                                    description: classItem.description
+                                });
                             }
                         } else {
                             console.log("Data does not exist.");
                         }
                     }
+                    if (!APP.class) APP.class = [];
                     document.getElementById("join_button").onclick = toggleForm;
                     class_update();
                 }

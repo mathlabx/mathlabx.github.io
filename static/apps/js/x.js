@@ -68,7 +68,7 @@ const X_Operate = {
         window_load(true, 1000);
     },
 
-    newSetting: (title, settings) => {
+    newSetting: async (title, settings) => {
         function containsBIG(inputString) {
             const keywords = ["&BIG"];
 
@@ -81,6 +81,7 @@ const X_Operate = {
 
             return false;
         }
+
         function containsReg(inputString) {
             const keywords = ["&Reg"];
 
@@ -93,24 +94,31 @@ const X_Operate = {
 
             return false;
         }
+
         let titleBIG_Store = new Array();
-        function titleBIG(inputString) {
+
+        async function titleBIG(inputString) {
             // 检查输入字符串是否包含关键词
             inputString = extractTextBeforeSeparator(inputString, "&BIG", 0);
+
             for (const keyword of titleBIG_Store) {
                 if (inputString.includes(keyword)) {
                     return true;
                 }
             }
+
             titleBIG_Store.push(inputString);
             return false;
         }
+
         function extractTextBeforeSeparator(inputString, separator, w) {
             const parts = inputString.split(separator);
             return parts[w];
         }
+
         let last_title = "";
-        return new Promise((resolve, reject) => {
+
+        return new Promise(async (resolve, reject) => {
             const formIndex = Math.floor(Math.random() * 1000000);
             let new_start = document.createElement("div");
             new_start.className = "new_start";
@@ -123,12 +131,14 @@ const X_Operate = {
             let new_range; // 声明new_range变量在循环外部
 
             let recs = [];
-            function rec_settings_t(rec) {
+
+            async function rec_settings_t(rec) {
                 console.log(recs);
                 if (recs.includes(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
                     return true;
                 } else {
                     recs.push(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
+                    return false;
                 }
             }
 
@@ -140,15 +150,15 @@ const X_Operate = {
                 new_container_tab.className = "settings_flow_tab";
                 let new_container_tab_tr = document.createElement("tr");
 
-                if (settings[i].Typ == "check" || settings[i].Typ == "checked" && settings[i].show == true) {
+                if (settings[i].Typ == "check" || (settings[i].Typ == "checked" && settings[i].show == true)) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && !(await titleBIG(settings[i].Name))) {
                         let new_start_p;
                         if (!containsReg(settings[i].Name)) {
-                            if (containsBIG(settings[i].Name) || !rec_settings_t(settings[i].Name)) {
+                            if (containsBIG(settings[i].Name) || !(await rec_settings_t(settings[i].Name))) {
                                 new_start_p = document.createElement("h3");
-                                titleBIG(settings[i].Name);
+                                await titleBIG(settings[i].Name);
                             } else {
                                 new_start_p = document.createElement("h4");
                             }
@@ -180,6 +190,7 @@ const X_Operate = {
                         }
                         close_box(elementId);
                     }
+
                     function close_box_l(Id) {
                         setTimeout(() => {
                             document.getElementById(Id).addEventListener("change", function () {
@@ -199,12 +210,12 @@ const X_Operate = {
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && titleBIG(settings[i].Name) == false) {
+                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && !(await titleBIG(settings[i].Name))) {
                         let new_start_p;
                         if (!containsReg(settings[i].Name)) {
-                            if (containsBIG(settings[i].Name) || !rec_settings_t(settings[i].Name)) {
+                            if (containsBIG(settings[i].Name) || !(await rec_settings_t(settings[i].Name))) {
                                 new_start_p = document.createElement("h3");
-                                titleBIG(settings[i].Name);
+                                await titleBIG(settings[i].Name);
                             } else {
                                 new_start_p = document.createElement("h4");
                             }

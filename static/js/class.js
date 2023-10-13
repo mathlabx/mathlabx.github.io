@@ -236,9 +236,9 @@ function generateRandomCode() {
 window.addEventListener("load", function () {
     if (!APP.login) window.location = "../account/login.html";
     setTimeout(() => {
-        async function load() {
-            serverStorage.getItem("User", APP.account.UID).then((data) => {
-                if (data) {
+        serverStorage.getItem("User", APP.account.UID).then((data) => {
+            if (data) {
+                async function load() {
                     for (let i = 0; i < data.Class.length; i++) {
                         const classesRef = firebase.database().ref('classes');
                         const classQuery = classesRef.orderByChild('code').equalTo(data.Class[i]);
@@ -257,8 +257,8 @@ window.addEventListener("load", function () {
                     document.getElementById("join_button").onclick = toggleForm;
                     class_update();
                 }
-            });
-        }
-        load();
+                load();
+            }
+        });
     }, 300);
 });

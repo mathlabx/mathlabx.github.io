@@ -22,12 +22,11 @@ var isFormOpen = false;
 function toggleForm() {
     var formContainer = document.getElementById('formContainer');
     var form_button = document.getElementById("join_button");
-    if (formContainer) {
+    if (isFormOpen) {
         formContainer.style.display = 'none';
         form_button.innerHTML = "Join/Create Class";
-
-    } else if (!formContainer) {
-        formContainer.style.display = 'flex';
+    } else {
+        openForm();
         form_button.innerHTML = "Close";
     }
     if (!formContainer) {

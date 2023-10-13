@@ -169,6 +169,7 @@ window.addEventListener("load", function () {
         serverStorage.getItem("User", APP.account.UID).then((data) => {
             if (data) {
                 APP.class = data.Class;
+                if (!APP.class) APP.class = [];
                 document.getElementById("join_button").onclick = openForm();
                 class_update();
             }

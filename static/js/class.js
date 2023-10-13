@@ -23,8 +23,11 @@ function toggleForm() {
     var formContainer = document.getElementById('formContainer');
     var form_button = document.getElementById("join_button");
     if (formContainer) {
+        formContainer.style.display = 'none';
         form_button.innerHTML = "Join/Create Class";
+
     } else if (!formContainer) {
+        formContainer.style.display = 'flex';
         form_button.innerHTML = "Close";
     }
     if (!formContainer) {

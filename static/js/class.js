@@ -10,7 +10,7 @@ function class_update() {
         new_p.innerText = APP.class[i].description;
         new_flow.append(new_p);
         new_flow.addEventListener("click", function () {
-
+            into_class(APP.class.code);
         });
         container.append(new_flow);
     }
@@ -290,3 +290,12 @@ window.addEventListener("load", function () {
         });
     }, 300);
 });
+
+function into_class(class_id) {
+    function sendObject(obj) {
+        const queryString = new URLSearchParams(obj).toString();
+        const url = "classroom.html?" + queryString; // 在这里替换成接收文件的路径
+        window.location.href = url;
+    }
+    sendObject(class_id);
+}

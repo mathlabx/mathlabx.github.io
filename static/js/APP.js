@@ -33,6 +33,8 @@ APP.account = {
     $s: "not login"
 }
 
+APP.Class = [];
+
 APP.log = function (message = "Loading...", duration = 3000) {
     // 使用固定的id标识加载提示容器
     const containerId = "loading-container";

@@ -21,7 +21,7 @@ var isFormOpen = false;
 
 function toggleForm() {
     var formContainer = document.getElementById('formContainer');
-    var toggleButton = document.getElementById('toggleButton');
+    var type_join = document.getElementById('type_join');
 
     if (!formContainer) {
         openForm();
@@ -30,12 +30,12 @@ function toggleForm() {
 
     if (isFormOpen) {
         formContainer.style.display = 'none';
-        toggleButton.style.display = 'none';
-        toggleButton.textContent = 'Open';
+        type_join.style.display = 'none';
+        type_join.textContent = 'Open';
     } else {
         formContainer.style.display = 'flex';
-        toggleButton.style.display = 'flex';
-        toggleButton.textContent = 'Close';
+        type_join.style.display = 'flex';
+        type_join.textContent = 'Close';
     }
 
     isFormOpen = !isFormOpen;

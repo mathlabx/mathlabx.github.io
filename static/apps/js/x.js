@@ -124,6 +124,7 @@ const X_Operate = {
 
             let recs = [];
             function rec_settings_t(rec) {
+                console.log(recs);
                 if (recs.includes(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
                     return true;
                 } else {

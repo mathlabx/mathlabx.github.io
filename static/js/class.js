@@ -62,7 +62,6 @@ function openForm() {
     submitButton.style.borderRadius = '4px';
     submitButton.style.cursor = 'pointer';
     submitButton.onclick = join_class;
-    submitButton.onclick = validateJoin;
     formContainer.appendChild(submitButton);
 
     var classroomNameInput = createInput('Class name');
@@ -90,7 +89,6 @@ function openForm() {
     createButton.style.cursor = 'pointer';
     createButton.textContent = 'Create';
     createButton.onclick = creat_class;
-    createButton.onclick = validateCreate;
     formContainer.appendChild(createButton);
 
     document.body.appendChild(formContainer);

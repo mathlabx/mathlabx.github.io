@@ -172,9 +172,11 @@ async function join_class() {
 
         const snapshot = await classQuery.once('value');
         if (snapshot.exists()) {
-            const classData = snapshot.val();
-            console.log("Class name:", classData.name);
-            console.log("Class description:", classData.description);
+            snapshot.forEach((childSnapshot) => {
+                const classData = childSnapshot.val();
+                console.log("Class name:", classData.name);
+                console.log("Class description:", classData.description);
+            });
         } else {
             console.log("Data does not exist.");
         }

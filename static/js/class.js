@@ -172,16 +172,29 @@ async function join_class() {
 
         const snapshot = await classQuery.once('value');
         if (snapshot.exists()) {
-            snapshot.forEach((childSnapshot) => {
-                const classData = childSnapshot.val();
-                console.log("Class name:", classData.name);
-                console.log("Class description:", classData.description);
+            const classData = snapshot.val();
+            console.log("Class name:", classData.name);
+            console.log("Class description:", classData.description);
+
+            // Update the user's class list
+            const userRef = firebase.database().ref('User/' + APP.account.UID);
+            userRef.once('value', (snapshot) => {
+                const userData = snapshot.val();
+                if (userData && userData.Class) {
+                    if (!userData.Class.includes(classroomCode)) {
+                        userData.Class.push(classroomCode);
+                        userRef.update({ Class: userData.Class });
+                    }
+                } else {
+                    userRef.update({ Class: [classroomCode] });
+                }
             });
         } else {
             console.log("Data does not exist.");
         }
     }
 }
+
 
 // 在 creat_class 函数中检查数据是否存在，如果不存在则创建
 async function creat_class() {

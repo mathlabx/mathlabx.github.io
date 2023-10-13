@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
     setTimeout(() => {
         serverStorage.getItem("User", APP.account.UID).then((data) => {
             if (data) {
-                APP.class = data;
+                APP.class = data.Class;
                 class_update();
             }
         });

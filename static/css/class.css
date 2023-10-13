@@ -68,7 +68,7 @@ input,
 textarea {
     margin-bottom: 10px;
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #202226;
     border-radius: 4px;
     width: 100%;
 }
@@ -80,7 +80,7 @@ textarea {
 
 button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #8a96e1;
     color: white;
     border: none;
     border-radius: 4px;
@@ -95,7 +95,7 @@ button {
 @media (max-width: 615px) {
     .types {
         display: grid;
-        background-color: grey;
+        background-color: #202226;
     }
 
     .type_title {

@@ -239,18 +239,20 @@ window.addEventListener("load", function () {
         async function load() {
             serverStorage.getItem("User", APP.account.UID).then((data) => {
                 if (data) {
-                    const classesRef = firebase.database().ref('classes');
-                    const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
+                    for (let i = 0; i < data.Class.length; i++) {
+                        const classesRef = firebase.database().ref('classes');
+                        const classQuery = classesRef.orderByChild('code').equalTo(data.Class[i]);
 
-                    const snapshot = await classQuery.once('value');
-                    if (snapshot.exists()) {
-                        const classData = snapshot.val();
-                        console.log("Class name:", classData.name);
-                        console.log("Class description:", classData.description);
-                        APP.class = classData;
-                        if (!APP.class) APP.class = [];
-                    } else {
-                        console.log("Data does not exist.");
+                        const snapshot = await classQuery.once('value');
+                        if (snapshot.exists()) {
+                            const classData = snapshot.val();
+                            console.log("Class name:", classData.name);
+                            console.log("Class description:", classData.description);
+                            APP.class = classData;
+                            if (!APP.class) APP.class = [];
+                        } else {
+                            console.log("Data does not exist.");
+                        }
                     }
                     document.getElementById("join_button").onclick = toggleForm;
                     class_update();

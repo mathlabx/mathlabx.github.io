@@ -90,7 +90,6 @@ function openForm() {
     createButton.textContent = 'Create';
     createButton.onclick = creat_class;
     formContainer.appendChild(createButton);
-
     document.body.appendChild(formContainer);
 }
 
@@ -168,10 +167,10 @@ function setInvalidInput(inputElement, errorMessage, errorElement) {
 
 async function join_class() {
     if (validateJoin()) {
-        const classesRef = ref(database, 'classes');
-        const classQuery = query(child(classesRef, 'code'), equalTo(classroomCode));
+        const classesRef = firebase.database().ref('classes');
+        const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
 
-        const snapshot = await get(classQuery);
+        const snapshot = await classQuery.once('value');
         if (snapshot.exists()) {
             const classData = snapshot.val();
             console.log("Class name:", classData.name);
@@ -185,10 +184,10 @@ async function join_class() {
 // 在 creat_class 函数中检查数据是否存在，如果不存在则创建
 async function creat_class() {
     if (validateCreate()) {
-        const classesRef = ref(database, 'classes');
-        const classQuery = query(child(classesRef, 'name'), equalTo(classroomName));
+        const classesRef = firebase.database().ref('classes');
+        const classQuery = classesRef.orderByChild('name').equalTo(classroomName);
 
-        const snapshot = await get(classQuery);
+        const snapshot = await classQuery.once('value');
         if (snapshot.exists()) {
             const classData = snapshot.val();
             console.log("Class name:", classData.name);
@@ -197,8 +196,8 @@ async function creat_class() {
             // 生成随机的 7 位 16 进制字符
             const classroomCode = generateRandomCode();
 
-            const newClassRef = push(classesRef);
-            set(newClassRef, {
+            const newClassRef = classesRef.push();
+            newClassRef.set({
                 code: classroomCode,
                 name: classroomName,
                 description: classroomDescription

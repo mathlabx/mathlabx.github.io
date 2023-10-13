@@ -238,8 +238,19 @@ window.addEventListener("load", function () {
     setTimeout(() => {
         serverStorage.getItem("User", APP.account.UID).then((data) => {
             if (data) {
-                APP.class = data.Class;
-                if (!APP.class) APP.class = [];
+                const classesRef = firebase.database().ref('classes');
+                const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
+
+                const snapshot = await classQuery.once('value');
+                if (snapshot.exists()) {
+                    const classData = snapshot.val();
+                    console.log("Class name:", classData.name);
+                    console.log("Class description:", classData.description);
+                    APP.class = classData;
+                    if (!APP.class) APP.class = [];
+                } else {
+                    console.log("Data does not exist.");
+                }
                 document.getElementById("join_button").onclick = toggleForm;
                 class_update();
             }

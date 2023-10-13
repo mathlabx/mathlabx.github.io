@@ -55,14 +55,16 @@
 }
 
 .form-container {
-    display: none;
+    display: flex;
     flex-direction: column;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 垂直居中 */
     max-width: 300px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-}
+  }
 
 input,
 textarea {

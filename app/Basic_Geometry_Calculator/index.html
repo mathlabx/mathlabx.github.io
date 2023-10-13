@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../static/img/logo_s.png">
+    <link rel="stylesheet" href="../../static/css/loading_motion.css">
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="stylesheet" media="(min-width: 1000px)" href="../../static/css/desktop.css">
+    <link rel="stylesheet" media="(min-width: 616px) and (max-width: 999px)" href="../../static/css/tablet.css">
+    <link rel="stylesheet" media="(max-width: 615px)" href="../../static/css/mobile.css">
+    <link rel="stylesheet" href="../../static/apps/css/style.css">
+    <!-- 引入 KaTeX CSS 文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+    <!-- 引入 KaTeX JS 文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+    <!-- 引入 KaTeX Auto-Render JS 文件，以启用自动渲染 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/auto-render.min.js"></script>
+    <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script type="text/javascript" src="../../static/js/APP.js"></script>
+    <script type="text/javascript" src="../../static/js/loading_motion.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script type="text/javascript" src="../../static/js/server.js"></script>
+    <script type="text/javascript" src="../../static/js/user.js"></script>
+    <script type="text/javascript" src="../../static/apps/js/main.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="../../static/js/Analytics.js"></script>
+    <script type="text/javascript" src="../../static/js/AsSense.js"></script>
+    <title>Quadratic_Equation_Calculator</title>
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loading-animation"></div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="top-bar">
+        <div class="logo"><img src="../../static/img/logo.png" class="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="https://app.mathscichem.com">Home</a></li>
+                <li><a href="./search/">Search</a></li>
+                <li><a href="#" onclick="login_b();" id="username">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div id="container" class="container">
+
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <footer class="mobile-bar">
+        <div class="footer-button" onclick="window.location='../../search/'">Search</div>
+        <div class="footer-button" onclick="window.location='../../'">Home</div>
+        <div class="footer-button" onclick="login_b();">My</div>
+    </footer>
+</body>
+
+</html>

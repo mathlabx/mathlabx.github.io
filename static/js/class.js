@@ -8,9 +8,6 @@ function class_update() {
             let new_flow = document.createElement("div");
             new_flow.className = "flow-element";
             if (APP.apps[i].full_line == true) new_flow.className += " full-line";
-            let new_img = document.createElement("img");
-            new_img.src = APP.apps[i].img;
-            new_flow.append(new_img);
             let new_title = document.createElement("h2");
             new_title.innerHTML = APP.apps[i].title;
             if (APP.apps[i].hot == true) {

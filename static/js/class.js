@@ -22,21 +22,24 @@ var formContainer = null;
 
 function toggleForm() {
     var form_button = document.getElementById("join_button");
-    isFormOpen = !isFormOpen;
 
-    if (!isFormOpen) {
-        formContainer.style.display = 'none';
-        form_button.innerHTML = "Join/Create Class";
-    } else {
+    if (!formContainer) {
         openForm();
         form_button.innerHTML = "Close";
-    }
-
-    if (formContainer) {
-        openForm();
-        return;
+        isFormOpen = true;
+    } else {
+        if (isFormOpen) {
+            formContainer.style.display = 'none';
+            form_button.innerHTML = "Join/Create Class";
+            isFormOpen = false;
+        } else {
+            formContainer.style.display = 'flex';
+            form_button.innerHTML = "Close";
+            isFormOpen = true;
+        }
     }
 }
+
 
 function openForm() {
     formContainer = document.createElement('div');

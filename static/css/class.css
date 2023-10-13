@@ -39,4 +39,8 @@
     .types {
         display: grid;
     }
+
+    .type_join {
+        margin: 0 auto;
+    }
 }

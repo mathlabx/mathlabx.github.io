@@ -190,6 +190,9 @@ async function join_class() {
                 } else {
                     userRef.update({ Class: [classroomCode] });
                 }
+                setTimeout(() => {
+                    document.location.reload();
+                }, 500);
             });
         } else {
             console.log("Data does not exist.");

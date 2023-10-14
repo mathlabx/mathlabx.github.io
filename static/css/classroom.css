@@ -1,0 +1,10 @@
+.flow-element {
+    height: auto;
+    width: calc(100% - 20px);
+}
+
+.new_page_con {
+    position: fixed;
+    height: 80vh;
+    width: 90vw;
+}

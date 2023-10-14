@@ -17,7 +17,7 @@ let Class_Data;
 function get_from_sever() {
     async function load() {
         const classesRef = firebase.database().ref('classes');
-        const classQuery = classesRef.orderByChild('code').equalTo(receivedClass);
+        const classQuery = classesRef.orderByChild('code').equalTo(receivedClass.code);
 
         const snapshot = await classQuery.once('value');
         if (snapshot.exists()) {

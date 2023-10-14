@@ -11,3 +11,4 @@ function receiveObject() {
 // 接收对象
 const receivedClass = receiveObject();
 console.log(receivedClass);
+

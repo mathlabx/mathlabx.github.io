@@ -845,10 +845,29 @@ let user_selectArray = [
     }
 ];
 
-console.log(user_selectArray);
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
+
+function receiveObject() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const obj = {};
+    for (let [key, value] of urlParams) {
+        obj[key] = value;
+    }
+    return obj;
+}
 
 function main() {
-    get_Subject();
+    const receivedClass = receiveObject();
+    console.log(receivedClass);
+    if (isEmpty(receivedClass)) {
+        get_Subject();
+    } else {
+        X_Generate(receivedClass);
+    }
 }
 
 function replaceSlashWithFalse(obj, branchToProcess = null) {

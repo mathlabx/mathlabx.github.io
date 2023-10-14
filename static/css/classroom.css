@@ -24,7 +24,21 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
-    z-index: 999; /* 使遮罩层在悬浮元素之下 */
-    display: none; /* 初始时不显示 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明黑色背景 */
+    z-index: 999;
+    /* 使遮罩层在悬浮元素之下 */
+    display: none;
+    /* 初始时不显示 */
+}
+
+.new_close {
+    position: absolute;
+    /* 设置子元素为绝对定位 */
+    top: 10px;
+    /* 距离顶部的距离 */
+    right: 10px;
+    /* 距离右侧的距离 */
+    background-color: lightblue;
+    padding: 10px;
 }

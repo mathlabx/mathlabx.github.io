@@ -849,14 +849,13 @@ function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 
-
 function receiveObject() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const jsonStr = urlParams.get('data'); // 假设你的参数名为 'data'
+    const jsonStr = sessionStorage.getItem('myData'); // 获取存储在 sessionStorage 中的数据
 
     if (jsonStr) {
-        return JSON.parse(jsonStr); // 将 JSON 字符串转换为对象
+        const data = JSON.parse(jsonStr); // 将 JSON 字符串转换为对象
+        sessionStorage.removeItem('myData'); // 获取数据后清空 sessionStorage 中的数据
+        return data;
     } else {
         return {}; // 如果没有有效的数据，返回空对象
     }

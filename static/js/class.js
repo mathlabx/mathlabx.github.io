@@ -308,3 +308,19 @@ function into_class(class_id) {
     }
     sendObject(class_id);
 }
+
+/*function into_class(class_id) {
+    function sendObject(obj) {
+        // 将包含数组的对象转换为 JSON 字符串
+        const jsonStr = JSON.stringify(obj);
+
+        // 将 JSON 字符串存储到 sessionStorage 中
+        sessionStorage.setItem('myData', jsonStr);
+
+        // 转到 classroom.html 页面
+        const url = "classroom.html";
+        window.location.href = url;
+    }
+    sendObject(class_id);
+}
+*/

@@ -104,7 +104,7 @@ window.addEventListener("load", function () {
     div_container = document.getElementById("container");
     let new_cover = document.createElement("div");
     new_cover.className = "overlay";
-    document.append(new_cover);
+    div_container.append(new_cover);
     document.querySelector('.overlay').style.display = 'none';
     get_from_sever();
     click_todo();

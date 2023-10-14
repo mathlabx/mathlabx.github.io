@@ -50,6 +50,7 @@ const Class_Operate = {
         task_title.innerHTML = Task_Name;
         let new_due_date = document.createElement("h3");
         new_due_date.className = "due_date";
+        new_due_date.innerHTML = Due_Date;
         new_flow_block.append(task_title);
         new_flow_block.append(new_due_date);
         new_flow_block.addEventListener("click", function (T_ID) {

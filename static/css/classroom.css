@@ -4,7 +4,10 @@
 }
 
 .new_page_con {
-    position: fixed;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 80vh;
     width: 90vw;
 }

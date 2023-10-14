@@ -16,19 +16,15 @@
     z-index: 9999;
     /* 保证悬浮元素在其他元素之上 */
     overflow: auto;
+}
 
-    /* 如果内容溢出，显示滚动条 */
-    /* 添加伪元素来创建遮罩效果 */
-    &::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        /* 半透明黑色背景 */
-        z-index: -1;
-        /* 使遮罩层在悬浮元素之后 */
-    }
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    z-index: 999; /* 使遮罩层在悬浮元素之下 */
+    display: none; /* 初始时不显示 */
 }

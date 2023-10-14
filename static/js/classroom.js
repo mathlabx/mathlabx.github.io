@@ -50,7 +50,7 @@ const Class_Operate = {
         new_due_date.innerHTML = Due_Date;
         new_flow_block.append(task_title);
         new_flow_block.append(new_due_date);
-        new_flow_block.addEventListener("click", function (T_ID) {
+        new_flow_block.addEventListener("click", function (T_ID, new_flow_block) {
             return function () {
                 console.log(T_ID);
                 let new_page_con = document.createElement("div");
@@ -61,11 +61,18 @@ const Class_Operate = {
                 let new_dis = document.createElement("new_dis");
                 new_dis.className = "new_dis";
                 new_dis.innerHTML = "disdis dis dis sjsandjknbj sdjaabdhsaweujhdbi2";
+                let new_close = document.createElement("button");
+                new_close.innerHTML = "X";
+                new_close.className = "new_close";
+                new_close.addEventListener("click", function () {
+                    new_flow_block.remove();
+                });
                 new_page_con.append(new_title);
                 new_page_con.append(new_dis);
+                new_page_con.append(new_close);
                 div_container.append(new_page_con);
             }
-        }(T_ID));
+        }(T_ID, new_flow_block));
         div_container.append(new_flow_block);
     }
 };

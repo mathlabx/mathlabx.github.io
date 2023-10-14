@@ -9,9 +9,11 @@ function class_update() {
         let new_p = document.createElement("p");
         new_p.innerText = APP.class[i].description;
         new_flow.append(new_p);
-        new_flow.addEventListener("click", function () {
-            into_class(APP.class[i].code);
-        });
+        (function (index) {
+            new_flow.addEventListener("click", function () {
+                into_class(APP.class[index].code);
+            });
+        })(i);
         container.append(new_flow);
     }
 }

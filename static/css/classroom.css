@@ -4,6 +4,8 @@
 }
 
 .new_page_con {
+    background-color: rgb(45 48 73);
+    border: 1px solid #ddd;
     position: absolute;
     border-radius: 5px;
     top: 50%;

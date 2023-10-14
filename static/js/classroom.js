@@ -39,8 +39,6 @@ function get_from_sever() {
     load();
 }
 
-get_from_sever();
-
 let div_container;
 
 const Class_Operate = {
@@ -96,5 +94,6 @@ function click_setting() {
 
 document.addEventListener("load", function () {
     div_container = document.getElementById("container");
+    get_from_sever();
     click_todo();
 });

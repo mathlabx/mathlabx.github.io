@@ -12,3 +12,14 @@ function receiveObject() {
 const receivedClass = receiveObject();
 console.log(receivedClass);
 
+function click_todo() {
+    
+}
+
+function click_people() {
+    
+}
+
+function click_setting() {
+    
+}

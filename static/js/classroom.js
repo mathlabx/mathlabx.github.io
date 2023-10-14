@@ -1,11 +1,13 @@
 function receiveObject() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const obj = {};
-    for (let [key, value] of urlParams) {
-        obj[key] = value;
+    const jsonStr = urlParams.get('data'); // 假设你的参数名为 'data'
+
+    if (jsonStr) {
+        return JSON.parse(jsonStr); // 将 JSON 字符串转换为对象
+    } else {
+        return {}; // 如果没有有效的数据，返回空对象
     }
-    return obj;
 }
 
 // 接收对象

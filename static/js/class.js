@@ -298,7 +298,11 @@ window.addEventListener("load", function () {
 
 function into_class(class_id) {
     function sendObject(obj) {
-        const queryString = new URLSearchParams(obj).toString();
+        // 将包含数组的对象转换为 JSON 字符串
+        const jsonStr = JSON.stringify(obj);
+
+        // 在这里将 JSON 字符串作为查询参数发送到 classroom.html
+        const queryString = new URLSearchParams({ data: jsonStr }).toString();
         const url = "classroom.html?" + queryString; // 在这里替换成接收文件的路径
         window.location.href = url;
     }

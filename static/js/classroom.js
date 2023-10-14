@@ -41,7 +41,7 @@ function get_from_sever() {
 
 get_from_sever();
 
-let div_container = document.getElementById("container");
+let div_container;
 
 const Class_Operate = {
     new_Task: (Task_Name, Due_Date, T_ID) => {
@@ -95,5 +95,6 @@ function click_setting() {
 }
 
 document.addEventListener("load", function () {
+    div_container = document.getElementById("container");
     click_todo();
 });

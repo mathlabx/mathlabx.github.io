@@ -53,6 +53,7 @@ const Class_Operate = {
         new_flow_block.addEventListener("click", function (T_ID) {
             return function () {
                 console.log(T_ID);
+                document.querySelector('.overlay').style.display = 'block';
                 let new_page_con = document.createElement("div");
                 new_page_con.id = "new_page_con";
                 new_page_con.className = "new_page_con";
@@ -67,6 +68,7 @@ const Class_Operate = {
                 new_close.className = "new_close";
                 new_close.addEventListener("click", function () {
                     document.getElementById("new_page_con").remove();
+                    document.querySelector('.overlay').style.display = 'none';
                 });
                 new_page_con.append(new_title);
                 new_page_con.append(new_dis);
@@ -100,6 +102,10 @@ function click_setting() {
 
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
+    let new_cover = document.createElement("div");
+    new_cover.className = "overlay";
+    document.append(new_cover);
+    document.querySelector('.overlay').style.display = 'none';
     get_from_sever();
     click_todo();
 });

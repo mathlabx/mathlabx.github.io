@@ -92,7 +92,7 @@ function click_setting() {
     }
 }
 
-document.addEventListener("load", function () {
+window.addEventListener("load", function () {
     div_container = document.getElementById("container");
     get_from_sever();
     click_todo();

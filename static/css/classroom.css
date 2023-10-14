@@ -30,12 +30,15 @@
 }
 
 .new_close {
+    font-weight: bolder;
+    line-height: 0px;
+    font-size: x-large;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    /* 设置子元素为绝对定位 */
     top: 10px;
-    /* 距离顶部的距离 */
     right: 10px;
-    /* 距离右侧的距离 */
     background-color: lightblue;
     padding: 10px;
 }

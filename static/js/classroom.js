@@ -54,6 +54,7 @@ const Class_Operate = {
             return function () {
                 console.log(T_ID);
                 let new_page_con = document.createElement("div");
+                new_page_con.id = "new_page_con";
                 new_page_con.className = "new_page_con";
                 let new_title = document.createElement("h1");
                 new_title.className = "new_title";
@@ -64,9 +65,9 @@ const Class_Operate = {
                 let new_close = document.createElement("button");
                 new_close.innerHTML = "X";
                 new_close.className = "new_close";
-                new_close.addEventListener("click", function (new_page_con) {
-                    new_page_con.remove();
-                }(new_page_con));
+                new_close.addEventListener("click", function (new_page_conID) {
+                    document.getElementById(new_page_conID).remove();
+                }(new_page_con.id));
                 new_page_con.append(new_title);
                 new_page_con.append(new_dis);
                 new_page_con.append(new_close);

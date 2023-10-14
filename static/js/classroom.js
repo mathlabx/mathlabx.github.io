@@ -32,9 +32,6 @@ function get_from_sever() {
         } else {
             APP.log("Error: Data does not exist.");
         }
-        if (!APP.class) APP.class = [];
-        document.getElementById("join_button").onclick = toggleForm;
-        class_update();
     }
     load();
 }

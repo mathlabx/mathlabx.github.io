@@ -44,7 +44,7 @@ let div_container;
 const Class_Operate = {
     new_Task: (Task_Name, Due_Date, T_ID) => {
         let new_flow_block = document.createElement("div");
-        new_flow_block.className = "flow_block";
+        new_flow_block.className = "flow-element";
         let task_title = document.createElement("h2");
         task_title.className = "task_title";
         task_title.innerHTML = Task_Name;

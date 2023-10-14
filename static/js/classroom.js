@@ -9,5 +9,5 @@ function receiveObject() {
 }
 
 // 接收对象
-const receivedClassID = receiveObject();
-console.log(receivedObj);
+const receivedClass = receiveObject();
+console.log(receivedClass);

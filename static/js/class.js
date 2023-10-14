@@ -11,7 +11,7 @@ function class_update() {
         new_flow.append(new_p);
         (function (index) {
             new_flow.addEventListener("click", function () {
-                into_class(APP.class[index].code);
+                into_class(APP.class[index]);
             });
         })(i);
         container.append(new_flow);

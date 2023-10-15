@@ -63,7 +63,9 @@ function openForm() {
     submitButton.style.border = 'none';
     submitButton.style.borderRadius = '4px';
     submitButton.style.cursor = 'pointer';
-    submitButton.onclick = join_class;
+    submitButton.addEventListener("click", function () {
+        join_class(false);
+    });
     formContainer.appendChild(submitButton);
 
     var classroomNameInput = createInput('Class name');
@@ -167,7 +169,7 @@ function setInvalidInput(inputElement, errorMessage, errorElement) {
     errorElement.textContent = errorMessage;
 }
 
-async function join_class() {
+async function join_class(adm) {
     if (validateJoin()) {
         const classesRef = firebase.database().ref('classes');
         const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
@@ -190,6 +192,17 @@ async function join_class() {
                 } else {
                     userRef.update({ Class: [classroomCode] });
                 }
+
+                // Create a new branch for people and store the user's id and adm parameter
+                const peopleRef = firebase.database().ref('class/' + classroomCode + '/people');
+                const userDataObject = {
+                    user_id: APP.account.UID,
+                    user_typ: adm, // Replace with your adm parameter
+                    // Add any other key-value pairs as needed
+                    booleanValue: true // Example boolean value
+                };
+                peopleRef.push(userDataObject);
+
                 setTimeout(() => {
                     document.location.reload();
                 }, 500);
@@ -237,7 +250,7 @@ async function creat_class() {
                     console.log("Created Class description:", createdClassItem.description);
                     document.getElementById("7d_code").value = createdClassItem.code;
                     setTimeout(() => {
-                        join_class();
+                        join_class(true);
                     }, 100);
                 }
             }

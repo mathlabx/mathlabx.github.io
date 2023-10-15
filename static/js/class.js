@@ -213,9 +213,6 @@ async function join_class(adm) {
     }
 }
 
-
-
-// 在 creat_class 函数中检查数据是否存在，如果不存在则创建
 async function creat_class() {
     if (validateCreate()) {
         const classesRef = firebase.database().ref('classes');
@@ -230,14 +227,21 @@ async function creat_class() {
                 console.log("Class description:", classItem.description);
             }
         } else {
-            // 生成随机的 7 位 16 进制字符
-            const classroomCode = generateRandomCode();
+            let classroomCode = generateRandomCode();
 
-            const newClassRef = classesRef.push();
+            // Check if the database already contains this ID, if it does, generate a new one
+            const snapshot = await classesRef.child(classroomCode).once('value');
+            while (snapshot.exists()) {
+                classroomCode = generateRandomCode();
+                snapshot = await classesRef.child(classroomCode).once('value');
+            }
+
+            const newClassRef = classesRef.child(classroomCode);
             newClassRef.set({
                 code: classroomCode,
                 name: classroomName,
-                description: classroomDescription
+                description: classroomDescription,
+                people: [{ user_id: APP.account.UID, user_typ: true, booleanValue: true }] // Assuming you want to add user data here
             });
 
             const createdClassQuery = classesRef.orderByChild('code').equalTo(classroomCode);
@@ -251,7 +255,7 @@ async function creat_class() {
                     console.log("Created Class description:", createdClassItem.description);
                     document.getElementById("7d_code").value = createdClassItem.code;
                     setTimeout(() => {
-                        join_class(true);
+                        join_class(true, createdClassItem.code); // Pass the class code to the join_class function
                     }, 100);
                 }
             }

@@ -110,7 +110,7 @@ APP.apps = [{
     title: "Astronomy Three-Body Simulator",
     description: "Astronomy Samsung System Simulator",
     types: ["Physics"],
-    img: "https://app.mathscichem.com/static/img/app/Basic_Mechanics_Calculator.jpg",
+    img: "https://app.mathscichem.com/static/img/app/Three-Body.png",
     full_line: false,
     hot: false,
     url: "https://app.mathscichem.com/Three-Body/"

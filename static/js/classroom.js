@@ -100,9 +100,8 @@ const Class_Operate = {
         new_due_date.innerHTML = "Post New Task";
         new_flow_block.append(task_title);
         new_flow_block.append(new_due_date);
-        new_flow_block.addEventListener("click", function (T_ID) {
+        new_flow_block.addEventListener("click", function () {
             return function () {
-                console.log(T_ID);
                 document.querySelector('.overlay').style.display = 'block';
                 let new_page_con = document.createElement("div");
                 new_page_con.id = "new_page_con";
@@ -169,7 +168,7 @@ const Class_Operate = {
                 new_page_con.append(new_close);
                 div_container.append(new_page_con);
             }
-        }(T_ID));
+        });
         div_container.insertAdjacentHTML("beforebegin", new_flow_block);
     }
 };

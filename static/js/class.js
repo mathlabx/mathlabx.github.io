@@ -241,7 +241,7 @@ async function creat_class() {
                 code: classroomCode,
                 name: classroomName,
                 description: classroomDescription,
-                people: [{ user_id: APP.account.UID, user_typ: true, booleanValue: true }] // Assuming you want to add user data here
+                people: [{ user_id: APP.account.UID, user_typ: true}] // Assuming you want to add user data here
             });
 
             const createdClassQuery = classesRef.orderByChild('code').equalTo(classroomCode);

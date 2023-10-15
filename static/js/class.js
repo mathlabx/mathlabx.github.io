@@ -194,12 +194,10 @@ async function join_class(adm) {
                 }
 
                 // Create a new branch for people and store the user's id and adm parameter
-                const peopleRef = firebase.database().ref('class/' + classroomCode + '/people');
+                const peopleRef = firebase.database().ref('classes/' + classroomCode + '/people');
                 const userDataObject = {
                     user_id: APP.account.UID,
-                    user_typ: adm, // Replace with your adm parameter
-                    // Add any other key-value pairs as needed
-                    booleanValue: true // Example boolean value
+                    administrator: adm, // Replace with your adm parameter
                 };
                 peopleRef.push(userDataObject);
 
@@ -212,6 +210,7 @@ async function join_class(adm) {
         }
     }
 }
+
 
 
 // 在 creat_class 函数中检查数据是否存在，如果不存在则创建

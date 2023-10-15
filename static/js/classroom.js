@@ -164,7 +164,14 @@ const Class_Operate = {
                         Due: Due,
                         TsURL: TsURL
                     });
-                    taskRef.set(peopleArray);
+                    taskRef.set(peopleArray, (error) => {
+                        if (error) {
+                            console.error('Error occurred while setting data:', error);
+                        } else {
+                            console.log('Data has been successfully set.');
+                            location.reload(); // 刷新页面
+                        }
+                    });
                 });
             });
             new_page_con.appendChild(new_title);

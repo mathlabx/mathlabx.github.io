@@ -16,7 +16,7 @@ console.log(receivedClass);
 
 function is_adm() {
     for (let i = 0; i < Class_Data.people.length; i++) {
-        if (Class_Data.people[i] === APP.account.UID) return true;
+        if (Class_Data.people[i].user_id === APP.account.UID) return true;
     }
     return false;
 }

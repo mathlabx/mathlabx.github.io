@@ -230,14 +230,14 @@ function click_setting() {
 }
 
 function main() {
-    click_todo();
-}
-
-window.addEventListener("load", function () {
     div_container = document.getElementById("container");
     let new_cover = document.createElement("div");
     new_cover.className = "overlay";
     div_container.append(new_cover);
     document.querySelector('.overlay').style.display = 'none';
+    click_todo();
+}
+
+window.addEventListener("load", function () {
     get_from_sever();
 });

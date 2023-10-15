@@ -19,7 +19,7 @@ let Class_Data;
 function get_from_sever() {
     async function load() {
         const classesRef = firebase.database().ref('classes');
-        const classQuery = classesRef.orderByChild('code').equalTo(receivedClass.code);
+        const classQuery = classesRef.orderByChild('code').equalTo(Class_Code); // Replace with your new variable for class code
 
         const snapshot = await classQuery.once('value');
         if (snapshot.exists()) {
@@ -31,14 +31,6 @@ function get_from_sever() {
                 console.log("Class description:", classItem.description);
                 Class_Data = classItem;
             }
-
-            // Add the current user's information to the people array
-            const peopleRef = firebase.database().ref(`classes/${receivedClass.code}/people`);
-            const userDataObject = {
-                user_id: APP.account.UID,
-                user_typ: true // Assuming you want to add user data here
-            };
-            peopleRef.push(userDataObject);
         } else {
             APP.log("Error: Data does not exist.");
         }

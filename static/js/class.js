@@ -200,7 +200,7 @@ async function join_class(adm, classroomCode) {
                     const peopleArray = peopleData ? Object.values(peopleData) : [];
                     peopleArray.push({
                         user_id: APP.account.UID,
-                        user_typ: adm
+                        administrator: adm
                     });
                     peopleRef.set(peopleArray);
                 });

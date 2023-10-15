@@ -151,26 +151,32 @@ const Class_Operate = {
                 const taskRef = firebase.database().ref(`classes/${receiveObject.code}/task`);
                 taskRef.once('value', (snapshot) => {
                     const peopleData = snapshot.val();
-                    const peopleArray = peopleData ? Object.values(peopleData) : [];
+                    let peopleArray = [];
+                    if (Array.isArray(peopleData)) {
+                        peopleArray = peopleData;
+                    } else if (peopleData) {
+                        peopleArray = Object.values(peopleData);
+                    }
                     peopleArray.push({
                         Title: Title,
-                        Descriptions: Descriptions, // 正确的变量名是 Descriptions
+                        Descriptions: Descriptions,
                         Due: Due,
                         TsURL: TsURL
                     });
                     taskRef.set(peopleArray);
                 });
             });
-            new_page_con.appendChild(new_title);
-            new_page_con.appendChild(new_time_label);
-            new_page_con.appendChild(new_date);
-            new_page_con.appendChild(new_time);
-            new_page_con.appendChild(new_dis);
-            new_page_con.appendChild(new_task_button);
-            new_page_con.appendChild(new_close);
-            div_container.appendChild(new_page_con); // 使用 appendChild 方法将元素添加到 div_container 中
         });
-        div_container.insertAdjacentElement("beforebegin", new_flow_block);
+        new_page_con.appendChild(new_title);
+        new_page_con.appendChild(new_time_label);
+        new_page_con.appendChild(new_date);
+        new_page_con.appendChild(new_time);
+        new_page_con.appendChild(new_dis);
+        new_page_con.appendChild(new_task_button);
+        new_page_con.appendChild(new_close);
+        div_container.appendChild(new_page_con); // 使用 appendChild 方法将元素添加到 div_container 中
+    });
+div_container.insertAdjacentElement("beforebegin", new_flow_block);
     }
 };
 

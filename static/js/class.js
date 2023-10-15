@@ -169,7 +169,7 @@ function setInvalidInput(inputElement, errorMessage, errorElement) {
     errorElement.textContent = errorMessage;
 }
 
-async function join_class(adm) {
+async function join_class(adm, classroomCode) {
     if (validateJoin()) {
         const classesRef = firebase.database().ref('classes');
         const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
@@ -195,13 +195,15 @@ async function join_class(adm) {
 
                 // Create a new branch for people and store the user's id and adm parameter
                 const peopleRef = firebase.database().ref(`classes/${classroomCode}/people`);
-                const userDataObject = {
-                    user_id: APP.account.UID,
-                    user_typ: adm, // Replace with your adm parameter
-                    // Add any other key-value pairs as needed
-                    booleanValue: true // Example boolean value
-                };
-                peopleRef.push(userDataObject);
+                peopleRef.once('value', (snapshot) => {
+                    const peopleData = snapshot.val();
+                    const peopleArray = peopleData ? Object.values(peopleData) : [];
+                    peopleArray.push({
+                        user_id: APP.account.UID,
+                        user_typ: adm
+                    });
+                    peopleRef.set(peopleArray);
+                });
 
                 setTimeout(() => {
                     document.location.reload();
@@ -240,8 +242,7 @@ async function creat_class() {
             newClassRef.set({
                 code: classroomCode,
                 name: classroomName,
-                description: classroomDescription,
-                people: [{ user_id: APP.account.UID, user_typ: true }] // Assuming you want to add user data here
+                description: classroomDescription
             });
 
             const createdClassQuery = classesRef.orderByChild('code').equalTo(classroomCode);
@@ -263,6 +264,7 @@ async function creat_class() {
         }
     }
 }
+
 
 // 生成随机的 7 位 16 进制字符
 function generateRandomCode() {

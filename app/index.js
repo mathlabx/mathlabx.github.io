@@ -106,4 +106,12 @@ APP.apps = [{
     full_line: false,
     hot: false,
     url: "https://app.mathscichem.com/app/Basic_Mechanics_Calculator/"
+}, {
+    title: "Astronomy Three-Body Simulator",
+    description: "Astronomy Samsung System Simulator",
+    types: ["Physics"],
+    img: "https://app.mathscichem.com/static/img/app/Basic_Mechanics_Calculator.jpg",
+    full_line: false,
+    hot: false,
+    url: "https://app.mathscichem.com/Three-Body/"
 }];

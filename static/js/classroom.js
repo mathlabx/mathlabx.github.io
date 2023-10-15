@@ -173,7 +173,7 @@ const Class_Operate = {
     }
 };
 
-let page_on = "todo";
+let page_on = "";
 
 function to_UTC() {
     return Date.now(); // 返回当前的 UTC 时间戳
@@ -210,18 +210,21 @@ function click_todo() {
         if (is_adm()) {
             Class_Operate.ADD_new_Task();
         }
+        page_on = "todo";
     }
 }
 
 function click_people() {
     if (page_on != "people") {
         div_container = "";
+        page_on = "people";
     }
 }
 
 function click_setting() {
     if (page_on != "setting") {
         div_container = "";
+        page_on = "setting";
     }
 }
 

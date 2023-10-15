@@ -204,7 +204,7 @@ function from_UTC(utcTimestamp) {
 function click_todo() {
     if (page_on != "todo") {
         div_container = "";
-        for (let i = 0; i < Class_Data.Task.length; i++) {
+        for (let i = 0; i < Class_Data.Task?.length; i++) {
             Class_Operate.new_Task(Class_Data.Task[i].Title, from_UTC(Class_Data.Task[i].Due), Class_Data.Task[i].Disciption, Class_Data.Task[i].ASM_Key);
         }
         if (is_adm()) {

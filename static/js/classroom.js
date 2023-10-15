@@ -137,6 +137,7 @@ const Class_Operate = {
                 document.querySelector('.overlay').style.display = 'none';
             });
             let new_task_button = document.createElement("button");
+            new_task_button.innerHTML = "Assign";
             new_task_button.className = "new_task_button";
             new_task_button.addEventListener("click", function () {
                 let Title = document.getElementById("new_title_input").value;

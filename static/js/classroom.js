@@ -93,6 +93,7 @@ const Class_Operate = {
     ADD_new_Task: () => {
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
+        new_flow_block.style.width = "calc(100% - 20px)";
         let task_title = document.createElement("h2");
         task_title.className = "task_title";
         task_title.innerHTML = "+";

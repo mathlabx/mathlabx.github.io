@@ -169,7 +169,7 @@ function setInvalidInput(inputElement, errorMessage, errorElement) {
     errorElement.textContent = errorMessage;
 }
 
-async function join_class(adm, classroomCode) {
+async function join_class(adm) {
     if (validateJoin()) {
         const classesRef = firebase.database().ref('classes');
         const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);

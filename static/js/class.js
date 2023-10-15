@@ -194,10 +194,12 @@ async function join_class(adm) {
                 }
 
                 // Create a new branch for people and store the user's id and adm parameter
-                const peopleRef = firebase.database().ref('classes/' + classroomCode + '/people');
+                const peopleRef = firebase.database().ref(`classes/${classroomCode}/people`);
                 const userDataObject = {
                     user_id: APP.account.UID,
-                    administrator: adm, // Replace with your adm parameter
+                    user_typ: adm, // Replace with your adm parameter
+                    // Add any other key-value pairs as needed
+                    booleanValue: true // Example boolean value
                 };
                 peopleRef.push(userDataObject);
 

@@ -30,6 +30,7 @@ function get_from_sever() {
                 console.log("Class name:", classItem.name);
                 console.log("Class description:", classItem.description);
                 Class_Data = classItem;
+                console.log(Class_Data);
             }
         } else {
             APP.log("Error: Data does not exist.");

@@ -38,6 +38,7 @@ function get_from_sever() {
                 console.log("Class description:", classItem.description);
                 Class_Data = classItem;
                 console.log(Class_Data);
+                main();
             }
         } else {
             APP.log("Error: Data does not exist.");
@@ -228,6 +229,10 @@ function click_setting() {
     }
 }
 
+function main() {
+    click_todo();
+}
+
 window.addEventListener("load", function () {
     div_container = document.getElementById("container");
     let new_cover = document.createElement("div");
@@ -235,5 +240,4 @@ window.addEventListener("load", function () {
     div_container.append(new_cover);
     document.querySelector('.overlay').style.display = 'none';
     get_from_sever();
-    click_todo();
 });

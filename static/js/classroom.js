@@ -170,7 +170,7 @@ const Class_Operate = {
                 div_container.append(new_page_con);
             }
         });
-        div_container.insertAdjacentHTML("beforebegin", new_flow_block);
+        div_container.insertAdjacentElement("beforebegin", new_flow_block);
     }
 };
 

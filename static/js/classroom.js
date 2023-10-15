@@ -159,7 +159,7 @@ const Class_Operate = {
                     }
                     peopleArray.push({
                         Title: Title,
-                        Descriptions: Descriptions,
+                        Disciption: Descriptions,
                         Due: Due,
                         TsURL: TsURL
                     });

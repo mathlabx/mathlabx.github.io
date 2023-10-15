@@ -265,6 +265,27 @@ async function creat_class() {
     }
 }
 
+async function delete_class(classroomCode) {
+    try {
+        const classesRef = firebase.database().ref('classes');
+        const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
+
+        const snapshot = await classQuery.once('value');
+        if (snapshot.exists()) {
+            snapshot.forEach(function(childSnapshot) {
+                const childKey = childSnapshot.key;
+                // Remove the class with the specified code
+                classesRef.child(childKey).remove();
+                console.log("Class with code", classroomCode, "has been deleted.");
+                // Perform any other necessary actions after deleting the class
+            });
+        } else {
+            console.log("Class with code", classroomCode, "does not exist.");
+        }
+    } catch (error) {
+        console.error("Error occurred while deleting the class:", error);
+    }
+}
 
 // 生成随机的 7 位 16 进制字符
 function generateRandomCode() {

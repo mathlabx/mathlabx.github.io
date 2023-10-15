@@ -99,76 +99,74 @@ const Class_Operate = {
         let new_due_date = document.createElement("h3");
         new_due_date.className = "due_date";
         new_due_date.innerHTML = "Post New Task";
-        new_flow_block.append(task_title);
-        new_flow_block.append(new_due_date);
+        new_flow_block.appendChild(task_title);
+        new_flow_block.appendChild(new_due_date);
         new_flow_block.addEventListener("click", function () {
-            return function () {
-                document.querySelector('.overlay').style.display = 'block';
-                let new_page_con = document.createElement("div");
-                new_page_con.id = "new_page_con";
-                new_page_con.className = "new_page_con";
-                let new_title = document.createElement("input");
-                new_title.id = "new_title_input";
-                new_title.className = "new_title_input";
-                new_title.maxLength = "15";
-                new_title.placeholder = "Task Title";
-                new_title.value = "New Task";
-                let new_time_lable = document.createElement("label");
-                new_time_lable.innerHTML = "Due Date";
-                new_time_lable.className = "new_time_lable";
-                new_time_lable.for = "new_datenew_time";
-                let new_day = document.createElement("input");
-                new_time.type = "date";
-                new_time.id = "new_date";
-                new_time.name = "Due Date";
-                let new_time = document.createElement("input");
-                new_time.type = "time";
-                new_time.id = "new_time";
-                new_time.name = "Due Time";
-                let new_dis = document.createElement("textarea");
-                new_dis.id = "new_dis_input";
-                new_dis.maxLength = "70";
-                new_dis.className = "new_dis_input";
-                new_dis.placeholder = "Discriptions...";
-                let new_close = document.createElement("button");
-                new_close.innerHTML = "X";
-                new_close.className = "new_close";
-                new_close.addEventListener("click", function () {
-                    document.getElementById("new_page_con").remove();
-                    document.querySelector('.overlay').style.display = 'none';
-                });
-                let new_task_button = document.createElement("button");
-                new_task_button.className = "new_task_button";
-                new_task_button.addEventListener("click", function () {
-                    let Title = document.getElementById("new_title_input").value;
-                    let Disciptions = document.getElementById("new_dis_input").value;
-                    var dateInput = document.getElementById('new_date').value;
-                    var timeInput = document.getElementById('new_time').value;
-                    var dateTimeString = dateInput + 'T' + timeInput; // 合并日期和时间字符串
-                    var utcTimestamp = new Date(dateTimeString).getTime(); // 转换为UTC时间戳
-                    let Due = utcTimestamp;
-                    let TsURL = null;
-                    const taskRef = firebase.database().ref(`classes/${receiveObject.code}/task`);
-                    taskRef.once('value', (snapshot) => {
-                        const peopleData = snapshot.val();
-                        const peopleArray = peopleData ? Object.values(peopleData) : [];
-                        peopleArray.push({
-                            Title: Title,
-                            Disciptions: Disciptions,
-                            Due: Due,
-                            TsURL: TsURL
-                        });
-                        taskRef.set(peopleArray);
+            document.querySelector('.overlay').style.display = 'block';
+            let new_page_con = document.createElement("div");
+            new_page_con.id = "new_page_con";
+            new_page_con.className = "new_page_con";
+            let new_title = document.createElement("input");
+            new_title.id = "new_title_input";
+            new_title.className = "new_title_input";
+            new_title.maxLength = "15"; // 正确的属性是 maxLength，而不是 maxlength
+            new_title.placeholder = "Task Title";
+            new_title.value = "New Task";
+            let new_time_label = document.createElement("label");
+            new_time_label.innerHTML = "Due Date"; // 正确的拼写是 label
+            new_time_label.className = "new_time_label"; // 正确的拼写是 label
+            new_time_label.htmlFor = "new_date"; // 正确的属性是 htmlFor
+            let new_date = document.createElement("input"); // 正确的变量名是 new_date
+            new_date.type = "date";
+            new_date.id = "new_date";
+            new_date.name = "Due Date";
+            let new_time = document.createElement("input");
+            new_time.type = "time";
+            new_time.id = "new_time";
+            new_time.name = "Due Time";
+            let new_dis = document.createElement("textarea");
+            new_dis.id = "new_dis_input";
+            new_dis.maxLength = "70"; // 正确的属性是 maxLength
+            new_dis.className = "new_dis_input";
+            new_dis.placeholder = "Descriptions..."; // 正确的拼写是 Descriptions
+            let new_close = document.createElement("button");
+            new_close.innerHTML = "X";
+            new_close.className = "new_close";
+            new_close.addEventListener("click", function () {
+                document.getElementById("new_page_con").remove();
+                document.querySelector('.overlay').style.display = 'none';
+            });
+            let new_task_button = document.createElement("button");
+            new_task_button.className = "new_task_button";
+            new_task_button.addEventListener("click", function () {
+                let Title = document.getElementById("new_title_input").value;
+                let Descriptions = document.getElementById("new_dis_input").value;
+                var dateInput = document.getElementById('new_date').value;
+                var timeInput = document.getElementById('new_time').value;
+                var dateTimeString = dateInput + 'T' + timeInput;
+                var utcTimestamp = new Date(dateTimeString).getTime();
+                let Due = utcTimestamp;
+                let TsURL = null;
+                const taskRef = firebase.database().ref(`classes/${receiveObject.code}/task`);
+                taskRef.once('value', (snapshot) => {
+                    const peopleData = snapshot.val();
+                    const peopleArray = peopleData ? Object.values(peopleData) : [];
+                    peopleArray.push({
+                        Title: Title,
+                        Descriptions: Descriptions, // 正确的变量名是 Descriptions
+                        Due: Due,
+                        TsURL: TsURL
                     });
+                    taskRef.set(peopleArray);
                 });
-                new_page_con.append(new_title);
-                new_page_con.append(new_time_lable);
-                new_page_con.append(new_day);
-                new_page_con.append(new_time);
-                new_page_con.append(new_dis);
-                new_page_con.append(new_close);
-                div_container.append(new_page_con);
-            }
+            });
+            new_page_con.appendChild(new_title);
+            new_page_con.appendChild(new_time_label);
+            new_page_con.appendChild(new_date);
+            new_page_con.appendChild(new_time);
+            new_page_con.appendChild(new_dis);
+            new_page_con.appendChild(new_close);
+            div_container.appendChild(new_page_con); // 使用 appendChild 方法将元素添加到 div_container 中
         });
         div_container.insertAdjacentElement("beforebegin", new_flow_block);
     }

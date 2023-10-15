@@ -204,7 +204,7 @@ function from_UTC(utcTimestamp) {
 
 function click_todo() {
     if (page_on != "todo") {
-        div_container = "";
+        div_container.innerHTML = "";
         for (let i = 0; i < Class_Data.Task?.length; i++) {
             Class_Operate.new_Task(Class_Data.Task[i].Title, from_UTC(Class_Data.Task[i].Due), Class_Data.Task[i].Disciption, Class_Data.Task[i].ASM_Key);
         }
@@ -217,14 +217,14 @@ function click_todo() {
 
 function click_people() {
     if (page_on != "people") {
-        div_container = "";
+        div_container.innerHTML = "";
         page_on = "people";
     }
 }
 
 function click_setting() {
     if (page_on != "setting") {
-        div_container = "";
+        div_container.innerHTML = "";
         page_on = "setting";
     }
 }

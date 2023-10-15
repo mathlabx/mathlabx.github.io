@@ -230,8 +230,8 @@ function click_setting() {
 }
 
 function main() {
+    div_container = document.getElementById("container");
     setTimeout(() => {
-        div_container = document.getElementById("container");
         let new_cover = document.createElement("div");
         new_cover.className = "overlay";
         div_container.append(new_cover);

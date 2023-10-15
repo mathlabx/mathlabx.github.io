@@ -299,7 +299,8 @@ window.addEventListener("load", function () {
                                 APP.class.push({
                                     code: classItem.code,
                                     name: classItem.name,
-                                    description: classItem.description
+                                    description: classItem.description,
+                                    administrator: classItem.administrator
                                 });
                             }
                         } else {

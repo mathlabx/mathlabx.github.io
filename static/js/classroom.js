@@ -31,6 +31,14 @@ function get_from_sever() {
                 console.log("Class description:", classItem.description);
                 Class_Data = classItem;
             }
+
+            // Add the current user's information to the people array
+            const peopleRef = firebase.database().ref(`classes/${receivedClass.code}/people`);
+            const userDataObject = {
+                user_id: APP.account.UID,
+                user_typ: true // Assuming you want to add user data here
+            };
+            peopleRef.push(userDataObject);
         } else {
             APP.log("Error: Data does not exist.");
         }
@@ -86,19 +94,20 @@ let page_on = "todo";
 
 function click_todo() {
     if (page_on != "todo") {
-
+        div_container = "";
+        Class_Data
     }
 }
 
 function click_people() {
     if (page_on != "people") {
-
+        div_container = "";
     }
 }
 
 function click_setting() {
     if (page_on != "setting") {
-
+        div_container = "";
     }
 }
 

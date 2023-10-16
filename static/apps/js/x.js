@@ -126,7 +126,7 @@ const X_Operate = {
             new_start_p.innerHTML = title;
             new_start.append(new_start_p);
 
-            let results = [];
+            let results = new Array(settings.length).fill(false);
             let elementId; // 声明elementId变量在循环外部
             let new_range; // 声明new_range变量在循环外部
 

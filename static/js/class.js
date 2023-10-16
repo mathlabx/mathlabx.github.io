@@ -195,12 +195,26 @@ async function join_class(adm, classroomCode) {
                     }
 
                     // Create a new subcollection for people and store the user's id and adm parameter
-                    const peopleRef = firestore.collection(`classes`).doc(classroomCode);
-                    peopleRef.update({
-                        people: firebase.firestore.FieldValue.arrayUnion({
-                            user_id: APP.account.UID,
-                            administrator: adm
-                        })
+                    const classRef = firestore.collection('classes').doc(classroomCode);
+
+                    classRef.get().then((doc) => {
+                        if (doc.exists) {
+                            const classData = doc.data();
+                            let peopleArray = classData.people ? classData.people : [];
+                            peopleArray.push({
+                                user_id: APP.account.UID,
+                                administrator: adm
+                            });
+                            classRef.update({
+                                people: peopleArray
+                            }).then(() => {
+                                console.log('People array updated successfully.');
+                            }).catch((error) => {
+                                console.error('Error updating people array:', error);
+                            });
+                        } else {
+                            console.error('Document does not exist.');
+                        }
                     });
 
                     setTimeout(() => {

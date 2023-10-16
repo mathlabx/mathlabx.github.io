@@ -240,4 +240,12 @@ ins.adsbygoogle {
         transform: scale(0.5);
         transform-origin: top;
     }
+
+    .top-bar {
+        font-size: small !important;
+    }
+
+    .logo {
+        height: 40px;
+    }
 }

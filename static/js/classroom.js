@@ -154,13 +154,11 @@ const Class_Operate = {
             let GL_Setting = false;
             window.addEventListener('message', function (e) {
                 console.log("Event object from popup:", e);
-                if (e.origin === 'null') {
                     var dataFromPopup = JSON.parse(e.data);
                     console.log("Data from popup:", dataFromPopup);
                     console.log(e.data);
                     GL_Setting = dataFromPopup;
                     console.log(GL_Setting);
-                }
             });
             let new_close = document.createElement("button");
             new_close.innerHTML = "X";

@@ -129,6 +129,25 @@ const Class_Operate = {
             new_dis.maxLength = "70"; // 正确的属性是 maxLength
             new_dis.className = "new_dis_input";
             new_dis.placeholder = "Descriptions..."; // 正确的拼写是 Descriptions
+            let Get_Setting_button = document.createElement("button");
+            Get_Setting_button.className = "Get_Setting_button";
+            Get_Setting_button.addEventListener("click", function () {
+                openCustomPopup();
+            });
+            function openCustomPopup() {
+                let obj = {
+                    Typ: "Teacher"
+                }
+                // 将包含数组的对象转换为 JSON 字符串
+                const jsonStr = JSON.stringify(obj);
+                // 将 JSON 字符串存储到 sessionStorage 中
+                sessionStorage.setItem('myData', jsonStr);
+
+                var myWindow = window.open(`https://app.mathscichem.com/app/x`, "_blank", "width=600, height=600");
+                if (!myWindow) {
+                    alert("The popup was blocked. Please allow popups for this site.");
+                }
+            }
             let new_close = document.createElement("button");
             new_close.innerHTML = "X";
             new_close.className = "new_close";
@@ -147,25 +166,6 @@ const Class_Operate = {
                 var dateTimeString = dateInput + 'T' + timeInput;
                 var utcTimestamp = new Date(dateTimeString).getTime();
                 let Due = utcTimestamp;
-                let Get_Setting_button = document.createElement("button");
-                Get_Setting_button.className = "Get_Setting_button";
-                Get_Setting_button.addEventListener("click", function () {
-                    openCustomPopup();
-                })
-                function openCustomPopup() {
-                    let obj = {
-                        Typ: "Teacher"
-                    }
-                    // 将包含数组的对象转换为 JSON 字符串
-                    const jsonStr = JSON.stringify(obj);
-                    // 将 JSON 字符串存储到 sessionStorage 中
-                    sessionStorage.setItem('myData', jsonStr);
-
-                    var myWindow = window.open(`https://app.mathscichem.com/app/x`, "_blank", "width=600, height=600");
-                    if (!myWindow) {
-                        alert("The popup was blocked. Please allow popups for this site.");
-                    }
-                }
                 window.addEventListener('message', function (e) {
                     if (e.origin === 'null') {
                         var dataFromPopup = JSON.parse(e.data);

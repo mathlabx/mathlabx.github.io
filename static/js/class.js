@@ -171,43 +171,40 @@ function setInvalidInput(inputElement, errorMessage, errorElement) {
 
 async function join_class(adm, classroomCode) {
     if (validateJoin()) {
-        const classesRef = firebase.database().ref('classes');
-        const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
+        const classesRef = firestore.collection('classes');
+        const classQuery = classesRef.where('code', '==', classroomCode);
 
-        const snapshot = await classQuery.once('value');
-        if (snapshot.exists()) {
-            const classData = snapshot.val();
-            console.log("Class name:", classData.name);
-            console.log("Class description:", classData.description);
+        const querySnapshot = await classQuery.get();
+        if (!querySnapshot.empty) {
+            querySnapshot.forEach((doc) => {
+                const classData = doc.data();
+                console.log("Class name:", classData.name);
+                console.log("Class description:", classData.description);
 
-            // Update the user's class list
-            const userRef = firebase.database().ref('User/' + APP.account.UID);
-            userRef.once('value', (snapshot) => {
-                const userData = snapshot.val();
-                if (userData && userData.Class) {
-                    if (!userData.Class.includes(classroomCode)) {
-                        userData.Class.push(classroomCode);
-                        userRef.update({ Class: userData.Class });
+                // Update the user's class list
+                const userRef = firestore.collection('User').doc(APP.account.UID);
+                userRef.get().then((userDoc) => {
+                    const userData = userDoc.data();
+                    if (userData && userData.Class) {
+                        if (!userData.Class.includes(classroomCode)) {
+                            userData.Class.push(classroomCode);
+                            userRef.update({ Class: userData.Class });
+                        }
+                    } else {
+                        userRef.set({ Class: [classroomCode] });
                     }
-                } else {
-                    userRef.update({ Class: [classroomCode] });
-                }
 
-                // Create a new branch for people and store the user's id and adm parameter
-                const peopleRef = firebase.database().ref(`classes/${classroomCode}/people`);
-                peopleRef.once('value', (snapshot) => {
-                    const peopleData = snapshot.val();
-                    const peopleArray = peopleData ? Object.values(peopleData) : [];
-                    peopleArray.push({
+                    // Create a new subcollection for people and store the user's id and adm parameter
+                    const peopleRef = firestore.collection(`classes/${classroomCode}/people`);
+                    peopleRef.add({
                         user_id: APP.account.UID,
                         administrator: adm
                     });
-                    peopleRef.set(peopleArray);
-                });
 
-                setTimeout(() => {
-                    document.location.reload();
-                }, 500);
+                    setTimeout(() => {
+                        document.location.reload();
+                    }, 500);
+                });
             });
         } else {
             console.log("Data does not exist.");
@@ -217,48 +214,39 @@ async function join_class(adm, classroomCode) {
 
 async function creat_class() {
     if (validateCreate()) {
-        const classesRef = firebase.database().ref('classes');
-        const classQuery = classesRef.orderByChild('name').equalTo(classroomName);
+        const classesRef = firestore.collection('classes');
+        const classQuery = classesRef.where('name', '==', classroomName);
 
-        const snapshot = await classQuery.once('value');
-        if (snapshot.exists()) {
-            const classData = snapshot.val();
-            const values = Object.values(classData);
-            for (const classItem of values) {
-                console.log("Class name:", classItem.name);
-                console.log("Class description:", classItem.description);
-            }
+        const querySnapshot = await classQuery.get();
+        if (!querySnapshot.empty) {
+            querySnapshot.forEach((doc) => {
+                const classData = doc.data();
+                console.log("Class name:", classData.name);
+                console.log("Class description:", classData.description);
+            });
         } else {
             let classroomCode = generateRandomCode();
 
-            // Check if the database already contains this ID, if it does, generate a new one
-            const snapshot = await classesRef.child(classroomCode).once('value');
-            while (snapshot.exists()) {
-                classroomCode = generateRandomCode();
-                snapshot = await classesRef.child(classroomCode).once('value');
-            }
-
-            const newClassRef = classesRef.child(classroomCode);
+            const newClassRef = classesRef.doc(classroomCode);
             newClassRef.set({
                 code: classroomCode,
                 name: classroomName,
                 description: classroomDescription
             });
 
-            const createdClassQuery = classesRef.orderByChild('code').equalTo(classroomCode);
-            const createdSnapshot = await createdClassQuery.once('value');
-            if (createdSnapshot.exists()) {
-                const createdClassData = createdSnapshot.val();
-                const values = Object.values(createdClassData);
-                for (const createdClassItem of values) {
-                    console.log("Created Class ID:", createdClassItem.code);
-                    console.log("Created Class name:", createdClassItem.name);
-                    console.log("Created Class description:", createdClassItem.description);
-                    document.getElementById("7d_code").value = createdClassItem.code;
+            const createdClassQuery = classesRef.where('code', '==', classroomCode);
+            const createdSnapshot = await createdClassQuery.get();
+            if (!createdSnapshot.empty) {
+                createdSnapshot.forEach((doc) => {
+                    const createdClassData = doc.data();
+                    console.log("Created Class ID:", createdClassData.code);
+                    console.log("Created Class name:", createdClassData.name);
+                    console.log("Created Class description:", createdClassData.description);
+                    document.getElementById("7d_code").value = createdClassData.code;
                     setTimeout(() => {
-                        join_class(true, createdClassItem.code); // Pass the class code to the join_class function
+                        join_class(true, createdClassData.code); // Pass the class code to the join_class function
                     }, 100);
-                }
+                });
             }
             console.log("Data created successfully.");
         }
@@ -267,21 +255,10 @@ async function creat_class() {
 
 async function delete_class(classroomCode) {
     try {
-        const classesRef = firebase.database().ref('classes');
-        const classQuery = classesRef.orderByChild('code').equalTo(classroomCode);
-
-        const snapshot = await classQuery.once('value');
-        if (snapshot.exists()) {
-            snapshot.forEach(function(childSnapshot) {
-                const childKey = childSnapshot.key;
-                // Remove the class with the specified code
-                classesRef.child(childKey).remove();
-                console.log("Class with code", classroomCode, "has been deleted.");
-                // Perform any other necessary actions after deleting the class
-            });
-        } else {
-            console.log("Class with code", classroomCode, "does not exist.");
-        }
+        const classRef = firestore.collection('classes').doc(classroomCode);
+        await classRef.delete();
+        console.log("Class with code", classroomCode, "has been deleted.");
+        // Perform any other necessary actions after deleting the class
     } catch (error) {
         console.error("Error occurred while deleting the class:", error);
     }
@@ -306,24 +283,23 @@ window.addEventListener("load", function () {
                 if (!data.Class?.length) data.Class = [];
                 async function load() {
                     for (let i = 0; i < data.Class.length; i++) {
-                        const classesRef = firebase.database().ref('classes');
-                        const classQuery = classesRef.orderByChild('code').equalTo(data.Class[i]);
+                        const classesRef = firestore.collection('classes');
+                        const classQuery = classesRef.where('code', '==', data.Class[i]);
 
-                        const snapshot = await classQuery.once('value');
-                        if (snapshot.exists()) {
-                            const classData = snapshot.val();
-                            const values = Object.values(classData);
-                            for (const classItem of values) {
-                                console.log("Class ID:", classItem.code);
-                                console.log("Class name:", classItem.name);
-                                console.log("Class description:", classItem.description);
+                        const querySnapshot = await classQuery.get();
+                        if (!querySnapshot.empty) {
+                            querySnapshot.forEach((doc) => {
+                                const classData = doc.data();
+                                console.log("Class ID:", classData.code);
+                                console.log("Class name:", classData.name);
+                                console.log("Class description:", classData.description);
                                 APP.class.push({
-                                    code: classItem.code,
-                                    name: classItem.name,
-                                    description: classItem.description,
-                                    administrator: classItem.administrator
+                                    code: classData.code,
+                                    name: classData.name,
+                                    description: classData.description,
+                                    administrator: classData.administrator
                                 });
-                            }
+                            });
                         } else {
                             console.log("Data does not exist.");
                         }

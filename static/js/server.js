@@ -9,37 +9,31 @@ const firebaseConfig = {
     measurementId: "G-J8HMB7NHEE",
 };
 
-// 初始化 Firebase
+/// 初始化 Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const database = app.database();
+const firestore = app.firestore(); // 更改这一行以使用 Cloud Firestore
 
 // 封装适应 JSON 数据的存储和检索函数
 const serverStorage = {
     setItem: (partition, key, data) => {
-        const dataRef = database.ref(`${partition}/${key}`);
-        return dataRef.set(data);
+        return firestore.collection(partition).doc(key).set(data);
     },
 
-
     getItem: async (partition, key) => {
-        const dataRef = database.ref(`${partition}/${key}`);
-        const snapshot = await dataRef.get();
-        if (snapshot.exists()) {
-            return snapshot.val();
+        const docRef = await firestore.collection(partition).doc(key).get();
+        if (docRef.exists) {
+            return docRef.data();
         } else {
             return null;
         }
     },
 
-
     removeItem: (partition, key) => {
-        const dataRef = database.ref(`${partition}/${key}`);
-        return dataRef.remove();
+        return firestore.collection(partition).doc(key).delete();
     },
 
-
     clearPartition: (partition) => {
-        console.error("Firebase Realtime Database does not support clearing a partition.");
+        console.error("Cloud Firestore does not support clearing a partition.");
     },
 };
 
@@ -71,18 +65,17 @@ setTimeout(() => {
         age: 30,
     };
 
-    serverStorage.setItem("A", "user-profile", userData); // 存储 JSON 数据到分区 "A"
-    serverStorage.setItem("B", "user-profile", userData); // 存储 JSON 数据到分区 "B"
+    serverStorage.setItem("users", "user-profile", userData); // 存储 JSON 数据到集合 "users" 中
+    serverStorage.setItem("users", "user-profile", userData); // 存储 JSON 数据到集合 "users" 中
 
-    // 获取 JSON 数据从分区 "A"
-    serverStorage.getItem("A", "user-profile").then((data) => {
-        console.log("User Profile from Partition A:", data);
+    // 获取 JSON 数据从集合 "users" 中
+    serverStorage.getItem("users", "user-profile").then((data) => {
+        console.log("User Profile from Collection 'users':", data);
     });
 
-    // 获取 JSON 数据从分区 "B"
-    serverStorage.getItem("B", "user-profile").then((data) => {
-        console.log("User Profile from Partition B:", data);
-    });
+    // 删除 JSON 数据从集合 "users" 中
+    serverStorage.removeItem("users", "user-profile");
+
 }, 3000);
 
 */

@@ -25,23 +25,22 @@ let Class_Data;
 
 function get_from_sever() {
     async function load() {
-        const classesRef = firebase.database().ref('classes');
-        const classQuery = classesRef.orderByChild('code').equalTo(receivedClass.code);
+        const classesRef = firestore.collection('classes');
+        const classQuery = classesRef.where('code', '==', receivedClass.code);
 
-        const snapshot = await classQuery.once('value');
-        if (snapshot.exists()) {
-            const classData = snapshot.val();
-            const values = Object.values(classData);
-            for (const classItem of values) {
-                console.log("Class ID:", classItem.code);
-                console.log("Class name:", classItem.name);
-                console.log("Class description:", classItem.description);
-                Class_Data = classItem;
+        const snapshot = await classQuery.get();
+        if (!snapshot.empty) {
+            snapshot.forEach((doc) => {
+                const classData = doc.data();
+                console.log("Class ID:", classData.code);
+                console.log("Class name:", classData.name);
+                console.log("Class description:", classData.description);
+                Class_Data = classData;
                 console.log(Class_Data);
                 main();
-            }
+            });
         } else {
-            APP.log("Error: Data does not exist.");
+            console.error("Error: Data does not exist.");
         }
     }
     load();
@@ -146,7 +145,7 @@ const Class_Operate = {
             new_dis.className = "new_dis_input";
             new_dis.placeholder = "Descriptions...";
             let Get_Setting_button = document.createElement("button");
-            Get_Setting_button.id="Get_Setting_button";
+            Get_Setting_button.id = "Get_Setting_button";
             Get_Setting_button.className = "Get_Setting_button";
             Get_Setting_button.innerHTML = "Link to a MPC Quiz/HomeWork";
             Get_Setting_button.addEventListener("click", function () {
@@ -183,29 +182,30 @@ const Class_Operate = {
                 console.log(GL_Setting);
                 if (GL_Setting !== false) {
                     console.log(GL_Setting);
-                    const taskRef = firebase.database().ref(`classes/${receivedClass.code}/Task`);
-                    taskRef.once('value', (snapshot) => {
-                        const peopleData = snapshot.val();
-                        let peopleArray = [];
-                        if (Array.isArray(peopleData)) {
-                            peopleArray = peopleData;
-                        } else if (peopleData) {
-                            peopleArray = Object.values(peopleData);
+                    const classDocRef = firestore.collection('classes').doc(receivedClass.code);
+                    classDocRef.get().then((doc) => {
+                        if (doc.exists) {
+                            const classData = doc.data();
+                            let taskArray = classData.Task ? classData.Task : [];
+                            taskArray.push({
+                                Title: Title,
+                                Disciption: Descriptions,
+                                Due: Due,
+                                GL_Setting: GL_Setting
+                            });
+                            classDocRef.update({ Task: taskArray })
+                                .then(() => {
+                                    console.log('Data has been successfully set.');
+                                    location.reload(); // 刷新页面
+                                })
+                                .catch((error) => {
+                                    console.error('Error occurred while setting data:', error);
+                                });
+                        } else {
+                            console.error('No such document!');
                         }
-                        peopleArray.push({
-                            Title: Title,
-                            Disciption: Descriptions,
-                            Due: Due,
-                            GL_Setting: GL_Setting
-                        });
-                        taskRef.set(peopleArray, (error) => {
-                            if (error) {
-                                console.error('Error occurred while setting data:', error);
-                            } else {
-                                console.log('Data has been successfully set.');
-                                location.reload(); // 刷新页面
-                            }
-                        });
+                    }).catch((error) => {
+                        console.error('Error getting document:', error);
                     });
                 }
             });

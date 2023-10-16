@@ -13,20 +13,16 @@ function login() {
             localStorage.setItem("login", "true");
 
             // 获取其他用户信息并保存在本地存储中
-            serverStorage.getItem("User", user.uid).then((data) => {
+            serverStorage.getItem("users", user.uid).then((data) => {
                 if (data) {
-                    localStorage.setItem("key", data.Key);
                     localStorage.setItem("UID", user.uid);
                     localStorage.setItem("User_Name", data.Name);
                     localStorage.setItem("User_Info", data.Info);
                     localStorage.setItem("User_Email", user.email);
                     localStorage.setItem("User_Img", data.Img);
                     localStorage.setItem("User_Gender", data.Gender);
-                    localStorage.setItem("User_Password", data.Password);
-
-                    // 确保"Like"字段是数组，如果不是，则初始化为空数组
-                    const likeArray = Array.isArray(data.Like) ? data.Like : [];
-                    localStorage.setItem("Like", JSON.stringify(likeArray)); // 获取并存储Like字段
+                    // 将数组转换为字符串存储
+                    localStorage.setItem("Like", JSON.stringify(data.Like));
                 }
             });
 
@@ -38,10 +34,10 @@ function login() {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            APP.log("User login failed:", errorMessage);
+            console.log("User login failed:", errorMessage);
 
             // 使用 markInvalidInput 函数显示错误消息
-            markInvalidInput("l_username", errorMessage);
+            markInvalidInput("l_email", errorMessage);
             markInvalidInput("l_password", errorMessage);
         });
 }
@@ -63,7 +59,7 @@ function registered() {
             // 在这里可以添加代码，处理用户注册成功后的操作
             // 例如：在本地存储中保存用户认证状态
 
-            // 获取其他用户信息并保存在实时数据库中
+            // 获取其他用户信息并保存在 Cloud Firestore 中
             const userData = {
                 Name: userinput_name,
                 Info: userinput_info,
@@ -73,17 +69,11 @@ function registered() {
                 Class: []
             };
 
-            // 使用 Firebase 实时数据库存储用户信息
-            serverStorage.setItem("User", user.uid, userData);
+            // 使用 Cloud Firestore 存储用户信息
+            serverStorage.setItem("users", user.uid, userData);
 
             // 注册成功后跳转或执行其他操作
-            window_load(false, 0);
-            setTimeout(() => {
-                document.getElementById("l_email").value = userinput_email;
-                document.getElementById("l_password").value = userinput_password;
-                login();
-            }, 1500);
-            window_load(true, 1000);
+            // 请确保适当处理页面重定向或其他操作
         })
         .catch((error) => {
             const errorCode = error.code;

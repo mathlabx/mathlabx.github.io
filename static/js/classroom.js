@@ -93,7 +93,6 @@ const Class_Operate = {
     ADD_new_Task: () => {
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
-        new_flow_block.style.width = "calc(100% - 20px)";
         let task_title = document.createElement("h2");
         task_title.className = "task_title";
         task_title.innerHTML = "+";
@@ -183,7 +182,7 @@ const Class_Operate = {
             new_page_con.appendChild(new_close);
             div_container.appendChild(new_page_con); // 使用 appendChild 方法将元素添加到 div_container 中
         });
-        div_container.insertAdjacentElement("beforebegin", new_flow_block);
+        div_container.prepend(new_flow_block);
     }
 };
 

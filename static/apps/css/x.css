@@ -12,6 +12,7 @@ button {
     margin: 10px;
     border-radius: 10px;
     height: auto;
+    display: inline-block;
     width: calc(100% - 20px);
     color: white;
     font-weight: bold;

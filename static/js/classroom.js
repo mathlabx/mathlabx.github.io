@@ -48,6 +48,7 @@ function get_from_sever() {
 }
 
 function openCustomPopup() {
+    console.log("in pop");
     let obj = {
         Typ: "Teacher"
     };

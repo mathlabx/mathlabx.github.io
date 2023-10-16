@@ -158,6 +158,7 @@ const Class_Operate = {
                     var dataFromPopup = JSON.parse(e.data);
                     console.log("Data from popup:", dataFromPopup);
                     GL_Setting = dataFromPopup;
+                    console.log(GL_Setting);
                 }
             });
             let new_close = document.createElement("button");
@@ -178,7 +179,9 @@ const Class_Operate = {
                 var dateTimeString = dateInput + 'T' + timeInput;
                 var utcTimestamp = new Date(dateTimeString).getTime();
                 let Due = utcTimestamp;
+                console.log(GL_Setting);
                 if (GL_Setting !== false) {
+                    console.log(GL_Setting);
                     const taskRef = firebase.database().ref(`classes/${receivedClass.code}/Task`);
                     taskRef.once('value', (snapshot) => {
                         const peopleData = snapshot.val();

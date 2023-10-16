@@ -131,6 +131,7 @@ const Class_Operate = {
             new_dis.placeholder = "Descriptions..."; // 正确的拼写是 Descriptions
             let Get_Setting_button = document.createElement("button");
             Get_Setting_button.className = "Get_Setting_button";
+            Get_Setting_button.innerHTML = "Setting";
             Get_Setting_button.addEventListener("click", function () {
                 openCustomPopup();
             });
@@ -148,6 +149,15 @@ const Class_Operate = {
                     alert("The popup was blocked. Please allow popups for this site.");
                 }
             }
+            let GL_Setting = false;
+            window.addEventListener('message', function (e) {
+                if (e.origin === 'null') {
+                    var dataFromPopup = JSON.parse(e.data);
+                    console.log("Data from popup:", dataFromPopup);
+                    GL_Setting = dataFromPopup;
+                    Assign_();
+                }
+            });
             let new_close = document.createElement("button");
             new_close.innerHTML = "X";
             new_close.className = "new_close";
@@ -166,11 +176,8 @@ const Class_Operate = {
                 var dateTimeString = dateInput + 'T' + timeInput;
                 var utcTimestamp = new Date(dateTimeString).getTime();
                 let Due = utcTimestamp;
-                window.addEventListener('message', function (e) {
-                    if (e.origin === 'null') {
-                        var dataFromPopup = JSON.parse(e.data);
-                        console.log("Data from popup:", dataFromPopup);
-                        let GL_Setting = dataFromPopup;
+                function Assign_() {
+                    if (!false) {
                         const taskRef = firebase.database().ref(`classes/${receivedClass.code}/Task`);
                         taskRef.once('value', (snapshot) => {
                             const peopleData = snapshot.val();
@@ -196,7 +203,7 @@ const Class_Operate = {
                             });
                         });
                     }
-                });
+                }
             });
             new_page_con.appendChild(new_title);
             new_page_con.appendChild(new_time_label);

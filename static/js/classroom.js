@@ -147,18 +147,18 @@ const Class_Operate = {
             new_dis.placeholder = "Descriptions...";
             let Get_Setting_button = document.createElement("button");
             Get_Setting_button.className = "Get_Setting_button";
-            Get_Setting_button.innerHTML = "Setting";
+            Get_Setting_button.innerHTML = "Link to a MPC Quiz/HomeWork";
             Get_Setting_button.addEventListener("click", function () {
                 openCustomPopup();
             });
             let GL_Setting = false;
             window.addEventListener('message', function (e) {
                 console.log("Event object from popup:", e);
-                    var dataFromPopup = JSON.parse(e.data);
-                    console.log("Data from popup:", dataFromPopup);
-                    console.log(e.data);
-                    GL_Setting = dataFromPopup;
-                    console.log(GL_Setting);
+                var dataFromPopup = JSON.parse(e.data);
+                console.log("Data from popup:", dataFromPopup);
+                console.log(e.data);
+                GL_Setting = dataFromPopup;
+                console.log(GL_Setting);
             });
             let new_close = document.createElement("button");
             new_close.innerHTML = "X";

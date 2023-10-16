@@ -260,7 +260,7 @@ function from_UTC(utcTimestamp) {
         const year = newLocalDate.getFullYear();
         const month = String(newLocalDate.getMonth() + 1).padStart(2, '0');
         const day = String(newLocalDate.getDate()).padStart(2, '0');
-        const hours = String(newLocalDate.getHours()).padStart(2, '0');
+        const hours = String(((newLocalDate.getHours()) - 7)).padStart(2, '0');//-7不知道目前问题所在，时间会多出7小时，所以-7调试偏差
         const minutes = String(newLocalDate.getMinutes()).padStart(2, '0');
         return `${year}-${month}-${day} ${hours}:${minutes}`;
     }

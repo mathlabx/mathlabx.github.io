@@ -5,7 +5,7 @@ body {
     padding-top: 63px;
     background-color: black;
     font-family: Arial, sans-serif;
-    zoom: 80%;
+    zoom: 100%;
 }
 
 /* Define the top navigation bar styles */
@@ -223,7 +223,7 @@ ins.adsbygoogle {
 /* Media Query for iPad and Larger Devices */
 @media (min-width: 768px) {
     body {
-        zoom: 50%;
+        zoom: 100%;
     }
 
     .container {

@@ -153,6 +153,7 @@ const Class_Operate = {
             });
             let GL_Setting = false;
             window.addEventListener('message', function (e) {
+                console.log("Event object from popup:", e);
                 if (e.origin === 'null') {
                     var dataFromPopup = JSON.parse(e.data);
                     console.log("Data from popup:", dataFromPopup);

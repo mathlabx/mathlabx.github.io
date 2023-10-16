@@ -65,15 +65,15 @@ function openCustomPopup() {
 let div_container;
 
 const Class_Operate = {
-    new_Task: (Task_Name, Due_Date, Disciption, URL, T_ID) => {
+    new_Task: (taskData) => {
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
         let task_title = document.createElement("h2");
         task_title.className = "task_title";
-        task_title.innerHTML = Task_Name;
+        task_title.innerHTML = taskData.Title;
         let new_due_date = document.createElement("h3");
         new_due_date.className = "due_date";
-        new_due_date.innerHTML = Due_Date;
+        new_due_date.innerHTML = taskData.Due;
         new_flow_block.append(task_title);
         new_flow_block.append(new_due_date);
         new_flow_block.addEventListener("click", function (T_ID) {
@@ -85,10 +85,10 @@ const Class_Operate = {
                 new_page_con.className = "new_page_con";
                 let new_title = document.createElement("h1");
                 new_title.className = "new_title";
-                new_title.innerHTML = Task_Name;
+                new_title.innerHTML = taskData.Title;
                 let new_dis = document.createElement("p");
                 new_dis.className = "new_dis";
-                new_dis.innerHTML = Disciption;
+                new_dis.innerHTML = taskData.Description;
                 let new_close = document.createElement("button");
                 new_close.innerHTML = "X";
                 new_close.className = "new_close";
@@ -101,7 +101,7 @@ const Class_Operate = {
                 new_page_con.append(new_close);
                 div_container.append(new_page_con);
             }
-        }(T_ID));
+        }(taskData.T_ID));
         div_container.append(new_flow_block);
     },
 
@@ -186,14 +186,13 @@ const Class_Operate = {
                     classDocRef.get().then((doc) => {
                         if (doc.exists) {
                             const classData = doc.data();
-                            let taskArray = classData.Task ? classData.Task : [];
-                            taskArray.push({
+                            let taskCollectionRef = classDocRef.collection('tasks'); // 创建任务子集合
+                            taskCollectionRef.add({
                                 Title: Title,
                                 Disciption: Descriptions,
                                 Due: Due,
                                 GL_Setting: GL_Setting
-                            });
-                            classDocRef.update({ Task: taskArray })
+                            })
                                 .then(() => {
                                     console.log('Data has been successfully set.');
                                     location.reload(); // 刷新页面

@@ -70,7 +70,7 @@ function registered() {
             };
 
             // 使用 Cloud Firestore 存储用户信息
-            serverStorage.setItem("users", user.uid, userData);
+            serverStorage.setItem("User", user.uid, userData);
 
             // 注册成功后跳转或执行其他操作
             window_load(false, 0);

@@ -14,6 +14,7 @@ function login() {
 
             // 获取其他用户信息并保存在本地存储中
             serverStorage.getItem("users", user.uid).then((data) => {
+                console.log(data);
                 if (data) {
                     localStorage.setItem("UID", user.uid);
                     localStorage.setItem("User_Name", data.Name);
@@ -23,13 +24,12 @@ function login() {
                     localStorage.setItem("User_Gender", data.Gender);
                     // 将数组转换为字符串存储
                     localStorage.setItem("Like", JSON.stringify(data.Like));
+                    // 重定向到其他页面
+                    setTimeout(() => {
+                        window.location = "../";
+                    }, 1000);
                 }
             });
-
-            // 重定向到其他页面
-            setTimeout(() => {
-                window.location = "../";
-            }, 1000);
         })
         .catch((error) => {
             const errorCode = error.code;

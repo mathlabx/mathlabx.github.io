@@ -232,9 +232,13 @@ function to_UTC() {
 }
 
 function from_UTC(utcTimestamp) {
+    const today = new Date();
+    const offset = -(today.getTimezoneOffset() / 60);
     const currentTimestamp = Date.now(); // 获取当前本地时间戳
     const localDate = new Date(utcTimestamp);
     const currentDate = new Date(currentTimestamp);
+
+    let typ;
 
     // 获取本地时间与 UTC 时间的差值
     const timezoneOffset = localDate.getTimezoneOffset() * 60000;
@@ -260,9 +264,9 @@ function from_UTC(utcTimestamp) {
         const year = newLocalDate.getFullYear();
         const month = String(newLocalDate.getMonth() + 1).padStart(2, '0');
         const day = String(newLocalDate.getDate()).padStart(2, '0');
-        const hours = String(((newLocalDate.getHours()) - 7)).padStart(2, '0');//-7不知道目前问题所在，时间会多出7小时，所以-7调试偏差
+        const hours = String(((newLocalDate.getHours()) + offset)).padStart(2, '0');
         const minutes = String(newLocalDate.getMinutes()).padStart(2, '0');
-        return `${year}-${month}-${day} ${hours}:${minutes}`;
+        return [`${year}-${month}-${day} ${hours}:${minutes}`, typ];
     }
 }
 

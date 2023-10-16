@@ -189,7 +189,10 @@ const Class_Operate = {
                                 Title: Title,
                                 Description: Description,
                                 Due: utcTimestamp,
-                                GL_Setting: GL_Setting
+                                GL_Setting: {
+                                    General_settings: GL_Setting[0],
+                                    Question_settings: GL_Setting[1]
+                                }
                             });
 
                             classDocRef.update({ Task: taskArray })

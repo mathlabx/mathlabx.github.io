@@ -161,7 +161,7 @@ ins.adsbygoogle {
 
 /* Style for the Flow Element Title */
 .flow-element h2 {
-    font-size: 24px;
+    font-size: x-large;
     margin-top: 10px;
     color: #DCB6FF;
 }
@@ -170,7 +170,7 @@ ins.adsbygoogle {
 .hot-tag {
     vertical-align: super;
     /* Make it a superscript */
-    font-size: 10px;
+    font-size: small;
     /* Adjust font size as needed */
     border-radius: 5px;
     color: red;
@@ -179,7 +179,7 @@ ins.adsbygoogle {
 
 /* Style for the Flow Element Description */
 .flow-element p {
-    font-size: 16px;
+    font-size: medium;
     color: #666;
     margin-top: 10px;
     margin-left: 8px;

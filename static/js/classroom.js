@@ -146,6 +146,7 @@ const Class_Operate = {
             new_dis.className = "new_dis_input";
             new_dis.placeholder = "Descriptions...";
             let Get_Setting_button = document.createElement("button");
+            Get_Setting_button.id="Get_Setting_button";
             Get_Setting_button.className = "Get_Setting_button";
             Get_Setting_button.innerHTML = "Link to a MPC Quiz/HomeWork";
             Get_Setting_button.addEventListener("click", function () {
@@ -158,6 +159,7 @@ const Class_Operate = {
                 console.log("Data from popup:", dataFromPopup);
                 console.log(e.data);
                 GL_Setting = dataFromPopup;
+                document.getElementById("Get_Setting_button").innerHTML = "Re Link";
                 console.log(GL_Setting);
             });
             let new_close = document.createElement("button");

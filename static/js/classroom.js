@@ -157,6 +157,7 @@ const Class_Operate = {
                 if (e.origin === 'null') {
                     var dataFromPopup = JSON.parse(e.data);
                     console.log("Data from popup:", dataFromPopup);
+                    console.log(e.data);
                     GL_Setting = dataFromPopup;
                     console.log(GL_Setting);
                 }

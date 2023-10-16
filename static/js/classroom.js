@@ -147,6 +147,11 @@ const Class_Operate = {
                 var dateTimeString = dateInput + 'T' + timeInput;
                 var utcTimestamp = new Date(dateTimeString).getTime();
                 let Due = utcTimestamp;
+                let Get_Setting_button = document.createElement("button");
+                Get_Setting_button.className = "Get_Setting_button";
+                Get_Setting_button.addEventListener("click", function () {
+                    openCustomPopup();
+                })
                 function openCustomPopup() {
                     let obj = {
                         Typ: "Teacher"

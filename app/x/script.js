@@ -874,6 +874,7 @@ function main() {
 
         } else if (receivedClass.Typ == "Teacher") {
             Teacher_SL_MOD = true;
+            get_Subject();
         }
     }
 }

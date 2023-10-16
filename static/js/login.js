@@ -73,7 +73,13 @@ function registered() {
             serverStorage.setItem("users", user.uid, userData);
 
             // 注册成功后跳转或执行其他操作
-            // 请确保适当处理页面重定向或其他操作
+            window_load(false, 0);
+            setTimeout(() => {
+                document.getElementById("l_email").value = userinput_email;
+                document.getElementById("l_password").value = userinput_password;
+                login();
+            }, 1500);
+            window_load(true, 1000);
         })
         .catch((error) => {
             const errorCode = error.code;

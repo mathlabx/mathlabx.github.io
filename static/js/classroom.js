@@ -183,29 +183,20 @@ const Class_Operate = {
                 if (GL_Setting !== false) {
                     console.log(GL_Setting);
                     const classDocRef = firestore.collection('classes').doc(receivedClass.code);
-                    classDocRef.get().then((doc) => {
-                        if (doc.exists) {
-                            const classData = doc.data();
-                            let taskCollectionRef = classDocRef.collection('tasks'); // 创建任务子集合
-                            taskCollectionRef.add({
-                                Title: Title,
-                                Disciption: Descriptions,
-                                Due: Due,
-                                GL_Setting: GL_Setting
-                            })
-                                .then(() => {
-                                    console.log('Data has been successfully set.');
-                                    location.reload(); // 刷新页面
-                                })
-                                .catch((error) => {
-                                    console.error('Error occurred while setting data:', error);
-                                });
-                        } else {
-                            console.error('No such document!');
-                        }
-                    }).catch((error) => {
-                        console.error('Error getting document:', error);
-                    });
+                    const taskCollectionRef = classDocRef.collection('task'); // 修改为 tasks 子集合
+                    taskCollectionRef.add({
+                        Title: Title,
+                        Description: Descriptions,
+                        Due: Due,
+                        GL_Setting: GL_Setting
+                    })
+                        .then(() => {
+                            console.log('Data has been successfully set.');
+                            location.reload(); // 刷新页面
+                        })
+                        .catch((error) => {
+                            console.error('Error occurred while setting data:', error);
+                        });
                 }
             });
             new_page_con.appendChild(new_title);

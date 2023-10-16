@@ -65,15 +65,15 @@ function openCustomPopup() {
 let div_container;
 
 const Class_Operate = {
-    new_Task: (taskData) => {
+    new_Task: (Task_Name, Due_Date, Disciption, URL, T_ID) => {
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
         let task_title = document.createElement("h2");
         task_title.className = "task_title";
-        task_title.innerHTML = taskData.Title;
+        task_title.innerHTML = Task_Name;
         let new_due_date = document.createElement("h3");
         new_due_date.className = "due_date";
-        new_due_date.innerHTML = taskData.Due;
+        new_due_date.innerHTML = Due_Date;
         new_flow_block.append(task_title);
         new_flow_block.append(new_due_date);
         new_flow_block.addEventListener("click", function (T_ID) {
@@ -85,10 +85,10 @@ const Class_Operate = {
                 new_page_con.className = "new_page_con";
                 let new_title = document.createElement("h1");
                 new_title.className = "new_title";
-                new_title.innerHTML = taskData.Title;
+                new_title.innerHTML = Task_Name;
                 let new_dis = document.createElement("p");
                 new_dis.className = "new_dis";
-                new_dis.innerHTML = taskData.Description;
+                new_dis.innerHTML = Disciption;
                 let new_close = document.createElement("button");
                 new_close.innerHTML = "X";
                 new_close.className = "new_close";

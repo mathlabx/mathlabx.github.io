@@ -64,7 +64,7 @@ function openForm() {
     submitButton.style.borderRadius = '4px';
     submitButton.style.cursor = 'pointer';
     submitButton.addEventListener("click", function () {
-        join_class(false);
+        join_class(false, document.getElementById("7d_code").value);
     });
     formContainer.appendChild(submitButton);
 

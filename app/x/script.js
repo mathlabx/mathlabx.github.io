@@ -861,14 +861,20 @@ function receiveObject() {
     }
 }
 
-
+let Teacher_SL_MOD = false;
 function main() {
     const receivedClass = receiveObject();
     console.log(receivedClass);
     if (isEmpty(receivedClass)) {
         get_Subject();
     } else {
-        X_Generate(receivedClass);
+        if (receivedClass.Typ == "Test") {
+
+        } else if (receivedClass.Typ == "HW") {
+
+        } else if (receivedClass.Typ == "Teacher") {
+            Teacher_SL_MOD = true;
+        }
     }
 }
 

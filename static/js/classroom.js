@@ -147,30 +147,50 @@ const Class_Operate = {
                 var dateTimeString = dateInput + 'T' + timeInput;
                 var utcTimestamp = new Date(dateTimeString).getTime();
                 let Due = utcTimestamp;
-                let TsURL = null;
-                const taskRef = firebase.database().ref(`classes/${receivedClass.code}/Task`);
-                taskRef.once('value', (snapshot) => {
-                    const peopleData = snapshot.val();
-                    let peopleArray = [];
-                    if (Array.isArray(peopleData)) {
-                        peopleArray = peopleData;
-                    } else if (peopleData) {
-                        peopleArray = Object.values(peopleData);
+                function openCustomPopup() {
+                    let obj = {
+                        Typ: "Teacher"
                     }
-                    peopleArray.push({
-                        Title: Title,
-                        Disciption: Descriptions,
-                        Due: Due,
-                        TsURL: TsURL
-                    });
-                    taskRef.set(peopleArray, (error) => {
-                        if (error) {
-                            console.error('Error occurred while setting data:', error);
-                        } else {
-                            console.log('Data has been successfully set.');
-                            location.reload(); // 刷新页面
-                        }
-                    });
+                    // 将包含数组的对象转换为 JSON 字符串
+                    const jsonStr = JSON.stringify(obj);
+                    // 将 JSON 字符串存储到 sessionStorage 中
+                    sessionStorage.setItem('myData', jsonStr);
+
+                    var myWindow = window.open(`https://app.mathscichem.com/app/x`, "_blank", "width=600, height=600");
+                    if (!myWindow) {
+                        alert("The popup was blocked. Please allow popups for this site.");
+                    }
+                }
+                window.addEventListener('message', function (e) {
+                    if (e.origin === 'null') {
+                        var dataFromPopup = JSON.parse(e.data);
+                        console.log("Data from popup:", dataFromPopup);
+                        let GL_Setting = dataFromPopup;
+                        const taskRef = firebase.database().ref(`classes/${receivedClass.code}/Task`);
+                        taskRef.once('value', (snapshot) => {
+                            const peopleData = snapshot.val();
+                            let peopleArray = [];
+                            if (Array.isArray(peopleData)) {
+                                peopleArray = peopleData;
+                            } else if (peopleData) {
+                                peopleArray = Object.values(peopleData);
+                            }
+                            peopleArray.push({
+                                Title: Title,
+                                Disciption: Descriptions,
+                                Due: Due,
+                                GL_Setting: GL_Setting
+                            });
+                            taskRef.set(peopleArray, (error) => {
+                                if (error) {
+                                    console.error('Error occurred while setting data:', error);
+                                } else {
+                                    console.log('Data has been successfully set.');
+                                    location.reload(); // 刷新页面
+                                }
+                            });
+                        });
+                    }
                 });
             });
             new_page_con.appendChild(new_title);

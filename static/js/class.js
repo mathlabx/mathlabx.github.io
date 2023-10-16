@@ -305,7 +305,9 @@ window.addEventListener("load", function () {
                         }
                     }
                     if (!APP.class) APP.class = [];
-                    document.getElementById("join_button").onclick = toggleForm;
+                    setTimeout(() => {
+                        document.getElementById("join_button").onclick = toggleForm;
+                    }, 100);
                     class_update();
                 }
                 load();

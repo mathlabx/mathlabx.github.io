@@ -233,3 +233,10 @@ ins.adsbygoogle {
         /* Limit the container width on larger screens */
     }
 }
+
+/*PC*/
+@media (min-width: 1000px) {
+    body {
+        zoom: 50%;
+    }
+}

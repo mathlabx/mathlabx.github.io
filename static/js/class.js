@@ -322,7 +322,9 @@ window.addEventListener("load", function () {
                     }
                     if (!APP.class) APP.class = [];
                     setTimeout(() => {
-                        document.getElementById("join_button").onclick = toggleForm;
+                        document.getElementById("join_button").addEventListener("click", function () {
+                            toggleForm();
+                        });
                     }, 100);
                     class_update();
                 }

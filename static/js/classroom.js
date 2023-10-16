@@ -194,9 +194,10 @@ function to_UTC() {
 
 function from_UTC(utcTimestamp) {
     const currentTimestamp = Date.now(); // 获取当前本地时间戳
+    const timezoneOffset = new Date().getTimezoneOffset(); // 获取时区偏移，单位为分钟
 
     // 将 UTC 时间戳转换为本地时间戳
-    const localTimestamp = utcTimestamp + (new Date().getTimezoneOffset() * 60000);
+    const localTimestamp = utcTimestamp + (timezoneOffset * 60000);
 
     // 将时间戳转换为日期
     const localDate = new Date(localTimestamp);
@@ -208,9 +209,18 @@ function from_UTC(utcTimestamp) {
         localDate.getMonth() === currentDate.getMonth() &&
         localDate.getFullYear() === currentDate.getFullYear()
     ) {
-        return 'Today';
+        // 返回今天的小时和分钟
+        const hours = String(localDate.getHours()).padStart(2, '0');
+        const minutes = String(localDate.getMinutes()).padStart(2, '0');
+        return `Today, ${hours}:${minutes}`;
     } else {
-        return localDate.toDateString(); // 返回本地时间的日期字符串
+        // 返回日期和时间
+        const year = localDate.getFullYear();
+        const month = String(localDate.getMonth() + 1).padStart(2, '0');
+        const day = String(localDate.getDate()).padStart(2, '0');
+        const hours = String(localDate.getHours()).padStart(2, '0');
+        const minutes = String(localDate.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
     }
 }
 
@@ -218,7 +228,7 @@ function click_todo() {
     if (page_on != "todo") {
         div_container.innerHTML = "";
         for (let i = 0; i < Class_Data.Task?.length; i++) {
-            Class_Operate.new_Task(Class_Data.Task[i].Title, from_UTC(Class_Data.Task[i].Due), Class_Data.Task[i].Disciption, Class_Data.Task[i].ASM_Key);
+            Class_Operate.new_Task(Class_Data.Task[i].Title, `Due ${from_UTC(Class_Data.Task[i].Due)}`, Class_Data.Task[i].Disciption, Class_Data.Task[i].ASM_Key);
         }
         if (is_adm()) {
             Class_Operate.ADD_new_Task();

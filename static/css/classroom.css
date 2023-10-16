@@ -42,3 +42,72 @@
     background-color: #DCB6FF;
     padding: 10px;
 }
+
+.new_title_input {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background-color: rgb(138 150 225 / 28%);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.new_time_label {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background-color: rgb(138 150 225 / 28%);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#new_date,
+#new_time {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background-color: rgb(138 150 225 / 28%);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.new_dis_input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background-color: rgb(138 150 225 / 28%);
+    width: 100%;
+    height: 40px;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.Get_Setting_button,
+.new_task_button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #DCB6FF;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}

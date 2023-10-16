@@ -173,30 +173,39 @@ const Class_Operate = {
             new_task_button.className = "new_task_button";
             new_task_button.addEventListener("click", function () {
                 let Title = document.getElementById("new_title_input").value;
-                let Descriptions = document.getElementById("new_dis_input").value;
+                let Description = document.getElementById("new_dis_input").value;
                 var dateInput = document.getElementById('new_date').value;
                 var timeInput = document.getElementById('new_time').value;
                 var dateTimeString = dateInput + 'T' + timeInput;
                 var utcTimestamp = new Date(dateTimeString).getTime();
-                let Due = utcTimestamp;
                 console.log(GL_Setting);
                 if (GL_Setting !== false) {
                     console.log(GL_Setting);
                     const classDocRef = firestore.collection('classes').doc(receivedClass.code);
-                    const taskCollectionRef = classDocRef.collection('task'); // 修改为 tasks 子集合
-                    taskCollectionRef.add({
-                        Title: Title,
-                        Description: Descriptions,
-                        Due: Due,
-                        GL_Setting: GL_Setting
-                    })
-                        .then(() => {
-                            console.log('Data has been successfully set.');
-                            location.reload(); // 刷新页面
-                        })
-                        .catch((error) => {
-                            console.error('Error occurred while setting data:', error);
-                        });
+                    classDocRef.get().then((doc) => {
+                        if (doc.exists) {
+                            let taskArray = doc.data().Task || [];
+                            taskArray.push({
+                                Title: Title,
+                                Description: Description,
+                                Due: utcTimestamp,
+                                GL_Setting: GL_Setting
+                            });
+
+                            classDocRef.update({ Task: taskArray })
+                                .then(() => {
+                                    console.log('Data has been successfully set.');
+                                    location.reload(); // 刷新页面
+                                })
+                                .catch((error) => {
+                                    console.error('Error occurred while setting data:', error);
+                                });
+                        } else {
+                            console.error('No such document!');
+                        }
+                    }).catch((error) => {
+                        console.error('Error getting document:', error);
+                    });
                 }
             });
             new_page_con.appendChild(new_title);

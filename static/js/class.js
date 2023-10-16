@@ -195,10 +195,12 @@ async function join_class(adm, classroomCode) {
                     }
 
                     // Create a new subcollection for people and store the user's id and adm parameter
-                    const peopleRef = firestore.collection(`classes/${classroomCode}/people`);
-                    peopleRef.add({
-                        user_id: APP.account.UID,
-                        administrator: adm
+                    const peopleRef = firestore.collection(`classes`).doc(classroomCode);
+                    peopleRef.update({
+                        people: firebase.firestore.FieldValue.arrayUnion({
+                            user_id: APP.account.UID,
+                            administrator: adm
+                        })
                     });
 
                     setTimeout(() => {

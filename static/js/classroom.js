@@ -238,8 +238,6 @@ function from_UTC(utcTimestamp) {
     const localDate = new Date(utcTimestamp);
     const currentDate = new Date(currentTimestamp);
 
-    let typ;
-
     // 获取本地时间与 UTC 时间的差值
     const timezoneOffset = localDate.getTimezoneOffset() * 60000;
 
@@ -248,6 +246,9 @@ function from_UTC(utcTimestamp) {
 
     // 将时间戳转换为日期
     const newLocalDate = new Date(localTimestamp);
+
+    //检查是否晚
+    let typ = "";
 
     // 检查日期是否为今天
     if (
@@ -258,7 +259,7 @@ function from_UTC(utcTimestamp) {
         // 返回今天的小时和分钟
         const hours = String(newLocalDate.getHours()).padStart(2, '0');
         const minutes = String(newLocalDate.getMinutes()).padStart(2, '0');
-        return `Today, ${hours}:${minutes}`;
+        return [`Today, ${hours}:${minutes}`, typ];
     } else {
         // 返回日期和时间
         const year = newLocalDate.getFullYear();

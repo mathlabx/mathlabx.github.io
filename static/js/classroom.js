@@ -36,6 +36,20 @@ function get_from_sever() {
                 console.log("Class name:", classData.name);
                 console.log("Class description:", classData.description);
                 Class_Data = classData;
+
+                // 获取 people 数据
+                const peopleRef = classesRef.doc(doc.id).collection('people');
+                peopleRef.get().then((peopleSnapshot) => {
+                    if (!peopleSnapshot.empty) {
+                        peopleSnapshot.forEach((peopleDoc) => {
+                            const peopleData = peopleDoc.data();
+                            // 处理您的 people 数据
+                        });
+                    } else {
+                        console.error("Error: People data does not exist.");
+                    }
+                });
+
                 console.log(Class_Data);
                 main();
             });

@@ -47,6 +47,21 @@ function get_from_sever() {
     load();
 }
 
+function openCustomPopup() {
+    let obj = {
+        Typ: "Teacher"
+    };
+    // 将包含数组的对象转换为 JSON 字符串
+    const jsonStr = JSON.stringify(obj);
+    // 将 JSON 字符串存储到 sessionStorage 中
+    sessionStorage.setItem('myData', jsonStr);
+
+    var myWindow = window.open(`https://app.mathscichem.com/app/x`, "_blank");
+    if (!myWindow) {
+        alert("The popup was blocked. Please allow popups for this site.");
+    }
+}
+
 let div_container;
 
 const Class_Operate = {
@@ -109,14 +124,14 @@ const Class_Operate = {
             let new_title = document.createElement("input");
             new_title.id = "new_title_input";
             new_title.className = "new_title_input";
-            new_title.maxLength = "15"; // 正确的属性是 maxLength，而不是 maxlength
+            new_title.maxLength = "15";
             new_title.placeholder = "Task Title";
             new_title.value = "New Task";
             let new_time_label = document.createElement("label");
-            new_time_label.innerHTML = "Due Date"; // 正确的拼写是 label
-            new_time_label.className = "new_time_label"; // 正确的拼写是 label
-            new_time_label.htmlFor = "new_date"; // 正确的属性是 htmlFor
-            let new_date = document.createElement("input"); // 正确的变量名是 new_date
+            new_time_label.innerHTML = "Due Date";
+            new_time_label.className = "new_time_label";
+            new_time_label.htmlFor = "new_date";
+            let new_date = document.createElement("input");
             new_date.type = "date";
             new_date.id = "new_date";
             new_date.name = "Due Date";
@@ -126,29 +141,15 @@ const Class_Operate = {
             new_time.name = "Due Time";
             let new_dis = document.createElement("textarea");
             new_dis.id = "new_dis_input";
-            new_dis.maxLength = "70"; // 正确的属性是 maxLength
+            new_dis.maxLength = "70";
             new_dis.className = "new_dis_input";
-            new_dis.placeholder = "Descriptions..."; // 正确的拼写是 Descriptions
+            new_dis.placeholder = "Descriptions...";
             let Get_Setting_button = document.createElement("button");
             Get_Setting_button.className = "Get_Setting_button";
             Get_Setting_button.innerHTML = "Setting";
             Get_Setting_button.addEventListener("click", function () {
                 openCustomPopup();
             });
-            function openCustomPopup() {
-                let obj = {
-                    Typ: "Teacher"
-                }
-                // 将包含数组的对象转换为 JSON 字符串
-                const jsonStr = JSON.stringify(obj);
-                // 将 JSON 字符串存储到 sessionStorage 中
-                sessionStorage.setItem('myData', jsonStr);
-
-                var myWindow = window.open(`https://app.mathscichem.com/app/x`, "_blank", "width=600, height=600");
-                if (!myWindow) {
-                    alert("The popup was blocked. Please allow popups for this site.");
-                }
-            }
             let GL_Setting = false;
             window.addEventListener('message', function (e) {
                 if (e.origin === 'null') {

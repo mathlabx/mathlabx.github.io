@@ -94,8 +94,20 @@
 
     <script>
         function startExam() {
-            document.querySelector('.exam-intro').style.display = 'none';
-            document.querySelector('.main-content').style.display = 'block';
+            const container = document.getElementById("container");
+            const examIntro = document.getElementById("examIntro");
+            const mainContent = document.getElementById("mainContent");
+
+            if (container.requestFullscreen) {
+                container.requestFullscreen();
+            } else if (container.webkitRequestFullscreen) { /* Safari */
+                container.webkitRequestFullscreen();
+            } else if (container.msRequestFullscreen) { /* IE11 */
+                container.msRequestFullscreen();
+            }
+
+            examIntro.style.display = 'none';
+            mainContent.style.display = 'block';
         }
     </script>
 </body>

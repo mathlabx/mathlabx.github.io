@@ -1,4 +1,7 @@
-/* Your CSS styles here */
+body{
+    background-color: white !important;
+}
+
 .top-bar {
     /* Styles for the top bar */
 }

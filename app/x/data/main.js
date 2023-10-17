@@ -1858,7 +1858,7 @@ function $X_Generate_(general_settings, results) {
                 re_q = shuffleArray(re_q);
             }
 
-            let test_settings = receivedClass[2];
+            let test_settings = results[2];
 
             if (Test_MOD) {
                 let obj = {

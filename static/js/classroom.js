@@ -74,7 +74,29 @@ const Class_Operate = {
         let new_due_date = document.createElement("h3");
         new_due_date.className = "due_date";
         new_due_date.innerHTML = Due_Date;
+        let new_Completeness = document.createElement("span");
+        new_Completeness.className = "new_Completeness";
+        for (let i = 0; i < people.length; i++) {
+            if (people[i].UID == APP.account.UID) {
+                if (people[i]?.Completeness == true) {
+                    if (people[i].submitted_date <= Date.now()) {
+                        new_Completeness.innerHTML = "turned in";
+                        new_Completeness.style.color = "green";
+                    } else {
+                        new_Completeness.innerHTML = "turned in late";
+                        new_Completeness.style.color = "yellow";
+                    }
+                } else if (people[i]?.Completeness == false) {
+                    new_Completeness.innerHTML = "missing";
+                    new_Completeness.style.color = "red";
+                } else {
+                    new_Completeness.innerHTML = "assigned";
+                    new_Completeness.style.color = "gray";
+                }
+            }
+        }
         new_flow_block.append(task_title);
+        new_flow_block.append(new_Completeness);
         new_flow_block.append(new_due_date);
         new_flow_block.addEventListener("click", function (people) {
             return function () {

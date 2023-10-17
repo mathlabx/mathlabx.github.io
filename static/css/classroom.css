@@ -100,7 +100,8 @@ body {
     margin-top: 15px;
 }
 
-.Get_Setting_button {
+.Get_Setting_button,
+.new_GoToTest {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -114,6 +115,11 @@ body {
     transition: all 0.3 ease;
     cursor: pointer;
     margin-bottom: 15px;
+}
+
+.new_GoToTest {
+    width: 80%;
+    border-radius: 10px;
 }
 
 .new_task_button {

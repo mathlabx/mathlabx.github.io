@@ -143,8 +143,8 @@ const Class_Operate = {
                 let new_Completeness = document.createElement("span");
                 new_Completeness.className = "new_Completeness";
                 let new_GoToTest = document.createElement("button");
-                new_GoToTest.innerHTML = "Take";
-                new_GoToTest.className = "";
+                new_GoToTest.innerHTML = "DO";
+                new_GoToTest.className = "new_GoToTest";
                 new_GoToTest.addEventListener("click", function () {
                     openTest(Settings[0], Settings[1]);
                 })

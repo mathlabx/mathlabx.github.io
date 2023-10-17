@@ -1,7 +1,3 @@
-function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-}
-
 function receiveObject() {
     const jsonStr = sessionStorage.getItem('MPCTest'); // 获取存储在 sessionStorage 中的数据
 

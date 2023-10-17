@@ -862,6 +862,7 @@ function receiveObject() {
 }
 
 let Teacher_SL_MOD = false;
+let Test_MOD = false;
 function main() {
     const receivedClass = receiveObject();
     console.log(receivedClass);
@@ -869,9 +870,8 @@ function main() {
         get_Subject();
     } else {
         if (receivedClass.Typ == "Test") {
-
-        } else if (receivedClass.Typ == "HW") {
-
+            Test_MOD = true;
+            
         } else if (receivedClass.Typ == "Teacher") {
             Teacher_SL_MOD = true;
             get_Subject();

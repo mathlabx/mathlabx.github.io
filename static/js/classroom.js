@@ -98,7 +98,7 @@ const Class_Operate = {
             new_Completeness.innerHTML = "assigned";
             new_Completeness.style.color = "gray";
         }
-        if (people?.length) {
+        if (!people?.length) {
             new_Completeness.innerHTML = "assigned";
             new_Completeness.style.color = "gray";
         }
@@ -139,7 +139,7 @@ const Class_Operate = {
                     new_Completeness.innerHTML = "assigned";
                     new_Completeness.style.color = "gray";
                 }
-                if (people?.length) {
+                if (!people?.length) {
                     new_Completeness.innerHTML = "assigned";
                     new_Completeness.style.color = "gray";
                 }

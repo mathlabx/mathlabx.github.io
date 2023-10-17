@@ -113,10 +113,6 @@ function X_Result(results) {
         {
             Name: "Print",
             Func: Print
-        },
-        {
-            Name: "Assign",
-            Func: Assign
         }
     ];
     X_Operate.newPage();
@@ -229,10 +225,6 @@ function Regenerate() {
 }
 
 function Print() {
-
-}
-
-function Assign() {
 
 }
 
@@ -1882,10 +1874,81 @@ function $X_Generate_(general_settings, results) {
                 X_Result(re_q);
             }
         } else {
-            let data = [general_settings, results];
-            sessionStorage.setItem('popupData', JSON.stringify(data));
-            window.opener.postMessage(JSON.stringify(data), '*');
-            window.close();
+            let Task_Settings = [];
+            Task_Settings.push({
+                Name: "Time Limit&BIG",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Time Limit (min)",
+                Typ: "range",
+                Range: [1, 600, 60],
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Force full screen",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "End test on exit from full-screen",
+                Typ: "check",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "End exam when switching apps/tabs",
+                Typ: "check",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "End exam when switching apps/tabs",
+                Typ: "check",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Prevent copy-paste",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Enable calculator tool",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Enable Enable periodic table",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Show remaining time",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Automatic reminder of remaining time",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Each question shows right or wrong",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Number of submissions allowed per question",
+                Typ: "range",
+                Range: [1, 10, 1],
+                show: true
+            });
+
+            X_Operate.newSetting("Task Settings", Task_Settings).then((Settings) => {
+                let data = [general_settings, results, Settings];
+                sessionStorage.setItem('popupData', JSON.stringify(data));
+                window.opener.postMessage(JSON.stringify(data), '*');
+                window.close();
+            });
         }
     }, 100);
 }

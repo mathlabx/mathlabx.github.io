@@ -300,7 +300,8 @@ const Class_Operate = {
                                 Due: utcTimestamp,
                                 GL_Setting: {
                                     General_settings: GL_Setting[0],
-                                    Question_settings: GL_Setting[1]
+                                    Question_settings: GL_Setting[1],
+                                    Task_settings: GL_Setting[2]
                                 }
                             });
 

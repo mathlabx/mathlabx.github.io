@@ -1,3 +1,7 @@
+body {
+    color: white;
+}
+
 .flow-element {
     height: auto;
     width: calc(100% - 20px);

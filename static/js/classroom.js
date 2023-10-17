@@ -65,7 +65,7 @@ function openCustomPopup() {
 let div_container;
 
 const Class_Operate = {
-    new_Task: (Task_Name, Due_Date, Disciption, URL, T_ID) => {
+    new_Task: (Task_Name, Due_Date, Disciption, people) => {
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
         let task_title = document.createElement("h2");
@@ -76,9 +76,9 @@ const Class_Operate = {
         new_due_date.innerHTML = Due_Date;
         new_flow_block.append(task_title);
         new_flow_block.append(new_due_date);
-        new_flow_block.addEventListener("click", function (T_ID) {
+        new_flow_block.addEventListener("click", function (people) {
             return function () {
-                console.log(T_ID);
+                console.log(people);
                 document.querySelector('.overlay').style.display = 'block';
                 let new_page_con = document.createElement("div");
                 new_page_con.id = "new_page_con";
@@ -86,9 +86,36 @@ const Class_Operate = {
                 let new_title = document.createElement("h1");
                 new_title.className = "new_title";
                 new_title.innerHTML = Task_Name;
+                let new_Completeness = document.createElement("span");
+                new_Completeness.className = "new_Completeness";
+                for (let i = 0; i < people.length; i++) {
+                    if (people[i].UID == APP.account.UID) {
+                        if (people[i]?.Completeness == true) {
+                            if (people[i].submitted_date <= Date.now()) {
+                                new_Completeness.innerHTML = "turned in";
+                                new_Completeness.style.color = "green";
+                            } else {
+                                new_Completeness.innerHTML = "turned in late";
+                                new_Completeness.style.color = "yellow";
+                            }
+                        } else if (people[i]?.Completeness == false) {
+                            new_Completeness.innerHTML = "missing";
+                            new_Completeness.style.color = "red";
+                        } else {
+                            new_Completeness.innerHTML = "assigned";
+                            new_Completeness.style.color = "gray";
+                        }
+                    }
+                }
                 let new_dis = document.createElement("p");
                 new_dis.className = "new_dis";
                 new_dis.innerHTML = Disciption;
+                let new_MPC_Test_Button = document.createElement("button");
+                new_MPC_Test_Button.id = "new_MPC_Test_Button";
+                new_MPC_Test_Button.className = "new_MPC_Test_Button";
+                new_MPC_Test_Button.addEventListener("click", function () {
+
+                });
                 let new_close = document.createElement("button");
                 new_close.innerHTML = "X";
                 new_close.className = "new_close";
@@ -97,6 +124,7 @@ const Class_Operate = {
                     document.querySelector('.overlay').style.display = 'none';
                 });
                 new_page_con.append(new_title);
+                new_page_con.append(new_Completeness);
                 new_page_con.append(new_dis);
                 new_page_con.append(new_close);
                 div_container.append(new_page_con);
@@ -275,7 +303,7 @@ function click_todo() {
     if (page_on != "todo") {
         div_container.innerHTML = "";
         for (let i = 0; i < Class_Data.Task?.length; i++) {
-            Class_Operate.new_Task(Class_Data.Task[i].Title, `Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Description, Class_Data.Task[i].ASM_Key);
+            Class_Operate.new_Task(Class_Data.Task[i].Title, `Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Description, Class_Data.Task[i].people);
         }
         if (is_adm()) {
             Class_Operate.ADD_new_Task();

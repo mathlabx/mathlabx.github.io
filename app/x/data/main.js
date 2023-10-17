@@ -1937,6 +1937,11 @@ function $X_Generate_(general_settings, results) {
                 Range: [1, 10, 1],
                 show: true
             });
+            Task_Settings.push({
+                Name: "Questions | Intelligent answer correction (recommended)",
+                Typ: "checked",
+                show: true
+            });
 
             X_Operate.newSetting("Task Settings", Task_Settings).then((Settings) => {
                 let data = [general_settings, results, Settings];

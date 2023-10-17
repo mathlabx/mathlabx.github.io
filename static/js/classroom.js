@@ -6,6 +6,7 @@ function receiveObject() {
     if (jsonStr) {
         return JSON.parse(jsonStr); // 将 JSON 字符串转换为对象
     } else {
+        window.location = "../404.html";
         return {}; // 如果没有有效的数据，返回空对象
     }
 }

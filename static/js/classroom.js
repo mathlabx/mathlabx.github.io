@@ -76,7 +76,7 @@ const Class_Operate = {
         new_due_date.innerHTML = Due_Date;
         let new_Completeness = document.createElement("span");
         new_Completeness.className = "new_Completeness";
-        for (let i = 0; i < people.length; i++) {
+        for (let i = 0; i < people?.length; i++) {
             if (people[i].UID == APP.account.UID) {
                 if (people[i]?.Completeness == true) {
                     if (people[i].submitted_date <= Date.now()) {
@@ -93,7 +93,14 @@ const Class_Operate = {
                     new_Completeness.innerHTML = "assigned";
                     new_Completeness.style.color = "gray";
                 }
+                break;
             }
+            new_Completeness.innerHTML = "assigned";
+            new_Completeness.style.color = "gray";
+        }
+        if (people?.length) {
+            new_Completeness.innerHTML = "assigned";
+            new_Completeness.style.color = "gray";
         }
         new_flow_block.append(task_title);
         new_flow_block.append(new_Completeness);
@@ -110,7 +117,7 @@ const Class_Operate = {
                 new_title.innerHTML = Task_Name;
                 let new_Completeness = document.createElement("span");
                 new_Completeness.className = "new_Completeness";
-                for (let i = 0; i < people.length; i++) {
+                for (let i = 0; i < people?.length; i++) {
                     if (people[i].UID == APP.account.UID) {
                         if (people[i]?.Completeness == true) {
                             if (people[i].submitted_date <= Date.now()) {
@@ -127,7 +134,14 @@ const Class_Operate = {
                             new_Completeness.innerHTML = "assigned";
                             new_Completeness.style.color = "gray";
                         }
+                        break;
                     }
+                    new_Completeness.innerHTML = "assigned";
+                    new_Completeness.style.color = "gray";
+                }
+                if (people?.length) {
+                    new_Completeness.innerHTML = "assigned";
+                    new_Completeness.style.color = "gray";
                 }
                 let new_dis = document.createElement("p");
                 new_dis.className = "new_dis";

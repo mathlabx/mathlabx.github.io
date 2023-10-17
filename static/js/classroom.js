@@ -151,7 +151,7 @@ const Class_Operate = {
                 new_page_con.append(new_close);
                 div_container.append(new_page_con);
             }
-        }(T_ID));
+        }(people));
         div_container.append(new_flow_block);
     },
 

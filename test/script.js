@@ -27,3 +27,7 @@ let Test = {
 
     }
 }
+
+window.addEventListener("load", function () {
+    receiveObject();
+});

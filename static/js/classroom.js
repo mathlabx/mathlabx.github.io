@@ -205,6 +205,7 @@ const Class_Operate = {
                 new_page_con.append(new_title);
                 new_page_con.append(new_Completeness);
                 new_page_con.append(new_dis);
+                new_page_con.append(new_GoToTest);
                 new_page_con.append(new_close);
                 div_container.append(new_page_con);
             }

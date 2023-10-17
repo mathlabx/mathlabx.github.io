@@ -19,7 +19,7 @@ let Test = {
         UID: null,
         CID: null
     },
-    Questions: null,
+    Questions: [],
     Test_Time: null,
     Used_Time: null,
     Set_Up: function () {

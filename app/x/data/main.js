@@ -1428,7 +1428,7 @@ function X_Generate(setting) {
     }
 }
 
-function $X_Generate_(general_settings, results) {
+function $X_Generate_(general_settings, results, Task_settings) {
     X_Operate.newPage();
     X_Operate.newTitle("Generating...")
     console.log(results);
@@ -1858,7 +1858,7 @@ function $X_Generate_(general_settings, results) {
                 re_q = shuffleArray(re_q);
             }
 
-            let test_settings = results[2];
+            let test_settings = Task_settings;
 
             if (Test_MOD) {
                 let obj = {

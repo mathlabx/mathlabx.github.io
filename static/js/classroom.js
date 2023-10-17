@@ -63,11 +63,12 @@ function openCustomPopup() {
     }
 }
 
-function openTest(G, S) {
+function openTest(G, S, T) {
     let obj = {
         Typ: "Test",
         G_Setting: G,
-        Setting: S
+        Setting: S,
+        Task_settings: T
     };
     // 将包含数组的对象转换为 JSON 字符串
     const jsonStr = JSON.stringify(obj);
@@ -147,7 +148,7 @@ const Class_Operate = {
                 new_GoToTest.innerHTML = "DO";
                 new_GoToTest.className = "new_GoToTest";
                 new_GoToTest.addEventListener("click", function () {
-                    openTest(Settings[0], Settings[1]);
+                    openTest(Settings[0], Settings[1], Settings[2]);
                 })
                 for (let i = 0; i < people?.length; i++) {
                     if (people[i].UID == APP.account.UID) {
@@ -300,8 +301,7 @@ const Class_Operate = {
                                 Due: utcTimestamp,
                                 GL_Setting: {
                                     General_settings: GL_Setting[0],
-                                    Question_settings: GL_Setting[1],
-                                    Task_settings: GL_Setting[2]
+                                    Question_settings: GL_Setting[1]
                                 }
                             });
 

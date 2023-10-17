@@ -76,6 +76,7 @@
 input,
 textarea {
     font-size: large;
+    color: white;
     height: 40px;
     background-color: transparent;
     margin-bottom: 10px;

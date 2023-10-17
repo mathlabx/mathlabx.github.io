@@ -47,7 +47,41 @@
     <!-- Main Content -->
     <main>
         <div id="container" class="container">
-            <!-- Your exam content goes here -->
+            <div class="exam-intro">
+                <!-- 考试介绍内容 -->
+                <h1>Welcome to the Exam</h1>
+                <p>Here is a brief introduction to the exam.</p>
+                <button onclick="startExam()">Start Exam</button>
+            </div>
+
+            <div class="top-bar">
+                <!-- Top bar content here -->
+            </div>
+
+            <div class="main-content" style="display: none;">
+                <div class="question-section">
+                    <div class="question-title">
+                        <!-- Question title here -->
+                    </div>
+                    <div class="question-body">
+                        <!-- Question body here -->
+                    </div>
+                </div>
+
+                <div class="answer-section">
+                    <!-- Answer section content here -->
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                <!-- Right sidebar content here -->
+            </div>
+
+            <div class="bottom-bar">
+                <!-- Bottom bar content here -->
+            </div>
+
+            <!-- Your script and other references here -->
         </div>
     </main>
 
@@ -57,6 +91,13 @@
         <div class="footer-button" onclick="window.location='../'">Home</div>
         <div class="footer-button" onclick="login_b();">My</div>
     </footer>
+
+    <script>
+        function startExam() {
+            document.querySelector('.exam-intro').style.display = 'none';
+            document.querySelector('.main-content').style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>

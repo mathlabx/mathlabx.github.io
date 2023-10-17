@@ -1876,68 +1876,63 @@ function $X_Generate_(general_settings, results) {
         } else {
             let Task_Settings = [];
             Task_Settings.push({
-                Name: "Time Limit&BIG",
+                Name: "Timing | Time Limit",
                 Typ: "checked",
                 show: true
             });
             Task_Settings.push({
-                Name: "Time Limit (min)",
+                Name: "Timing | Time Limit (min)",
                 Typ: "range",
                 Range: [1, 600, 60],
                 show: true
             });
             Task_Settings.push({
-                Name: "Force full screen",
+                Name: "Timing | Show remaining time",
                 Typ: "checked",
                 show: true
             });
             Task_Settings.push({
-                Name: "End test on exit from full-screen",
+                Name: "Timing | Automatic reminder of remaining time",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Full screen | Force full screen",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
+                Name: "Anti-cheating | End test on exit from full-screen",
                 Typ: "check",
                 show: true
             });
             Task_Settings.push({
-                Name: "End exam when switching apps/tabs",
+                Name: "Anti-cheating | End exam when switching apps/tabs",
                 Typ: "check",
                 show: true
             });
             Task_Settings.push({
-                Name: "End exam when switching apps/tabs",
-                Typ: "check",
-                show: true
-            });
-            Task_Settings.push({
-                Name: "Prevent copy-paste",
+                Name: "Anti-cheating | Prevent copy-paste",
                 Typ: "checked",
                 show: true
             });
             Task_Settings.push({
-                Name: "Enable calculator tool",
+                Name: "Tools | Enable calculator tool",
                 Typ: "checked",
                 show: true
             });
             Task_Settings.push({
-                Name: "Enable Enable periodic table",
+                Name: "Tools | Enable Enable periodic table",
                 Typ: "checked",
                 show: true
             });
             Task_Settings.push({
-                Name: "Show remaining time",
+                Name: "Questions | Each question shows right or wrong",
                 Typ: "checked",
                 show: true
             });
             Task_Settings.push({
-                Name: "Automatic reminder of remaining time",
-                Typ: "checked",
-                show: true
-            });
-            Task_Settings.push({
-                Name: "Each question shows right or wrong",
-                Typ: "checked",
-                show: true
-            });
-            Task_Settings.push({
-                Name: "Number of submissions allowed per question",
+                Name: "Questions | Number of submissions allowed per question",
                 Typ: "range",
                 Range: [1, 10, 1],
                 show: true

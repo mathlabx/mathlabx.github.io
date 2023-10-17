@@ -385,7 +385,7 @@ function click_todo() {
     if (page_on != "todo") {
         div_container.innerHTML = "";
         for (let i = 0; i < Class_Data.Task?.length; i++) {
-            Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people, [Class_Data.Task[i].GL_Setting.General_settings, Class_Data.Task[i].GL_Setting.Question_settings]);
+            Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people, [Class_Data.Task[i].GL_Setting.General_settings, Class_Data.Task[i].GL_Setting.Question_settings, Class_Data.Task[i].GL_Setting.Task_settings]);
         }
         if (is_adm()) {
             Class_Operate.ADD_new_Task();

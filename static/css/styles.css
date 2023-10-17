@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 /* Reset some default styles and set basic styling */
 body {
     margin: 0;
@@ -5,8 +7,6 @@ body {
     padding-top: 63px;
     background-color: black;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 /* Define the top navigation bar styles */
 .top-bar {

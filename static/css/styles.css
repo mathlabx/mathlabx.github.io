@@ -4,8 +4,9 @@ body {
     padding: 0;
     padding-top: 63px;
     background-color: black;
-    font-family: Arial, sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 /* Define the top navigation bar styles */
 .top-bar {

@@ -52,39 +52,7 @@
 
     <!-- Main Content -->
     <main>
-        <div class="exam-intro">
-            <!-- 考试介绍内容 -->
-            <h1>Welcome to the Exam</h1>
-            <p>Here is a brief introduction to the exam.</p>
-            <button onclick="startExam()">Start Exam</button>
-        </div>
-        <div id="container" class="container">
-            <div class="top-bar">
-                <!-- Top bar content here -->
-            </div>
 
-            <div class="main-content" style="display: none;">
-                <div class="question-section">
-                    <div class="question-title">
-                        Questions 1
-                    </div>
-                    <div class="question-body">
-                        <p>Questions Questions Questions Questions Questions Questions</p>
-                        <p>Questions Questions Questions Questions Questions Questions</p>
-                        <p>Questions Questions Questions Questions Questions Questions</p>
-                    </div>
-                </div>
-
-                <div class="answer-section">
-                    <input>
-                </div>
-            </div>
-
-            <div class="bottom-bar">
-                <button>Sub</button>
-            </div>
-
-        </div>
     </main>
 
     <!-- Mobile Bottom Navigation -->
@@ -93,25 +61,6 @@
         <div class="footer-button" onclick="window.location='../'">Home</div>
         <div class="footer-button" onclick="login_b();">My</div>
     </footer>
-
-    <script>
-        function startExam() {
-            const container = document.getElementById("container");
-            const examIntro = document.getElementById("examIntro");
-            const mainContent = document.getElementById("mainContent");
-
-            if (container.requestFullscreen) {
-                container.requestFullscreen();
-            } else if (container.webkitRequestFullscreen) { /* Safari */
-                container.webkitRequestFullscreen();
-            } else if (container.msRequestFullscreen) { /* IE11 */
-                container.msRequestFullscreen();
-            }
-
-            examIntro.style.display = 'none';
-            mainContent.style.display = 'block';
-        }
-    </script>
 </body>
 
 </html>

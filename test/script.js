@@ -1,13 +1,3 @@
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (e.matches) {
-        document.body.style.backgroundColor = 'white'; /* 在暗黑模式下将背景颜色强制设置为白色 */
-        document.body.style.color = 'black'; /* 在暗黑模式下将文本颜色强制设置为黑色 */
-    } else {
-        document.body.style.backgroundColor = ''; /* 在亮色模式下恢复默认背景颜色 */
-        document.body.style.color = ''; /* 在亮色模式下恢复默认文本颜色 */
-    }
-});
-
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
@@ -31,15 +21,8 @@ let Test = {
     },
     Questions: null,
     Test_Time: null,
-    Used_Time: null
-}
+    Used_Time: null,
+    Set_Up: function () {
 
-// Example Fullscreen API implementation
-document.addEventListener('fullscreenchange', (event) => {
-    if (!document.fullscreenElement) {
-        // User attempted to exit fullscreen, trigger appropriate action
-        console.log("已退出全屏！");
-        alert("Exiting full-screen will end the exam.");
-        // Add your code to handle exam ending here
     }
-});
+}

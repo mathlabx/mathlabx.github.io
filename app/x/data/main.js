@@ -1855,7 +1855,21 @@ function X_Generate(setting) {
                     re_q = shuffleArray(re_q);
                 }
 
-                X_Result(re_q);
+                let test_settings = [];
+
+                if (Test_MOD) {
+                    let obj = {
+                        questions: re_q,
+                        settings: test_settings
+                    };
+                    // 将包含数组的对象转换为 JSON 字符串
+                    const jsonStr = JSON.stringify(obj);
+                    // 将 JSON 字符串存储到 sessionStorage 中
+                    sessionStorage.setItem('myData', jsonStr);
+                    window.location = "https://app.mathscichem.com/test";
+                } else {
+                    X_Result(re_q);
+                }
             } else {
                 let data = [general_settings, results];
                 sessionStorage.setItem('popupData', JSON.stringify(data));

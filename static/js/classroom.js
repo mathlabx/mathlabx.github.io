@@ -62,10 +62,23 @@ function openCustomPopup() {
     }
 }
 
+function openTest(G, S) {
+    let obj = {
+        Typ: "Test",
+        G_Setting: G,
+        Setting: S
+    };
+    // 将包含数组的对象转换为 JSON 字符串
+    const jsonStr = JSON.stringify(obj);
+    // 将 JSON 字符串存储到 sessionStorage 中
+    sessionStorage.setItem('myData', jsonStr);
+    window.location = "https://app.mathscichem.com/app/x";
+}
+
 let div_container;
 
 const Class_Operate = {
-    new_Task: (Task_Name, Due_Date, Disciption, people) => {
+    new_Task: (Task_Name, Due_Date, Disciption, people, Settings) => {
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
         let task_title = document.createElement("h2");
@@ -129,6 +142,12 @@ const Class_Operate = {
                 new_title.innerHTML = Task_Name;
                 let new_Completeness = document.createElement("span");
                 new_Completeness.className = "new_Completeness";
+                let new_GoToTest = document.createElement("button");
+                new_GoToTest.innerHTML = "Take";
+                new_GoToTest.className = "";
+                new_GoToTest.addEventListener("click", function () {
+                    openTest(Settings[0], Settings[1]);
+                })
                 for (let i = 0; i < people?.length; i++) {
                     if (people[i].UID == APP.account.UID) {
                         if (people[i]?.Completeness == true) {
@@ -363,7 +382,7 @@ function click_todo() {
     if (page_on != "todo") {
         div_container.innerHTML = "";
         for (let i = 0; i < Class_Data.Task?.length; i++) {
-            Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people);
+            Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people, [Class_Data.Task[i].GL_Setting.General_settings, Class_Data.Task[i].GL_Setting.Question_settings]);
         }
         if (is_adm()) {
             Class_Operate.ADD_new_Task();

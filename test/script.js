@@ -8,6 +8,7 @@ function receiveObject() {
     if (jsonStr) {
         const data = JSON.parse(jsonStr); // 将 JSON 字符串转换为对象
         sessionStorage.removeItem('MPCTest'); // 获取数据后清空 sessionStorage 中的数据
+        console.log(data);
         return data;
     } else {
         return {}; // 如果没有有效的数据，返回空对象

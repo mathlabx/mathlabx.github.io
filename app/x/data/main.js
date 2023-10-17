@@ -1865,11 +1865,13 @@ function X_Generate(setting) {
         }, 100);
     }
 
-    X_Operate.newSetting("General Settings", General_settings).then((general_settings) => {
-        X_Operate.newPage();
-        console.log(Setting_Array);
-        X_Operate.newSetting("Setting", Setting_Array).then((results) => {
-            $X_Generate_(general_settings, results)
+    if (!Test_MOD) {
+        X_Operate.newSetting("General Settings", General_settings).then((general_settings) => {
+            X_Operate.newPage();
+            console.log(Setting_Array);
+            X_Operate.newSetting("Setting", Setting_Array).then((results) => {
+                $X_Generate_(general_settings, results)
+            });
         });
-    });
+    }
 }

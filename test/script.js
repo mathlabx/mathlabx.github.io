@@ -11,6 +11,7 @@ function receiveObject() {
         console.log(data);
         return data;
     } else {
+        window.location = "../";
         return {}; // 如果没有有效的数据，返回空对象
     }
 }

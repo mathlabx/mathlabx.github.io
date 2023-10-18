@@ -1428,7 +1428,7 @@ function X_Generate(setting) {
     }
 }
 
-function $X_Generate_(general_settings, results, Task_settings) {
+function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
     X_Operate.newPage();
     X_Operate.newTitle("Generating...")
     console.log(results);
@@ -1863,7 +1863,8 @@ function $X_Generate_(general_settings, results, Task_settings) {
             if (Test_MOD) {
                 let obj = {
                     questions: re_q,
-                    settings: test_settings
+                    settings: test_settings,
+                    Class_ID: Class_ID
                 };
                 // 将包含数组的对象转换为 JSON 字符串
                 const jsonStr = JSON.stringify(obj);

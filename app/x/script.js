@@ -871,7 +871,7 @@ function main() {
     } else {
         if (receivedClass.Typ == "Test") {
             Test_MOD = true;
-            $X_Generate_(receivedClass.G_Setting, receivedClass.Setting, receivedClass.Task_settings);
+            $X_Generate_(receivedClass.G_Setting, receivedClass.Setting, receivedClass.Task_settings, receivedClass.Class_ID);
         } else if (receivedClass.Typ == "Teacher") {
             Teacher_SL_MOD = true;
             get_Subject();

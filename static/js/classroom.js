@@ -68,7 +68,8 @@ function openTest(G, S, T) {
         Typ: "Test",
         G_Setting: G,
         Setting: S,
-        Task_settings: T
+        Task_settings: T,
+        Class_ID: receivedClass.code
     };
     // 将包含数组的对象转换为 JSON 字符串
     const jsonStr = JSON.stringify(obj);

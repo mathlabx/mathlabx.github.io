@@ -68,6 +68,8 @@ let Test = {
     },
     Set_Up: function () {
         Test.Settings.Set_Up();
+        Test.Test_Taker.UID = APP.account.UID;
+        Test.Test_Taker.CID = GetData.Class_ID;
     }
 }
 

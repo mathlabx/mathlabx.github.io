@@ -91,7 +91,7 @@ const Class_Operate = {
         new_due_date.innerHTML = Due_Date[0];
         let new_Completeness = document.createElement("span");
         new_Completeness.className = "new_Completeness";
-        for (let i = 0; i < people?.length; i++) {
+        for (let i = 0; i < (people || []).length; i++) {
             if (people[i].UID == APP.account.UID) {
                 if (people[i]?.Completeness == true) {
                     if (people[i].submitted_date <= Due_Date[1]) {

@@ -39,7 +39,7 @@ let Test = {
         },
         Tools: {
             Enable_calculator_tool: null,
-            Enable_Enable_periodic_table: null,
+            Enable_periodic_table: null,
             Enable_eye_protection_mode: null
         },
         Questions: {
@@ -48,7 +48,22 @@ let Test = {
             Intelligent_answer_correction: null
         },
         Set_Up: function () {
-
+            if (GetData.settings[0]) {
+                this.Timing.Time_Limit = GetData.settings[1];
+            }
+            if (GetData.settings[2]) this.Timing.Show_remaining_time = true;
+            if (GetData.settings[3]) this.Timing.Automatic_reminder_of_remaining_time = true;
+            if (GetData.settings[4]) this.Full_screen.Force_full_screen = true;
+            if (GetData.settings[5]) this.Anti_cheating.End_test_on_exit_from_full_screen = true;
+            if (GetData.settings[6]) this.Anti_cheating.End_test_when_switching_apps_tabs = true;
+            if (GetData.settings[7]) this.Anti_cheating.Prevent_copy_paste = true;
+            if (GetData.settings[8]) this.Anti_cheating.Typing_no_cheating_guarantee_agreement = true;
+            if (GetData.settings[9]) this.Tools.Enable_calculator_tool = true;
+            if (GetData.settings[10]) this.Tools.Enable_periodic_table = true;
+            if (GetData.settings[11]) this.Tools.Enable_eye_protection_mode = true;
+            if (GetData.settings[12]) this.Questions.Each_question_shows_right_or_wrong = true;
+            if (GetData.settings[13] >= 1) this.Number_of_submissions_allowed_per_question = GetData.settings[13];
+            if (GetData.settings[14]) this.Questions.Intelligent_answer_correction = true;
         }
     },
     Set_Up: function () {

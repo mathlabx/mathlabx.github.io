@@ -16,36 +16,36 @@ let GetData = receiveObject();
 
 let Test = {
     Test_Taker: {
-        UID: null,
-        CID: null
+        UID: false,
+        CID: false
     },
     Questions: [],
-    Test_Time: null,
-    Used_Time: null,
+    Test_Time: false,
+    Used_Time: false,
     Settings: {
         Timing: {
-            Time_Limit: null,
-            Show_remaining_time: null,
-            Automatic_reminder_of_remaining_time: null,
+            Time_Limit: false,
+            Show_remaining_time: false,
+            Automatic_reminder_of_remaining_time: false,
         },
         Full_screen: {
-            Force_full_screen: null
+            Force_full_screen: false
         },
         Anti_cheating: {
-            End_test_on_exit_from_full_screen: null,
-            End_test_when_switching_apps_tabs: null,
-            Prevent_copy_paste: null,
-            Typing_no_cheating_guarantee_agreement: null
+            End_test_on_exit_from_full_screen: false,
+            End_test_when_switching_apps_tabs: false,
+            Prevent_copy_paste: false,
+            Typing_no_cheating_guarantee_agreement: false
         },
         Tools: {
-            Enable_calculator_tool: null,
-            Enable_periodic_table: null,
-            Enable_eye_protection_mode: null
+            Enable_calculator_tool: false,
+            Enable_periodic_table: false,
+            Enable_eye_protection_mode: false
         },
         Questions: {
-            Each_question_shows_right_or_wrong: null,
-            Number_of_submissions_allowed_per_question: null,
-            Intelligent_answer_correction: null
+            Each_question_shows_right_or_wrong: false,
+            Number_of_submissions_allowed_per_question: false,
+            Intelligent_answer_correction: false
         },
         Set_Up: function () {
             if (GetData.settings[0]) {

@@ -296,7 +296,7 @@ window.addEventListener("load", function () {
     setTimeout(() => {
         serverStorage.getItem("User", APP.account.UID).then((data) => {
             if (data) {
-                if (!Array.isArray(data.Class) || !data.Class.length) data.Class = [];
+                if (!data.Class || data.Class.length === 0) data.Class = [];
                 async function load() {
                     for (let i = 0; i < data.Class.length; i++) {
                         const classesRef = firestore.collection('classes');

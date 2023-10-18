@@ -22,6 +22,8 @@ let Test = {
     Questions: [],
     Test_Time: 0.00,
     Used_Time: 0.00,
+    Test_Star_Time: null,
+    Test_End_Time: null,
     Settings: {
         Timing: {
             Time_Limit: false,
@@ -70,6 +72,10 @@ let Test = {
         Test.Settings.Set_Up();
         Test.Test_Taker.UID = APP.account.UID;
         Test.Test_Taker.CID = GetData.Class_ID;
+    },
+    Start: function () {
+        Test_Star_Time = new Date().getTime();
+        
     }
 }
 

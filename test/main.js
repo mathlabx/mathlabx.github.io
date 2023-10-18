@@ -16,12 +16,12 @@ let GetData = receiveObject();
 
 let Test = {
     Test_Taker: {
-        UID: false,
-        CID: false
+        UID: null,
+        CID: null
     },
     Questions: [],
-    Test_Time: false,
-    Used_Time: false,
+    Test_Time: 0.00,
+    Used_Time: 0.00,
     Settings: {
         Timing: {
             Time_Limit: false,

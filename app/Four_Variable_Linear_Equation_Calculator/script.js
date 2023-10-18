@@ -5,13 +5,13 @@ function main() {
 	const equation4 = "a_4x + b_4y + c_4z + d_4w = e_4";
 
 	// Step 1: Display the three linear equations
-	Operate.newStart(`Three-variable linear\\ equation\\ 1:`);
+	Operate.newStart(`Three-variable linear equation 1:`);
 	Operate.newStep(`${equation1}`);
-	Operate.newStart(`Three-variable linear\\ equation\\ 2:`);
+	Operate.newStart(`Three-variable linear equation 2:`);
 	Operate.newStep(`${equation2}`);
-	Operate.newStart(`Three-variable linear\\ equation\\ 3:`);
+	Operate.newStart(`Three-variable linear equation 3:`);
 	Operate.newStep(`${equation3}`);
-	Operate.newStart(`Three-variable linear\\ equation\\ 4:`);
+	Operate.newStart(`Three-variable linear equation 4:`);
 	Operate.newStep(`${equation4}`);
 
 	// Step 2: Prompt user to input coefficients

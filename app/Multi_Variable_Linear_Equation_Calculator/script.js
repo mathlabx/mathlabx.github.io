@@ -18,7 +18,7 @@ function main() {
 	const equation4 = "a_nx + b_ny + c_nz + ... + y_nb = z_na";
 
 	// Step 1: Display the three linear equations
-	Operate.newStart(`Multi-variable linear\\ equation:`);
+	Operate.newStart(`Multi-variable linear equation:`);
 	Operate.newStep(`${equation1}`);
 	Operate.newStep(`${equation2}`);
 	Operate.newStep(`${equation3}`);

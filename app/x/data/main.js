@@ -1917,6 +1917,11 @@ function $X_Generate_(general_settings, results, Task_settings) {
                 show: true
             });
             Task_Settings.push({
+                Name: "Anti-cheating | Typing no cheating guarantee agreement",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
                 Name: "Tools | Enable calculator tool",
                 Typ: "checked",
                 show: true

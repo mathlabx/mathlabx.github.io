@@ -67,7 +67,7 @@ let Test = {
         }
     },
     Set_Up: function () {
-
+        Test.Settings.Set_Up();
     }
 }
 
@@ -90,5 +90,5 @@ let Test = {
 */
 
 window.addEventListener("load", function () {
-
+    Test.Set_Up();
 });

@@ -1,11 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!--Home-->
     <url>
         <loc>https://mathscichem.com</loc>
-        <lastmod>2023-10-04</lastmod>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
     </url>
     <url>
         <loc>https://app.mathscichem.com</loc>
-        <lastmod>2023-10-04</lastmod>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!--Main Pages-->
+    <url>
+        <loc>https://app.mathscichem.com/account/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/search/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/likes/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/friends/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/class/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!--Sp Apps-->
+    <url>
+        <loc>https://app.mathscichem.com/app/x/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/Three-Body/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!--Apps-->
+    <url>
+        <loc>https://app.mathscichem.com/app/Acceleration_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Astronomy_Solar_system_simulator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Basic_Geometry_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Basic_Mechanics_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Five_Variable_Linear_Equation_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Four_Variable_Linear_Equation_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Multi_Variable_Linear_Equation_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Quadratic_Equation_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Speed_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Statistics_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Three_By_Three_Matrix_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Three_Variable_Linear_Equation_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://app.mathscichem.com/app/Two_Variable_Linear_Equation_Calculator/</loc>
+        <lastmod>2023-10-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
     </url>
 </urlset>

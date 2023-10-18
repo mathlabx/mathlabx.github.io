@@ -1932,6 +1932,11 @@ function $X_Generate_(general_settings, results, Task_settings) {
                 show: true
             });
             Task_Settings.push({
+                Name: "Tools | Enable eye protection mode",
+                Typ: "checked",
+                show: true
+            });
+            Task_Settings.push({
                 Name: "Questions | Each question shows right or wrong",
                 Typ: "checked",
                 show: true

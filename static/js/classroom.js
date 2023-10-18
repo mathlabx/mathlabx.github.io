@@ -93,7 +93,7 @@ const Class_Operate = {
         new_Completeness.className = "new_Completeness";
         for (let i = 0; i < (people || []).length; i++) {
             if (people[i].UID == APP.account.UID) {
-                if (people[i]?.Completeness == true) {
+                if (people[i] && people[i].Completeness == true) {
                     if (people[i].submitted_date <= Due_Date[1]) {
                         new_Completeness.innerHTML = "turned in";
                         new_Completeness.style.color = "green";
@@ -102,7 +102,7 @@ const Class_Operate = {
                         new_Completeness.style.color = "yellow";
                     }
                 } else {
-                    if (people[i]?.submitted_date >= Due_Date[1] || (!people[i]?.submitted_date && Due_Date[1] <= Date.now())) {
+                    if ((people[i] && people[i].submitted_date || 0) >= Due_Date[1] || (!people[i] || !people[i].submitted_date && Due_Date[1] <= Date.now())) {
                         new_Completeness.innerHTML = "missing";
                         new_Completeness.style.color = "red";
                     } else {
@@ -120,7 +120,7 @@ const Class_Operate = {
                 new_Completeness.style.color = "gray";
             }
         }
-        if (!people?.length) {
+        if (!people || people.length === 0) {
             if (Due_Date[1] <= Date.now()) {
                 new_Completeness.innerHTML = "missing";
                 new_Completeness.style.color = "red";
@@ -150,9 +150,9 @@ const Class_Operate = {
                 new_GoToTest.addEventListener("click", function () {
                     openTest(Settings[0], Settings[1], Settings[2]);
                 })
-                for (let i = 0; i < people?.length; i++) {
+                for (let i = 0; i < (people && people.length); i++) {
                     if (people[i].UID == APP.account.UID) {
-                        if (people[i]?.Completeness == true) {
+                        if (people[i] && people[i].Completeness === true) {
                             if (people[i].submitted_date <= Due_Date[1]) {
                                 new_Completeness.innerHTML = "turned in";
                                 new_Completeness.style.color = "green";
@@ -161,7 +161,7 @@ const Class_Operate = {
                                 new_Completeness.style.color = "yellow";
                             }
                         } else {
-                            if (people[i]?.submitted_date >= Due_Date[1] || (!people[i]?.submitted_date && Due_Date[1] <= Date.now())) {
+                            if ((people[i] && people[i].submitted_date >= Due_Date[1]) || (!people[i] || !people[i].submitted_date && Due_Date[1] <= Date.now())) {
                                 new_Completeness.innerHTML = "missing";
                                 new_Completeness.style.color = "red";
                             } else {
@@ -179,7 +179,7 @@ const Class_Operate = {
                         new_Completeness.style.color = "gray";
                     }
                 }
-                if (!people?.length) {
+                if (!people || !people.length) {
                     if (Due_Date[1] <= Date.now()) {
                         new_Completeness.innerHTML = "missing";
                         new_Completeness.style.color = "red";
@@ -384,7 +384,7 @@ function from_UTC(utcTimestamp) {
 function click_todo() {
     if (page_on != "todo") {
         div_container.innerHTML = "";
-        for (let i = 0; i < Class_Data.Task?.length; i++) {
+        for (let i = 0; Class_Data.Task && i < Class_Data.Task.length; i++) {
             Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people, [Class_Data.Task[i].GL_Setting.General_settings, Class_Data.Task[i].GL_Setting.Question_settings, Class_Data.Task[i].GL_Setting.Task_settings]);
         }
         if (is_adm()) {

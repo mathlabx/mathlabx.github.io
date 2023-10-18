@@ -114,4 +114,12 @@ APP.apps = [{
     full_line: false,
     hot: false,
     url: "https://app.mathscichem.com/Three-Body/"
+}, {
+    title: "Astronomy Solar system simulator",
+    description: "Astronomy Solar system simulator",
+    types: ["Physics"],
+    img: "https://app.mathscichem.com/static/img/app/Astronomy_Solar_system_simulator.png",
+    full_line: false,
+    hot: false,
+    url: "https://app.mathscichem.com/app/Astronomy_Solar_system_simulator/"
 }];

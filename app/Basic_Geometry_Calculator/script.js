@@ -766,6 +766,7 @@ function levenshteinDistance(s1, s2) {
 // Functions for shape calculations
 
 // Add a reset button at the end of each calculation function
+
 //---------Square-------------
 function squarePerimeterCalculation(shapeName, sides) {
     const perimeter = sides.reduce((sum, side) => sum + side, 0);
@@ -794,6 +795,8 @@ function squareAreaCalculationWithDiagonal(shapeName, diagonal) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Rectangle-------------
 function rectanglePerimeterCalculation(shapeName, sides) {
     const perimeter = 2 * (sides[0] + sides[1]);
@@ -836,6 +839,8 @@ function rectangleAreaCalculationWithAngle(shapeName, side, angle) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Trapezoid-------------
 function trapezoidPerimeterCalculation(shapeName, width1, width2, length1, length2) {
     const perimeter = width1 + width2 + length1 + length2;
@@ -850,6 +855,8 @@ function trapezoidAreaCalculation(shapeName, width1, width2, height) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Cube-------------
 function cubeVolumeCalculation(shapeName, side) {
     const volume = side * side * side;
@@ -864,7 +871,11 @@ function cubeSurfaceAreaCalculation(shapeName, side) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Prism-------------
+
+
 //---------Rectangular-------------
 function rectangularPrismVolumeCalculation(shapeName, length, width, height) {
     const volume = length * width * height;
@@ -878,6 +889,8 @@ function rectangularPrismSurfaceAreaCalculation(shapeName, length, width, height
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Triangular-------------
 function triangularPrismVolumeCalculation(shapeName, width, length, height) {
     const volume = 0.5 * length * width * height;
@@ -891,6 +904,8 @@ function triangularPrismSurfaceAreaCalculation(shapeName, width, length1, length
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Hexagonal-------------
 function hexagonalPrismVolumeCalculation(shapeName, baseLength, height, apothem) {
     const volume = 3 * baseLength * height * apothem;
@@ -904,6 +919,7 @@ function hexagonalPrismSurfaceAreaCalculation(shapeName, length, apothem, height
     // Add a reset button
     Operate.newRestart();
 }
+
 
 //---------Triangle-------------
 function trianglePerimeterCalculation(shapeName, sides) {
@@ -934,6 +950,8 @@ function triangleAreaCalculationWithRadius(shapeName, radius, angle) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Circle-------------
 function circleCircumferenceCalculation(shapeName, radius) {
     const circumference = 2 * Math.PI * radius;
@@ -948,6 +966,8 @@ function circleAreaCalculation(shapeName, radius) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Oval-------------
 function ovalAreaCalculation(shapeName, longRadius, shortRadius) {
     const area = Math.PI * longRadius * shortRadius;
@@ -955,6 +975,8 @@ function ovalAreaCalculation(shapeName, longRadius, shortRadius) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Cylinder-------------
 function cylinderVolumeCalculation(shapeName, radius, height) {
     const volume = radius * radius * height * Math.PI;
@@ -969,6 +991,8 @@ function cylinderSurfaceAreaCalculation(shapeName, radius, height) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Cone-------------
 function coneVolumeCalculation(shapeName, radius, height) {
     const volume = (height * radius * radius * Math.PI) / 3;
@@ -983,7 +1007,11 @@ function coneSurfaceAreaCalculation(shapeName, radius, slantHeight) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Pyramid-------------
+
+
 //---------Square-------------
 function squarePyramidVolumeCalculation(shapeName, width, height) {
     const volume = (width * width * height) / 3;
@@ -998,6 +1026,8 @@ function squarePyramidSurfaceAreaCalculation(shapeName, width, slantHeight) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Rectangle-------------
 function rectanglePyramidVolumeCalculation(shapeName, width, length, height) {
     const volume = (width * length * height) / 3;
@@ -1012,6 +1042,8 @@ function rectanglePyramidSurfaceAreaCalculation(shapeName, width, length, height
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Triangle-------------
 function triangularPyramidSurfaceAreaCalculation(shapeName, width, length1, length2, height, slantHeight) {
     const surfaceArea = 0.5 * (width + length1 + length2) * slantHeight + (0.5 * width * height);
@@ -1026,6 +1058,8 @@ function triangularPyramidVolumeCalculation(shapeName, width, length, height) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Pentagon-------------
 function pentagonalPyramidSurfaceAreaCalculation(shapeName, apothem, base, slantHeight) {
     const surfaceArea = (5 * base * (apothem + slantHeight)) / 2;
@@ -1040,6 +1074,8 @@ function pentagonalPyramidVolumeCalculation(shapeName, width, base, height) {
     // Add a reset button
     Operate.newRestart();
 }
+
+
 //---------Hexagonal-------------
 function hexagonalPyramidSurfaceAreaCalculation(shapeName, apothem, base, slantHeight) {
     const surfaceArea = (3 * apothem * base) + (3 * base * slantHeight);

@@ -186,7 +186,19 @@ function app_update(typ) {
     window_load(true, 900);
 }
 
+//打乱数组
+function shuffleApps() {
+    const shuffledArray = [...APP.apps];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    APP.apps = shuffledArray;
+}
+
+
 window.addEventListener("load", function () {
     typs_update();
+    shuffleApps();
     app_update(true);
 });

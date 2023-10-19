@@ -37,11 +37,14 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
                 const isAdd = Math.random() < 0.5;
                 a = Math.floor(Math.random() * coefficientRange) + min;
                 b = Math.floor(Math.random() * coefficientRange) + min;
-                const temp = Math.floor(Math.random() * 5) + 1;
-                c = isAdd ? a * temp + b * temp : a * temp - b * temp;
+                const temp1 = Math.floor(Math.random() * 5) + 1;
+                const temp2 = Math.floor(Math.random() * 5) + 1;
+                c = isAdd ? a * temp1 + b * temp2 : a * temp1 - b * temp2;
                 d = Math.floor(Math.random() * coefficientRange) + min;
                 e = Math.floor(Math.random() * coefficientRange) + min;
-                f = isAdd ? d * temp + e * temp : d * temp - e * temp;
+                const temp3 = Math.floor(Math.random() * 5) + 1;
+                const temp4 = Math.floor(Math.random() * 5) + 1;
+                f = isAdd ? d * temp3 + e * temp4 : d * temp3 - e * temp4;
             }
             equations.push([[a, b, c], [d, e, f]]);
         }

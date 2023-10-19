@@ -95,28 +95,10 @@ const X_Operate = {
             return false;
         }
 
-        let titleBIG_Store = new Array();
-
-        async function titleBIG(inputString) {
-            // 检查输入字符串是否包含关键词
-            inputString = extractTextBeforeSeparator(inputString, "&BIG", 0);
-
-            for (const keyword of titleBIG_Store) {
-                if (inputString.includes(keyword)) {
-                    return true;
-                }
-            }
-
-            titleBIG_Store.push(inputString);
-            return false;
-        }
-
         function extractTextBeforeSeparator(inputString, separator, w) {
             const parts = inputString.split(separator);
             return parts[w];
         }
-
-        let last_title = "";
 
         return new Promise(async (resolve, reject) => {
             const formIndex = Math.floor(Math.random() * 1000000);
@@ -130,18 +112,6 @@ const X_Operate = {
             let elementId; // 声明elementId变量在循环外部
             let new_range; // 声明new_range变量在循环外部
 
-            let recs = [];
-
-            async function rec_settings_t(rec) {
-                console.log(recs);
-                if (recs.includes(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1))) {
-                    return true;
-                } else {
-                    recs.push(extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(rec, "&Reg", 0), "&BIG", 0), " | ", 1));
-                    return false;
-                }
-            }
-
             for (let i = 0; i < settings.length; i++) {
                 let new_container = document.createElement("div");
                 new_container.className = "settings_flow";
@@ -153,21 +123,19 @@ const X_Operate = {
                 if (settings[i].Typ == "check" || (settings[i].Typ == "checked" && settings[i].show == true)) {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && !(await titleBIG(settings[i].Name))) {
-                        let new_start_p;
-                        if (!containsReg(settings[i].Name)) {
-                            if (containsBIG(settings[i].Name) || !(await rec_settings_t(settings[i].Name))) {
-                                new_start_p = document.createElement("h3");
-                                await titleBIG(settings[i].Name);
-                            } else {
-                                new_start_p = document.createElement("h4");
-                            }
-                            new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                            if (!settings[i].show) new_start_p.style.display = "none";
-                            new_start.append(new_start_p);
-                        }
-                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                    let new_start_p;
+                    if (containsBIG(settings[i].Name)) {
+                        new_start_p = document.createElement("h3");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
+                    if (containsBIG(settings[i].Name) || containsReg(settings[i].Name)) {
+                        new_start_p = document.createElement("h4");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                    }
+                    if (!settings[i].show) new_start_p.style.display = "none";
+                    new_start.append(new_start_p);
+
+                    last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");
@@ -209,21 +177,17 @@ const X_Operate = {
                 } else if (settings[i].Typ == "range") {
                     let new_container_tab_td_1 = document.createElement("td");
                     let new_p = document.createElement("p");
-                    if (extractTextBeforeSeparator(settings[i].Name, " | ", 0) != last_title && !(await titleBIG(settings[i].Name))) {
-                        let new_start_p;
-                        if (!containsReg(settings[i].Name)) {
-                            if (containsBIG(settings[i].Name) || !(await rec_settings_t(settings[i].Name))) {
-                                new_start_p = document.createElement("h3");
-                                await titleBIG(settings[i].Name);
-                            } else {
-                                new_start_p = document.createElement("h4");
-                            }
-                            new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
-                            if (!settings[i].show) new_start_p.style.display = "none";
-                            new_start.append(new_start_p);
-                        }
-                        last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                    let new_start_p;
+                    if (containsBIG(settings[i].Name)) {
+                        new_start_p = document.createElement("h3");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     }
+                    if (containsBIG(settings[i].Name) || containsReg(settings[i].Name)) {
+                        new_start_p = document.createElement("h4");
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                    }
+                    if (!settings[i].show) new_start_p.style.display = "none";
+                    new_start.append(new_start_p);
                     new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");

@@ -17,40 +17,66 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
 
     while (!valid) {
         equations = [];
-        const randomCoefficients = [];
-        for (let i = 0; i < 2 * num_equ; i++) {
-            randomCoefficients.push(Math.floor(Math.random() * coefficientRange) + min);
-        }
-
-        for (let i = 0; i < num_equ; i++) {
-            let a, b, c, d, e, f;
-            const index = i * 2;
-            if (add && !sub) {
-                a = randomCoefficients[index];
-                b = randomCoefficients[index + 1];
-                c = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
-                d = randomCoefficients[index + 2];
-                e = randomCoefficients[index + 3];
-                f = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
-            } else if (!add && sub) {
-                a = randomCoefficients[index];
-                b = randomCoefficients[index + 1];
-                const temp = Math.floor(Math.random() * 5) + 1;
-                c = a * temp - b * temp;
-                d = randomCoefficients[index + 2];
-                e = randomCoefficients[index + 3];
-                f = a * temp - b * temp;
-            } else {
-                const isAdd = Math.random() < 0.5;
-                a = randomCoefficients[index];
-                b = randomCoefficients[index + 1];
-                const temp = Math.floor(Math.random() * 5) + 1;
-                c = isAdd ? a * temp + b * temp : a * temp - b * temp;
-                d = randomCoefficients[index + 2];
-                e = randomCoefficients[index + 3];
-                f = isAdd ? a * temp + b * temp : a * temp - b * temp;
+        let validCoefficients = false;
+        while (!validCoefficients) {
+            const randomCoefficients = [];
+            for (let i = 0; i < 2 * num_equ; i++) {
+                randomCoefficients.push(Math.floor(Math.random() * coefficientRange) + min);
             }
-            equations.push([[a, b, c], [d, e, f]]);
+
+            // Check if the generated coefficients satisfy the conditions
+            validCoefficients = true;
+            for (let i = 0; i < num_equ; i++) {
+                const index = i * 2;
+                let a = randomCoefficients[index];
+                let b = randomCoefficients[index + 1];
+
+                if (a === 0) {
+                    validCoefficients = false;
+                    break;
+                }
+
+                if (add && !sub) {
+                    // No additional conditions
+                } else if (!add && sub) {
+                    // No additional conditions
+                } else {
+                    // No additional conditions
+                }
+            }
+
+            if (validCoefficients) {
+                for (let i = 0; i < num_equ; i++) {
+                    let a, b, c, d, e, f;
+                    const index = i * 2;
+                    if (add && !sub) {
+                        a = randomCoefficients[index];
+                        b = randomCoefficients[index + 1];
+                        c = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
+                        d = randomCoefficients[index + 2];
+                        e = randomCoefficients[index + 3];
+                        f = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
+                    } else if (!add && sub) {
+                        a = randomCoefficients[index];
+                        b = randomCoefficients[index + 1];
+                        const temp = Math.floor(Math.random() * 5) + 1;
+                        c = a * temp - b * temp;
+                        d = randomCoefficients[index + 2];
+                        e = randomCoefficients[index + 3];
+                        f = a * temp - b * temp;
+                    } else {
+                        const isAdd = Math.random() < 0.5;
+                        a = randomCoefficients[index];
+                        b = randomCoefficients[index + 1];
+                        const temp = Math.floor(Math.random() * 5) + 1;
+                        c = isAdd ? a * temp + b * temp : a * temp - b * temp;
+                        d = randomCoefficients[index + 2];
+                        e = randomCoefficients[index + 3];
+                        f = isAdd ? a * temp + b * temp : a * temp - b * temp;
+                    }
+                    equations.push([[a, b, c], [d, e, f]]);
+                }
+            }
         }
 
         // Gaussian elimination

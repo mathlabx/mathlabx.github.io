@@ -95,7 +95,10 @@ let scriptsToLoad = [
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Single_variable_linear_equations.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_linear_equations_with_one_variable.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Quadratic_equations.js',
-    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_two_variable_linear_equation.js'
+    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_two_variable_linear_equation.js',
+    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Linear_inequality_of_one_variable.js',
+    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Quadratic_inequality_of_one_variable.js',
+    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Absolute_value_inequality.js'
 ];
 
 let gl_results;

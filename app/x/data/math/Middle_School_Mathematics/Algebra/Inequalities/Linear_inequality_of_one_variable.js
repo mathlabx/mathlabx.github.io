@@ -27,7 +27,7 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
         question.push("Solve the inequality: ");
         if (signs.indexOf(inequality) < 2) {
                 question.push(coefficient + variable + " " + operation + " " + constant + " " + inequality + " " + solution);
-                answer = variable + " " + inequality + " "((solution - constant) / coefficient);
+                answer = variable + " " + inequality + " " + ((solution - constant) / coefficient);
         } else if (inequality == "<=") {
                 question.push(coefficient + variable + " " + operation + " " + constant + "\leq" + " " + solution);
                 answer = variable + "\leq" + ((solution - constant) / coefficient);

@@ -94,7 +94,8 @@ let scriptsToLoad = [
     './data/math/Elementary_Mathematics/Time/Time_calculations.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Single_variable_linear_equations.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_linear_equations_with_one_variable.js',
-    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Quadratic_equations.js'
+    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Quadratic_equations.js',
+    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_two_variable_linear_equation.js'
 ];
 
 let gl_results;

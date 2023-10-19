@@ -1,3 +1,15 @@
+//二元一次方程组
+//2x + 3y = 7, 3x - 4y = 10
+//5x - 8y = 12, 7x + 2y = 2
+/*
+基本代数-二元一次方程组
+- 数字题 Two_variable_linear_equations(系数最小值, 系数最大值, 是否加法(布尔值), 是否减法(布尔值), 方程组的方程数量) return 一个数组[题干(字符串), 解(数字)]
+
+输入：(最小数，最大数)
+输出：[题干Katex格式，答案]
+PS: 不会可以参考小学加减法
+*/
+
 $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation = function (min, max, add, sub, num_equ) {
     let valid = false;
     let equations, x, y;
@@ -16,18 +28,20 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
             } else if (!add && sub) {
                 a = Math.floor(Math.random() * coefficientRange) + min;
                 b = Math.floor(Math.random() * coefficientRange) + min;
-                c = a * Math.floor(Math.random() * 5) - b * Math.floor(Math.random() * 5);
+                const temp = Math.floor(Math.random() * 5);
+                c = a * temp - b * temp;
                 d = Math.floor(Math.random() * coefficientRange) + min;
                 e = Math.floor(Math.random() * coefficientRange) + min;
-                f = a * Math.floor(Math.random() * 5) - b * Math.floor(Math.random() * 5);
+                f = a * temp - b * temp;
             } else {
                 const isAdd = Math.random() < 0.5;
                 a = Math.floor(Math.random() * coefficientRange) + min;
                 b = Math.floor(Math.random() * coefficientRange) + min;
-                c = isAdd ? a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) : a * Math.floor(Math.random() * 5) - b * Math.floor(Math.random() * 5);
+                const temp = Math.floor(Math.random() * 5);
+                c = isAdd ? a * temp + b * temp : a * temp - b * temp;
                 d = Math.floor(Math.random() * coefficientRange) + min;
                 e = Math.floor(Math.random() * coefficientRange) + min;
-                f = isAdd ? a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) : a * Math.floor(Math.random() * 5) - b * Math.floor(Math.random() * 5);
+                f = isAdd ? a * temp + b * temp : a * temp - b * temp;
             }
             equations.push([[a, b, c], [d, e, f]]);
         }

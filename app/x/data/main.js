@@ -1442,48 +1442,48 @@ function X_Generate(setting) {
     });
 
     Setting_Array.push({
-        Name: "Algebra | Absolute Value Inequality&Reg",
+        Name: "Algebra | Linear Inequality&Reg",
         Typ: "checked",
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Absolute Value Inequality | Number of questions to generate",
+        Name: "Linear Inequality | Number of questions to generate",
         Typ: "range",
         Range: [1, 50, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Absolute Value Inequality | Minimum number",
+        Name: "Linear Inequality | Minimum number",
         Typ: "range",
         Range: [1, 100000, 10],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Absolute Value Inequality | Maximum number",
+        Name: "Linear Inequality | Maximum number",
         Typ: "range",
         Range: [1, 100000, 50],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
 
     Setting_Array.push({
-        Name: "Algebra | Absolute Value Inequality&Reg",
+        Name: "Algebra | Quadratic Inequality&Reg",
         Typ: "checked",
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Absolute Value Inequality | Number of questions to generate",
+        Name: "Quadratic Inequality | Number of questions to generate",
         Typ: "range",
         Range: [1, 50, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Absolute Value Inequality | Minimum number",
+        Name: "Quadratic Inequality | Minimum number",
         Typ: "range",
         Range: [1, 100000, 10],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Absolute Value Inequality | Maximum number",
+        Name: "Quadratic Inequality | Maximum number",
         Typ: "range",
         Range: [1, 100000, 50],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked

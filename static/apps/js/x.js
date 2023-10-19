@@ -130,7 +130,7 @@ const X_Operate = {
                     }
                     if (containsBIG(settings[i].Name) || containsReg(settings[i].Name)) {
                         new_start_p = document.createElement("h4");
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     }
                     if (!settings[i].show) new_start_p.style.display = "none";
                     new_start.append(new_start_p);
@@ -184,7 +184,7 @@ const X_Operate = {
                     }
                     if (containsBIG(settings[i].Name) || containsReg(settings[i].Name)) {
                         new_start_p = document.createElement("h4");
-                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
                     }
                     if (!settings[i].show) new_start_p.style.display = "none";
                     new_start.append(new_start_p);

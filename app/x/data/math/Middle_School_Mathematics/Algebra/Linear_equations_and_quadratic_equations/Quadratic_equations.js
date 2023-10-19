@@ -4,6 +4,11 @@
 输出：[题干Katex格式，答案]
 */
 
+/*
+输入：(最小数，最大数)
+输出：[题干Katex格式，答案]
+*/
+
 $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, max) {
     let a, b, c, discriminant;
 
@@ -33,8 +38,13 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             // Check if the fraction is too large and regenerate if necessary
             const numerator = Math.abs(b);
             const denominator = 2 * Math.abs(a);
-            if (denominator > 100) { 
-                continue; 
+            if (denominator > 100) {
+                continue;
+            }
+
+            const chanceOfNoSolution = Math.random();
+            if (chanceOfNoSolution < 0.1 && discriminant >= 0) {
+                discriminant = -1; // Force no solution
             }
         } while (a === 0 || discriminant < 0);
 
@@ -62,6 +72,8 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
         } else {
             answer = `x = ${x}`;
         }
+    } else if (discriminant === -1) {
+        answer = "∅";
     } else {
         const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
         const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);

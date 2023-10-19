@@ -126,7 +126,7 @@ const X_Operate = {
                     let new_start_p;
                     if (containsBIG(settings[i].Name)) {
                         new_start_p = document.createElement("h3");
-                        new_start_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0)), " | ", 0);
+                        new_start_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 0);
                         if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) {
                             new_start_p.style.display = "none";
                         }
@@ -134,7 +134,7 @@ const X_Operate = {
                     }
                     if (containsBIG(settings[i].Name) || containsReg(settings[i].Name)) {
                         new_start_p = document.createElement("h4");
-                        new_start_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0)), " | ", 1);
+                        new_start_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 1);
                         if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) {
                             new_start_p.style.display = "none";
                         }

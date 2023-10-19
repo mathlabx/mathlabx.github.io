@@ -188,9 +188,9 @@ function app_update(typ) {
 
 //打乱数组
 function shuffleApps() {
-    const shuffledArray = [...APP.apps];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+    const shuffledArray = [APP.apps[0], ...APP.apps.slice(1)];
+    for (let i = shuffledArray.length - 1; i > 1; i--) { // 修改这里的起始位置为1
+        const j = Math.floor(Math.random() * (i - 1)) + 1; // 确保索引不会小于1
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
     APP.apps = shuffledArray;

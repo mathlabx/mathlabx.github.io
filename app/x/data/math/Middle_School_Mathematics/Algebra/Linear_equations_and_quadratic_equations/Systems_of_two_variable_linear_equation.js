@@ -37,11 +37,11 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
                 }
 
                 if (add && !sub) {
-                    // No additional conditions
+                    // No additional conditions for addition
                 } else if (!add && sub) {
-                    // No additional conditions
+                    // No additional conditions for subtraction
                 } else {
-                    // No additional conditions
+                    // No additional conditions for both addition and subtraction
                 }
             }
 
@@ -109,7 +109,7 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
         y = equations[num_equ - 1][1][2] / equations[num_equ - 1][1][1];
         x = (equations[num_equ - 1][0][2] - equations[num_equ - 1][0][1] * y) / equations[num_equ - 1][0][0];
 
-        if (Number.isInteger(x) && Number.isInteger(y)) {
+        if (Number.isInteger(x) && Number.isInteger(y) && x >= min && x <= max && y >= min && y <= max) {
             valid = true;
         }
     }

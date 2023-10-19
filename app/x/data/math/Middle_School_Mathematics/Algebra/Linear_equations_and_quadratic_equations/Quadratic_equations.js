@@ -1,10 +1,6 @@
-//一元二次方程
 /*
-输入：(最小数，最大数)
-输出：[题干Katex格式，答案]
-*/
+一元二次方程
 
-/*
 输入：(最小数，最大数)
 输出：[题干Katex格式，答案]
 */
@@ -44,7 +40,8 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
 
             const chanceOfNoSolution = Math.random();
             if (chanceOfNoSolution < 0.1 && discriminant >= 0) {
-                discriminant = -1; // Force no solution
+                a = 0; // Adjust to make the equation have no solution
+                discriminant = -1; // Set discriminant to -1 to indicate no solution
             }
         } while (a === 0 || discriminant < 0);
 

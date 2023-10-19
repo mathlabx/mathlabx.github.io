@@ -1400,7 +1400,45 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
 
-
+    Setting_Array.push({
+        Name: "Algebra | Systems of two Variable Linear Equation&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Systems of two Variable Linear Equation | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 50, 40],
+        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Systems of two Variable Linear Equation | Minimum number",
+        Typ: "range",
+        Range: [1, 100000, 10],
+        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Systems of two Variable Linear Equation | Maximum number",
+        Typ: "range",
+        Range: [1, 100000, 50],
+        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Systems of two Variable Linear Equation | Addition",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Systems of two Variable Linear Equation | Subtraction",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Systems of two Variable Linear Equation | Equations in system of equations",
+        Typ: "range",
+        Range: [2, 10, 2],
+        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
+    });
 
     X_Operate.newPage();
     let General_settings = [
@@ -1850,6 +1888,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     APP.log("Generating - Quadratic equations: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_equations(Number(results[207]), Number(results[208])));
+                }
+            }
+            if (results[209] == true) {
+                loop_length = Number(results[210]);
+                for (let i = 0; i < loop_length; i++) {
+                    APP.log("Generating - Systems of two variable linear equation: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation(Number(results[211]), Number(results[212]), Number(results[213]), Number(results[214]), Number(results[215])));
                 }
             }
 

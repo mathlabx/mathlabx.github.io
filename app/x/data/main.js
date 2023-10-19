@@ -1895,7 +1895,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[210]);
                 for (let i = 0; i < loop_length; i++) {
                     APP.log("Generating - Systems of two variable linear equation: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation(Number(results[211]), Number(results[212]), Number(results[213]), Number(results[214]), Number(results[215])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation(Number(results[211]), Number(results[212]), Number(results[213]), results[214], results[215]));
                 }
             }
 

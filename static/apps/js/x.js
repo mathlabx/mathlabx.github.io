@@ -127,14 +127,19 @@ const X_Operate = {
                     if (containsBIG(settings[i].Name)) {
                         new_start_p = document.createElement("h3");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) {
+                            new_start_p.style.display = "none";
+                            new_start.append(new_start_p);
+                        }
                     }
                     if (containsBIG(settings[i].Name) || containsReg(settings[i].Name)) {
                         new_start_p = document.createElement("h4");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
+                        if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) {
+                            new_start_p.style.display = "none";
+                            new_start.append(new_start_p);
+                        }
                     }
-                    if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) new_start_p.style.display = "none";
-                    new_start.append(new_start_p);
-
                     last_title = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
                     new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 1);
                     new_container_tab_td_1.append(new_p);
@@ -181,13 +186,19 @@ const X_Operate = {
                     if (containsBIG(settings[i].Name)) {
                         new_start_p = document.createElement("h3");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 0);
+                        if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) {
+                            new_start_p.style.display = "none";
+                            new_start.append(new_start_p);
+                        }
                     }
                     if (containsBIG(settings[i].Name) || containsReg(settings[i].Name)) {
                         new_start_p = document.createElement("h4");
                         new_start_p.innerHTML = extractTextBeforeSeparator(settings[i].Name, " | ", 1);
+                        if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) {
+                            new_start_p.style.display = "none";
+                            new_start.append(new_start_p);
+                        }
                     }
-                    if (!settings[i].show && (containsBIG(settings[i].Name) || containsReg(settings[i].Name))) new_start_p.style.display = "none";
-                    new_start.append(new_start_p);
                     new_p.innerHTML = extractTextBeforeSeparator(extractTextBeforeSeparator(extractTextBeforeSeparator(settings[i].Name, "&Reg", 0), "&BIG", 0), " | ", 1);
                     new_container_tab_td_1.append(new_p);
                     let new_container_tab_td_2 = document.createElement("td");

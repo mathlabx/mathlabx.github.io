@@ -139,7 +139,6 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w = f
         // 创建潜在场景的数组
         let scenarios = [
             `John has ${a} apples. He ${operator} gives away ${b} apples. How many apples does he have now?`,
-            `Sarah is collecting ${a} ${objects[0]}. She ${operator} adds ${b} more ${objects[0]}. How many ${objects[0]} does she have in total?`,
             `In a classroom, there are ${a} students. If ${b} students are absent, how many students are present?`,
             `Tom bought ${a} candies. He ${operator} eats ${b} candies. How many candies does he have left?`,
             `There are ${a} birds in a tree. ${b} more birds fly to the tree. How many birds are there now?`,

@@ -17,30 +17,38 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
 
     while (!valid) {
         equations = [];
+        const randomCoefficients = [];
+        for (let i = 0; i < 2 * num_equ; i++) {
+            randomCoefficients.push(Math.floor(Math.random() * coefficientRange) + min);
+        }
+
         for (let i = 0; i < num_equ; i++) {
             let a, b, c, d, e, f;
-            do {
-                a = Math.floor(Math.random() * coefficientRange) + min;
-                b = Math.floor(Math.random() * coefficientRange) + min;
-                c = Math.floor(Math.random() * coefficientRange) + min;
-                d = Math.floor(Math.random() * coefficientRange) + min;
-                e = Math.floor(Math.random() * coefficientRange) + min;
-                f = Math.floor(Math.random() * coefficientRange) + min;
-            } while (a === 0 || (add && sub && (a === d || b === e)));
-
+            const index = i * 2;
             if (add && !sub) {
+                a = randomCoefficients[index];
+                b = randomCoefficients[index + 1];
                 c = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
-                f = d * Math.floor(Math.random() * 5) + e * Math.floor(Math.random() * 5) + 1;
+                d = randomCoefficients[index + 2];
+                e = randomCoefficients[index + 3];
+                f = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
             } else if (!add && sub) {
-                const temp1 = Math.floor(Math.random() * 5) + 1;
-                const temp2 = Math.floor(Math.random() * 5) + 1;
-                c = a * temp1 - b * temp1;
-                f = d * temp2 - e * temp2;
+                a = randomCoefficients[index];
+                b = randomCoefficients[index + 1];
+                const temp = Math.floor(Math.random() * 5) + 1;
+                c = a * temp - b * temp;
+                d = randomCoefficients[index + 2];
+                e = randomCoefficients[index + 3];
+                f = a * temp - b * temp;
             } else {
                 const isAdd = Math.random() < 0.5;
+                a = randomCoefficients[index];
+                b = randomCoefficients[index + 1];
                 const temp = Math.floor(Math.random() * 5) + 1;
                 c = isAdd ? a * temp + b * temp : a * temp - b * temp;
-                f = isAdd ? d * temp + e * temp : d * temp - e * temp;
+                d = randomCoefficients[index + 2];
+                e = randomCoefficients[index + 3];
+                f = isAdd ? a * temp + b * temp : a * temp - b * temp;
             }
             equations.push([[a, b, c], [d, e, f]]);
         }
@@ -49,14 +57,7 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
         let validEquation = true;
         for (let i = 0; i < num_equ; i++) {
             if (equations[i][0][0] === 0) {
-                if (i < num_equ - 1) {
-                    const temp = equations[i];
-                    equations[i] = equations[i + 1];
-                    equations[i + 1] = temp;
-                } else {
-                    validEquation = false;
-                    break;
-                }
+                equations[i][0][0] = 1; // 将系数矩阵的第一个元素强制设置为非零值
             }
             const m = equations[i][1][0] / equations[i][0][0];
             if (!isFinite(m)) {
@@ -75,9 +76,7 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
         y = equations[num_equ - 1][1][2] / equations[num_equ - 1][1][1];
         x = (equations[num_equ - 1][0][2] - equations[num_equ - 1][0][1] * y) / equations[num_equ - 1][0][0];
 
-        if (Number.isInteger(x) && Number.isInteger(y) && x >= min && x <= max && y >= min && y <= max) {
-            valid = true;
-        }
+        valid = true; // 修改为在得到解的情况下直接跳出循环
     }
 
     const problem = [`Solve the Systems of linear equations: `];

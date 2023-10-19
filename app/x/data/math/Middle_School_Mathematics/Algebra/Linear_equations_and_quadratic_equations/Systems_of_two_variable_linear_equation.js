@@ -54,11 +54,30 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
         }
 
         // Gaussian elimination
+        let validEquation = true;
         for (let i = 0; i < num_equ; i++) {
+            if (equations[i][0][0] === 0) {
+                if (i < num_equ - 1) {
+                    const temp = equations[i];
+                    equations[i] = equations[i + 1];
+                    equations[i + 1] = temp;
+                } else {
+                    validEquation = false;
+                    break;
+                }
+            }
             const m = equations[i][1][0] / equations[i][0][0];
+            if (!isFinite(m)) {
+                validEquation = false;
+                break;
+            }
             for (let j = 0; j < 3; j++) {
                 equations[i][1][j] -= m * equations[i][0][j];
             }
+        }
+
+        if (!validEquation) {
+            continue;
         }
 
         y = equations[num_equ - 1][1][2] / equations[num_equ - 1][1][1];

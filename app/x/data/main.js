@@ -1441,6 +1441,30 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Algebra | Absolute Value Inequality&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Absolute Value Inequality | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 50, 40],
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Absolute Value Inequality | Minimum number",
+        Typ: "range",
+        Range: [1, 100000, 10],
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Absolute Value Inequality | Maximum number",
+        Typ: "range",
+        Range: [1, 100000, 50],
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+
     X_Operate.newPage();
     let General_settings = [
         {
@@ -1896,6 +1920,27 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     APP.log("Generating - Systems of two variable linear equation: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation(Number(results[211]), Number(results[212]), Number(results[213]), results[214], results[215]));
+                }
+            }
+            if (results[216] == true) {
+                loop_length = Number(results[217]);
+                for (let i = 0; i < loop_length; i++) {
+                    APP.log("Generating - Linear inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable(Number(results[218]), Number(results[219])));
+                }
+            }
+            if (results[220] == true) {
+                loop_length = Number(results[221]);
+                for (let i = 0; i < loop_length; i++) {
+                    APP.log("Generating - Quadratic inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable(Number(results[222]), Number(results[223])));
+                }
+            }
+            if (results[224] == true) {
+                loop_length = Number(results[225]);
+                for (let i = 0; i < loop_length; i++) {
+                    APP.log("Generating - Absolute Value Inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality(Number(results[226]), Number(results[227])));
                 }
             }
 

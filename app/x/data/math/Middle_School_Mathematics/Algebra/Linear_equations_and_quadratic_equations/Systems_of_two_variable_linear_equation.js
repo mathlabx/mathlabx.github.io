@@ -21,14 +21,14 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
             if (add && !sub) {
                 a = Math.floor(Math.random() * coefficientRange) + min;
                 b = Math.floor(Math.random() * coefficientRange) + min;
-                c = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5);
+                c = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
                 d = Math.floor(Math.random() * coefficientRange) + min;
                 e = Math.floor(Math.random() * coefficientRange) + min;
-                f = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5);
+                f = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
             } else if (!add && sub) {
                 a = Math.floor(Math.random() * coefficientRange) + min;
                 b = Math.floor(Math.random() * coefficientRange) + min;
-                const temp = Math.floor(Math.random() * 5);
+                const temp = Math.floor(Math.random() * 5) + 1;
                 c = a * temp - b * temp;
                 d = Math.floor(Math.random() * coefficientRange) + min;
                 e = Math.floor(Math.random() * coefficientRange) + min;
@@ -37,7 +37,7 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
                 const isAdd = Math.random() < 0.5;
                 a = Math.floor(Math.random() * coefficientRange) + min;
                 b = Math.floor(Math.random() * coefficientRange) + min;
-                const temp = Math.floor(Math.random() * 5);
+                const temp = Math.floor(Math.random() * 5) + 1;
                 c = isAdd ? a * temp + b * temp : a * temp - b * temp;
                 d = Math.floor(Math.random() * coefficientRange) + min;
                 e = Math.floor(Math.random() * coefficientRange) + min;

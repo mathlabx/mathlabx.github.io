@@ -13,38 +13,42 @@ PS: 不会可以参考小学加减法
 $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation = function (min, max, add, sub, num_equ) {
     let valid = false;
     let equations, x, y;
+    const coefficientRange = (max - min) + 1;
+
     while (!valid) {
-        const coefficientRange = (max - min) + 1;
         equations = [];
+        const randomCoefficients = [];
+        for (let i = 0; i < 2 * num_equ; i++) {
+            randomCoefficients.push(Math.floor(Math.random() * coefficientRange) + min);
+        }
+
         for (let i = 0; i < num_equ; i++) {
             let a, b, c, d, e, f;
+            const index = i * 2;
             if (add && !sub) {
-                a = Math.floor(Math.random() * coefficientRange) + min;
-                b = Math.floor(Math.random() * coefficientRange) + min;
+                a = randomCoefficients[index];
+                b = randomCoefficients[index + 1];
                 c = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
-                d = Math.floor(Math.random() * coefficientRange) + min;
-                e = Math.floor(Math.random() * coefficientRange) + min;
-                f = d * Math.floor(Math.random() * 5) + e * Math.floor(Math.random() * 5) + 1;
+                d = randomCoefficients[index + 2];
+                e = randomCoefficients[index + 3];
+                f = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
             } else if (!add && sub) {
-                a = Math.floor(Math.random() * coefficientRange) + min;
-                b = Math.floor(Math.random() * coefficientRange) + min;
+                a = randomCoefficients[index];
+                b = randomCoefficients[index + 1];
                 const temp = Math.floor(Math.random() * 5) + 1;
                 c = a * temp - b * temp;
-                d = Math.floor(Math.random() * coefficientRange) + min;
-                e = Math.floor(Math.random() * coefficientRange) + min;
-                f = d * temp - e * temp;
+                d = randomCoefficients[index + 2];
+                e = randomCoefficients[index + 3];
+                f = a * temp - b * temp;
             } else {
                 const isAdd = Math.random() < 0.5;
-                a = Math.floor(Math.random() * coefficientRange) + min;
-                b = Math.floor(Math.random() * coefficientRange) + min;
-                const temp1 = Math.floor(Math.random() * 5) + 1;
-                const temp2 = Math.floor(Math.random() * 5) + 1;
-                c = isAdd ? a * temp1 + b * temp2 : a * temp1 - b * temp2;
-                d = Math.floor(Math.random() * coefficientRange) + min;
-                e = Math.floor(Math.random() * coefficientRange) + min;
-                const temp3 = Math.floor(Math.random() * 5) + 1;
-                const temp4 = Math.floor(Math.random() * 5) + 1;
-                f = isAdd ? d * temp3 + e * temp4 : d * temp3 - e * temp4;
+                a = randomCoefficients[index];
+                b = randomCoefficients[index + 1];
+                const temp = Math.floor(Math.random() * 5) + 1;
+                c = isAdd ? a * temp + b * temp : a * temp - b * temp;
+                d = randomCoefficients[index + 2];
+                e = randomCoefficients[index + 3];
+                f = isAdd ? a * temp + b * temp : a * temp - b * temp;
             }
             equations.push([[a, b, c], [d, e, f]]);
         }

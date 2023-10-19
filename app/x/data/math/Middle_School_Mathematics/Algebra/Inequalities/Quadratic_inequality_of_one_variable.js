@@ -23,21 +23,23 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
         const variable = letters.charAt(Math.floor(Math.random() * letters.length));
         const operation1 = operators[Math.floor(Math.random() * operators.length)];
         const operation2 = operators[Math.floor(Math.random() * operators.length)];
-        const inequality = signs[Math.floor(Math.random() * signs.legnth)];
+        const inequality = signs[Math.floor(Math.random() * signs.length)];
         const discriminant = coefficient2 * coefficient2 - 4 * coefficient1 * (constant - solution);
-        let question = new Array();
+        let question = [];
         question.push("Solve the inequality: ");
         question.push(coefficient1 + variable + "^2 " + operation1 + " " + coefficient2 + variable + " " + operation2 + " " + constant + "  " + inequality + " " + solution);
-        var answer;
+        let answer;
         if (discriminant > 0) {
                 // Two real roots
-                const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-                const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                answer = variable + " " + inequality + " " + x1 + ", " + variable + " " + inequality + " " + x2;
+                const x1 = (-coefficient2 + Math.sqrt(discriminant)) / (2 * coefficient1);
+                const x2 = (-coefficient2 - Math.sqrt(discriminant)) / (2 * coefficient1);
+                answer = [x1, x2];
         } else if (discriminant === 0) {
                 // One real root
-                const x = -b / (2 * a);
-                answer = variable + " " + inequality + " " + x;
+                const x = -coefficient2 / (2 * coefficient1);
+                answer = [x];
+        } else {
+                answer = "∅";
         }
         return [question, answer];
 }

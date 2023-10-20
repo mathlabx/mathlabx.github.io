@@ -133,54 +133,56 @@ window.addEventListener("load", function () {
 
 /*流元素动画*/
 window.addEventListener('load', function () {
-    const elements = document.querySelectorAll('.flow-element, .adsbygoogle');
-    let throttled = false;
+    setTimeout(() => {
+        const elements = document.querySelectorAll('.flow-element, .adsbygoogle');
+        let throttled = false;
 
-    elements.forEach(element => {
-        element.addEventListener('mousemove', throttle(handleMouseMove, 16));
-        element.addEventListener('mouseenter', handleMouseEnter);
-        element.addEventListener('mouseleave', handleMouseLeave);
-    });
+        elements.forEach(element => {
+            element.addEventListener('mousemove', throttle(handleMouseMove, 16));
+            element.addEventListener('mouseenter', handleMouseEnter);
+            element.addEventListener('mouseleave', handleMouseLeave);
+        });
 
-    function handleMouseMove(e) {
-        if (!throttled) {
-            requestAnimationFrame(() => {
-                const rect = this.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const mouseX = e.clientX - centerX;
-                const mouseY = centerY - e.clientY;
-                const percentX = mouseX / (rect.width / 4);
-                const percentY = mouseY / (rect.height / 4);
-
-                const rY = percentX * 10;
-                const rX = percentY * 10;
-
-                this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
-
-                throttled = true;
-                setTimeout(() => {
-                    throttled = false;
-                }, 16);
-            });
-        }
-    }
-
-    function handleMouseEnter() {
-        clearTimeout(this.mouseLeaveDelay);
-    }
-
-    function handleMouseLeave() {
-        this.mouseLeaveDelay = setTimeout(() => {
-            this.style.transform = 'none';
-        }, 1000);
-    }
-
-    function throttle(func, delay) {
-        return function () {
+        function handleMouseMove(e) {
             if (!throttled) {
-                func.apply(this, arguments);
+                requestAnimationFrame(() => {
+                    const rect = this.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const mouseX = e.clientX - centerX;
+                    const mouseY = centerY - e.clientY;
+                    const percentX = mouseX / (rect.width / 4);
+                    const percentY = mouseY / (rect.height / 4);
+
+                    const rY = percentX * 10;
+                    const rX = percentY * 10;
+
+                    this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
+
+                    throttled = true;
+                    setTimeout(() => {
+                        throttled = false;
+                    }, 16);
+                });
             }
-        };
-    }
+        }
+
+        function handleMouseEnter() {
+            clearTimeout(this.mouseLeaveDelay);
+        }
+
+        function handleMouseLeave() {
+            this.mouseLeaveDelay = setTimeout(() => {
+                this.style.transform = 'none';
+            }, 1000);
+        }
+
+        function throttle(func, delay) {
+            return function () {
+                if (!throttled) {
+                    func.apply(this, arguments);
+                }
+            };
+        }
+    }, 200);
 });

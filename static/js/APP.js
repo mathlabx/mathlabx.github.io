@@ -133,28 +133,26 @@ window.addEventListener("load", function () {
 
 /*流元素动画*/
 window.addEventListener('load', function () {
-    // 获取具有目标类的所有元素
     const elements = document.querySelectorAll('.flow-element, .adsbygoogle');
+    let throttled = false;
 
-    // 为每个元素添加事件监听器
     elements.forEach(element => {
-        element.addEventListener('mousemove', handleMouseMove);
+        element.addEventListener('mousemove', throttle(handleMouseMove, 16));
         element.addEventListener('mouseenter', handleMouseEnter);
         element.addEventListener('mouseleave', handleMouseLeave);
     });
 
-    // 事件处理程序
     function handleMouseMove(e) {
         const rect = this.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         const mouseX = e.clientX - centerX;
         const mouseY = centerY - e.clientY;
-        const percentX = mouseX / (rect.width / 2);
-        const percentY = mouseY / (rect.height / 2);
+        const percentX = mouseX / (rect.width / 4);
+        const percentY = mouseY / (rect.height / 4);
 
-        const rY = percentX * 30;
-        const rX = percentY * 30;
+        const rY = percentX * 10;
+        const rX = percentY * 10;
 
         this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
     }
@@ -167,5 +165,17 @@ window.addEventListener('load', function () {
         this.mouseLeaveDelay = setTimeout(() => {
             this.style.transform = 'none';
         }, 1000);
+    }
+
+    function throttle(func, delay) {
+        return function () {
+            if (!throttled) {
+                func.apply(this, arguments);
+                throttled = true;
+                setTimeout(() => {
+                    throttled = false;
+                }, delay);
+            }
+        };
     }
 });

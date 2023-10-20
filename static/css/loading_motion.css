@@ -3,8 +3,8 @@ body {
 }
 
 :root {
-    --main-color: #fff;
-    --background-color: rgba(0, 0, 0, 0.8);
+    --hole-color: #000;
+    --background-color: #000;
 }
 
 /* Style for the loading animation container */
@@ -27,9 +27,10 @@ body {
 .loading-animation {
     width: 100px;
     height: 100px;
-    background: var(--main-color);
+    background: var(--hole-color);
     border-radius: 50%;
     position: relative;
+    overflow: hidden;
 }
 
 .loading-animation::before {
@@ -37,26 +38,22 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.2);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 50% 50%, transparent 10%, rgba(0, 0, 0, 0.8) 80%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    animation: ripple 1.5s linear infinite;
+    animation: swirl 2s linear infinite;
     z-index: -1;
 }
 
-@keyframes ripple {
+@keyframes swirl {
     0% {
-        width: 0;
-        height: 0;
-        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
     }
 
     100% {
-        width: 400px;
-        height: 400px;
-        opacity: 0;
+        transform: translate(-50%, -50%) scale(2);
     }
 }
 

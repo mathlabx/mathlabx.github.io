@@ -37,9 +37,9 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                 };
                 const gcdValue = gcd(numerator, denominator);
                 if (gcdValue !== 1) {
-                        answer = `{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = `${variable} ${operation} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
-                        answer = numerator / denominator;
+                        answer = `${variable} ${operation} ${(numerator / denominator)}`;
                 }
         } else {
                 question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
@@ -53,9 +53,9 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                 };
                 const gcdValue = gcd(numerator, denominator);
                 if (gcdValue !== 1) {
-                        answer = `{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = `${variable} ${operation} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
-                        answer = numerator / denominator;
+                        answer = `${variable} ${operation} ${(numerator / denominator)}`;
                 }
         }
         return [question, answer];

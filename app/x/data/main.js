@@ -98,7 +98,8 @@ let scriptsToLoad = [
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_two_variable_linear_equation.js',
     './data/math/Middle_School_Mathematics/Algebra/Inequalities/Linear_inequality_of_one_variable.js',
     './data/math/Middle_School_Mathematics/Algebra/Inequalities/Quadratic_inequality_of_one_variable.js',
-    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Absolute_value_inequality.js'
+    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Absolute_value_inequality.js',
+    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Fractional_inequality.js'
 ];
 
 let gl_results;

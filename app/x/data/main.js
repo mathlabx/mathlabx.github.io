@@ -1516,6 +1516,30 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Algebra | Fractional Inequality&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Fractional Inequality | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 50, 40],
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Fractional Inequality | Minimum number",
+        Typ: "range",
+        Range: [1, 100000, 10],
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Fractional Inequality | Maximum number",
+        Typ: "range",
+        Range: [1, 100000, 50],
+        show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
+    });
+
     X_Operate.newPage();
     let General_settings = [
         {
@@ -1992,6 +2016,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     APP.log("Generating - Absolute Value Inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality(Number(results[226]), Number(results[227])));
+                }
+            }
+            if (results[228] == true) {
+                loop_length = Number(results[229]);
+                for (let i = 0; i < loop_length; i++) {
+                    APP.log("Generating - Fractional Inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Fractional_inequality(Number(results[230]), Number(results[231])));
                 }
             }
 

@@ -29,7 +29,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
 
         const letters = "abcdefghijklmnopqrstuvwxyz";
         const operators = ["+", "-"];
-        const signs = ["<", ">", "<=", ">="];
+        const signs = ["<", ">", "\\leq", "\\geq"];
         const coefficient1 = Math.floor(Math.random() * (max - min + 1)) + min;
         const coefficient2 = Math.floor(Math.random() * (max - min + 1)) + min;
         const constant = Math.floor(Math.random() * (max - min + 1)) + min;

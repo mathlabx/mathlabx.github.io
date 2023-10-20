@@ -238,7 +238,7 @@ ins.adsbygoogle {
 /*PC*/
 @media (min-width: 1000px) {
     main {
-        height: 100vh;
+        height: 90vh;
         transform: scale(0.5);
         transform-origin: top;
     }

@@ -2,6 +2,11 @@ body {
     overflow: hidden;
 }
 
+:root {
+    --main-color: #fff;
+    --background-color: rgba(0, 0, 0, 0.8);
+}
+
 /* Style for the loading animation container */
 .loader {
     position: fixed;
@@ -9,27 +14,50 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Semi-transparent background */
+    background: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    /* Ensure it's on top of everything */
     transition: opacity 0.5s;
-    /* Add transition for gradual fade */
     opacity: 1;
-    /* Initially visible */
 }
 
 /* Style for the loading animation */
 .loading-animation {
     width: 100px;
     height: 100px;
-    background-color: #fff;
+    background: var(--main-color);
     border-radius: 50%;
-    animation: pulse 2s infinite;
-    /* Apply animation */
+    position: relative;
+}
+
+.loading-animation::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 1.5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+    }
+
+    100% {
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
 }
 
 /* Keyframes for the animation */
@@ -50,7 +78,5 @@ body {
 /* Hide loader when content is loaded */
 .loaded .loader {
     opacity: 0;
-    /* Make it invisible */
     pointer-events: none;
-    /* Disable interactions */
 }

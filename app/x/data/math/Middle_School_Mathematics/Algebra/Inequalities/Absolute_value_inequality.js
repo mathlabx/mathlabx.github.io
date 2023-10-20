@@ -14,33 +14,32 @@
 */
 
 $X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality = function (min, max) {
-    // Generate random coefficients
+    // 生成随机系数
     const a = Math.floor(Math.random() * (max - min + 1)) + min;
     const b = Math.floor(Math.random() * (max - min + 1)) + min;
-    const c = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    // Generate the inequality
+    // 生成不等式
     const option = Math.random() < 0.5 ? ">" : "<";
     const constant = Math.floor(Math.random() * (max - min + 1)) + min;
     const question = ["Solve the absolute value inequality: ", `|${a}x + ${b}| ${option} ${constant}`];
 
-    // Solve the inequality
+    // 解决不等式
     let answer;
     if (option === ">") {
         if (a > 0) {
-            answer = [(-b - constant * a), a];
+            answer = `${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)}, ${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)}`;
         } else if (a < 0) {
-            answer = [(b + constant * a), -a];
+            answer = `${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)}, ${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)}`;
         } else {
             answer = "\\emptyset";
         }
     } else {
         if (a > 0) {
-            answer = [(-b - constant * a), a, (-b + constant * a), a];
+            answer = `${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)} < x < ${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)}`;
         } else if (a < 0) {
-            answer = "\\emptyset";
+            answer = `${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)} < x < ${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)}`;
         } else {
-            answer = [(-b + constant * a), -a, (-b - constant * a), -a];
+            answer = "\\emptyset";
         }
     }
 

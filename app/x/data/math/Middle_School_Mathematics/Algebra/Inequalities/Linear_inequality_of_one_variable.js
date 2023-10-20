@@ -13,13 +13,6 @@
 */
 
 $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = function (min, max) {
-        // 计算最大公约数
-        function gcd(a, b) {
-                if (!b) {
-                        return a;
-                }
-                return gcd(b, a % b);
-        }
         const letters = "abcdefghijklmnopqrstuvwxyz";
         const operators = ["+", "-"];
         const signs = ["<", ">", "\\leq", "\\geq"];
@@ -31,24 +24,39 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
         const inequality = signs[Math.floor(Math.random() * signs.length)];
         let question = [];
         let answer;
-        question.push("解决不等式: ");
-        let expression;
+        question.push("Solve the inequality: ");
         if (signs.indexOf(inequality) < 2) {
-                expression = `${coefficient}${variable} ${operation} ${constant}`;
-        } else if (inequality === "\\leq") {
-                expression = `${coefficient}${variable} ${operation} ${constant} ${inequality}`;
+                question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
+                const numerator = solution - constant;
+                const denominator = coefficient;
+                const gcd = function (a, b) {
+                        if (!b) {
+                                return a;
+                        }
+                        return gcd(b, a % b);
+                };
+                const gcdValue = gcd(numerator, denominator);
+                if (gcdValue !== 1) {
+                        answer = [numerator / gcdValue, denominator / gcdValue];
+                } else {
+                        answer = numerator / denominator;
+                }
         } else {
-                expression = `${coefficient}${variable} ${operation} ${constant} ${inequality}`;
+                question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
+                const numerator = solution - constant;
+                const denominator = coefficient;
+                const gcd = function (a, b) {
+                        if (!b) {
+                                return a;
+                        }
+                        return gcd(b, a % b);
+                };
+                const gcdValue = gcd(numerator, denominator);
+                if (gcdValue !== 1) {
+                        answer = [numerator / gcdValue, denominator / gcdValue];
+                } else {
+                        answer = numerator / denominator;
+                }
         }
-        question.push(`因式分解: ${expression} = 0`);
-
-        const numerator = solution - constant;
-        const denominator = coefficient;
-        const divisor = gcd(numerator, denominator);
-
-        const simplifiedNumerator = numerator / divisor;
-        const simplifiedDenominator = denominator / divisor;
-
-        answer = `\\frac{${simplifiedNumerator}}{${simplifiedDenominator}}`;
         return [question, answer];
-}  
+}    

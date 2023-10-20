@@ -37,7 +37,7 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                 };
                 const gcdValue = gcd(numerator, denominator);
                 if (gcdValue !== 1) {
-                        answer = [numerator / gcdValue, denominator / gcdValue];
+                        answer = `{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
                         answer = numerator / denominator;
                 }
@@ -53,7 +53,7 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                 };
                 const gcdValue = gcd(numerator, denominator);
                 if (gcdValue !== 1) {
-                        answer = [numerator / gcdValue, denominator / gcdValue];
+                        answer = `{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
                         answer = numerator / denominator;
                 }

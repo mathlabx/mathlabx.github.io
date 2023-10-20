@@ -3,7 +3,6 @@ body {
 }
 
 .flow-element {
-    box-shadow: 6px 6px 6px rgb(255 255 255 / 70%);
     height: auto;
     width: calc(100% - 20px);
 }

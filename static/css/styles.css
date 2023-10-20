@@ -107,7 +107,7 @@ nav a {
     text-align: center;
     border-radius: 10px;
     /* Add rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 6px 6px rgb(255 255 255 / 70%);
     /* Add a subtle shadow */
     height: 350px;
     width: calc(25% - 20px);

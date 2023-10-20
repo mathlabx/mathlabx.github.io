@@ -15,7 +15,7 @@
 $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = function (min, max) {
         const letters = "abcdefghijklmnopqrstuvwxyz";
         const operators = ["+", "-"];
-        const signs = ["<", ">", "<=", ">="];
+        const signs = ["<", ">", "\\leq", "\\geq"];
         const coefficient = Math.floor(Math.random() * (max - min + 1)) + min;
         const constant = Math.floor(Math.random() * (max - min + 1)) + min;
         const solution = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -27,13 +27,13 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
         question.push("Solve the inequality: ");
         if (signs.indexOf(inequality) < 2) {
                 question.push(coefficient + variable + " " + operation + " " + constant + " " + inequality + " " + solution);
-                answer = variable + " " + inequality + " " + ((solution - constant) / coefficient);
-        } else if (inequality === "<=") {
-                question.push(coefficient + variable + " " + operation + " " + constant + "\\leq" + " " + solution);
-                answer = variable + "\\leq" + ((solution - constant) / coefficient);
+                answer = [solution - constant, coefficient];
+        } else if (inequality === "\\leq") {
+                question.push(coefficient + variable + " " + operation + " " + constant + inequality + " " + solution);
+                answer = [solution - constant, coefficient];
         } else {
-                question.push(coefficient + variable + " " + operation + " " + constant + "\\geq" + " " + solution);
-                answer = variable + "\\geq" + ((solution - constant) / coefficient);
+                question.push(coefficient + variable + " " + operation + " " + constant + inequality + " " + solution);
+                answer = [solution - constant, coefficient];
         }
         return [question, answer];
 }

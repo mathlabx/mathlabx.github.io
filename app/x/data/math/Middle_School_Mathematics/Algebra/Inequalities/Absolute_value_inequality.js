@@ -13,7 +13,7 @@
     - Katex: |2x-1| + |x+2| < 5  Solution: -\frac{4}{3} < x < 3
 */
 
-X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality = function (min, max) {
+$X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality = function (min, max) {
     // 最大公约数函数
     function gcd(a, b) {
         if (!b) {

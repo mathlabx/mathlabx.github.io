@@ -3,7 +3,6 @@
 
 输入：(最小数，最大数, 每道题的系数个数, 不同种类字母数量（a-z）担保最大26,)
 输出：[题干Katex格式，答案]
-PS: 不会可以参考小学加减法
 */
 
 $X.math.Middle_School_Mathematics.Polynomials_and_factoring.Simplification = function (min, max, num_coefficient, num_var) {
@@ -23,9 +22,9 @@ $X.math.Middle_School_Mathematics.Polynomials_and_factoring.Simplification = fun
         const variable = variables[Math.floor(Math.random() * variables.length)];
         term += coefficient !== 1 ? coefficient : "";
         term += variable;
-        problem += term;
+        problem[1] += term;
         if (i !== num_coefficient - 1) {
-            problem += " + ";
+            problem[1] += " + ";
         }
     }
 
@@ -37,9 +36,9 @@ $X.math.Middle_School_Mathematics.Polynomials_and_factoring.Simplification = fun
         for (let j = 0; j < num_coefficient; j++) {
             const coefficient = coefficients[j];
             const term = coefficient + currentVar;
-            if (problem.includes(term)) {
+            if (problem[1].includes(term)) {
                 coefficientSum += coefficient;
-                problem = problem.replace(term, "");
+                problem[1] = problem[1].replace(term, "");
             }
         }
         if (coefficientSum !== 0) {

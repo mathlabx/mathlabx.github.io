@@ -99,7 +99,10 @@ let scriptsToLoad = [
     './data/math/Middle_School_Mathematics/Algebra/Inequalities/Linear_inequality_of_one_variable.js',
     './data/math/Middle_School_Mathematics/Algebra/Inequalities/Quadratic_inequality_of_one_variable.js',
     './data/math/Middle_School_Mathematics/Algebra/Inequalities/Absolute_value_inequality.js',
-    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Fractional_inequality.js'
+    './data/math/Middle_School_Mathematics/Algebra/Inequalities/Fractional_inequality.js',
+    './data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Basic_simplification.js',
+    './data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Polynomial_multiplication.js',
+    './data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Polynomial_division.js'
 ];
 
 let gl_results;
@@ -1541,6 +1544,42 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Algebra | Basic Simplification&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Simplification | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 50, 40],
+        show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Simplification | Minimum number",
+        Typ: "range",
+        Range: [1, 100000, 10],
+        show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Simplification | Maximum number",
+        Typ: "range",
+        Range: [1, 100000, 50],
+        show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Simplification | Numbers of coefficient",
+        Typ: "range",
+        Range: [1, 50, 6],
+        show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Simplification | Maximum number",
+        Typ: "range",
+        Range: [1, 26, 26],
+        show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
+    });
+
     X_Operate.newPage();
     let General_settings = [
         {
@@ -2024,6 +2063,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     APP.log("Generating - Fractional Inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Fractional_inequality(Number(results[230]), Number(results[231])));
+                }
+            }
+            if (results[232] == true) {
+                loop_length = Number(results[233]);
+                for (let i = 0; i < loop_length; i++) {
+                    APP.log("Generating - Basic Simplification: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    re_q.push($X.math.Middle_School_Mathematics.Polynomials_and_factoring.Simplification(Number(results[234]), Number(results[235]), Number(results[236]), Number(results[237])));
                 }
             }
 

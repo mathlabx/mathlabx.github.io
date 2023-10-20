@@ -125,7 +125,7 @@ function X_Result(results) {
     ];
     X_Operate.newPage();
     X_Operate.newResult(results.length, "Please select an option below to continue.", results_ar);
-    APP.log("Generating: Completed");
+    gen_log("Generating: Completed");
     for (let i = 0; i < results.length; i++) {
         console.log(results[i]);
     }
@@ -1608,8 +1608,11 @@ function X_Generate(setting) {
 
 function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
     X_Operate.newPage();
-    X_Operate.newTitle("Generating...")
+    X_Operate.newTitle("Generating...");
     console.log(results);
+    function gen_log(w, l, i) {
+        APP.log(w + (i + 1) + "/" + l + " - " + ((i + 1) / l * 100).toFixed(2) + "%");
+    }
     let re_q = new Array();
     setTimeout(() => {
         if (!Teacher_SL_MOD) {
@@ -1618,13 +1621,14 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[2] == true && results[3] == true) loop_length /= 2;
                 if (results[2] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Addition: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Addition: ", loop_length, i);
+                        gen_log(w, l, i)
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Addition(Number(results[4]), Number(results[5])));
                     }
                 }
                 if (results[3] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Addition Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Addition Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Addition_w(Number(results[4]), Number(results[5])));
                     }
                 }
@@ -1634,13 +1638,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[8] == true && results[9] == true) loop_length /= 2;
                 if (results[8] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Subtraction(Number(results[10]), Number(results[11])));
                     }
                 }
                 if (results[9] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Subtraction_w(Number(results[10]), Number(results[11])));
                     }
                 }
@@ -1650,13 +1654,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[14] == true && results[15] == true) loop_length /= 2;
                 if (results[14] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Multiplication(Number(results[16]), Number(results[17])));
                     }
                 }
                 if (results[15] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Multiplication_w(Number(results[16]), Number(results[17])));
                     }
                 }
@@ -1666,13 +1670,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[20] == true && results[21] == true) loop_length /= 2;
                 if (results[20] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Division(Number(results[22]), Number(results[23])));
                     }
                 }
                 if (results[21] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Division_w(Number(results[22]), Number(results[23])));
                     }
                 }
@@ -1682,13 +1686,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[26] == true && results[27] == true) loop_length /= 2;
                 if (results[26] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Comparing Integers: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Comparing Integers: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Comparing_integers(Number(results[28]), Number(results[29])));
                     }
                 }
                 if (results[27] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Comparing Integers Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Comparing Integers Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Comparing_integers_w(Number(results[28]), Number(results[29])));
                     }
                 }
@@ -1698,13 +1702,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[32] == true && results[33] == true) loop_length /= 2;
                 if (results[32] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Add Integers: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Add Integers: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Addition(Number(results[34]), Number(results[35]), Number(results[36])));
                     }
                 }
                 if (results[33] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Add Integers Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Add Integers Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Addition_w(Number(results[34]), Number(results[35]), Number(results[36])));
                     }
                 }
@@ -1714,13 +1718,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[39] == true && results[40] == true) loop_length /= 2;
                 if (results[39] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction Integers: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction Integers: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Subtraction(Number(results[41]), Number(results[42]), Number(results[43])));
                     }
                 }
                 if (results[40] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction Integers Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction Integers Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Subtraction_w(Number(results[41]), Number(results[42]), Number(results[43])));
                     }
                 }
@@ -1730,13 +1734,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[46] == true && results[47] == true) loop_length /= 2;
                 if (results[46] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication Integers: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication Integers: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Multiplication(Number(results[48]), Number(results[49]), Number(results[50])));
                     }
                 }
                 if (results[47] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication Integers Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication Integers Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Multiplication_w(Number(results[48]), Number(results[49]), Number(results[50])));
                     }
                 }
@@ -1746,13 +1750,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[53] == true && results[54] == true) loop_length /= 2;
                 if (results[53] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Integers: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Integers: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Division(Number(results[55]), Number(results[56]), Number(results[57])));
                     }
                 }
                 if (results[54] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Integers Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Integers Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Integers.Division_w(Number(results[55]), Number(results[56]), Number(results[57])));
                     }
                 }
@@ -1762,13 +1766,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[60] == true && results[61] == true) loop_length /= 2;
                 if (results[60] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Decimals: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Decimals: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Addition(Number(results[62]), Number(results[63]), Number(results[64]), Number(results[65])));
                     }
                 }
                 if (results[61] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Decimals Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Decimals Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Addition_w(Number(results[62]), Number(results[63]), Number(results[64]), Number(results[65])));
                     }
                 }
@@ -1778,13 +1782,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[68] == true && results[69] == true) loop_length /= 2;
                 if (results[68] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction Decimals: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction Decimals: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Subtraction(Number(results[70]), Number(results[71]), Number(results[72]), Number(results[73])));
                     }
                 }
                 if (results[69] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction Decimals Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction Decimals Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Subtraction_w(Number(results[70]), Number(results[71]), Number(results[72]), Number(results[73])));
                     }
                 }
@@ -1794,13 +1798,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[76] == true && results[77] == true) loop_length /= 2;
                 if (results[76] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication Decimals: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication Decimals: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Multiplication(Number(results[78]), Number(results[79]), Number(results[80]), Number(results[81])));
                     }
                 }
                 if (results[77] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication Decimals Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication Decimals Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Multiplication_w(Number(results[78]), Number(results[79]), Number(results[80]), Number(results[81])));
                     }
                 }
@@ -1810,13 +1814,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[84] == true && results[85] == true) loop_length /= 2;
                 if (results[84] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Decimals: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Decimals: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Division(Number(results[86]), Number(results[87]), Number(results[88]), Number(results[89])));
                     }
                 }
                 if (results[85] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Decimals Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Decimals Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Division_w(Number(results[86]), Number(results[87]), Number(results[88]), Number(results[89])));
                     }
                 }
@@ -1826,13 +1830,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[92] == true && results[93] == true) loop_length /= 2;
                 if (results[92] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Compare Decimals: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Compare Decimals: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Comparing_decimals(Number(results[94]), Number(results[95]), Number(results[96])));
                     }
                 }
                 if (results[93] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Compare Decimals Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Compare Decimals Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Decimals.Comparing_decimals_w(Number(results[94]), Number(results[95]), Number(results[96])));
                     }
                 }
@@ -1842,13 +1846,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[99] == true && results[100] == true) loop_length /= 2;
                 if (results[99] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Adding Fractions: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Adding Fractions: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Addition(Number(results[101]), Number(results[102]), Number(results[103]), Number(results[104])));
                     }
                 }
                 if (results[100] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Adding Fractions Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Adding Fractions Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Addition_w(Number(results[101]), Number(results[102]), Number(results[103]), Number(results[104])));
                     }
                 }
@@ -1858,13 +1862,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[107] == true && results[108] == true) loop_length /= 2;
                 if (results[107] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction Fractions: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction Fractions: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Subtraction(Number(results[109]), Number(results[110]), Number(results[111]), Number(results[112])));
                     }
                 }
                 if (results[108] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Subtraction Fractions Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Subtraction Fractions Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Subtraction_w(Number(results[109]), Number(results[110]), Number(results[111]), Number(results[112])));
                     }
                 }
@@ -1874,13 +1878,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[115] == true && results[116] == true) loop_length /= 2;
                 if (results[115] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication Fractions: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication Fractions: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Multiplication(Number(results[117]), Number(results[118]), Number(results[119]), Number(results[120])));
                     }
                 }
                 if (results[116] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Multiplication Fractions Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Multiplication Fractions Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Multiplication_w(Number(results[117]), Number(results[118]), Number(results[119]), Number(results[120])));
                     }
                 }
@@ -1890,13 +1894,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[123] == true && results[124] == true) loop_length /= 2;
                 if (results[123] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Fractions: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Fractions: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Division(Number(results[125]), Number(results[126]), Number(results[127]), Number(results[128])));
                     }
                 }
                 if (results[124] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division Fractions Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division Fractions Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Fractions.Division_w(Number(results[125]), Number(results[126]), Number(results[127]), Number(results[128])));
                     }
                 }
@@ -1906,13 +1910,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[131] == true && results[132] == true) loop_length /= 2;
                 if (results[131] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Division decimal to percentage: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Division decimal to percentage: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Percentages.Converting_percentages(true, false, Number(results[133])));
                     }
                 }
                 if (results[132] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Convert percentage to decimal: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Convert percentage to decimal: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Percentages.Converting_percentages(false, true, Number(results[133])));
                     }
                 }
@@ -1922,13 +1926,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[136] == true && results[137] == true) loop_length /= 2;
                 if (results[136] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Calculating Percentages: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Calculating Percentages: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Percentages.Calculating_percentages(Number(results[138]), Number(results[139])));
                     }
                 }
                 if (results[137] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Calculating Percentages Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Calculating Percentages Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Percentages.Calculating_percentages_w(Number(results[138]), Number(results[139])));
                     }
                 }
@@ -1936,35 +1940,35 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
             if (results[140] == true) {
                 loop_length = Number(results[141]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Recognizing Shapes: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Recognizing Shapes: ", loop_length, i);
                     re_q.push($X.math.Elementary_Mathematics.Geometry.Recognizing_shapes(Number(results[142]), Number(results[143]), Number(results[144]), Number(results[145]), Number(results[146]), Number(results[147]), Number(results[148]), Number(results[149]), Number(results[150]), Number(results[151]), Number(results[152]), Number(results[153])));
                 }
             }
             if (results[154] == true) {
                 loop_length = Number(results[155]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Perimeter and Area: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Perimeter and Area: ", loop_length, i);
                     re_q.push($X.math.Elementary_Mathematics.Geometry.perimeter_and_area(Number(results[156]), Number(results[157]), Number(results[158]), Number(results[159]), Number(results[160]), Number(results[161]), Number(results[162]), Number(results[163]), Number(results[164]), Number(results[165]), Number(results[166]), Number(results[167])));
                 }
             }
             if (results[168] == true) {
                 loop_length = Number(results[169]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Volume: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Volume: ", loop_length, i);
                     re_q.push($X.math.Elementary_Mathematics.Geometry.volume(Number(results[170]), Number(results[171]), Number(results[172]), Number(results[173]), Number(results[174]), Number(results[175])));
                 }
             }
             if (results[176] == true) {
                 loop_length = Number(results[177]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Reading Clocks: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Reading Clocks: ", loop_length, i);
                     re_q.push($X.math.Elementary_Mathematics.Time.Reading_clocks(results[178]));
                 }
             }
             if (results[179] == true) {
                 loop_length = Number(results[180]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Reading Calendars: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Reading Calendars: ", loop_length, i);
                     re_q.push($X.math.Elementary_Mathematics.Time.Reading_calendars());
                 }
             }
@@ -1973,13 +1977,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[183] == true && results[184] == true) loop_length /= 2;
                 if (results[183] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Calculating Clocks: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Calculating Clocks: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Time.Calculations_clocks(results[185]));
                     }
                 }
                 if (results[184] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Calculating Clocks Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Calculating Clocks Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Time.Calculations_clocks_w(results[185]));
                     }
                 }
@@ -1989,13 +1993,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[188] == true && results[189] == true) loop_length /= 2;
                 if (results[188] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Calculating Calendars: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Calculating Calendars: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Time.Calculations_calendars());
                     }
                 }
                 if (results[189] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Calculating Calendars Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Calculating Calendars Word: ", loop_length, i);
                         re_q.push($X.math.Elementary_Mathematics.Time.Calculations_calendars_w());
                     }
                 }
@@ -2005,13 +2009,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[192] == true && results[193] == true) loop_length /= 2;
                 if (results[192] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Single variable linear equations: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Single variable linear equations: ", loop_length, i);
                         re_q.push($X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations(Number(results[194]), Number(results[195]), results[196], results[197]));
                     }
                 }
                 if (results[193] == true) {
                     for (let i = 0; i < loop_length; i++) {
-                        APP.log("Generating - Single variable linear equations Word: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                        gen_log("Generating - Single variable linear equations Word: ", loop_length, i);
                         re_q.push($X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w(Number(results[194]), Number(results[195]), results[196], results[197]));
                     }
                 }
@@ -2019,56 +2023,56 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
             if (results[198] == true) {
                 loop_length = Number(results[199]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - System of Single variable linear equations: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - System of Single variable linear equations: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_linear_equations_with_one_variable(Number(results[200]), Number(results[201]), results[202], results[203], Number(results[204])));
                 }
             }
             if (results[205] == true) {
                 loop_length = Number(results[206]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Quadratic equations: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Quadratic equations: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_equations(Number(results[207]), Number(results[208])));
                 }
             }
             if (results[209] == true) {
                 loop_length = Number(results[210]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Systems of two variable linear equation: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Systems of two variable linear equation: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation(Number(results[211]), Number(results[212]), Number(results[213]), results[214], results[215]));
                 }
             }
             if (results[216] == true) {
                 loop_length = Number(results[217]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Linear inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Linear inequality: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable(Number(results[218]), Number(results[219])));
                 }
             }
             if (results[220] == true) {
                 loop_length = Number(results[221]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Quadratic inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Quadratic inequality: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable(Number(results[222]), Number(results[223])));
                 }
             }
             if (results[224] == true) {
                 loop_length = Number(results[225]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Absolute Value Inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Absolute Value Inequality: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality(Number(results[226]), Number(results[227])));
                 }
             }
             if (results[228] == true) {
                 loop_length = Number(results[229]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Fractional Inequality: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Fractional Inequality: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Fractional_inequality(Number(results[230]), Number(results[231])));
                 }
             }
             if (results[232] == true) {
                 loop_length = Number(results[233]);
                 for (let i = 0; i < loop_length; i++) {
-                    APP.log("Generating - Basic Simplification: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
+                    gen_log("Generating - Basic Simplification: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplification(Number(results[234]), Number(results[235]), Number(results[236]), Number(results[237])));
                 }
             }

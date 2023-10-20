@@ -25,38 +25,29 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
         let question = [];
         let answer;
         question.push("Solve the inequality: ");
+        let numerator = solution - constant;
+        let denominator = coefficient;
+        const gcd = function (a, b) {
+                if (!b) {
+                        return a;
+                }
+                return gcd(b, a % b);
+        };
+        const gcdValue = gcd(numerator, denominator);
         if (signs.indexOf(inequality) < 2) {
                 question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
-                const numerator = solution - constant;
-                const denominator = coefficient;
-                const gcd = function (a, b) {
-                        if (!b) {
-                                return a;
-                        }
-                        return gcd(b, a % b);
-                };
-                const gcdValue = gcd(numerator, denominator);
                 if (gcdValue !== 1) {
-                        answer = `${variable} ${operation} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = `${variable} ${inequality} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
-                        answer = `${variable} ${operation} ${(numerator / denominator)}`;
+                        answer = `${variable} ${inequality} ${numerator / denominator}`;
                 }
         } else {
                 question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
-                const numerator = solution - constant;
-                const denominator = coefficient;
-                const gcd = function (a, b) {
-                        if (!b) {
-                                return a;
-                        }
-                        return gcd(b, a % b);
-                };
-                const gcdValue = gcd(numerator, denominator);
                 if (gcdValue !== 1) {
-                        answer = `${variable} ${operation} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = `${variable} ${inequality} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
-                        answer = `${variable} ${operation} ${(numerator / denominator)}`;
+                        answer = `${variable} ${inequality} ${numerator / denominator}`;
                 }
         }
         return [question, answer];
-}    
+};    

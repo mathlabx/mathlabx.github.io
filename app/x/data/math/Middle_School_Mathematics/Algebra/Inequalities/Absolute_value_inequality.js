@@ -32,13 +32,13 @@ $X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality = function (
         } else if (a < 0) {
             answer = [(b + constant * a), -a];
         } else {
-            answer = "No solution";
+            answer = "\\emptyset";
         }
     } else {
         if (a > 0) {
             answer = [(-b - constant * a), a, (-b + constant * a), a];
         } else if (a < 0) {
-            answer = "No solution";
+            answer = "\\emptyset";
         } else {
             answer = [(-b + constant * a), -a, (-b - constant * a), -a];
         }

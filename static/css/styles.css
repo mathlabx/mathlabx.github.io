@@ -100,7 +100,6 @@ nav a {
 .flow-element,
 .adsbygoogle {
     background-color: rgb(138 150 225 / 28%);
-    border: 1px solid #ddd;
     display: inline-block;
     margin: 10px;
     /* Add margin to create spacing between elements */
@@ -144,6 +143,7 @@ ins.adsbygoogle {
     transition: transform 0.2s, background-color 0.2s;
     /* Add a smooth transition effect */
     box-shadow: 6px 6px 6px rgb(255 255 255 / 100%);
+    border: 1px solid #ddd;
 }
 
 /* Style for the Flow Element Image */

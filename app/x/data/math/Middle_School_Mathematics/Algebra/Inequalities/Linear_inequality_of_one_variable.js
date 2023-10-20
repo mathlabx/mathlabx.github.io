@@ -59,4 +59,4 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                 }
         }
         return [question, answer];
-}    
+}

@@ -162,7 +162,7 @@ ins.adsbygoogle {
     margin-top: 2%;
     border: 2px solid #fff;
     /* Add a white border to the image */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 10px black;
     /* Add a shadow to the image */
 }
 

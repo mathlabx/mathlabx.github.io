@@ -1044,7 +1044,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Recognizing Shapes | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[0].subtopics[5].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -1116,7 +1116,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Perimeter and Area | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[0].subtopics[5].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -1188,7 +1188,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Volume | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[0].subtopics[5].subtopics[2]._checked
     });
     Setting_Array.push({
@@ -1230,7 +1230,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Reading Clocks | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[0].subtopics[6].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -1247,7 +1247,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Reading Calendars | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[0].subtopics[6].subtopics[0]._checked
     });
 
@@ -1259,7 +1259,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Calculations Clocks | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[0].subtopics[6].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -1286,7 +1286,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Calculations Calendars | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[0].subtopics[6].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -1308,7 +1308,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Single-variable Linear Equations | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -1352,7 +1352,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Systems of Single-variable Linear Equations | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -1392,7 +1392,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Quadratic Equations | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -1416,7 +1416,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Systems of two Variable Linear Equation | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -1456,7 +1456,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Linear Inequality | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -1480,7 +1480,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Quadratic Inequality | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -1504,7 +1504,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Absolute Value Inequality | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -1528,7 +1528,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Fractional Inequality | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -1552,7 +1552,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Basic Simplification | Number of questions to generate",
         Typ: "range",
-        Range: [1, 50, 40],
+        Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
     });
     Setting_Array.push({

@@ -116,6 +116,8 @@ window.addEventListener("load", function () {
     user_page_update();
     checkCurrentUser();
     /*
+    SW
+    
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('https://app.mathscichem.com/service-worker.js').then(function (registration) {
             if (registration.installing) {
@@ -127,4 +129,40 @@ window.addEventListener("load", function () {
             console.log('Service Worker registration failed:', error);
         });
     }*/
+});
+
+/*流元素动画*/
+document.addEventListener('DOMContentLoaded', function () {
+    // 获取具有目标类的所有元素
+    const elements = document.querySelectorAll('.flow-element, .adsbygoogle');
+
+    // 为每个元素添加事件监听器
+    elements.forEach(element => {
+        element.addEventListener('mousemove', handleMouseMove);
+        element.addEventListener('mouseenter', handleMouseEnter);
+        element.addEventListener('mouseleave', handleMouseLeave);
+    });
+
+    // 事件处理程序
+    function handleMouseMove(e) {
+        const width = this.offsetWidth;
+        const height = this.offsetHeight;
+        const mouseX = e.pageX - this.offsetLeft - width / 2;
+        const mouseY = e.pageY - this.offsetTop - height / 2;
+
+        const rX = (mouseX / width) * 30;
+        const rY = (mouseY / height) * -30;
+
+        this.style.transform = `rotateY(${rX}deg) rotateX(${rY}deg)`;
+    }
+
+    function handleMouseEnter() {
+        clearTimeout(this.mouseLeaveDelay);
+    }
+
+    function handleMouseLeave() {
+        this.mouseLeaveDelay = setTimeout(() => {
+            this.style.transform = 'none';
+        }, 1000);
+    }
 });

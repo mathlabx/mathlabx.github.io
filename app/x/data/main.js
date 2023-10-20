@@ -1622,7 +1622,6 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 if (results[2] == true) {
                     for (let i = 0; i < loop_length; i++) {
                         gen_log("Generating - Addition: ", loop_length, i);
-                        gen_log(w, l, i)
                         re_q.push($X.math.Elementary_Mathematics.Basic_Operations.Addition(Number(results[4]), Number(results[5])));
                     }
                 }

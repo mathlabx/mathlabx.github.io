@@ -8,15 +8,16 @@
 $X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplification = function (min, max, num_coefficient, num_var) {
     const coefficients = [];
     const variables = "abcdefghijklmnopqrstuvwxyz".slice(0, num_var);
-    let problem = new Array();
+    let problem = [];
     let answer = "";
 
-    problem[0] = "factoring the following expressions: ";
+    problem[0] = "Factor the following expressions: ";
 
     for (let i = 0; i < num_coefficient; i++) {
         coefficients.push(Math.floor(Math.random() * (max - min + 1)) + min);
     }
 
+    let expression = "";
     // 生成问题
     for (let i = 0; i < num_coefficient; i++) {
         let term = "";
@@ -24,27 +25,25 @@ $X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplificati
         const variable = variables[Math.floor(Math.random() * variables.length)];
         term += coefficient !== 1 ? coefficient : "";
         term += variable;
-        problem[1] += term;
+        expression += term;
         if (i !== num_coefficient - 1) {
-            problem[1] += " + ";
+            expression += " + ";
         }
     }
+    problem[1] = expression;
 
     // 合并同类项
-    const uniqueVariables = Array.from(new Set(variables));
-    for (let i = 0; i < uniqueVariables.length; i++) {
-        let coefficientSum = 0;
-        const currentVar = uniqueVariables[i];
-        for (let j = 0; j < num_coefficient; j++) {
-            const coefficient = coefficients[j];
-            const term = coefficient + currentVar;
-            if (problem[1].includes(term)) {
-                coefficientSum += coefficient;
-                problem[1] = problem[1].replace(term, "");
-            }
-        }
-        if (coefficientSum !== 0) {
-            answer += (i !== 0 ? " + " : "") + coefficientSum + currentVar;
+    const terms = expression.split(' + ');
+    const termMap = {};
+    terms.forEach((term) => {
+        const variable = term.match(/[a-z]/)[0];
+        const coefficient = parseInt(term.match(/\d+/)) || 1;
+        termMap[variable] = termMap[variable] ? termMap[variable] + coefficient : coefficient;
+    });
+
+    for (const key in termMap) {
+        if (termMap.hasOwnProperty(key)) {
+            answer += (answer.length !== 0 ? " + " : "") + termMap[key] + key;
         }
     }
 

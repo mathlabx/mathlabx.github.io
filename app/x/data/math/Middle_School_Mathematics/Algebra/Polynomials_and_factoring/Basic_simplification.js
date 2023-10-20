@@ -41,9 +41,15 @@ $X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplificati
         termMap[variable] = termMap[variable] ? termMap[variable] + coefficient : coefficient;
     });
 
-    for (const key in termMap) {
-        if (termMap.hasOwnProperty(key)) {
-            answer += (answer.length !== 0 ? " + " : "") + termMap[key] + key;
+    // 将对象按字母顺序排序
+    const sortedTermMap = {};
+    Object.keys(termMap).sort().forEach(function (key) {
+        sortedTermMap[key] = termMap[key];
+    });
+
+    for (const key in sortedTermMap) {
+        if (sortedTermMap.hasOwnProperty(key)) {
+            answer += (answer.length !== 0 ? " + " : "") + sortedTermMap[key] + key;
         }
     }
 

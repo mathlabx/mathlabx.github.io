@@ -118,6 +118,10 @@ nav a {
     transition: transform 0.6s, background-color 0.6s, box-shadow 0.6s;
 }
 
+.flow-element>h2 {
+    text-shadow: 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+
 ins.adsbygoogle {
     margin: 0;
     width: 100%;

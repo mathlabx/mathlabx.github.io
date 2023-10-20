@@ -115,6 +115,7 @@ nav a {
     /* Include padding in element width */
     min-height: 0;
     /* Ensure minimum height is not greater than width */
+    transition: transform 0.6s, background-color 0.6s, box-shadow 0.6s;
 }
 
 ins.adsbygoogle {

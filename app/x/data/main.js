@@ -2069,7 +2069,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[233]);
                 for (let i = 0; i < loop_length; i++) {
                     APP.log("Generating - Basic Simplification: " + (i + 1) + "/" + loop_length + " - " + ((i + 1) / loop_length * 100).toFixed(2) + "%");
-                    re_q.push($X.math.Middle_School_Mathematics.Polynomials_and_factoring.Simplification(Number(results[234]), Number(results[235]), Number(results[236]), Number(results[237])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplification(Number(results[234]), Number(results[235]), Number(results[236]), Number(results[237])));
                 }
             }
 

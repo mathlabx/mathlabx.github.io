@@ -127,12 +127,10 @@ ins.adsbygoogle {
 /* Style for the Flow Element that occupies a full row */
 .full-line {
     background-color: rgb(138, 150, 225, 0.28);
-    border: 1px solid #ddd;
     display: inline-block;
     margin: 10px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     min-height: 0;
 }
@@ -145,6 +143,7 @@ ins.adsbygoogle {
     /* Slightly darken the background */
     transition: transform 0.2s, background-color 0.2s;
     /* Add a smooth transition effect */
+    box-shadow: 6px 6px 6px rgb(255 255 255 / 100%);
 }
 
 /* Style for the Flow Element Image */

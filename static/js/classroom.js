@@ -143,6 +143,9 @@ const Class_Operate = {
                 let new_title = document.createElement("h1");
                 new_title.className = "new_title";
                 new_title.innerHTML = Task_Name;
+                let new_due_date = document.createElement("h3");
+                new_due_date.className = "due_date";
+                new_due_date.innerHTML = Due_Date[0];
                 let new_Completeness = document.createElement("span");
                 new_Completeness.className = "new_Completeness";
                 let new_GoToTest = document.createElement("button");
@@ -206,6 +209,7 @@ const Class_Operate = {
                     document.querySelector('.overlay').style.display = 'none';
                 });
                 new_page_con.append(new_title);
+                new_page_con.append(new_due_date);
                 new_page_con.append(new_Completeness);
                 new_page_con.append(new_dis);
                 new_page_con.append(new_GoToTest);

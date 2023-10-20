@@ -2,8 +2,7 @@
 
 ## 开发者
 - __Tony Kan__, 
-- __Devin Liang__, 
-- __Daniel Zhou__
+- __Devin Liang__
 
 ## 文件结构介绍
 ```

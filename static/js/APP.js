@@ -132,7 +132,7 @@ window.addEventListener("load", function () {
 });
 
 /*流元素动画*/
-document.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('load', function () {
     // 获取具有目标类的所有元素
     const elements = document.querySelectorAll('.flow-element, .adsbygoogle');
 
@@ -145,15 +145,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 事件处理程序
     function handleMouseMove(e) {
-        const width = this.offsetWidth;
-        const height = this.offsetHeight;
-        const mouseX = e.pageX - this.offsetLeft - width / 2;
-        const mouseY = e.pageY - this.offsetTop - height / 2;
+        const rect = this.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const mouseX = e.clientX - centerX;
+        const mouseY = centerY - e.clientY;
+        const percentX = mouseX / (rect.width / 2);
+        const percentY = mouseY / (rect.height / 2);
 
-        const rX = (mouseX / width) * 30;
-        const rY = (mouseY / height) * -30;
+        const rY = percentX * 30;
+        const rX = percentY * 30;
 
-        this.style.transform = `rotateY(${rX}deg) rotateX(${rY}deg)`;
+        this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
     }
 
     function handleMouseEnter() {

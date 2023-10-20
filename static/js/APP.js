@@ -143,18 +143,27 @@ window.addEventListener('load', function () {
     });
 
     function handleMouseMove(e) {
-        const rect = this.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const mouseX = e.clientX - centerX;
-        const mouseY = centerY - e.clientY;
-        const percentX = mouseX / (rect.width / 4);
-        const percentY = mouseY / (rect.height / 4);
+        if (!throttled) {
+            requestAnimationFrame(() => {
+                const rect = this.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const mouseX = e.clientX - centerX;
+                const mouseY = centerY - e.clientY;
+                const percentX = mouseX / (rect.width / 4);
+                const percentY = mouseY / (rect.height / 4);
 
-        const rY = percentX * 10;
-        const rX = percentY * 10;
+                const rY = percentX * 10;
+                const rX = percentY * 10;
 
-        this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
+                this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
+
+                throttled = true;
+                setTimeout(() => {
+                    throttled = false;
+                }, 16);
+            });
+        }
     }
 
     function handleMouseEnter() {
@@ -171,10 +180,6 @@ window.addEventListener('load', function () {
         return function () {
             if (!throttled) {
                 func.apply(this, arguments);
-                throttled = true;
-                setTimeout(() => {
-                    throttled = false;
-                }, delay);
             }
         };
     }

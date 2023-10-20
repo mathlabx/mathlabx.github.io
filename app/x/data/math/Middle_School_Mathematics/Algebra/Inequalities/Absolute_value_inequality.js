@@ -13,7 +13,21 @@
     - Katex: |2x-1| + |x+2| < 5  Solution: -\frac{4}{3} < x < 3
 */
 
-$X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality = function (min, max) {
+X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality = function (min, max) {
+    // 最大公约数函数
+    function gcd(a, b) {
+        if (!b) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+
+    // 约分函数
+    function simplifyFraction(numerator, denominator) {
+        const divisor = gcd(numerator, denominator);
+        return `${numerator / divisor}\\/${denominator / divisor}`;
+    }
+
     // 生成随机系数
     const a = Math.floor(Math.random() * (max - min + 1)) + min;
     const b = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -27,17 +41,25 @@ $X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality = function (
     let answer;
     if (option === ">") {
         if (a > 0) {
-            answer = `${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)}, ${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)}`;
+            let firstValue = simplifyFraction(Math.abs(-b - constant), Math.abs(a));
+            let secondValue = simplifyFraction(Math.abs(-b + constant), Math.abs(a));
+            answer = `${-b - constant < 0 ? "-" : ""}${firstValue}, ${-b + constant < 0 ? "-" : ""}${secondValue}`;
         } else if (a < 0) {
-            answer = `${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)}, ${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)}`;
+            let firstValue = simplifyFraction(Math.abs(-b + constant), Math.abs(a));
+            let secondValue = simplifyFraction(Math.abs(-b - constant), Math.abs(a));
+            answer = `${-b + constant < 0 ? "-" : ""}${firstValue}, ${-b - constant < 0 ? "-" : ""}${secondValue}`;
         } else {
             answer = "\\emptyset";
         }
     } else {
         if (a > 0) {
-            answer = `${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)} < x < ${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)}`;
+            let firstValue = simplifyFraction(Math.abs(-b - constant), Math.abs(a));
+            let secondValue = simplifyFraction(Math.abs(-b + constant), Math.abs(a));
+            answer = `${-b - constant < 0 ? "-" : ""}${firstValue} < x < ${-b + constant < 0 ? "-" : ""}${secondValue}`;
         } else if (a < 0) {
-            answer = `${-b + constant < 0 ? "-" : ""}${Math.abs(-b + constant) / Math.abs(a)} < x < ${-b - constant < 0 ? "-" : ""}${Math.abs(-b - constant) / Math.abs(a)}`;
+            let firstValue = simplifyFraction(Math.abs(-b + constant), Math.abs(a));
+            let secondValue = simplifyFraction(Math.abs(-b - constant), Math.abs(a));
+            answer = `${-b + constant < 0 ? "-" : ""}${firstValue} < x < ${-b - constant < 0 ? "-" : ""}${secondValue}`;
         } else {
             answer = "\\emptyset";
         }

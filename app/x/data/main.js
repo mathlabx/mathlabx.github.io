@@ -1574,9 +1574,9 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
     });
     Setting_Array.push({
-        Name: "Basic Simplification | Maximum number",
+        Name: "Basic Simplification | Numbers of variables",
         Typ: "range",
-        Range: [1, 26, 26],
+        Range: [1, 3, 26],
         show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
     });
 

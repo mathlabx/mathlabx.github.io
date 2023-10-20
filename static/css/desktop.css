@@ -5,6 +5,10 @@
     font-size: 18px;
 }
 
+.types {
+    margin-top: -20px;
+}
+
 /* Override width and margin for all devices to center-align elements */
 .flow-element {
     width: calc(25% - 20px);

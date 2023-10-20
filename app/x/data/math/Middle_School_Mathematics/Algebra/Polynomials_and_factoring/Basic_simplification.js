@@ -8,8 +8,10 @@
 $X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplification = function (min, max, num_coefficient, num_var) {
     const coefficients = [];
     const variables = "abcdefghijklmnopqrstuvwxyz".slice(0, num_var);
-    let problem = ["factoring the following expressions: "];
+    let problem = new Array();
     let answer = "";
+
+    problem[0] = "factoring the following expressions: ";
 
     for (let i = 0; i < num_coefficient; i++) {
         coefficients.push(Math.floor(Math.random() * (max - min + 1)) + min);

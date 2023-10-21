@@ -262,6 +262,8 @@ ins.adsbygoogle {
     }
 
     .fish-container {
-
+        position: fixed;
+        bottom: -4px;
+        height: 70px;
     }
 }

@@ -4,12 +4,6 @@ window.addEventListener('load', function () {
     window_load(true, 1500);
     setTimeout(() => {
         createFlyingFishContainer();
-        window.addEventListener('resize', function () {
-            document.getElementById("jsi-flying-fish-container").remove();
-            setTimeout(() => {
-                createFlyingFishContainer();
-            }, 1000);
-        });
     }, 1000);
 });
 

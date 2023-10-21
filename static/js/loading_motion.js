@@ -23,6 +23,7 @@ function createFlyingFishContainer() {
     var container = document.createElement('div');
     container.setAttribute('id', 'jsi-flying-fish-container');
     container.classList.add('container');
+    container.style.width = "100vh"
     document.getElementsByTagName("main")[0].appendChild(container);
 
     var RENDERER = {

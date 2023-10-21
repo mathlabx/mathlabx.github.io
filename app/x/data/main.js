@@ -93,7 +93,7 @@ let scriptsToLoad = [
     './data/math/Elementary_Mathematics/Time/Reading_clocks_and_calendars.js',
     './data/math/Elementary_Mathematics/Time/Time_calculations.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Single_variable_linear_equations.js',
-    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_linear_equations_with_one_variable.js',
+    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Linear_equations_with_one_variable.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Quadratic_equations.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_two_variable_linear_equation.js',
     './data/math/Middle_School_Mathematics/Algebra/Inequalities/Linear_inequality_of_one_variable.js',
@@ -1345,42 +1345,41 @@ function X_Generate(setting) {
     });
 
     Setting_Array.push({
-        Name: "Algebra | Systems of Single-variable Linear Equations&Reg",
+        Name: "Algebra | Single-variable Linear Equations&Reg",
         Typ: "checked",
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Systems of Single-variable Linear Equations | Number of questions to generate",
+        Name: "Single-variable Linear Equations | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Systems of Single-variable Linear Equations | Minimum number",
+        Name: "Single-variable Linear Equations | Minimum number",
         Typ: "range",
         Range: [1, 100000, 10],
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Systems of Single-variable Linear Equations | Maximum number",
+        Name: "Single-variable Linear Equations | Maximum number",
         Typ: "range",
         Range: [1, 100000, 50],
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Systems of Single-variable Linear Equations | Addition",
+        Name: "Single-variable Linear Equations | Addition",
         Typ: "checked",
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Systems of Single-variable Linear Equations | Subtraction",
+        Name: "Single-variable Linear Equations | Subtraction",
         Typ: "checked",
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Systems of Single-variable Linear Equations | Equations in system of equations",
-        Typ: "range",
-        Range: [1, 10, 2],
+        Name: "Single-variable Linear Equations | ",
+        Typ: "checked",
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
     });
 
@@ -2023,7 +2022,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[199]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - System of Single variable linear equations: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_linear_equations_with_one_variable(Number(results[200]), Number(results[201]), results[202], results[203], Number(results[204])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Linear_equations_with_one_variable(Number(results[200]), Number(results[201]), results[202], results[203], results[204]));
                 }
             }
             if (results[205] == true) {

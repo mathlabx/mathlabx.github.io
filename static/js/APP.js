@@ -88,9 +88,15 @@ APP.log = function (message = "Loading...", duration = 3000) {
     return { hide };
 }
 
-// 示例使用方式
-//APP.log("加载中，请稍候...", 5000); // 在5秒后自动隐藏加载提示
+APP.OnePageWebAPPMod = function (one_url) {
+    if (one_url) {
+        var newURL = "https://app.mathscichem.com/";
+        history.pushState(null, null, newURL);
+        console.log("One Page Web APP MOD IS ON", window.location.href);
+    }
+}
 
+APP.OnePageWebAPPMod(true);
 
 APP.Ads = {
     /*

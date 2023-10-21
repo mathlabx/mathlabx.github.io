@@ -89,16 +89,6 @@ APP.log = function (message = "Loading...", duration = 3000) {
     return { hide };
 }
 
-APP.OnePageWebAPPMod = function (one_url) {
-    if (one_url) {
-        var newURL = "https://app.mathscichem.com/";
-        window.location.replace(newURL);
-        console.log("One Page Web APP MOD IS ON", window.location.href);
-    }
-}
-
-APP.OnePageWebAPPMod(true);
-
 APP.Ads = {
     /*
     none

@@ -238,6 +238,10 @@ ins.adsbygoogle {
     width: 100%;
 }
 
+main{
+    margin-bottom: 80px;
+}
+
 /* Media Query for iPad and Larger Devices */
 @media (min-width: 768px) {
     body {

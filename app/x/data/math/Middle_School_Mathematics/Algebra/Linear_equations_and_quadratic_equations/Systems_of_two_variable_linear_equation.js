@@ -10,20 +10,24 @@
 PS: 不会可以参考小学加减法
 */
 
-$X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation = function (min, max, add, sub, num_equ) {
+function Two_variable_linear_equations(min, max, add, sub, num_equ) {
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
     const equations = [];
-    const x = $$.math.generateRandomNumber(min, max);
-    const y = $$.math.generateRandomNumber(min, max);
+    const x = getRandomNumber(min, max);
+    const y = getRandomNumber(min, max);
 
     for (let i = 0; i < num_equ; i++) {
         let a, b, c;
         if (add) {
-            a = $$.math.generateRandomNumber(min, max);
-            b = $$.math.generateRandomNumber(min, max);
+            a = getRandomNumber(min, max);
+            b = getRandomNumber(min, max);
             c = x * a + y * b;
         } else if (sub) {
-            a = $$.math.generateRandomNumber(min, max);
-            b = $$.math.generateRandomNumber(min, max);
+            a = getRandomNumber(min, max);
+            b = getRandomNumber(min, max);
             c = x * a - y * b;
         }
         equations.push([a, b, c]);

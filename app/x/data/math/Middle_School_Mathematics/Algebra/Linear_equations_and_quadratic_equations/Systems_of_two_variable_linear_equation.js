@@ -12,30 +12,28 @@ PS: 不会可以参考小学加减法
 
 $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation = function (min, max, add, sub, num_equ) {
     const equations = [];
+    const x = $$.math.generateRandomNumber(min, max);
+    const y = $$.math.generateRandomNumber(min, max);
+
     for (let i = 0; i < num_equ; i++) {
         let a, b, c;
-        if (add && !sub) {
-            a = Math.floor(Math.random() * (max - min + 1)) + min;
-            b = Math.floor(Math.random() * (max - min + 1)) + min;
-            c = Math.floor(Math.random() * (max - min + 1)) + min;
-        } else if (sub && !add) {
-            a = Math.floor(Math.random() * (max - min + 1)) + min;
-            b = Math.floor(Math.random() * (max - min + 1)) + min;
-            c = Math.floor(Math.random() * (max - min + 1)) + min;
-        } else {
-            // Handle the case when both add and sub are true or false
+        if (add) {
+            a = $$.math.generateRandomNumber(min, max);
+            b = $$.math.generateRandomNumber(min, max);
+            c = x * a + y * b;
+        } else if (sub) {
+            a = $$.math.generateRandomNumber(min, max);
+            b = $$.math.generateRandomNumber(min, max);
+            c = x * a - y * b;
         }
-        equations.push([[a, b, c]]);
+        equations.push([a, b, c]);
     }
 
     const problem = [`Solve the Systems of linear equations: `];
     equations.forEach(eq => {
-        problem.push(`${eq[0][0]}x + ${eq[0][1]}y = ${eq[0][2]}, `);
+        problem.push(`${eq[0]}x + ${eq[1]}y = ${eq[2]}, `);
     });
 
-    const x = 0; // 请填写计算得到的 x 的值
-    const y = 0; // 请填写计算得到的 y 的值
-
-    const answer = `x = ${x}, y = ${y}`;
-    return [problem.join(''), answer];
+    const answer = `x = \\frac{${y} + ${max}}{${x}}, y = ${y}`;
+    return [problem, answer];
 }

@@ -360,30 +360,6 @@ function createFlyingFishContainer() {
             context.fill();
             context.restore();
 
-            // 绘制鳍
-            context.save();
-            context.translate(-10, 10); // 调整位置
-            context.beginPath();
-            context.moveTo(0, 0);
-            context.lineTo(-15, 20);
-            context.lineTo(-25, 20);
-            context.closePath();
-            context.fillStyle = 'gray'; // 保持颜色
-            context.fill();
-            context.restore();
-
-            context.save();
-            context.translate(-10, -10); // 调整位置
-            context.scale(1, -1); // 垂直翻转
-            context.beginPath();
-            context.moveTo(0, 0);
-            context.lineTo(-15, 20);
-            context.lineTo(-25, 20);
-            context.closePath();
-            context.fillStyle = 'gray'; // 保持颜色
-            context.fill();
-            context.restore();
-
             context.save();
             context.translate(-25, 0); // 调整鳍的位置
             context.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1));

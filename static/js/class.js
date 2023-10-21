@@ -95,6 +95,11 @@ function openForm() {
     createButton.onclick = creat_class;
     formContainer.appendChild(createButton);
     document.body.appendChild(formContainer);
+
+    /*自动转大写*/
+    document.getElementById("7d_code").addEventListener("input", function () {
+        this.value = this.value.toUpperCase();
+    });
 }
 
 function createInput(placeholder) {

@@ -339,40 +339,44 @@ function createFlyingFishContainer() {
             context.rotate(Math.PI + Math.atan2(this.vy, this.vx));
             context.scale(1, this.direction ? 1 : -1);
 
-            // 绘制海豚的身体
             context.beginPath();
-            context.moveTo(0, -50);
-            context.bezierCurveTo(40, -40, 60, 20, 30, 40);
-            context.bezierCurveTo(0, 30, -40, 40, -30, 0);
-            context.bezierCurveTo(-40, -40, 0, -50, 0, -50);
-            context.fillStyle = 'gray'; // 使用灰色填充
+            context.moveTo(-30, 0);
+            context.bezierCurveTo(-10, 0, 5, -30, 40, 0);
+            context.bezierCurveTo(5, 30, -10, 0, -30, 0);
+            context.fillStyle = 'gray';
             context.fill();
 
-            // 绘制海豚的背鳍
+            context.save();
+            context.translate(40, 0);
+            context.scale(0.9 + 0.2 * Math.sin(this.theta), 1);
             context.beginPath();
-            context.moveTo(30, -20);
-            context.lineTo(60, -30);
-            context.lineTo(55, -10);
-            context.closePath();
-            context.fillStyle = 'darkgray'; // 使用深灰色填充
+            context.moveTo(0, 0);
+            context.quadraticCurveTo(5, 10, 20, 8);
+            context.quadraticCurveTo(12, 5, 10, 0);
+            context.quadraticCurveTo(12, -5, 20, -8);
+            context.quadraticCurveTo(5, -10, 0, 0);
             context.fill();
-
-            // 绘制海豚的胸鳍
-            context.beginPath();
-            context.moveTo(40, 20);
-            context.lineTo(60, 40);
-            context.lineTo(50, 30);
-            context.closePath();
-            context.fillStyle = 'darkgray'; // 使用深灰色填充
-            context.fill();
-
-            // 绘制海豚的眼睛
-            context.beginPath();
-            context.arc(-20, -20, 5, 0, 2 * Math.PI);
-            context.fillStyle = 'black'; // 使用黑色填充
-            context.fill();
-
             context.restore();
+
+            context.save();
+            context.translate(-3, 0);
+            context.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1));
+
+            context.beginPath();
+            if (this.renderer.reverse) {
+                context.moveTo(5, 0);
+                context.bezierCurveTo(10, 10, 10, 30, 0, 40);
+                context.bezierCurveTo(-12, 25, -8, 10, 0, 0);
+            } else {
+                context.moveTo(-5, 0);
+                context.bezierCurveTo(-10, -10, -10, -30, 0, -40);
+                context.bezierCurveTo(12, -25, 8, -10, 0, 0);
+            }
+            context.closePath();
+            context.fill();
+            context.restore();
+            context.restore();
+
             this.controlStatus(context);
         }
     };

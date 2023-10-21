@@ -10,11 +10,11 @@
 PS: 不会可以参考小学加减法
 */
 
-function Two_variable_linear_equations(min, max, add, sub, num_equ) {
+$X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation = function (min, max, add, sub, num_equ) {
     function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    
+
     const equations = [];
     const x = getRandomNumber(min, max);
     const y = getRandomNumber(min, max);

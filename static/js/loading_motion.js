@@ -339,13 +339,15 @@ function createFlyingFishContainer() {
             context.rotate(Math.PI + Math.atan2(this.vy, this.vx));
             context.scale(1, this.direction ? 1 : -1);
 
+            // 绘制身体
             context.beginPath();
             context.moveTo(-30, 0);
-            context.bezierCurveTo(-10, 0, 5, -30, 40, 0);
-            context.bezierCurveTo(5, 30, -10, 0, -30, 0);
-            context.fillStyle = 'gray';
+            context.bezierCurveTo(-20, 20, 10, 15, 40, 0);
+            context.bezierCurveTo(10, -15, -20, -20, -30, 0);
+            context.fillStyle = 'gray'; // 保持颜色
             context.fill();
 
+            // 绘制尾巴
             context.save();
             context.translate(40, 0);
             context.scale(0.9 + 0.2 * Math.sin(this.theta), 1);
@@ -358,10 +360,10 @@ function createFlyingFishContainer() {
             context.fill();
             context.restore();
 
+            // 绘制鳍
             context.save();
-            context.translate(-3, 0);
+            context.translate(-25, 0); // 调整鳍的位置
             context.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1));
-
             context.beginPath();
             if (this.renderer.reverse) {
                 context.moveTo(5, 0);
@@ -373,10 +375,10 @@ function createFlyingFishContainer() {
                 context.bezierCurveTo(12, -25, 8, -10, 0, 0);
             }
             context.closePath();
+            context.fillStyle = 'gray'; // 保持颜色
             context.fill();
             context.restore();
             context.restore();
-
             this.controlStatus(context);
         }
     };

@@ -18,7 +18,7 @@ window.addEventListener('load', function () {
                         rect1.top > rect2.bottom);
                 }
                 if (window.innerWidth < 1000) {
-                    if (checkOverlap(document.getElementsByTagName("main")[0], document.getElementById("jsi-flying-fish-container"))) {
+                    if (checkOverlap(document.getElementById("container"), document.getElementById("jsi-flying-fish-container"))) {
                         for (let times = 0; times < 3; times++) {
                             let new_br = document.createElement("br");
                             document.getElementsByTagName("main")[0].append(new_br);

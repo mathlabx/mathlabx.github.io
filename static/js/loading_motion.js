@@ -81,7 +81,7 @@ function createFlyingFishContainer() {
             this.height = this.$container.offsetHeight;
             this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500;
             this.$canvas.width = this.width;
-            this.$canvas.height = (this.height + 4);
+            this.$canvas.height = this.height;
             this.reverse = false;
 
             this.fishes.push(new FISH(this));

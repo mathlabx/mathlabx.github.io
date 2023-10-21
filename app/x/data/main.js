@@ -71,7 +71,7 @@ let $X = {
     }
 };
 
-const MPCLabAPIurl = APP.domainURL + "/app";
+const MPCLabAPIurl = APP.domainURL + "/app/x";
 let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Elementary_Mathematics/Basic_Operations/Addition.js',
     MPCLabAPIurl + '/data/math/Elementary_Mathematics/Basic_Operations/Subtraction.js',

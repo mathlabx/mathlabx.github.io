@@ -34,7 +34,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             // Check if the fraction is too large and regenerate if necessary
             const numerator = Math.abs(b);
             const denominator = 2 * Math.abs(a);
-            if (denominator > 100) {
+            if (numerator > max || denominator > max) {
                 continue;
             }
 

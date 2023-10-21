@@ -3,6 +3,7 @@ APP.apps = new Object();
 APP.liked = new Object();
 APP.account = new Object();
 APP.login = false;
+APP.domainURL = "https://app.mathscichem.com";
 APP.get_from_server = function () {
     if (APP.account.UID) {
         serverStorage.getItem("User", APP.account.UID).then((data) => {

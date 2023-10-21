@@ -348,7 +348,7 @@ function into_class(class_id) {
 
         // 在这里将 JSON 字符串作为查询参数发送到 classroom.html
         const queryString = new URLSearchParams({ data: jsonStr }).toString();
-        const url = "classroom.html?" + queryString; // 在这里替换成接收文件的路径
+        const url = APP.domainURL + "/class/classroom.html?" + queryString; // 在这里替换成接收文件的路径
         window.location.href = url;
     }
     sendObject(class_id);

@@ -71,7 +71,7 @@ let $X = {
     }
 };
 
-const MPCLabAPIurl = "https://app.mathscichem.com/app"
+const MPCLabAPIurl = APP.domainURL + "/app";
 let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Elementary_Mathematics/Basic_Operations/Addition.js',
     MPCLabAPIurl + '/data/math/Elementary_Mathematics/Basic_Operations/Subtraction.js',

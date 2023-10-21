@@ -231,6 +231,13 @@ ins.adsbygoogle {
     display: inline-block;
 }
 
+.fish-container {
+    position: fixed;
+    bottom: -4px;
+    height: 110px;
+    width: 100%;
+}
+
 /* Media Query for iPad and Larger Devices */
 @media (min-width: 768px) {
     body {
@@ -259,12 +266,5 @@ ins.adsbygoogle {
 
     .logo {
         height: 40px;
-    }
-
-    .fish-container {
-        position: fixed;
-        bottom: -4px;
-        height: 110px;
-        width: 100%;
     }
 }

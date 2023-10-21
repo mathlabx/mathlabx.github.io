@@ -100,8 +100,8 @@ function createFlyingFishContainer() {
             }
         },
         jdugeToStopResize: function () {
-            var width = this.$window.width(),
-                height = this.$window.height(),
+            var width = this.$window.innerWidth,
+                height = this.$window.innerHeight,
                 stopped = (width == this.tmpWidth && height == this.tmpHeight);
 
             this.tmpWidth = width;

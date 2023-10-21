@@ -288,6 +288,32 @@ function createFlyingFishContainer() {
             this.isOut = false;
             this.theta = 0;
             this.phi = 0;
+
+            // 新增触须游动的参数
+            this.tentacleTheta = 0;
+            this.tentacleAmplitude = 20;
+            this.tentacleFrequency = 0.03;
+        },
+        controlTentacles: function () {
+            this.tentacleTheta += this.tentacleFrequency;
+        },
+        renderTentacles: function (context) {
+            context.save();
+            context.translate(this.x, this.y);
+
+            // 渲染触须的游动效果
+            let tentacleOffset = Math.sin(this.tentacleTheta) * this.tentacleAmplitude;
+            context.beginPath();
+            context.moveTo(-10, 0);
+            context.quadraticCurveTo(-20, 10 + tentacleOffset, -30, 0);
+            context.quadraticCurveTo(-20, -10 + tentacleOffset, -10, 0);
+            context.moveTo(10, 0);
+            context.quadraticCurveTo(20, 10 - tentacleOffset, 30, 0);
+            context.quadraticCurveTo(20, -10 - tentacleOffset, 10, 0);
+            context.lineWidth = 2;
+            context.strokeStyle = "rgba(255,255,255,0.6)";
+            context.stroke();
+            context.restore();
         },
         getRandomValue: function (min, max) {
             return min + (max - min) * Math.random();

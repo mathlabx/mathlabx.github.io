@@ -84,7 +84,7 @@ function createFlyingFishContainer() {
             this.$canvas.height = this.height;
             this.reverse = false;
 
-            this.fishes.push(new FISH(this));
+            this.fishes.push(new JELLYFISH(this));
             this.createSurfacePoints();
         },
         watchWindowSize: function () {

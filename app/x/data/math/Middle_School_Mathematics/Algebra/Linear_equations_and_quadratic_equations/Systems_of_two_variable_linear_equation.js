@@ -38,6 +38,6 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
         problem.push(`${eq[0]}x + ${eq[1]}y = ${eq[2]}, `);
     });
 
-    const answer = `x = \\frac{${y} + ${max}}{${x}}, y = ${y}`;
+    const answer = `x = {${x}}, y = ${y}`;
     return [problem, answer];
 }

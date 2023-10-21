@@ -53,14 +53,14 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_linear_equations_with_one_v
 
             let parts = equation.split(" ");
             let a = parseInt(parts[0]);
-            let operator = parts[2];
-            let b = parseInt(parts[4]);
-            let c = parseInt(parts[6]);
+            let operator = parts[1]; // 更正操作符索引
+            let b = parseInt(parts[2]);
+            let c = parseInt(parts[4]);
 
             if (operator === "+") {
                 variables.x = (c - b) / a;
             } else if (operator === "-") {
-                variables.x = (b - c) / a;
+                variables.x = (b - c) / a; // 修正减法运算
             }
         }
 

@@ -80,6 +80,8 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations = fun
     // 存储问题以避免重复
     storedQuestions.push(question);
 
+    answer = "x = " + answer;
+
     // 返回问题描述和答案
     return [question, answer];
 }

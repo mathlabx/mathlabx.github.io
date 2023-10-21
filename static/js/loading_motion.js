@@ -22,6 +22,7 @@ function window_load(loaded, time) {
 function createFlyingFishContainer() {
     var container = document.createElement('div');
     container.setAttribute('id', 'jsi-flying-fish-container');
+    container.style.pointerEvents = "none";
     container.classList.add('fish-container');
     //document.getElementsByTagName("main")[0].appendChild(container);
     document.body.appendChild(container);

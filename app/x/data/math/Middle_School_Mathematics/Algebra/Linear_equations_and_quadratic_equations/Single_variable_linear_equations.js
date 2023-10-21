@@ -94,36 +94,6 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w = f
         return storedQuestions.includes(question);
     }
 
-    // 将小数转换为分数
-    function convertToFractionIfDecimal(number) {
-        const tolerance = 1.0E-6; // 容差值，用于判断是否为小数
-
-        if (Math.abs(Math.round(number) - number) < tolerance) {
-            // 是整数
-            return number;
-        } else {
-            // 是小数，将其转换为分数
-            const tolerance = 1.0E-6; // 容差值
-            let h1 = 1;
-            let h2 = 0;
-            let k1 = 0;
-            let k2 = 1;
-            let b = number;
-            do {
-                let a = Math.floor(b);
-                let aux = h1;
-                h1 = a * h1 + h2;
-                h2 = aux;
-                aux = k1;
-                k1 = a * k1 + k2;
-                k2 = aux;
-                b = 1 / (b - a);
-            } while (Math.abs(number - h1 / k1) > number * tolerance);
-
-            return [h1, k1];
-        }
-    }
-
     // 生成唯一问题
     let question;
     let answer;
@@ -138,15 +108,15 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w = f
 
         // 创建潜在场景的数组
         let scenarios = [
-            `John has ${a} apples. He ${operator} gives away ${b} apples. How many apples does he have now?`,
-            `In a classroom, there are ${a} students. If ${b} students are absent, how many students are present?`,
-            `Tom bought ${a} candies. He ${operator} eats ${b} candies. How many candies does he have left?`,
-            `There are ${a} birds in a tree. ${b} more birds fly to the tree. How many birds are there now?`,
-            `Lisa has ${a} stickers. She ${operator} shares ${b} stickers with her friends. How many stickers does she have left?`,
-            `In a game, there are ${a} players. If ${b} players join the game, how many players are there in total?`,
+            `John has ${a} apples. He ${operator === 'plus' ? 'gives away' : 'gets'} ${b} apples. How many apples does he have now?`,
+            `In a classroom, there are ${a} students. If ${b} students ${operator === 'plus' ? 'join' : 'leave'}, how many students are present?`,
+            `Tom bought ${a} candies. He ${operator === 'plus' ? 'eats' : 'receives'} ${b} candies. How many candies does he have left?`,
+            `There are ${a} birds in a tree. ${b} more birds ${operator === 'plus' ? 'fly to' : 'leave'} the tree. How many birds are there now?`,
+            `Lisa has ${a} stickers. She ${operator === 'plus' ? 'shares' : 'collects'} ${b} stickers with her friends. How many stickers does she have now?`,
+            `In a game, there are ${a} players. If ${b} players ${operator === 'plus' ? 'join' : 'quit'}, how many players are there in total?`,
             `Alex saves $${a} per week. After ${b} weeks, how much money has he saved in total?`,
-            `There are ${a} chocolates in a box. If ${b} chocolates are taken out, how many chocolates are left in the box?`,
-            `Megan has ${a} marbles. She ${operator} wins ${b} more marbles in a game. How many marbles does she have now?`,
+            `There are ${a} chocolates in a box. If ${b} chocolates ${operator === 'plus' ? 'are added' : 'are removed'}, how many chocolates are left in the box?`,
+            `Megan has ${a} marbles. She ${operator === 'plus' ? 'wins' : 'loses'} ${b} more marbles in a game. How many marbles does she have now?`,
         ];
 
         // 随机选择一个场景
@@ -156,11 +126,14 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w = f
         question = `Solve the following equation: ${randomScenario}`;
 
         // 计算答案
-        answer = add ? a - b : sub ? a + b : a;
-
-        // 根据答案是否小数，将答案表示为分数
-        answer = convertToFractionIfDecimal(answer);
-    } while (checkIfQuestionExists(question));
+        if (add) {
+            answer = a - b;
+        } else if (sub) {
+            answer = a + b;
+        } else {
+            answer = a;
+        }
+    } while (checkIfQuestionExists(question) || answer !== Math.floor(answer));
 
     // 存储问题以避免重复
     storedQuestions.push(question);

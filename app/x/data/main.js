@@ -93,7 +93,6 @@ let scriptsToLoad = [
     './data/math/Elementary_Mathematics/Time/Reading_clocks_and_calendars.js',
     './data/math/Elementary_Mathematics/Time/Time_calculations.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Single_variable_linear_equations.js',
-    './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Linear_equations_with_one_variable.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Quadratic_equations.js',
     './data/math/Middle_School_Mathematics/Algebra/Linear_equations_and_quadratic_equations/Systems_of_two_variable_linear_equation.js',
     './data/math/Middle_School_Mathematics/Algebra/Inequalities/Linear_inequality_of_one_variable.js',
@@ -1345,45 +1344,6 @@ function X_Generate(setting) {
     });
 
     Setting_Array.push({
-        Name: "Algebra | Single-variable Linear Equations&Reg",
-        Typ: "checked",
-        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
-    });
-    Setting_Array.push({
-        Name: "Single-variable Linear Equations | Number of questions to generate",
-        Typ: "range",
-        Range: [1, 10000, 40],
-        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
-    });
-    Setting_Array.push({
-        Name: "Single-variable Linear Equations | Minimum number",
-        Typ: "range",
-        Range: [1, 100000, 10],
-        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
-    });
-    Setting_Array.push({
-        Name: "Single-variable Linear Equations | Maximum number",
-        Typ: "range",
-        Range: [1, 100000, 50],
-        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
-    });
-    Setting_Array.push({
-        Name: "Single-variable Linear Equations | Addition",
-        Typ: "checked",
-        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
-    });
-    Setting_Array.push({
-        Name: "Single-variable Linear Equations | Subtraction",
-        Typ: "checked",
-        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
-    });
-    Setting_Array.push({
-        Name: "Single-variable Linear Equations | ",
-        Typ: "checked",
-        show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
-    });
-
-    Setting_Array.push({
         Name: "Algebra | Quadratic Equations&Reg",
         Typ: "checked",
         show: setting[0].topics[1].subtopics[0].subtopics[0]._checked
@@ -2021,57 +1981,50 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
             if (results[198] == true) {
                 loop_length = Number(results[199]);
                 for (let i = 0; i < loop_length; i++) {
-                    gen_log("Generating - System of Single variable linear equations: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Linear_equations_with_one_variable(Number(results[200]), Number(results[201]), results[202], results[203], results[204]));
+                    gen_log("Generating - Quadratic equations: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_equations(Number(results[200]), Number(results[201])));
                 }
             }
-            if (results[205] == true) {
-                loop_length = Number(results[206]);
+            if (results[202] == true) {
+                loop_length = Number(results[203]);
                 for (let i = 0; i < loop_length; i++) {
-                    gen_log("Generating - Quadratic equations: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_equations(Number(results[207]), Number(results[208])));
+                    gen_log("Generating - Systems of two variable linear equation: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation(Number(results[204]), Number(results[205]), Number(results[206]), results[207], results[208]));
                 }
             }
             if (results[209] == true) {
                 loop_length = Number(results[210]);
                 for (let i = 0; i < loop_length; i++) {
-                    gen_log("Generating - Systems of two variable linear equation: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation(Number(results[211]), Number(results[212]), Number(results[213]), results[214], results[215]));
-                }
-            }
-            if (results[216] == true) {
-                loop_length = Number(results[217]);
-                for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Linear inequality: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable(Number(results[218]), Number(results[219])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable(Number(results[211]), Number(results[212])));
                 }
             }
-            if (results[220] == true) {
-                loop_length = Number(results[221]);
+            if (results[213] == true) {
+                loop_length = Number(results[214]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Quadratic inequality: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable(Number(results[222]), Number(results[223])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable(Number(results[215]), Number(results[216])));
                 }
             }
-            if (results[224] == true) {
-                loop_length = Number(results[225]);
+            if (results[217] == true) {
+                loop_length = Number(results[218]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Absolute Value Inequality: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality(Number(results[226]), Number(results[227])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Absolute_value_inequality(Number(results[219]), Number(results[220])));
                 }
             }
-            if (results[228] == true) {
-                loop_length = Number(results[229]);
+            if (results[221] == true) {
+                loop_length = Number(results[222]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Fractional Inequality: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Fractional_inequality(Number(results[230]), Number(results[231])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Fractional_inequality(Number(results[223]), Number(results[224])));
                 }
             }
-            if (results[232] == true) {
-                loop_length = Number(results[233]);
+            if (results[225] == true) {
+                loop_length = Number(results[226]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Basic Simplification: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplification(Number(results[234]), Number(results[235]), Number(results[236]), Number(results[237])));
+                    re_q.push($X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplification(Number(results[227]), Number(results[228]), Number(results[229]), Number(results[230])));
                 }
             }
 

@@ -90,40 +90,9 @@ APP.log = function (message = "Loading...", duration = 3000) {
 
 APP.OnePageWebAPPMod = function (one_url) {
     if (one_url) {
-        // 监听整个HTML文档及其所有后续加载的资源
-        window.onload = function () {
-            console.log("All resources have been loaded.");
-            // 在此处执行您想要在所有资源加载完成后执行的操作
-            // 调用修改URL的函数
-            changeURL();
-        };
-
-        // 创建一个观察器实例并指定回调函数
-        var observer = new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                if (mutation.addedNodes) {
-                    // 在这里执行您希望在资源添加到页面时执行的操作
-                    console.log('New resource added:', mutation.addedNodes);
-                    // 检查是否所有资源已加载完成，然后调用修改URL的函数
-                    if (document.readyState === "complete") {
-                        changeURL();
-                    }
-                }
-            });
-        });
-
-        // 配置观察器的配置（这里我们只监视子节点的变化）
-        var config = { childList: true, subtree: true };
-
-        // 传入目标节点和观察器的配置
-        observer.observe(document, config);
-
-        // 修改URL的函数
-        function changeURL() {
-            var newURL = "https://app.mathscichem.com/";
-            history.pushState(null, null, newURL);
-            console.log("One Page Web APP MOD IS ON", window.location.href);
-        }
+        var newURL = "https://app.mathscichem.com/";
+        history.pushState(null, null, newURL);
+        console.log("One Page Web APP MOD IS ON", window.location.href);
     }
 }
 

@@ -364,47 +364,29 @@ function createFlyingFishContainer() {
         render: function (context) {
             context.save();
             context.translate(this.x, this.y);
-            context.rotate(Math.PI + Math.atan2(this.vy, this.vx));
-            context.scale(1, this.direction ? 1 : -1);
+
+            // 绘制水母主体
             context.beginPath();
-            context.moveTo(-30, 0);
-            context.bezierCurveTo(-20, 15, 15, 10, 40, 0);
-            context.bezierCurveTo(15, -10, -20, -15, -30, 0);
+            context.arc(0, 0, 50, 0, Math.PI * 2, true);
+            context.fillStyle = 'rgba(100,149,237,0.4)';
             context.fill();
 
-            context.save();
-            context.translate(40, 0);
-            context.scale(0.9 + 0.2 * Math.sin(this.theta), 1);
-            context.beginPath();
-            context.moveTo(0, 0);
-            context.quadraticCurveTo(5, 10, 20, 8);
-            context.quadraticCurveTo(12, 5, 10, 0);
-            context.quadraticCurveTo(12, -5, 20, -8);
-            context.quadraticCurveTo(5, -10, 0, 0);
-            context.fill();
-            context.restore();
-
-            context.save();
-            context.translate(-3, 0);
-            context.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1));
-
-            context.beginPath();
-
-            if (this.renderer.reverse) {
-                context.moveTo(5, 0);
-                context.bezierCurveTo(10, 10, 10, 30, 0, 40);
-                context.bezierCurveTo(-12, 25, -8, 10, 0, 0);
-            } else {
-                context.moveTo(-5, 0);
-                context.bezierCurveTo(-10, -10, -10, -30, 0, -40);
-                context.bezierCurveTo(12, -25, 8, -10, 0, 0);
+            // 绘制水母的触手
+            for (var i = 0; i < 8; i++) {
+                context.beginPath();
+                context.moveTo(0, 0);
+                context.bezierCurveTo(-25, 40, -70, 20, -80, 100);
+                context.bezierCurveTo(-60, 80, -35, 60, 0, 90);
+                context.bezierCurveTo(35, 60, 60, 80, 80, 100);
+                context.bezierCurveTo(70, 20, 25, 40, 0, 0);
+                context.fillStyle = 'rgba(100,149,237,0.4)';
+                context.fill();
+                context.rotate(Math.PI / 4);
             }
-            context.closePath();
-            context.fill();
-            context.restore();
+
             context.restore();
             this.controlStatus(context);
-        }
+        },
     };
 
     setTimeout(() => {

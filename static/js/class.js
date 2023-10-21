@@ -98,7 +98,9 @@ function openForm() {
 
     /*自动转大写*/
     document.getElementById("7d_code").addEventListener("input", function () {
-        this.value = this.value.toUpperCase();
+        let value = this.value;
+        value = value.slice(0, 7).toUpperCase().replace(/[^0-9A-F]/g, '');
+        this.value = value;
     });
 }
 

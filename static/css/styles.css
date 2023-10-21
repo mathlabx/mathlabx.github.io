@@ -260,4 +260,9 @@ ins.adsbygoogle {
     .logo {
         height: 40px;
     }
+
+    .fish-container {
+        width: 200vw;
+        margin-left: -50vw;
+    }
 }

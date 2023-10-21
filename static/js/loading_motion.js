@@ -84,7 +84,7 @@ function createFlyingFishContainer() {
             this.$canvas.height = this.height;
             this.reverse = false;
 
-            this.fishes.push(new JELLYFISH(this));
+            this.fishes.push(new FISH(this));
             this.createSurfacePoints();
         },
         watchWindowSize: function () {
@@ -261,21 +261,19 @@ function createFlyingFishContainer() {
         }
     };
 
-    var JELLYFISH = function (renderer) {
+    var FISH = function (renderer) {
         this.renderer = renderer;
         this.init();
     };
-    JELLYFISH.prototype = {
+    FISH.prototype = {
         GRAVITY: 0.4,
 
         init: function () {
-            // 修改水母的初始化方式
             this.direction = Math.random() < 0.5;
             this.x = this.direction ? (this.renderer.width + this.renderer.THRESHOLD) : -this.renderer.THRESHOLD;
             this.previousY = this.y;
             this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1);
 
-            // 调整水母的初始位置和速度
             if (this.renderer.reverse) {
                 this.y = this.getRandomValue(this.renderer.height * 1 / 10, this.renderer.height * 4 / 10);
                 this.vy = this.getRandomValue(2, 5);
@@ -288,32 +286,6 @@ function createFlyingFishContainer() {
             this.isOut = false;
             this.theta = 0;
             this.phi = 0;
-
-            // 新增触须游动的参数
-            this.tentacleTheta = 0;
-            this.tentacleAmplitude = 20;
-            this.tentacleFrequency = 0.03;
-        },
-        controlTentacles: function () {
-            this.tentacleTheta += this.tentacleFrequency;
-        },
-        renderTentacles: function (context) {
-            context.save();
-            context.translate(this.x, this.y);
-
-            // 渲染触须的游动效果
-            let tentacleOffset = Math.sin(this.tentacleTheta) * this.tentacleAmplitude;
-            context.beginPath();
-            context.moveTo(-10, 0);
-            context.quadraticCurveTo(-20, 10 + tentacleOffset, -30, 0);
-            context.quadraticCurveTo(-20, -10 + tentacleOffset, -10, 0);
-            context.moveTo(10, 0);
-            context.quadraticCurveTo(20, 10 - tentacleOffset, 30, 0);
-            context.quadraticCurveTo(20, -10 - tentacleOffset, 10, 0);
-            context.lineWidth = 2;
-            context.strokeStyle = "rgba(255,255,255,0.6)";
-            context.stroke();
-            context.restore();
         },
         getRandomValue: function (min, max) {
             return min + (max - min) * Math.random();
@@ -364,29 +336,47 @@ function createFlyingFishContainer() {
         render: function (context) {
             context.save();
             context.translate(this.x, this.y);
-
-            // 绘制水母主体
+            context.rotate(Math.PI + Math.atan2(this.vy, this.vx));
+            context.scale(1, this.direction ? 1 : -1);
             context.beginPath();
-            context.arc(0, 0, 50, 0, Math.PI * 2, true);
-            context.fillStyle = 'rgba(100,149,237,0.4)';
+            context.moveTo(-30, 0);
+            context.bezierCurveTo(-20, 15, 15, 10, 40, 0);
+            context.bezierCurveTo(15, -10, -20, -15, -30, 0);
             context.fill();
 
-            // 绘制水母的触手
-            for (var i = 0; i < 8; i++) {
-                context.beginPath();
-                context.moveTo(0, 0);
-                context.bezierCurveTo(-25, 40, -70, 20, -80, 100);
-                context.bezierCurveTo(-60, 80, -35, 60, 0, 90);
-                context.bezierCurveTo(35, 60, 60, 80, 80, 100);
-                context.bezierCurveTo(70, 20, 25, 40, 0, 0);
-                context.fillStyle = 'rgba(100,149,237,0.4)';
-                context.fill();
-                context.rotate(Math.PI / 4);
-            }
+            context.save();
+            context.translate(40, 0);
+            context.scale(0.9 + 0.2 * Math.sin(this.theta), 1);
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.quadraticCurveTo(5, 10, 20, 8);
+            context.quadraticCurveTo(12, 5, 10, 0);
+            context.quadraticCurveTo(12, -5, 20, -8);
+            context.quadraticCurveTo(5, -10, 0, 0);
+            context.fill();
+            context.restore();
 
+            context.save();
+            context.translate(-3, 0);
+            context.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1));
+
+            context.beginPath();
+
+            if (this.renderer.reverse) {
+                context.moveTo(5, 0);
+                context.bezierCurveTo(10, 10, 10, 30, 0, 40);
+                context.bezierCurveTo(-12, 25, -8, 10, 0, 0);
+            } else {
+                context.moveTo(-5, 0);
+                context.bezierCurveTo(-10, -10, -10, -30, 0, -40);
+                context.bezierCurveTo(12, -25, 8, -10, 0, 0);
+            }
+            context.closePath();
+            context.fill();
+            context.restore();
             context.restore();
             this.controlStatus(context);
-        },
+        }
     };
 
     setTimeout(() => {

@@ -8,10 +8,21 @@ window.addEventListener('load', function () {
         window.addEventListener('resize', function () {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
+                function checkOverlap(element1, element2) {
+                    var rect1 = element1.getBoundingClientRect();
+                    var rect2 = element2.getBoundingClientRect();
+
+                    return !(rect1.right < rect2.left ||
+                        rect1.left > rect2.right ||
+                        rect1.bottom < rect2.top ||
+                        rect1.top > rect2.bottom);
+                }
                 if (window.innerWidth < 1000) {
-                    for (let times = 0; times < 3; times++) {
-                        let new_br = document.createElement("br");
-                        document.getElementsByTagName("main")[0].append(new_br);
+                    if (checkOverlap(document.getElementsByTagName("main")[0], document.getElementById("jsi-flying-fish-container"))) {
+                        for (let times = 0; times < 3; times++) {
+                            let new_br = document.createElement("br");
+                            document.getElementsByTagName("main")[0].append(new_br);
+                        }
                     }
                 }
                 document.getElementById("jsi-flying-fish-container").remove();

@@ -232,6 +232,7 @@ ins.adsbygoogle {
 }
 
 .fish-container {
+    z-index: -1;
     position: fixed;
     bottom: -4px;
     height: 110px;

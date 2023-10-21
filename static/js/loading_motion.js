@@ -4,6 +4,9 @@ window.addEventListener('load', function () {
     window_load(true, 1500);
     setTimeout(() => {
         createFlyingFishContainer();
+        window.addEventListener('resize', function () {
+            createFlyingFishContainer();
+        });
     }, 1000);
 });
 

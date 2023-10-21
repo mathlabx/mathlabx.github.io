@@ -92,7 +92,7 @@ APP.log = function (message = "Loading...", duration = 3000) {
 APP.OnePageWebAPPMod = function (one_url) {
     if (one_url) {
         var newURL = "https://app.mathscichem.com/";
-        history.pushState(null, null, newURL);
+        window.location.replace(newURL);
         console.log("One Page Web APP MOD IS ON", window.location.href);
     }
 }

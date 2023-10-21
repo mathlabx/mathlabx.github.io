@@ -270,6 +270,7 @@ main {
 
     .fish-container {
         width: 200vw;
+        margin-top: auto;
         margin-left: -50vw;
     }
 }

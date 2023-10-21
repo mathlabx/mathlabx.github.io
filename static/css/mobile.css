@@ -43,6 +43,7 @@ body {
 
 main {
     padding-bottom: 80px;
+    margin-bottom: 0;
 }
 
 /*隐藏底部鱼动画*/

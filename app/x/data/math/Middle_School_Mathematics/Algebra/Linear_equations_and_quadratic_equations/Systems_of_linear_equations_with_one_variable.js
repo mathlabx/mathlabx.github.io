@@ -12,94 +12,40 @@ PS: 不会可以参考小学加减法
 
 // 一元一次方程组题目和答案生成函数
 $X.math.Middle_School_Mathematics.Algebra.Systems_of_linear_equations_with_one_variable = function (min, max, add, sub, num_equ) {
-    let storedQuestions = [];
+    let equations = [];
+    let solutions = [];
 
-    function checkIfQuestionExists(question) {
-        return storedQuestions.includes(question);
-    }
-
-    function convertToFractionIfDecimal(number) {
-        const tolerance = 1.0E-6;
-
-        if (Math.abs(Math.round(number) - number) < tolerance) {
-            return number;
+    for (let i = 0; i < num_equ; i++) {
+        let a, b, c, op;
+        if (add && !sub) {
+            op = '+';
+        } else if (!add && sub) {
+            op = '-';
         } else {
-            let h1 = 1;
-            let h2 = 0;
-            let k1 = 0;
-            let k2 = 1;
-            let b = number;
-            do {
-                let a = Math.floor(b);
-                let aux = h1;
-                h1 = a * h1 + h2;
-                h2 = aux;
-                aux = k1;
-                k1 = a * k1 + k2;
-                k2 = aux;
-                b = 1 / (b - a);
-            } while (Math.abs(number - h1 / k1) > number * tolerance);
-
-            return [h1, k1];
+            op = Math.random() < 0.5 ? '+' : '-';
         }
+        a = Math.floor(Math.random() * (max - min + 1)) + min;
+        b = Math.floor(Math.random() * (max - min + 1)) + min;
+        c = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        equations.push(`${a}x ${op === '+' ? '+' : '-'} ${b} = ${c}`);
+        // 解方程
+        let sol;
+        if (op === '+') {
+            sol = (c - b) / a;
+        } else {
+            sol = (c + b) / a;
+        }
+        solutions.push(sol);
     }
 
-    function solveEquations(equations, solutions) {
-        let variables = {};
-
-        for (let i = 0; i < equations.length; i++) {
-            let equation = equations[i];
-            let solution = solutions[i];
-
-            let parts = equation.split(" ");
-            let a = parseInt(parts[0]);
-            let operator = parts[1]; // 更正操作符索引
-            let b = parseInt(parts[2]);
-            let c = parseInt(parts[4]);
-
-            if (operator === "+") {
-                variables.x = (c - b) / a;
-            } else if (operator === "-") {
-                variables.x = (b - c) / a; // 修正减法运算
-            }
-        }
-
-        return variables.x;
+    let equation = [];
+    equation.push("Solve the following system of linear equations for 'x'.");
+    for (let i = 0; i < equations.length; i++) {
+        equation.push(equations[i] + ",");
     }
 
-    let equation = new Array();
-    let answer;
-    do {
-        let equations = [];
-        let solutions = [];
-
-        for (let i = 0; i < num_equ; i++) {
-            let factor = Math.floor(Math.random() * (max - min + 1)) + min;
-            let a = Math.floor(Math.random() * (max - min + 1)) + min;
-            let b = Math.floor(Math.random() * (max - min + 1)) + min;
-            let c = a * factor + b;
-
-            let operator = add ? '+' : sub ? '-' : '+';
-
-            let equationDesc = `${a}x ${operator} ${b} = ${c}`;
-            equations.push(equationDesc);
-
-            let x = add ? (c - b) / a : sub ? (b - c) / a : (c - b) / a;
-            solutions.push(x);
-        }
-
-        equation.push(`Solve the following system of linear equations for 'x'.`);
-        for (let i = 0; i < equations.length; i++) {
-            equation.push(equations[i] + ",");
-        }
-
-        let xValue = solveEquations(equations, solutions);
-
-        answer = convertToFractionIfDecimal(xValue);
-
-    } while (checkIfQuestionExists(equation));
-
-    storedQuestions.push(equation);
+    let answer = solutions;
 
     return [equation, answer];
 }

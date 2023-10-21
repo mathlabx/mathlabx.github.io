@@ -261,19 +261,21 @@ function createFlyingFishContainer() {
         }
     };
 
-    var FISH = function (renderer) {
+    var JELLYFISH = function (renderer) {
         this.renderer = renderer;
         this.init();
     };
-    FISH.prototype = {
+    JELLYFISH.prototype = {
         GRAVITY: 0.4,
 
         init: function () {
+            // 修改水母的初始化方式
             this.direction = Math.random() < 0.5;
             this.x = this.direction ? (this.renderer.width + this.renderer.THRESHOLD) : -this.renderer.THRESHOLD;
             this.previousY = this.y;
             this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1);
 
+            // 调整水母的初始位置和速度
             if (this.renderer.reverse) {
                 this.y = this.getRandomValue(this.renderer.height * 1 / 10, this.renderer.height * 4 / 10);
                 this.vy = this.getRandomValue(2, 5);

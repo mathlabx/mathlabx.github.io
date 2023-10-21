@@ -377,7 +377,7 @@ function createFlyingFishContainer() {
         }
     };
 
-    window.onload = function () {
+    setTimeout(() => {
         RENDERER.init();
-    };
+    }, 1000);
 }

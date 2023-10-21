@@ -231,6 +231,13 @@ ins.adsbygoogle {
     display: inline-block;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 93.6vh;
+    height: auto;
+}
+
 /* Media Query for iPad and Larger Devices */
 @media (min-width: 768px) {
     body {

@@ -265,5 +265,6 @@ ins.adsbygoogle {
         position: fixed;
         bottom: -4px;
         height: 70px;
+        width: 100%;
     }
 }

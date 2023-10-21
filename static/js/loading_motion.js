@@ -5,6 +5,7 @@ window.addEventListener('load', function () {
     setTimeout(() => {
         createFlyingFishContainer();
         window.addEventListener('resize', function () {
+            document.getElementById("jsi-flying-fish-container").remove();
             createFlyingFishContainer();
         });
     }, 1000);

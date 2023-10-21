@@ -4,6 +4,20 @@ window.addEventListener('load', function () {
     window_load(true, 1500);
     setTimeout(() => {
         createFlyingFishContainer();
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                if (window.innerWidth < 1000) {
+                    for (let times = 0; times < 3; times++) {
+                        let new_br = document.createElement("br");
+                        document.getElementsByTagName("main")[0].append(new_br);
+                    }
+                }
+                document.getElementById("jsi-flying-fish-container").remove();
+                createFlyingFishContainer();
+            }, 500);
+        });
     }, 1000);
 });
 

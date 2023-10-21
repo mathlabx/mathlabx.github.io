@@ -11,72 +11,21 @@ PS: 不会可以参考小学加减法
 */
 
 $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equation = function (min, max, add, sub, num_equ) {
-    let valid = false;
-    let equations, x, y;
-    const coefficientRange = (max - min) + 1;
-
-    while (!valid) {
-        equations = [];
-        const randomCoefficients = [];
-        for (let i = 0; i < 2 * num_equ; i++) {
-            randomCoefficients.push(Math.floor(Math.random() * coefficientRange) + min);
+    const equations = [];
+    for (let i = 0; i < num_equ; i++) {
+        let a, b, c;
+        if (add && !sub) {
+            a = Math.floor(Math.random() * (max - min + 1)) + min;
+            b = Math.floor(Math.random() * (max - min + 1)) + min;
+            c = Math.floor(Math.random() * (max - min + 1)) + min;
+        } else if (sub && !add) {
+            a = Math.floor(Math.random() * (max - min + 1)) + min;
+            b = Math.floor(Math.random() * (max - min + 1)) + min;
+            c = Math.floor(Math.random() * (max - min + 1)) + min;
+        } else {
+            // Handle the case when both add and sub are true or false
         }
-
-        for (let i = 0; i < num_equ; i++) {
-            let a, b, c, d, e, f;
-            const index = i * 2;
-            if (add && !sub) {
-                a = randomCoefficients[index];
-                b = randomCoefficients[index + 1];
-                c = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
-                d = randomCoefficients[index + 2];
-                e = randomCoefficients[index + 3];
-                f = a * Math.floor(Math.random() * 5) + b * Math.floor(Math.random() * 5) + 1;
-            } else if (!add && sub) {
-                a = randomCoefficients[index];
-                b = randomCoefficients[index + 1];
-                const temp = Math.floor(Math.random() * 5) + 1;
-                c = a * temp - b * temp;
-                d = randomCoefficients[index + 2];
-                e = randomCoefficients[index + 3];
-                f = a * temp - b * temp;
-            } else {
-                const isAdd = Math.random() < 0.5;
-                a = randomCoefficients[index];
-                b = randomCoefficients[index + 1];
-                const temp = Math.floor(Math.random() * 5) + 1;
-                c = isAdd ? a * temp + b * temp : a * temp - b * temp;
-                d = randomCoefficients[index + 2];
-                e = randomCoefficients[index + 3];
-                f = isAdd ? a * temp + b * temp : a * temp - b * temp;
-            }
-            equations.push([[a, b, c], [d, e, f]]);
-        }
-
-        // Gaussian elimination
-        let validEquation = true;
-        for (let i = 0; i < num_equ; i++) {
-            if (equations[i][0][0] === 0) {
-                equations[i][0][0] = 1; // 将系数矩阵的第一个元素强制设置为非零值
-            }
-            const m = equations[i][1][0] / equations[i][0][0];
-            if (!isFinite(m)) {
-                validEquation = false;
-                break;
-            }
-            for (let j = 0; j < 3; j++) {
-                equations[i][1][j] -= m * equations[i][0][j];
-            }
-        }
-
-        if (!validEquation) {
-            continue;
-        }
-
-        y = equations[num_equ - 1][1][2] / equations[num_equ - 1][1][1];
-        x = (equations[num_equ - 1][0][2] - equations[num_equ - 1][0][1] * y) / equations[num_equ - 1][0][0];
-
-        valid = true; // 修改为在得到解的情况下直接跳出循环
+        equations.push([[a, b, c]]);
     }
 
     const problem = [`Solve the Systems of linear equations: `];
@@ -84,6 +33,9 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_two_variable_linear_equatio
         problem.push(`${eq[0][0]}x + ${eq[0][1]}y = ${eq[0][2]}, `);
     });
 
+    const x = 0; // 请填写计算得到的 x 的值
+    const y = 0; // 请填写计算得到的 y 的值
+
     const answer = `x = ${x}, y = ${y}`;
-    return [problem, answer];
+    return [problem.join(''), answer];
 }

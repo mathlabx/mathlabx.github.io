@@ -44,3 +44,8 @@ body {
 main {
     padding-bottom: 80px;
 }
+
+/*隐藏底部鱼动画*/
+#jsi-flying-fish-container {
+    display: none;
+}

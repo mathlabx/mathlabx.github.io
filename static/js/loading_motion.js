@@ -2,7 +2,9 @@
 window.addEventListener('load', function () {
     // Add 'loaded' class to the body element
     window_load(true, 1500);
-    createFlyingFishContainer();
+    setTimeout(() => {
+        createFlyingFishContainer();
+    }, 1000);
 });
 
 function window_load(loaded, time) {

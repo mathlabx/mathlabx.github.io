@@ -88,7 +88,7 @@ $X.math.Middle_School_Mathematics.Algebra.Systems_of_linear_equations_with_one_v
             solutions.push(x);
         }
 
-        equation.push("Solve the following system of linear equations of one variable.");
+        equation.push(`Solve the following system of linear equations for 'x'.`);
         for (let i = 0; i < equations.length; i++) {
             equation.push(equations[i] + ",");
         }

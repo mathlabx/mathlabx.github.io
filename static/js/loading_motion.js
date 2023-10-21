@@ -2,6 +2,7 @@
 window.addEventListener('load', function () {
     // Add 'loaded' class to the body element
     window_load(true, 1500);
+    createFlyingFishContainer();
 });
 
 function window_load(loaded, time) {
@@ -380,5 +381,3 @@ function createFlyingFishContainer() {
         RENDERER.init();
     };
 }
-
-createFlyingFishContainer();

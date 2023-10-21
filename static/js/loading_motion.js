@@ -338,12 +338,10 @@ function createFlyingFishContainer() {
             context.translate(this.x, this.y);
             context.rotate(Math.PI + Math.atan2(this.vy, this.vx));
             context.scale(1, this.direction ? 1 : -1);
-
             context.beginPath();
             context.moveTo(-30, 0);
-            context.bezierCurveTo(-20, 20, 10, 15, 40, 0);
-            context.bezierCurveTo(10, -15, -20, -20, -30, 0);
-            context.fillStyle = 'gray'; // 保持颜色
+            context.bezierCurveTo(-20, 15, 15, 10, 40, 0);
+            context.bezierCurveTo(15, -10, -20, -15, -30, 0);
             context.fill();
 
             context.save();
@@ -363,6 +361,7 @@ function createFlyingFishContainer() {
             context.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1));
 
             context.beginPath();
+
             if (this.renderer.reverse) {
                 context.moveTo(5, 0);
                 context.bezierCurveTo(10, 10, 10, 30, 0, 40);
@@ -373,7 +372,6 @@ function createFlyingFishContainer() {
                 context.bezierCurveTo(12, -25, 8, -10, 0, 0);
             }
             context.closePath();
-            context.fillStyle = 'gray'; // 保持颜色
             context.fill();
             context.restore();
             context.restore();

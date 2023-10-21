@@ -25,8 +25,8 @@ window.addEventListener('load', function () {
                         }
                     }
                 }
-                document.getElementById("jsi-flying-fish-container").remove();
-                createFlyingFishContainer();
+                //document.getElementById("jsi-flying-fish-container").remove();
+                //createFlyingFishContainer();
             }, 500);
         });
     }, 1000);

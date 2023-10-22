@@ -22,10 +22,8 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
         return [numerator / gcd, denominator / gcd];
     }
 
-    function isWithinMaxLimit(numerator, denominator, max) {
-        const numDigitsNumerator = Math.max(1, Math.floor(Math.log10(Math.abs(numerator)) + 1));
-        const numDigitsDenominator = Math.max(1, Math.floor(Math.log10(Math.abs(denominator)) + 1));
-        return numDigitsNumerator <= max && numDigitsDenominator <= max;
+    function isWithinMaxLimit(n, max) {
+        return Math.abs(n).toString().length <= max;
     }
 
     function generateCoefficients() {
@@ -40,7 +38,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             // Check if the fraction is too large and regenerate if necessary
             const numerator = Math.abs(b);
             const denominator = 2 * Math.abs(a);
-            if (!isWithinMaxLimit(numerator, denominator, max)) {
+            if (!isWithinMaxLimit(numerator, max) || !isWithinMaxLimit(denominator, max)) {
                 continue;
             }
 
@@ -71,7 +69,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             const numerator = -b;
             const denominator = 2 * a;
             const simplifiedFraction = simplifyFraction(numerator, denominator);
-            if (!isWithinMaxLimit(simplifiedFraction[0], simplifiedFraction[1], max)) {
+            if (!isWithinMaxLimit(simplifiedFraction[0], max) || !isWithinMaxLimit(simplifiedFraction[1], max)) {
                 return this(min, max);
             }
             answer = `x = \\frac{${simplifiedFraction[0]}}{${simplifiedFraction[1]}}`;
@@ -88,7 +86,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             const numerator1 = -b + Math.sqrt(discriminant);
             const denominator1 = 2 * a;
             const simplifiedFraction1 = simplifyFraction(numerator1, denominator1);
-            if (!isWithinMaxLimit(simplifiedFraction1[0], simplifiedFraction1[1], max)) {
+            if (!isWithinMaxLimit(simplifiedFraction1[0], max) || !isWithinMaxLimit(simplifiedFraction1[1], max)) {
                 return this(min, max);
             }
             answer1 = `\\frac{${simplifiedFraction1[0]}}{${simplifiedFraction1[1]}}`;
@@ -99,7 +97,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             const numerator2 = -b - Math.sqrt(discriminant);
             const denominator2 = 2 * a;
             const simplifiedFraction2 = simplifyFraction(numerator2, denominator2);
-            if (!isWithinMaxLimit(simplifiedFraction2[0], simplifiedFraction2[1], max)) {
+            if (!isWithinMaxLimit(simplifiedFraction2[0], max) || !isWithinMaxLimit(simplifiedFraction2[1], max)) {
                 return this(min, max);
             }
             answer2 = `\\frac{${simplifiedFraction2[0]}}{${simplifiedFraction2[1]}}`;

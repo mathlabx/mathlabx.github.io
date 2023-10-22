@@ -56,7 +56,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             numerator = Math.abs(numerator) / gcd;
             denominator = Math.abs(denominator) / gcd;
             if (numerator === 1) {
-                return sign === -1 ? `-${numerator}/${denominator}` : `${numerator}/${denominator}`;
+                return sign === -1 ? `-${numerator}/${denominator}` : `\\frac{${numerator}}{${denominator}}`;
             } else {
                 return sign === -1 ? `-${numerator}/${denominator}` : `\\frac{${numerator}}{${denominator}}`;
             }
@@ -86,7 +86,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             var simplifiedFraction2 = simplifyFraction(-b - Math.sqrt(discriminant), 2 * a);
             answer = `x_1 = ${simplifiedFraction1}, \\ x_2 = ${simplifiedFraction2}`;
         }
-        
+
         if (answer != "") valid = true;
     }
 

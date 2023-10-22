@@ -68,7 +68,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
                 // 构造题干
                 var question = [
                         `Solve the inequality: `,
-                        `${a}x^2 ${operator} ${b}x ${c} > 0`
+                        `${a}x^2 ${operator} ${b}x ${operator} ${c} > 0`
                 ];
 
                 // 构造答案

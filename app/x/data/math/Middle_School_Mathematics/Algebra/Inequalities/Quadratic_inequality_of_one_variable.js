@@ -12,9 +12,15 @@
     - Katex: 4x^2 - 12x + 9 < 0  解：\emptyset
 */
 
-$X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, max) {
+$X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable = function (min, max) {
         var answer;
         let valid = false;
+        function getRandomSymbolKatex() {
+                const symbols = ['>', '<', '\\geq', '\\leq'];
+                const randomIndex = Math.floor(Math.random() * symbols.length);
+                return symbols[randomIndex];
+        }
+        const randomSymbolKatex = getRandomSymbolKatex();
         while (!valid) {
                 // 生成随机分数
                 function generateRandomFraction(min, max) {
@@ -68,8 +74,26 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
                 // 构造题干
                 var question = [
                         `Solve the equation: `,
-                        `${a}x^2 + ${b}x + ${c} = 0`
+                        `${a}x^2 + ${b}x + ${c} ${randomSymbolKatex} 0`
                 ];
+
+                function compareKatexFractions(fraction1, fraction2) {
+                        function parseKatexFraction(fraction) {
+                                const stripped = fraction.replace(/\\frac{(\d+)}{(\d+)}/, '$1/$2');
+                                return eval(stripped);
+                        }
+
+                        const float1 = parseKatexFraction(fraction1);
+                        const float2 = parseKatexFraction(fraction2);
+
+                        const sortedFractions = [fraction1, fraction2].sort((a, b) => {
+                                const floatA = parseKatexFraction(a);
+                                const floatB = parseKatexFraction(b);
+                                return floatA - floatB;
+                        });
+
+                        return sortedFractions;
+                }
 
                 // 构造答案
                 if (discriminant === 0) {
@@ -87,18 +111,13 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
                         var x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
                         var simplifiedFraction1 = simplifyFraction(-b + Math.sqrt(discriminant), 2 * a);
                         var simplifiedFraction2 = simplifyFraction(-b - Math.sqrt(discriminant), 2 * a);
-                        answer = `x_1 = ${simplifiedFraction1}, \\ x_2 = ${simplifiedFraction2}`;
+                        let sortedFractions = compareKatexFractions(simplifiedFraction1, simplifiedFraction2);
+                        answer = `${sortedFractions[0]} < x < ${sortedFractions[1]}`;
                 }
 
                 if (answer != "" && answer.length <= 40) valid = true;
         }
 
-        // 构造题干
-        var question = [
-                `Solve the inequality: `,
-                `${a}x^2 + ${b}x + ${c} > 0`
-        ];
-
         // 返回题干和答案
         return [question, answer];
-}    
+}

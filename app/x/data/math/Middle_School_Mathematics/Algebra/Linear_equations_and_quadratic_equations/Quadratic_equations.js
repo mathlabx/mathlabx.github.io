@@ -52,10 +52,10 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
         // 简化分数
         function simplifyFraction(numerator, denominator) {
             var gcd = findGCD(numerator, denominator);
-            var sign = (numerator < 0) === (denominator < 0) ? 1 : -1;
+            var sign = (numerator < 0) === (denominator < 0) ? '' : '-';
             numerator = Math.abs(numerator) / gcd;
             denominator = Math.abs(denominator) / gcd;
-            return (numerator % denominator == 0) ? `${numerator / denominator}` : `\\frac{${numerator}}{${denominator}}`;
+            return (numerator % denominator == 0) ? `${sign}${numerator / denominator}` : `${sign}\\frac{${numerator}}{${denominator}}`;
         }
 
         // 构造题干

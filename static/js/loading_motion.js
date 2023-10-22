@@ -4,8 +4,8 @@ window.addEventListener('load', function () {
     window_load(true, 1500);
     setTimeout(() => {
         createFlyingFishContainer();
-        resize();
-        let resizeTimer;
+        let resizeTimer; // 将 resizeTimer 声明放置在外部
+
         function resize() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
@@ -30,11 +30,15 @@ window.addEventListener('load', function () {
                 //createFlyingFishContainer();
             }, 500);
         }
+
+        resize(); // 首次调用 resize 函数以进行初始化
+
         window.addEventListener('resize', function () {
-            resize();
+            resize(); // 在 resize 事件中调用 resize 函数
         });
     }, 1000);
 });
+
 
 function window_load(loaded, time) {
     if (loaded) {

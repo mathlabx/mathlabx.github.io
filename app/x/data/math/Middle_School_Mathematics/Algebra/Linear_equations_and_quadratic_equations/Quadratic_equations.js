@@ -55,11 +55,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             var sign = (numerator < 0) === (denominator < 0) ? 1 : -1;
             numerator = Math.abs(numerator) / gcd;
             denominator = Math.abs(denominator) / gcd;
-            if (numerator === 1) {
-                return sign === -1 ? `-${numerator}/${denominator}` : `\\frac{${numerator}}{${denominator}}`;
-            } else {
-                return sign === -1 ? `-${numerator}/${denominator}` : `\\frac{${numerator}}{${denominator}}`;
-            }
+            return sign === -1 ? `\\frac{${numerator}}{${denominator}}` : `\\frac{${numerator}}{${denominator}}`;
         }
 
         // 构造题干

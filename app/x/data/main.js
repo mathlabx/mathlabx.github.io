@@ -103,7 +103,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Basic_simplification.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Polynomial_multiplication.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Polynomial_division.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Corresponding_angles.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_angles.js'
 ];
 
 let gl_results;
@@ -1541,6 +1542,30 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[0].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Geometry | Corresponding Angles&BIG",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Corresponding Angles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Alternate Angles&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Alternate Angles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[0]._checked
+    });
+
     X_Operate.newPage();
     let General_settings = [
         {
@@ -2027,6 +2052,20 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Basic Simplification: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Algebra.Polynomials_and_factoring_Simplification(Number(results[227]), Number(results[228]), Number(results[229]), Number(results[230])));
+                }
+            }
+            if (results[231] == true) {
+                loop_length = Number(results[232]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Corresponding Angles: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.Corresponding_angles());
+                }
+            }
+            if (results[233] == true) {
+                loop_length = Number(results[234]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Alternate Angles: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.Alternate_angles());
                 }
             }
 

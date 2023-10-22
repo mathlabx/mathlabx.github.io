@@ -2372,7 +2372,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[268]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Angle Sum Property: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Geometry.TriangleAngleSum());
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.AngleSumProperty());
                 }
             }
             if (results[269] == true) {

@@ -18,8 +18,9 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
 
     // Function to simplify a fraction
     function simplifyFraction(numerator, denominator) {
-        const gcd = findGCD(numerator, denominator);
-        return [numerator / gcd, denominator / gcd];
+        const gcd = findGCD(Math.abs(numerator), Math.abs(denominator));
+        const sign = Math.sign(numerator) * Math.sign(denominator);
+        return [sign * Math.abs(numerator) / gcd, Math.abs(denominator) / gcd];
     }
 
     function isWithinMaxLimit(n, max) {
@@ -48,7 +49,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             a === 0 ||
             discriminant < 0 ||
             !isWithinMaxLimit(Math.abs(b), max) ||
-            !isWithinMaxLimit(2 * Math.abs(a), max)
+            !isWithinMaxLimit(Math.abs(2 * a), max)
         );
 
         return [a, b, c, discriminant];

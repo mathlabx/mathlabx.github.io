@@ -34,17 +34,18 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                 return gcd(b, a % b);
         };
         const gcdValue = gcd(numerator, denominator);
+        const isInteger = gcdValue === 1 && numerator % denominator === 0;
         if (signs.indexOf(inequality) < 2) {
                 question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
                 if (gcdValue !== 1) {
-                        answer = `\\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = isInteger ? `${numerator / denominator}` : `\\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
                         answer = `${numerator / denominator}`;
                 }
         } else {
                 question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
                 if (gcdValue !== 1) {
-                        answer = `\\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = isInteger ? `${numerator / denominator}` : `\\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
                         answer = `${numerator / denominator}`;
                 }

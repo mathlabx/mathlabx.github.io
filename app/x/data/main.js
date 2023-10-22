@@ -124,7 +124,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Area.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Perimeter.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Height.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trigonometry.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trigonometry.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Data_collection_and_analysis.js'
 ];
 
 let gl_results;
@@ -1921,6 +1922,38 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[1].subtopics[5]._checked
     });
 
+    Setting_Array.push({
+        Name: "Statistics and Probability | Data Collection and Analysis&BIG",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Data Collection and Analysis | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Data Collection and Analysis | Mean",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Data Collection and Analysis | Median",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Data Collection and Analysis | Mode",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Data Collection and Analysis | Range",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2562,6 +2595,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Basics Trigonometry: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Geometry.Trigonometry(results[291], results[292], results[293]));
+                }
+            }
+            if (results[294] == true) {
+                loop_length = Number(results[295]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Data Collection and Analysis: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Statistics_and_Probability.Data_Collection_And_Analysis(results[296], results[297], results[298], results[299]));
                 }
             }
 

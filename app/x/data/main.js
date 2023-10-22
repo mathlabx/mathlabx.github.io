@@ -102,7 +102,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Inequalities/Fractional_inequality.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Basic_simplification.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Polynomial_multiplication.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Polynomial_division.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Algebra/Polynomials_and_factoring/Polynomial_division.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/',
 ];
 
 let gl_results;

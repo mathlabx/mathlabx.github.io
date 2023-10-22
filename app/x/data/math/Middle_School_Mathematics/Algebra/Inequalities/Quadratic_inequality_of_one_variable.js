@@ -115,7 +115,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
                         let new_sy = "";
                         if (randomSymbolKatex == '>' || randomSymbolKatex == '<') new_sy = "<";
                         if (randomSymbolKatex == '\\geq' || randomSymbolKatex == '\\leq') new_sy = "\\leq";
-                        answer = `${sortedFractions[0]} < ${new_sy} < ${sortedFractions[1]}`;
+                        answer = `${sortedFractions[0]} ${new_sy} x ${new_sy} ${sortedFractions[1]}`;
                 }
 
                 if (answer != "" && answer.length <= 40) valid = true;

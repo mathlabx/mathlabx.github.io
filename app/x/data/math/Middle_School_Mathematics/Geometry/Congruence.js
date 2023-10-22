@@ -1,6 +1,6 @@
-/*相似图形*/
+/*全等图形*/
 
-$X.math.Middle_School_Mathematics.Geometry.Similarity = function (C_side, C_angle, triangle, square, rectangle, parallelogram, trapezoid, rhombus) {
+$X.math.Middle_School_Mathematics.Geometry.Congruence = function (C_side, C_angle, triangle, square, rectangle, parallelogram, trapezoid, rhombus) {
     var shapes = {};
 
     const shapeArray = [triangle, square, rectangle, parallelogram, trapezoid, rhombus];
@@ -37,80 +37,68 @@ $X.math.Middle_School_Mathematics.Geometry.Similarity = function (C_side, C_angl
 
     function side() {
         if (triangle) {
-            // Logic for triangle when considering side
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Given that triangle ABC is similar to triangle DEF and AB = " + getRandomNumber() + " units, find the length of DE.";
-            var answer = "Since the triangles are similar, the ratio of corresponding sides is equal to the scale factor. Use this to find the length of DE.";
+            var lengthAB = getRandomNumber();
+            var question = "Triangle ABC is congruent to triangle DEF. If AB has a length of " + lengthAB + " units, what is the length of DE?";
+            var answer = "In congruent triangles, corresponding sides are equal. Hence, DE has a length of " + lengthAB + " units.";
             shapes = { type: "triangle", question: question, answer: answer };
         } else if (square) {
-            // Logic for square when considering side
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Square ABCD is similar to square EFGH with a scale factor of " + scale + ". If the side length of ABCD is " + getRandomNumber() + " units, find the side length of EFGH.";
-            var answer = "Since the squares are similar, the ratio of corresponding sides is equal to the scale factor. Use this to find the side length of EFGH.";
+            var sideAB = getRandomNumber();
+            var question = "Square ABCD is congruent to square EFGH. If the side length of ABCD is " + sideAB + " units, what is the side length of EFGH?";
+            var answer = "In congruent squares, corresponding sides are equal. Hence, the side length of EFGH is " + sideAB + " units.";
             shapes = { type: "square", question: question, answer: answer };
         } else if (rectangle) {
-            // Logic for rectangle when considering side
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Rectangle ABCD is similar to rectangle EFGH with a scale factor of " + scale + ". If the length of ABCD is " + getRandomNumber() + " units, find the length of EFGH.";
-            var answer = "Since the rectangles are similar, the ratio of corresponding sides is equal to the scale factor. Use this to find the length of EFGH.";
+            var lengthAB = getRandomNumber();
+            var question = "Rectangle ABCD is congruent to rectangle EFGH. If AB has a length of " + lengthAB + " units, what is the length of EF?";
+            var answer = "In congruent rectangles, corresponding sides are equal. Hence, the length of EF is " + lengthAB + " units.";
             shapes = { type: "rectangle", question: question, answer: answer };
         } else if (parallelogram) {
-            // Logic for parallelogram when considering side
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Parallelogram ABCD is similar to parallelogram EFGH with a scale factor of " + scale + ". If AB = " + getRandomNumber() + " units, find EF.";
-            var answer = "Since the parallelograms are similar, the ratio of corresponding sides is equal to the scale factor. Use this to find the length of EF.";
+            var baseAB = getRandomNumber();
+            var question = "Parallelogram ABCD is congruent to parallelogram EFGH. If the base AB has a length of " + baseAB + " units, what is the length of EF?";
+            var answer = "In congruent parallelograms, corresponding sides are equal. Hence, the length of EF is " + baseAB + " units.";
             shapes = { type: "parallelogram", question: question, answer: answer };
         } else if (trapezoid) {
-            // Logic for trapezoid when considering side
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Trapezoid ABCD is similar to trapezoid EFGH with a scale factor of " + scale + ". If AB = " + getRandomNumber() + " units, find EF.";
-            var answer = "Since the trapezoids are similar, the ratio of corresponding sides is equal to the scale factor. Use this to find the length of EF.";
+            var lengthAB = getRandomNumber();
+            var question = "Trapezoid ABCD is congruent to trapezoid EFGH. If AB has a length of " + lengthAB + " units, what is the length of EF?";
+            var answer = "In congruent trapezoids, corresponding sides are equal. Hence, the length of EF is " + lengthAB + " units.";
             shapes = { type: "trapezoid", question: question, answer: answer };
         } else if (rhombus) {
-            // Logic for rhombus when considering side
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Rhombus ABCD is similar to rhombus EFGH with a scale factor of " + scale + ". If the side length of ABCD is " + getRandomNumber() + " units, find the side length of EFGH.";
-            var answer = "Since the rhombuses are similar, the ratio of corresponding sides is equal to the scale factor. Use this to find the side length of EFGH.";
+            var sideAB = getRandomNumber();
+            var question = "Rhombus ABCD is congruent to rhombus EFGH. If the side length of ABCD is " + sideAB + " units, what is the side length of EFGH?";
+            var answer = "In congruent rhombuses, corresponding sides are equal. Hence, the side length of EFGH is " + sideAB + " units.";
             shapes = { type: "rhombus", question: question, answer: answer };
         }
     }
 
     function angle() {
         if (triangle) {
-            // Logic for triangle when considering angle
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Triangle ABC is similar to triangle DEF with a scale factor of " + scale + ". If angle ABC is " + getRandomAngle() + " degrees, find the measure of angle DEF.";
-            var answer = "Since the triangles are similar, the corresponding angles are equal. Use this to find the measure of angle DEF.";
+            var angleA = getRandomAngle();
+            var question = "Triangle ABC is congruent to triangle DEF. If angle A measures " + angleA + " degrees, what is the measure of angle D?";
+            var answer = "In congruent triangles, corresponding angles are equal. Hence, angle D measures " + angleA + " degrees.";
             shapes = { type: "triangle", question: question, answer: answer };
         } else if (square) {
-            // Logic for square when considering angle
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Square ABCD is similar to square EFGH with a scale factor of " + scale + ". If angle ABC is " + getRandomAngle() + " degrees, find the measure of angle EFG.";
-            var answer = "Since the squares are similar, the corresponding angles are equal. Use this to find the measure of angle EFG.";
+            var angleA = getRandomAngle();
+            var question = "Square ABCD is congruent to square EFGH. If angle A measures " + angleA + " degrees, what is the measure of angle E?";
+            var answer = "In congruent squares, corresponding angles are equal. Hence, angle E measures " + angleA + " degrees.";
             shapes = { type: "square", question: question, answer: answer };
         } else if (rectangle) {
-            // Logic for rectangle when considering angle
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Rectangle ABCD is similar to rectangle EFGH with a scale factor of " + scale + ". If angle ABC is " + getRandomAngle() + " degrees, find the measure of angle EFG.";
-            var answer = "Since the rectangles are similar, the corresponding angles are equal. Use this to find the measure of angle EFG.";
+            var angleA = getRandomAngle();
+            var question = "Rectangle ABCD is congruent to rectangle EFGH. If angle A measures " + angleA + " degrees, what is the measure of angle E?";
+            var answer = "In congruent rectangles, corresponding angles are equal. Hence, angle E measures " + angleA + " degrees.";
             shapes = { type: "rectangle", question: question, answer: answer };
         } else if (parallelogram) {
-            // Logic for parallelogram when considering angle
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Parallelogram ABCD is similar to parallelogram EFGH with a scale factor of " + scale + ". If angle ABC is " + getRandomAngle() + " degrees, find the measure of angle EFG.";
-            var answer = "Since the parallelograms are similar, the corresponding angles are equal. Use this to find the measure of angle EFG.";
+            var angleA = getRandomAngle();
+            var question = "Parallelogram ABCD is congruent to parallelogram EFGH. If angle A measures " + angleA + " degrees, what is the measure of angle E?";
+            var answer = "In congruent parallelograms, corresponding angles are equal. Hence, angle E measures " + angleA + " degrees.";
             shapes = { type: "parallelogram", question: question, answer: answer };
         } else if (trapezoid) {
-            // Logic for trapezoid when considering angle
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Trapezoid ABCD is similar to trapezoid EFGH with a scale factor of " + scale + ". If angle ABC is " + getRandomAngle() + " degrees, find the measure of angle EFG.";
-            var answer = "Since the trapezoids are similar, the corresponding angles are equal. Use this to find the measure of angle EFG.";
+            var angleA = getRandomAngle();
+            var question = "Trapezoid ABCD is congruent to trapezoid EFGH. If angle A measures " + angleA + " degrees, what is the measure of angle E?";
+            var answer = "In congruent trapezoids, corresponding angles are equal. Hence, angle E measures " + angleA + " degrees.";
             shapes = { type: "trapezoid", question: question, answer: answer };
         } else if (rhombus) {
-            // Logic for rhombus when considering angle
-            var scale = (Math.floor(Math.random() * 9) + 1) / 10; // Generating a random scale between 0.1 and 1.0 with one decimal place
-            var question = "Rhombus ABCD is similar to rhombus EFGH with a scale factor of " + scale + ". If angle ABC is " + getRandomAngle() + " degrees, find the measure of angle EFG.";
-            var answer = "Since the rhombuses are similar, the corresponding angles are equal. Use this to find the measure of angle EFG.";
+            var angleA = getRandomAngle();
+            var question = "Rhombus ABCD is congruent to rhombus EFGH. If angle A measures " + angleA + " degrees, what is the measure of angle E?";
+            var answer = "In congruent rhombuses, corresponding angles are equal. Hence, angle E measures " + angleA + " degrees.";
             shapes = { type: "rhombus", question: question, answer: answer };
         }
     }

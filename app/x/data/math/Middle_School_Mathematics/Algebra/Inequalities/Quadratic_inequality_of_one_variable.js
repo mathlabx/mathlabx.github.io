@@ -12,7 +12,7 @@
     - Katex: 4x^2 - 12x + 9 < 0  解：\emptyset
 */
 
-$X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable = function (min, max) {
+$X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, max) {
         var answer;
         let valid = false;
         while (!valid) {
@@ -67,8 +67,8 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
 
                 // 构造题干
                 var question = [
-                        `Solve the inequality: `,
-                        `${a}x^2 + ${b}x + ${c} > 0`
+                        `Solve the equation: `,
+                        `${a}x^2 + ${b}x + ${c} = 0`
                 ];
 
                 // 构造答案
@@ -78,21 +78,26 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
                                 // If the answer is a decimal, simplify it to a fraction
                                 answer = simplifyFraction(-b, 2 * a);
                         } else {
-                                answer = `x < ${x} or x > ${x}`;
+                                answer = `x = ${x}`;
                         }
                 } else if (discriminant === -1) {
-                        answer = "\\emptyset";
+                        answer = "∅";
                 } else {
                         var x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
                         var x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                        var sortedRoots = [x1, x2].sort((x, y) => x - y); // Sort roots in ascending order
-                        var simplifiedFraction1 = simplifyFraction(sortedRoots[0], 1);
-                        var simplifiedFraction2 = simplifyFraction(sortedRoots[1], 1);
-                        answer = `${simplifiedFraction1} < x < ${simplifiedFraction2}`;
+                        var simplifiedFraction1 = simplifyFraction(-b + Math.sqrt(discriminant), 2 * a);
+                        var simplifiedFraction2 = simplifyFraction(-b - Math.sqrt(discriminant), 2 * a);
+                        answer = `x_1 = ${simplifiedFraction1}, \\ x_2 = ${simplifiedFraction2}`;
                 }
 
                 if (answer != "" && answer.length <= 40) valid = true;
         }
+
+        // 构造题干
+        var question = [
+                `Solve the inequality: `,
+                `${a}x^2 + ${b}x + ${c} > 0`
+        ];
 
         // 返回题干和答案
         return [question, answer];

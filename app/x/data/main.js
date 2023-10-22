@@ -123,7 +123,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_Exterior_Angles.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Area.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Perimeter.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Height.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Height.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trigonometry.js'
 ];
 
 let gl_results;
@@ -1893,6 +1894,33 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
     });
 
+    Setting_Array.push({
+        Name: "Geometry | Trigonometry&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[5]._checked
+    });
+    Setting_Array.push({
+        Name: "Trigonometry | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[5]._checked
+    });
+    Setting_Array.push({
+        Name: "Basics Trigonometry | Sine",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[5]._checked
+    });
+    Setting_Array.push({
+        Name: "Basics Trigonometry | Cosine",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[5]._checked
+    });
+    Setting_Array.push({
+        Name: "Basics Trigonometry | Tangent",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[5]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2527,6 +2555,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Trapezoid Height Calculation: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Geometry.TrapezoidHeight());
+                }
+            }
+            if (results[287] == true) {
+                loop_length = Number(results[288]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Basics Trigonometry: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.Trigonometry(results[289], results[290], results[291]));
                 }
             }
 

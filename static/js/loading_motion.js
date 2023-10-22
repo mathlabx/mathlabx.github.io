@@ -4,8 +4,9 @@ window.addEventListener('load', function () {
     window_load(true, 1500);
     setTimeout(() => {
         createFlyingFishContainer();
+        resize();
         let resizeTimer;
-        window.addEventListener('resize', function () {
+        function resize() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
                 function checkOverlap(element1, element2) {
@@ -28,6 +29,9 @@ window.addEventListener('load', function () {
                 //document.getElementById("jsi-flying-fish-container").remove();
                 //createFlyingFishContainer();
             }, 500);
+        }
+        window.addEventListener('resize', function () {
+            resize();
         });
     }, 1000);
 });

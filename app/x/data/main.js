@@ -1,35 +1,35 @@
 function loadScripts(scriptUrls, callback) {
     console.clear();
     APP.log("Start loading function files...");
-    var loadedScripts = 0;
     var totalScripts = scriptUrls.length;
     var startTime = performance.now(); // 记录开始加载时间
 
-    function scriptLoaded(j, n) {
-        return function () {
-            loadedScripts++;
-            var progress = (loadedScripts / totalScripts) * 100;
-            APP.log(n + " Loaded");
-            APP.log(`Script loading progress: ${j + 1}/${scriptUrls.length} - ${progress.toFixed(2)}%`);
-
-            if (loadedScripts === totalScripts) {
-                var endTime = performance.now(); // 记录加载完成时间
-                var loadTime = (endTime - startTime) / 1000; // 转换为秒
-                APP.log(`All scripts loaded, total loading time: ${loadTime.toFixed(2)} Second`);
-                setTimeout(() => {
-                    APP.log("Execute main function...");
-                    callback();
-                }, 1000);
-            }
-        };
+    async function loadScript(url, index) {
+        return new Promise((resolve, reject) => {
+            var script = document.createElement('script');
+            script.src = url;
+            script.onload = function () {
+                var progress = ((index + 1) / totalScripts) * 100;
+                APP.log(`Script at ${url} loaded`);
+                APP.log(`Script loading progress: ${index + 1}/${totalScripts} - ${progress.toFixed(2)}%`);
+                resolve();
+            };
+            document.head.appendChild(script);
+        });
     }
 
-    for (var i = 0; i < scriptUrls.length; i++) {
-        var script = document.createElement('script');
-        script.src = scriptUrls[i];
-        script.onload = scriptLoaded(i, script.src); // 传递回调函数
-        document.head.appendChild(script);
-    }
+    (async function () {
+        for (let i = 0; i < scriptUrls.length; i++) {
+            await loadScript(scriptUrls[i], i);
+        }
+        var endTime = performance.now(); // 记录加载完成时间
+        var loadTime = (endTime - startTime) / 1000; // 转换为秒
+        APP.log(`All scripts loaded, total loading time: ${loadTime.toFixed(2)} Second`);
+        setTimeout(() => {
+            APP.log("Execute main function...");
+            callback();
+        }, 1000);
+    })();
 }
 
 

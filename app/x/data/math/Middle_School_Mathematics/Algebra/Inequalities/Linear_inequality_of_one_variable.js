@@ -37,17 +37,17 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
         if (signs.indexOf(inequality) < 2) {
                 question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
                 if (gcdValue !== 1) {
-                        answer = `${variable} ${inequality} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = `\\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
-                        answer = `${variable} ${inequality} ${numerator / denominator}`;
+                        answer = `${numerator / denominator}`;
                 }
         } else {
                 question.push(`${coefficient}${variable} ${operation} ${constant} ${inequality} ${solution}`);
                 if (gcdValue !== 1) {
-                        answer = `${variable} ${inequality} \\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
+                        answer = `\\frac{${numerator / gcdValue}}{${denominator / gcdValue}}`;
                 } else {
-                        answer = `${variable} ${inequality} ${numerator / denominator}`;
+                        answer = `${numerator / denominator}`;
                 }
         }
         return [question, answer];
-};    
+};

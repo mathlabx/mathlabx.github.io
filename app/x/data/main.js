@@ -116,7 +116,11 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Perimeter_of_Triangle.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Angle_Sum_Property.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Pythagorean_Theorem_in_Triangles.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Similar_Triangles_Property.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Similar_Triangles_Property.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Interior_Angles.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Corresponding_Exterior_Angles.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_Interior_Angles.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_Exterior_Angles.js'
 ];
 
 let gl_results;
@@ -1802,6 +1806,54 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
     });
 
+    Setting_Array.push({
+        Name: "Geometry | Interior Angles&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+    Setting_Array.push({
+        Name: "Interior Angles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Corresponding Exterior Angles&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+    Setting_Array.push({
+        Name: "Corresponding Exterior Angles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Alternate Interior Angles&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+    Setting_Array.push({
+        Name: "Alternate Interior Angles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Alternate Exterior Angles&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+    Setting_Array.push({
+        Name: "Alternate Exterior Angles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2387,6 +2439,34 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Similar Triangles Property: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Geometry.SimilarTriangles());
+                }
+            }
+            if (results[273] == true) {
+                loop_length = Number(results[274]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Interior Angles: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.InteriorAngles());
+                }
+            }
+            if (results[275] == true) {
+                loop_length = Number(results[276]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Corresponding Exterior Angles: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.CorrespondingExteriorAngles());
+                }
+            }
+            if (results[277] == true) {
+                loop_length = Number(results[278]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Alternate Interior Angles: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.AlternateInteriorAngles());
+                }
+            }
+            if (results[279] == true) {
+                loop_length = Number(results[280]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Alternate Exterior Angles: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.AlternateExteriorAngles());
                 }
             }
 

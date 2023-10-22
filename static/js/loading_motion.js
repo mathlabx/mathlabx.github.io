@@ -4,9 +4,8 @@ window.addEventListener('load', function () {
     window_load(true, 1500);
     setTimeout(() => {
         createFlyingFishContainer();
-        let resizeTimer; // 将 resizeTimer 声明放置在外部
-
-        function resize() {
+        let resizeTimer;
+        window.addEventListener('resize', function () {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
                 function checkOverlap(element1, element2) {
@@ -29,16 +28,9 @@ window.addEventListener('load', function () {
                 //document.getElementById("jsi-flying-fish-container").remove();
                 //createFlyingFishContainer();
             }, 500);
-        }
-
-        resize(); // 首次调用 resize 函数以进行初始化
-
-        window.addEventListener('resize', function () {
-            resize(); // 在 resize 事件中调用 resize 函数
         });
     }, 1000);
 });
-
 
 function window_load(loaded, time) {
     if (loaded) {

@@ -1667,9 +1667,69 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[1].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Congruence | Rhombus",
+        Name: "Similarity | Rhombus",
         Typ: "checked",
         show: setting[0].topics[1].subtopics[1].subtopics[1]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Area of Circle&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Area of Circle | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Circumference of Circle&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Circumference of Circle | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Inscribed Square in Circle&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Inscribed Square in Circle | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Arc Length of Circle&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Arc Length of Circle | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Distance of Chord Intersection&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Distance of Chord Intersection | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
     });
 
     X_Operate.newPage();
@@ -2186,6 +2246,41 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Similarity: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Geometry.Similarity(results[245], results[246], results[247], results[248], results[249], results[250], results[251], results[252]));
+                }
+            }
+            if (results[253] == true) {
+                loop_length = Number(results[254]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Area of Circle: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.CircleArea());
+                }
+            }
+            if (results[255] == true) {
+                loop_length = Number(results[256]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Circumference of Circle: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.CircleCircumference());
+                }
+            }
+            if (results[257] == true) {
+                loop_length = Number(results[258]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Inscribed Square in Circle: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.CircleInscribedSquare());
+                }
+            }
+            if (results[259] == true) {
+                loop_length = Number(results[260]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Arc Length of Circle: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.CircleArcLength());
+                }
+            }
+            if (results[261] == true) {
+                loop_length = Number(results[262]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Distance of Chord Intersection: ", loop_length, i);
+                    re_q.push(X.math.Middle_School_Mathematics.Geometry.CircleChordDistance());
                 }
             }
 

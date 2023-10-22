@@ -2285,7 +2285,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[262]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Distance of Chord Intersection: ", loop_length, i);
-                    re_q.push(X.math.Middle_School_Mathematics.Geometry.CircleChordDistance());
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.CircleChordDistance());
                 }
             }
 

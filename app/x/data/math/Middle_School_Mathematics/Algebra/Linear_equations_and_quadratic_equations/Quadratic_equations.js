@@ -6,6 +6,7 @@
 */
 
 $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, max) {
+    var answer;
     let valid = false;
     while (!valid) {
         // 生成随机分数
@@ -68,7 +69,6 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
         ];
 
         // 构造答案
-        var answer;
         if (discriminant === 0) {
             var x = -b / (2 * a);
             if (x % 1 !== 0) {

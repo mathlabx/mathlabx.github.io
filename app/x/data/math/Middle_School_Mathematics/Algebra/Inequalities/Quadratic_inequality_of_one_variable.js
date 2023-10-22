@@ -112,7 +112,10 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
                         var simplifiedFraction1 = simplifyFraction(-b + Math.sqrt(discriminant), 2 * a);
                         var simplifiedFraction2 = simplifyFraction(-b - Math.sqrt(discriminant), 2 * a);
                         let sortedFractions = compareKatexFractions(simplifiedFraction1, simplifiedFraction2);
-                        answer = `${sortedFractions[0]} < x < ${sortedFractions[1]}`;
+                        let new_sy = "";
+                        if (randomSymbolKatex == '>' || randomSymbolKatex == '<') new_sy = "<";
+                        if (randomSymbolKatex == '\\geq' || randomSymbolKatex == '\\leq') new_sy = "\\leq";
+                        answer = `${sortedFractions[0]} < ${new_sy} < ${sortedFractions[1]}`;
                 }
 
                 if (answer != "" && answer.length <= 40) valid = true;

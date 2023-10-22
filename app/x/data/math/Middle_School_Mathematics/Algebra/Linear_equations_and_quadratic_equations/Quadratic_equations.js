@@ -10,6 +10,8 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
 
     // Function to find the greatest common divisor (GCD) of two numbers
     function findGCD(a, b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
         if (b === 0) {
             return a;
         }
@@ -18,8 +20,8 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
 
     // Function to simplify a fraction
     function simplifyFraction(numerator, denominator) {
-        const gcd = findGCD(Math.abs(numerator), Math.abs(denominator));
-        const sign = Math.sign(numerator) * Math.sign(denominator);
+        const gcd = findGCD(numerator, denominator);
+        const sign = (numerator < 0) === (denominator < 0) ? 1 : -1;
         return [sign * Math.abs(numerator) / gcd, Math.abs(denominator) / gcd];
     }
 
@@ -72,7 +74,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             const numerator = -b;
             const denominator = 2 * a;
             const simplifiedFraction = simplifyFraction(numerator, denominator);
-            answer = isWithinMaxLimit(simplifiedFraction[0], max) && isWithinMaxLimit(simplifiedFraction[1], max)
+            answer = isWithinMaxLimit(Math.abs(simplifiedFraction[0]), max) && isWithinMaxLimit(simplifiedFraction[1], max)
                 ? `x = \\frac{${simplifiedFraction[0]}}{${simplifiedFraction[1]}}`
                 : '';
         } else {
@@ -88,7 +90,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             const numerator1 = -b + Math.sqrt(discriminant);
             const denominator1 = 2 * a;
             const simplifiedFraction1 = simplifyFraction(numerator1, denominator1);
-            answer1 = isWithinMaxLimit(simplifiedFraction1[0], max) && isWithinMaxLimit(simplifiedFraction1[1], max)
+            answer1 = isWithinMaxLimit(Math.abs(simplifiedFraction1[0]), max) && isWithinMaxLimit(simplifiedFraction1[1], max)
                 ? `\\frac{${simplifiedFraction1[0]}}{${simplifiedFraction1[1]}}`
                 : '';
         } else {
@@ -98,7 +100,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             const numerator2 = -b - Math.sqrt(discriminant);
             const denominator2 = 2 * a;
             const simplifiedFraction2 = simplifyFraction(numerator2, denominator2);
-            answer2 = isWithinMaxLimit(simplifiedFraction2[0], max) && isWithinMaxLimit(simplifiedFraction2[1], max)
+            answer2 = isWithinMaxLimit(Math.abs(simplifiedFraction2[0]), max) && isWithinMaxLimit(simplifiedFraction2[1], max)
                 ? `\\frac{${simplifiedFraction2[0]}}{${simplifiedFraction2[1]}}`
                 : '';
         } else {

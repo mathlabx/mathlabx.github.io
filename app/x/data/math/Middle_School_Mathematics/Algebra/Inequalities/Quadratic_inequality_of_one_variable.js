@@ -68,7 +68,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
                 // 构造题干
                 var question = [
                         `Solve the inequality: `,
-                        `${a}x^2 - ${b}x - ${c} > 0`
+                        `${a}x^2 + ${b}x + ${c} > 0`
                 ];
 
                 // 构造答案
@@ -85,9 +85,10 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
                 } else {
                         var x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
                         var x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                        var simplifiedFraction1 = simplifyFraction(-b + Math.sqrt(discriminant), 2 * a);
-                        var simplifiedFraction2 = simplifyFraction(-b - Math.sqrt(discriminant), 2 * a);
-                        answer = `x < ${simplifiedFraction2} or x > ${simplifiedFraction1}`;
+                        var sortedRoots = [x1, x2].sort((x, y) => x - y); // Sort roots in ascending order
+                        var simplifiedFraction1 = simplifyFraction(sortedRoots[0], 1);
+                        var simplifiedFraction2 = simplifyFraction(sortedRoots[1], 1);
+                        answer = `${simplifiedFraction1} < x < ${simplifiedFraction2}`;
                 }
 
                 if (answer != "" && answer.length <= 40) valid = true;
@@ -95,4 +96,4 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
 
         // 返回题干和答案
         return [question, answer];
-}
+}    

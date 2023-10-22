@@ -111,7 +111,12 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Circumference_of_Circle.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Inscribed_Square_in_Circle.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Arc_Length_of_Circle.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Distance_of_Chord_Intersection.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Distance_of_Chord_Intersection.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Area_of_Triangle.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Perimeter_of_Triangle.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Angle_Sum_Property.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Pythagorean_Theorem_in_Triangles.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Similar_Triangles_Property.js'
 ];
 
 let gl_results;
@@ -1737,6 +1742,67 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[1].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Geometry | Area of Triangle&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+    Setting_Array.push({
+        Name: "Area of Triangle | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Perimeter of Triangle&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+    Setting_Array.push({
+        Name: "Perimeter of Triangle | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Angle Sum Property&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+    Setting_Array.push({
+        Name: "Angle Sum Property | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Pythagorean Theorem in Triangles&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+    Setting_Array.push({
+        Name: "Pythagorean Theorem in Triangles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Similar Triangles Property&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+    Setting_Array.push({
+        Name: "Similar Triangles Property | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[3]._checked
+    });
+
+
     X_Operate.newPage();
     let General_settings = [
         {
@@ -2286,6 +2352,41 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Distance of Chord Intersection: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Geometry.CircleChordDistance());
+                }
+            }
+            if (results[263] == true) {
+                loop_length = Number(results[264]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Area of Triangle: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.TriangleArea());
+                }
+            }
+            if (results[265] == true) {
+                loop_length = Number(results[266]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Perimeter of Triangle: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.TrianglePerimeter());
+                }
+            }
+            if (results[267] == true) {
+                loop_length = Number(results[268]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Angle Sum Property: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.TriangleAngleSum());
+                }
+            }
+            if (results[269] == true) {
+                loop_length = Number(results[270]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Pythagorean Theorem in Triangles: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.PythagoreanTheorem());
+                }
+            }
+            if (results[271] == true) {
+                loop_length = Number(results[272]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Similar Triangles Property: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.SimilarTriangles());
                 }
             }
 

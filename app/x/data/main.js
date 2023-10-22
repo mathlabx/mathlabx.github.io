@@ -120,7 +120,10 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Interior_Angles.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Corresponding_Exterior_Angles.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_Interior_Angles.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_Exterior_Angles.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_Exterior_Angles.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Area.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Perimeter.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Height.js'
 ];
 
 let gl_results;
@@ -1854,6 +1857,42 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
     });
 
+    Setting_Array.push({
+        Name: "Geometry | Trapezoid Area Calculation&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+    Setting_Array.push({
+        Name: "Trapezoid Area Calculation | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Trapezoid Perimeter Calculation&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+    Setting_Array.push({
+        Name: "Trapezoid Perimeter Calculation | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Geometry | Trapezoid Height Calculation&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+    Setting_Array.push({
+        Name: "Trapezoid Height Calculation | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[1].subtopics[4]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2467,6 +2506,27 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Alternate Exterior Angles: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Geometry.AlternateExteriorAngles());
+                }
+            }
+            if (results[281] == true) {
+                loop_length = Number(results[282]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Trapezoid Area Calculation: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.TrapezoidArea());
+                }
+            }
+            if (results[283] == true) {
+                loop_length = Number(results[284]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Trapezoid Perimeter Calculation: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.TrapezoidPerimeter());
+                }
+            }
+            if (results[285] == true) {
+                loop_length = Number(results[286]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Trapezoid Height Calculation: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Geometry.TrapezoidHeight());
                 }
             }
 

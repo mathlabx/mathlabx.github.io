@@ -86,6 +86,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             var simplifiedFraction2 = simplifyFraction(-b - Math.sqrt(discriminant), 2 * a);
             answer = `x_1 = ${simplifiedFraction1}, \\ x_2 = ${simplifiedFraction2}`;
         }
+        
         if (answer != "") valid = true;
     }
 

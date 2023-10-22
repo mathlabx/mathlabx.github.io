@@ -72,10 +72,12 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
                 ];
 
                 // 构造答案
-                if (operator === '\\emptyset') {
+                if (operator === '<' || operator === '\\leq') {
+                        answer = `x < ${simplifyFraction(b, 2 * a)} \\ or \\ x > ${simplifyFraction(c, 2 * a)}`;
+                } else if (operator === '>' || operator === '\\geq') {
+                        answer = `x \\in \\mathbb{R}`;
+                } else if (operator === '\\emptyset') {
                         answer = "\\emptyset";
-                } else {
-                        answer = `${operator} ${simplifyFraction(b, 2 * a)}`;
                 }
 
                 if (answer != "" && answer.length <= 40) valid = true;
@@ -83,4 +85,4 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable =
 
         // 返回题干和答案
         return [question, answer];
-}    
+}

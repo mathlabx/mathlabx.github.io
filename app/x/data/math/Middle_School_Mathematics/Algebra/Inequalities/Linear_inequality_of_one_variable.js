@@ -30,7 +30,6 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                         return number.toString();
                 } else {
                         // 是小数，将其转换为分数
-                        const tolerance = 1.0E-6; // 容差值
                         let h1 = 1;
                         let h2 = 0;
                         let k1 = 0;
@@ -47,7 +46,11 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                                 b = 1 / (b - a);
                         } while (Math.abs(number - h1 / k1) > number * tolerance);
 
-                        return `\\frac{${h1}}{${k1}}`;
+                        if (k1 === 1) {
+                                return h1.toString();
+                        } else {
+                                return `\\frac{${h1}}{${k1}}`;
+                        }
                 }
         }
 
@@ -81,13 +84,13 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
 
                 if (signs.indexOf(inequality) < 2) {
                         if (gcdValue !== 1) {
-                                answer = isInteger ? numerator / denominator : convertToFractionIfDecimal(numerator / gcdValue / denominator);
+                                answer = isInteger ? `${numerator / denominator}` : convertToFractionIfDecimal(numerator / gcdValue / denominator);
                         } else {
                                 answer = numerator / denominator;
                         }
                 } else {
                         if (gcdValue !== 1) {
-                                answer = isInteger ? numerator / denominator : convertToFractionIfDecimal(numerator / gcdValue / denominator);
+                                answer = isInteger ? `${numerator / denominator}` : convertToFractionIfDecimal(numerator / gcdValue / denominator);
                         } else {
                                 answer = numerator / denominator;
                         }

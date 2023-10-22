@@ -106,7 +106,12 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Corresponding_angles.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Alternate_angles.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Congruence.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Similarity.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Similarity.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Area_of_Circle.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Circumference_of_Circle.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Inscribed_Square_in_Circle.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Arc_Length_of_Circle.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Distance_of_Chord_Intersection.js'
 ];
 
 let gl_results;

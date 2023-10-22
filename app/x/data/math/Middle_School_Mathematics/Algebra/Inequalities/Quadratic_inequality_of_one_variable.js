@@ -13,62 +13,74 @@
 */
 
 $X.math.Middle_School_Mathematics.Algebra.Quadratic_inequality_of_one_variable = function (min, max) {
-        // Function to find the greatest common divisor (GCD) of two numbers
-        function findGCD(a, b) {
-                if (b === 0) {
-                        return a;
+        var answer;
+        let valid = false;
+        while (!valid) {
+                // 生成随机分数
+                function generateRandomFraction(min, max) {
+                        var numerator = Math.floor(Math.random() * (max - min + 1)) + min;
+                        var denominator = Math.floor(Math.random() * (max - min + 1)) + min;
+                        return [numerator, denominator];
                 }
-                return findGCD(b, a % b);
-        }
 
-        // Function to simplify a fraction
-        function simplifyFraction(numerator, denominator) {
-                const gcd = findGCD(numerator, denominator);
-                return [numerator / gcd, denominator / gcd];
-        }
+                // 计算两个分数的最大公约数
+                function findGCD(a, b) {
+                        a = Math.abs(a);
+                        b = Math.abs(b);
+                        if (b === 0) {
+                                return a;
+                        }
+                        return findGCD(b, a % b);
+                }
 
-        const letters = "abcdefghijklmnopqrstuvwxyz";
-        const operators = ["+", "-"];
-        const signs = ["<", ">", "\\leq", "\\geq"];
-        const coefficient1 = Math.floor(Math.random() * (max - min + 1)) + min;
-        const coefficient2 = Math.floor(Math.random() * (max - min + 1)) + min;
-        const constant = Math.floor(Math.random() * (max - min + 1)) + min;
-        const solution = Math.floor(Math.random() * (max - min + 1)) + min;
-        const variable = letters.charAt(Math.floor(Math.random() * letters.length));
-        const operation1 = operators[Math.floor(Math.random() * operators.length)];
-        const operation2 = operators[Math.floor(Math.random() * operators.length)];
-        const inequality = signs[Math.floor(Math.random() * signs.length)];
-        const discriminant = coefficient2 * coefficient2 - 4 * coefficient1 * (constant - solution);
-        let question = [];
-        question.push("Solve the inequality: ");
-        question.push(`${coefficient1}${variable}^2 ${operation1} ${coefficient2}${variable} ${operation2} ${constant}  ${inequality} ${solution}`);
-        let answer;
-        if (discriminant > 0) {
-                // Two real roots
-                const x1 = (-coefficient2 + Math.sqrt(discriminant)) / (2 * coefficient1);
-                const x2 = (-coefficient2 - Math.sqrt(discriminant)) / (2 * coefficient1);
+                var a, b, c, operator;
+                do {
+                        a = Math.floor(Math.random() * (max - min + 1)) + min;
+                        b = Math.floor(Math.random() * (max - min + 1)) + min;
+                        c = Math.floor(Math.random() * (max - min + 1)) + min;
 
-                const x1Fraction = simplifyFraction(-coefficient2 + Math.sqrt(discriminant), 2 * coefficient1);
-                const x2Fraction = simplifyFraction(-coefficient2 - Math.sqrt(discriminant), 2 * coefficient1);
+                        var operators = ['<', '>', '\\leq', '\\geq'];
+                        operator = operators[Math.floor(Math.random() * operators.length)];
 
-                if (x1Fraction[1] === 1) {
-                        answer = `x_1 = ${x1Fraction[0]}, x_2 = ${x2Fraction[0]}`;
+                        // Check if the fraction is too large and regenerate if necessary
+                        var numerator = Math.abs(b);
+                        var denominator = 2 * Math.abs(a);
+
+                        var chanceOfNoSolution = Math.random();
+                        if (chanceOfNoSolution < 0.1) {
+                                a = 0; // Adjust to make the equation have no solution
+                                operator = '\\emptyset'; // Set operator to indicate no solution
+                        }
+                } while (
+                        a === 0 ||
+                        findGCD(numerator, denominator) > max
+                );
+
+                // 简化分数
+                function simplifyFraction(numerator, denominator) {
+                        var gcd = findGCD(numerator, denominator);
+                        var sign = (numerator < 0) === (denominator < 0) ? '' : '-';
+                        numerator = Math.abs(numerator) / gcd;
+                        denominator = Math.abs(denominator) / gcd;
+                        return (numerator % denominator == 0) ? `${sign}${numerator / denominator}` : `${sign}\\frac{${numerator}}{${denominator}}`;
+                }
+
+                // 构造题干
+                var question = [
+                        `Solve the inequality: `,
+                        `${a}x^2 ${operator} ${b}x ${c} > 0`
+                ];
+
+                // 构造答案
+                if (operator === '\\emptyset') {
+                        answer = "\\emptyset";
                 } else {
-                        answer = `x_1 = \\frac{${x1Fraction[0]}}{${x1Fraction[1]}}, x_2 = \\frac{${x2Fraction[0]}}{${x2Fraction[1]}}`;
+                        answer = `${operator} ${simplifyFraction(b, 2 * a)}`;
                 }
-        } else if (discriminant === 0) {
-                // One real root
-                const x = -coefficient2 / (2 * coefficient1);
-                const xFraction = simplifyFraction(-coefficient2, 2 * coefficient1);
 
-                if (xFraction[1] === 1) {
-                        answer = `x = ${xFraction[0]}`;
-                } else {
-                        answer = `x = \\frac{${xFraction[0]}}{${xFraction[1]}}`;
-                }
-        } else {
-                answer = "\\emptyset";
+                if (answer != "" && answer.length <= 40) valid = true;
         }
 
+        // 返回题干和答案
         return [question, answer];
-}
+}    

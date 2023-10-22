@@ -87,7 +87,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             answer = `x_1 = ${simplifiedFraction1}, \\ x_2 = ${simplifiedFraction2}`;
         }
 
-        if (answer != "") valid = true;
+        if (answer != "" && answer.length <= 40) valid = true;
     }
 
     // 返回题干和答案

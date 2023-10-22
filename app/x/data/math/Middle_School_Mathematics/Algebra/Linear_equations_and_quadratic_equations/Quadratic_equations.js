@@ -52,7 +52,11 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
         var sign = (numerator < 0) === (denominator < 0) ? 1 : -1;
         numerator = Math.abs(numerator) / gcd;
         denominator = Math.abs(denominator) / gcd;
-        return [sign * numerator, denominator];
+        if (numerator === 1) {
+            return sign === -1 ? `-${numerator}/${denominator}` : `${numerator}/${denominator}`;
+        } else {
+            return sign === -1 ? `-${numerator}/${denominator}` : `\\frac{${numerator}}{${denominator}}`;
+        }
     }
 
     // 构造题干
@@ -67,23 +71,18 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
         var x = -b / (2 * a);
         if (x % 1 !== 0) {
             // If the answer is a decimal, simplify it to a fraction
-            var simplifiedFraction = simplifyFraction(-b, 2 * a);
-            answer = Math.abs(simplifiedFraction[0]) > max || simplifiedFraction[1] > max
-                ? ''
-                : 'x = ' + simplifiedFraction[0] + '/' + simplifiedFraction[1];
+            answer = simplifyFraction(-b, 2 * a);
         } else {
-            answer = 'x = ' + x;
+            answer = `x = ${x}`;
         }
     } else if (discriminant === -1) {
-        answer = '∅';
+        answer = "∅";
     } else {
         var x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
         var x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
         var simplifiedFraction1 = simplifyFraction(-b + Math.sqrt(discriminant), 2 * a);
         var simplifiedFraction2 = simplifyFraction(-b - Math.sqrt(discriminant), 2 * a);
-        answer = (Math.abs(simplifiedFraction1[0]) > max || simplifiedFraction1[1] > max || Math.abs(simplifiedFraction2[0]) > max || simplifiedFraction2[1] > max)
-            ? ''
-            : 'x_1 = ' + simplifiedFraction1[0] + '/' + simplifiedFraction1[1] + ', \\ x_2 = ' + simplifiedFraction2[0] + '/' + simplifiedFraction2[1];
+        answer = `x_1 = ${simplifiedFraction1}, \\ x_2 = ${simplifiedFraction2}`;
     }
 
     // 返回题干和答案

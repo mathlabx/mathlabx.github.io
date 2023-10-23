@@ -2567,6 +2567,28 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[5].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Discrete Mathematics | Combinatorics&Reg",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[5].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Combinatorics | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[5].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Combinatorics | Basic counting principles",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[5].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Combinatorics | Permutations and Combinations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[5].subtopics[1]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3370,6 +3392,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Graph Theory: ", loop_length, i);
                     re_q.push($X.math.University_Mathematics.Discrete_Mathematics.GraphTheory(results[407], results[408]));
+                }
+            }
+            if (results[409] == true) {
+                loop_length = Number(results[410]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Combinatorics: ", loop_length, i);
+                    re_q.push($X.math.University_Mathematics.Discrete_Mathematics.Combinatorics(results[411], results[412]));
                 }
             }
 

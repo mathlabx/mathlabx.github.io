@@ -131,7 +131,12 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Properties_and_graphs_of_trigonometric_functions.js',
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Trigonometric_identities.js',
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Solving_trigonometric_equations.js',
-    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Arithmetic_and_geometric_sequences.js'
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Sequences_and_Series/Arithmetic_and_geometric_sequences.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Sequences_and_Series/Summation_of_sequences.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Sequences_and_Series/Properties_of_series.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Calculus/Calculating_derivatives_and_their_applications.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Calculus/Indefinite_and_definite_integrals.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Calculus/Differential_equations.js'
 ];
 
 let gl_results;

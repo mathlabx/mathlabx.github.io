@@ -2022,7 +2022,7 @@ function X_Generate(setting) {
     });
 
     Setting_Array.push({
-        Name: "Trigonometry | Properties and Graphs of Trigonometric Functions&Big",
+        Name: "Trigonometry | Properties and Graphs of Trigonometric Functions&BIG",
         Typ: "checked",
         show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
     });
@@ -2736,7 +2736,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[313]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Properties and Graphs of Trigonometric Functions: ", loop_length, i);
-                    re_q.push($X.math.Middle_School_Mathematics.Statistics_and_Probability.Probability_Calculations(results[314], results[315], results[316], results[317], results[318], results[319], results[320]));
+                    re_q.push($X.math.High_School_Mathematics.Trigonometry.TrigonometricFunctionsProperties(results[314], results[315], results[316], results[317], results[318], results[319], results[320]));
                 }
             }
             /*打乱顺序*/

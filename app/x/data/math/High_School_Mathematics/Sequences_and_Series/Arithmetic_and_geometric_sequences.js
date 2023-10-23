@@ -18,7 +18,7 @@ console.log(result); // Output: ['Find the 10th term of the arithmetic sequence 
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function ArithmeticAndGeometricSequences(C_arithmetic, C_geometric) {
+$X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSequences = function (C_arithmetic, C_geometric) {
     // Your code goes here
 
     // Return the question and answer in an array

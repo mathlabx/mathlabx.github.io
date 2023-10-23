@@ -19,7 +19,7 @@ console.log(result); // Output: ['Find the value of x satisfying the equation si
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function SolvingTrigonometricEquations(C_linear, C_quadratic, C_exponential) {
+$X.math.High_School_Mathematics.Trigonometry.SolvingTrigonometricEquations = function (C_linear, C_quadratic, C_exponential) {
     // Your code goes here
 
     // Return the question and answer in an array

@@ -19,7 +19,7 @@ console.log(result); // Output: ['Given sin(theta) = 0.6, find cos(theta) using 
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function TrigonometricIdentities(C_pythagorean, C_quotient, C_reciprocal) {
+$X.math.High_School_Mathematics.Trigonometry.TrigonometricIdentities = function (C_pythagorean, C_quotient, C_reciprocal) {
     // Your code goes here
 
     // Return the question and answer in an array

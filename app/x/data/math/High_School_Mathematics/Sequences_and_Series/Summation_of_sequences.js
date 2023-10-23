@@ -18,7 +18,7 @@ console.log(result); // Output: ['Find the sum of the first 10 terms of the arit
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function SummationOfSequences(C_arithmetic, C_geometric) {
+$X.math.High_School_Mathematics.Sequences_and_Series.SummationOfSequences = function (C_arithmetic, C_geometric) {
     // Your code goes here
 
     // Return the question and answer in an array

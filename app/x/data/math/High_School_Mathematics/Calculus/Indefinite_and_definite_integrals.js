@@ -18,7 +18,7 @@ console.log(result); // Output: ['Find the indefinite integral of the function f
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function IndefiniteAndDefiniteIntegrals(C_indefinite, C_definite) {
+$X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = function (C_indefinite, C_definite) {
     // Your code goes here
 
     // Return the question and answer in an array

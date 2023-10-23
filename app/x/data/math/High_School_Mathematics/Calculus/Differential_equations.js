@@ -18,7 +18,7 @@ console.log(result); // Output: ['Solve the first-order differential equation (d
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function DifferentialEquations(C_first_order, C_second_order) {
+$X.math.High_School_Mathematics.Calculus.DifferentialEquations = function (C_first_order, C_second_order) {
     // Your code goes here
 
     // Return the question and answer in an array

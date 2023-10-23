@@ -18,7 +18,7 @@ console.log(result); // Output: ['Determine the convergence of the series 1 + 1/
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function PropertiesOfSeries(C_convergence, C_divergence) {
+$X.math.High_School_Mathematics.Calculus.PropertiesOfSeries = function (C_convergence, C_divergence) {
     // Your code goes here
 
     // Return the question and answer in an array

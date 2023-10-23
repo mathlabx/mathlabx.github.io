@@ -21,7 +21,7 @@ console.log(result); // Output: ['Given the sine value is 0.45, find the angle i
 PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
-function TrigonometricFunctionsProperties(graphSine, graphCosine, graphTangent, findAmplitude, findPeriod, findPhaseShift, findVerticalShift) {
+$X.math.High_School_Mathematics.Trigonometry.TrigonometricFunctionsProperties = function (graphSine, graphCosine, graphTangent, findAmplitude, findPeriod, findPhaseShift, findVerticalShift) {
     var question = "";
     var answer = "";
 

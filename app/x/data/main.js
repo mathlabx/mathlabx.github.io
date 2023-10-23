@@ -2196,6 +2196,28 @@ function X_Generate(setting) {
         show: setting[0].topics[2].subtopics[1].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Calculus | Calculating Derivatives and their Applications&BIG",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Calculating Derivatives and their Applications | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Calculating Derivatives and their Applications | Calculating Derivatives",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Calculating Derivatives and their Applications | The Applications of Derivatives",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[2].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2900,6 +2922,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Properties of series: ", loop_length, i);
                     re_q.push($X.math.High_School_Mathematics.Sequences_and_Series.PropertiesOfSeries(results[341], results[342]));
+                }
+            }
+            if (results[343] == true) {
+                loop_length = Number(results[344]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Calculating Derivatives and their Applications: ", loop_length, i);
+                    re_q.push($X.math.High_School_Mathematics.Calculus.CalculatingDerivativesAndApplications(results[345], results[346]));
                 }
             }
             /*打乱顺序*/

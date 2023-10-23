@@ -125,7 +125,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Perimeter.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trapezoid_Height.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trigonometry.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Data_collection_and_analysis.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Data_collection_and_analysis.js',
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Basic_probability_concepts.js'
 ];
 
 let gl_results;
@@ -1954,6 +1955,38 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[2].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Statistics and Probability | Basic Probability Concepts&Reg",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Probability Concepts | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Probability Concepts | Experimental Probability",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Probability Concepts | Theoretical Probability",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Probability Concepts | Probability Of Events",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Probability Concepts | Sample Space",
+        Typ: "checked",
+        show: setting[0].topics[1].subtopics[2].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2602,6 +2635,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Data Collection and Analysis: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Statistics_and_Probability.Data_Collection_And_Analysis(results[296], results[297], results[298], results[299]));
+                }
+            }
+            if (results[300] == true) {
+                loop_length = Number(results[301]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Basic Probability Concepts: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Statistics_and_Probability.Basic_Probability_Concepts(results[302], results[303], results[304], results[305]));
                 }
             }
 

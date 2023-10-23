@@ -2356,6 +2356,39 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[0].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Differential Equations | Higher-order Differential Equations&BIG",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Higher-order Differential Equations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Higher-order Differential Equations | Homogeneous Differential Equations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Higher-order Differential Equations | Nonhomogeneous Differential Equations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Higher-order Differential Equations | Boundary Value Problems",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Higher-order Differential Equations | Initial Value Problems",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[0]._checked
+    });
+
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3102,6 +3135,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Eigenvalues and Eigenvectors: ", loop_length, i);
                     re_q.push($X.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors(results[367], results[368], results[369]));
+                }
+            }
+            if (results[370] == true) {
+                loop_length = Number(results[371]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Higher-order Differential Equations: ", loop_length, i);
+                    re_q.push($X.University_Mathematics.Differential_Equations.HigherOrderDifferentialEquations(results[372], results[373], results[374], results[375]));
                 }
             }
 

@@ -129,7 +129,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Basic_probability_concepts.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Probability_calculations.js',
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Properties_and_graphs_of_trigonometric_functions.js',
-    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Trigonometric_identities.js'
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Trigonometric_identities.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Solving_trigonometric_equations.js'
 ];
 
 let gl_results;
@@ -2072,28 +2073,55 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Trigonometry | Trigonometric Identities&Reg",
         Typ: "checked",
-        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[0].topics[2].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
         Name: "Trigonometric Identities | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
-        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[0].topics[2].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
         Name: "Trigonometric Identities | Pythagorean Identities",
         Typ: "checked",
-        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[0].topics[2].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
         Name: "Trigonometric Identities | Quotient Identities",
         Typ: "checked",
-        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[0].topics[2].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
         Name: "Trigonometric Identities | Reciprocal Identities",
         Typ: "checked",
-        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[0].topics[2].subtopics[0].subtopics[1]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Trigonometry | Solving Trigonometric Equations&Reg",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Solving Trigonometric Equations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Solving Trigonometric Equations | Linear Equations",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Solving Trigonometric Equations | Quadratic Equations",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Solving Trigonometric Equations | Exponential Equations",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[2]._checked
     });
 
 
@@ -2772,6 +2800,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Trigonometric Identities: ", loop_length, i);
                     re_q.push($X.math.High_School_Mathematics.Trigonometry.TrigonometricIdentities(results[323], results[324], results[325]));
+                }
+            }
+            if (results[326] == true) {
+                loop_length = Number(results[327]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Solving trigonometric equations: ", loop_length, i);
+                    re_q.push($X.math.High_School_Mathematics.Trigonometry.SolvingTrigonometricEquations(results[328], results[329], results[330]));
                 }
             }
             /*打乱顺序*/

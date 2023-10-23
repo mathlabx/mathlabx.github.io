@@ -2420,6 +2420,33 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Probability and Statistics | Random Variables and Probability Distributions&BIG",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Random Variables and Probability Distributions | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Random Variables and Probability Distributions | Sampling Methods and Techniques",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Random Variables and Probability Distributions | Constructing Confidence Intervals",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Random Variables and Probability Distributions | Hypothesis Testing",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3181,6 +3208,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Solution Methods for Ordinary Differential Equations: ", loop_length, i);
                     re_q.push($X.University_Mathematics.Differential_Equations.SolutionMethodsODE(results[378], results[379], results[380], results[381]));
+                }
+            }
+            if (results[382] == true) {
+                loop_length = Number(results[383]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Random Variables and Probability Distributions: ", loop_length, i);
+                    re_q.push($X.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDistributions(results[384], results[385], results[386]));
                 }
             }
 

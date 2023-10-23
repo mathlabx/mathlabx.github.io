@@ -2523,6 +2523,28 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[3].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Linear Programming | Modeling and Solving Linear Programming Problems&BIG",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Modeling and Solving Linear Programming Problems | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Modeling and Solving Linear Programming Problems | Modeling Linear Programming Problems",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Modeling and Solving Linear Programming Problems | Solving Linear Programming Problems",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[4].subtopics[0]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3312,6 +3334,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Analytic Functions and Conformal Mappings: ", loop_length, i);
                     re_q.push($X.math.University_Mathematics.Complex_Analysis.AnalyticFunctionsAndMappings(results[399], results[400]));
+                }
+            }
+            if (results[401] == true) {
+                loop_length = Number(results[402]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Modeling and Solving Linear Programming Problems: ", loop_length, i);
+                    re_q.push($X.math.University_Mathematics.Linear_Programming.LinearProgramming(results[403], results[404]));
                 }
             }
 

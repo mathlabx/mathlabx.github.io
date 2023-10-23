@@ -130,7 +130,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Probability_calculations.js',
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Properties_and_graphs_of_trigonometric_functions.js',
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Trigonometric_identities.js',
-    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Solving_trigonometric_equations.js'
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Solving_trigonometric_equations.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Arithmetic_and_geometric_sequences.js'
 ];
 
 let gl_results;
@@ -2124,6 +2125,28 @@ function X_Generate(setting) {
         show: setting[0].topics[2].subtopics[0].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Sequences and Series | Arithmetic and Geometric Sequences&BIG",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Arithmetic and Geometric Sequences | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Arithmetic and Geometric Sequences | Arithmetic Sequences",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Arithmetic and Geometric Sequences | Geometric Sequences",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[1].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2807,6 +2830,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Solving trigonometric equations: ", loop_length, i);
                     re_q.push($X.math.High_School_Mathematics.Trigonometry.SolvingTrigonometricEquations(results[328], results[329], results[330]));
+                }
+            }
+            if (results[331] == true) {
+                loop_length = Number(results[332]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Arithmetic and Geometric Sequences: ", loop_length, i);
+                    re_q.push($X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSequences(results[333], results[334]));
                 }
             }
             /*打乱顺序*/

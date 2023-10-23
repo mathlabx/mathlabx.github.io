@@ -2589,6 +2589,28 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[5].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Discrete Mathematics | Applications of Discrete Mathematics in Computer Science&Reg",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[5].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Applications of Discrete Mathematics in Computer Science | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[5].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Applications of Discrete Mathematics in Computer Science | Graph Theory",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[5].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Applications of Discrete Mathematics in Computer Science | Logic Circuits and Boolean Algebra",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[5].subtopics[2]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3399,6 +3421,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Combinatorics: ", loop_length, i);
                     re_q.push($X.math.University_Mathematics.Discrete_Mathematics.Combinatorics(results[411], results[412]));
+                }
+            }
+            if (results[413] == true) {
+                loop_length = Number(results[414]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Applications of Discrete Mathematics in Computer Science: ", loop_length, i);
+                    re_q.push($X.math.University_Mathematics.Discrete_Mathematics.Applications_Discrete_Math_CS(results[415], results[416]));
                 }
             }
 

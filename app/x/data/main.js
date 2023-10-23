@@ -2388,6 +2388,38 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[1].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Differential Equations | Solution Methods for Ordinary Differential Equations&Reg",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Solution Methods for Ordinary Differential Equations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Solution Methods for Ordinary Differential Equations | Exact Differential Equations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Solution Methods for Ordinary Differential Equations | Linear Differential Equations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Solution Methods for Ordinary Differential Equations | Bernoulli Differential Equations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Solution Methods for Ordinary Differential Equations | Substitution Methods",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[1].subtopics[1]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3142,6 +3174,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Higher-order Differential Equations: ", loop_length, i);
                     re_q.push($X.University_Mathematics.Differential_Equations.HigherOrderDifferentialEquations(results[372], results[373], results[374], results[375]));
+                }
+            }
+            if (results[376] == true) {
+                loop_length = Number(results[377]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Solution Methods for Ordinary Differential Equations: ", loop_length, i);
+                    re_q.push($X.University_Mathematics.Differential_Equations.SolutionMethodsODE(results[378], results[379], results[380], results[381]));
                 }
             }
 

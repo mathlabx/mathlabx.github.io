@@ -2230,14 +2230,36 @@ function X_Generate(setting) {
         show: setting[0].topics[2].subtopics[2].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Indefinite and Definite Integrals | Calculating Derivatives",
+        Name: "Indefinite and Definite Integrals | Indefinite Integrals",
         Typ: "checked",
         show: setting[0].topics[2].subtopics[2].subtopics[1]._checked
     });
     Setting_Array.push({
-        Name: "Indefinite and Definite Integrals | The Applications of Derivatives",
+        Name: "Indefinite and Definite Integrals | Definite Integrals",
         Typ: "checked",
         show: setting[0].topics[2].subtopics[2].subtopics[1]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Calculus | Differential Equations&Reg",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Differential Equations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Differential Equations | First-order Differential Equations",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Differential Equations | Second-order Differential Equations",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[2].subtopics[2]._checked
     });
 
 
@@ -2958,6 +2980,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Indefinite and Definite Integrals: ", loop_length, i);
                     re_q.push($X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals(results[349], results[350]));
+                }
+            }
+            if (results[351] == true) {
+                loop_length = Number(results[352]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Differential equations: ", loop_length, i);
+                    re_q.push($X.math.High_School_Mathematics.Calculus.DifferentialEquations(results[353], results[354]));
                 }
             }
             /*打乱顺序*/

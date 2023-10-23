@@ -2432,19 +2432,46 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Random Variables and Probability Distributions | Sampling Methods and Techniques",
+        Name: "Random Variables and Probability Distributions | Discrete Probability Distributions",
         Typ: "checked",
         show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Random Variables and Probability Distributions | Constructing Confidence Intervals",
+        Name: "Random Variables and Probability Distributions | Continuous Probability Distributions",
         Typ: "checked",
         show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Random Variables and Probability Distributions | Hypothesis Testing",
+        Name: "Random Variables and Probability Distributions | The Calculation of Expectations",
         Typ: "checked",
         show: setting[0].topics[3].subtopics[2].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Probability and Statistics | Statistical Inference and Hypothesis Testing&Reg",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Statistical Inference and Hypothesis Testing | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Statistical Inference and Hypothesis Testing | Sampling Methods and Techniques",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Statistical Inference and Hypothesis Testing | Constructing Confidence Intervals",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Statistical Inference and Hypothesis Testing | Hypothesis Testing",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[2].subtopics[1]._checked
     });
 
 
@@ -3215,6 +3242,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Random Variables and Probability Distributions: ", loop_length, i);
                     re_q.push($X.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDistributions(results[384], results[385], results[386]));
+                }
+            }
+            if (results[387] == true) {
+                loop_length = Number(results[388]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Statistical Inference and Hypothesis Testing: ", loop_length, i);
+                    re_q.push($X.University_Mathematics.Probability_and_Statistics.StatisticalInferenceAndHypothesisTesting(results[389], results[390], results[391]));
                 }
             }
 

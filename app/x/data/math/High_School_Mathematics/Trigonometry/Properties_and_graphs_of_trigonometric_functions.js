@@ -17,6 +17,8 @@ The function ensures that the question is provided in a clear format and the ans
 Example Usage:
 const result = PropertiesAndGraphsOfTrigonometricFunctions(true, false, true);
 console.log(result); // Output: ['Given the sine value is 0.45, find the angle in degrees.', 'The angle is approximately 27 degrees.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function TrigonometricFunctionsProperties(graphSine, graphCosine, graphTangent, findAmplitude, findPeriod, findPhaseShift, findVerticalShift) {

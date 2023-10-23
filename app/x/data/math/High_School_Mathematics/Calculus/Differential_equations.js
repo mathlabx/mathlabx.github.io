@@ -14,6 +14,8 @@ This function generates questions related to first-order and second-order differ
 Example Usage:
 const result = DifferentialEquations(true, false);
 console.log(result); // Output: ['Solve the first-order differential equation (dy/dx) = 3x^2 + 2x - 5', 'The solution to the differential equation is y = x^3 + x^2 - 5x + C.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function DifferentialEquations(C_first_order, C_second_order) {

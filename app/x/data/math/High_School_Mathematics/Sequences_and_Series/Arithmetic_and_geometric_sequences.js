@@ -14,6 +14,8 @@ This function generates questions related to arithmetic and geometric sequences 
 Example Usage:
 const result = ArithmeticAndGeometricSequences(true, false);
 console.log(result); // Output: ['Find the 10th term of the arithmetic sequence 2, 5, 8, 11, ...', 'The 10th term is 29.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function ArithmeticAndGeometricSequences(C_arithmetic, C_geometric) {

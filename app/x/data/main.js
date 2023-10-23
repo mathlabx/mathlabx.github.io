@@ -127,7 +127,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Geometry/Trigonometry.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Data_collection_and_analysis.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Basic_probability_concepts.js',
-    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Probability_calculations.js'
+    MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Probability_calculations.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Properties_and_graphs_of_trigonometric_functions.js'
 ];
 
 let gl_results;
@@ -2020,6 +2021,53 @@ function X_Generate(setting) {
         show: setting[0].topics[1].subtopics[2].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Trigonometry | Properties and Graphs of Trigonometric Functions&Big",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Graph Sine",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Graph Cosine",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Graph Tangent",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Find Amplitude",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Find Period",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Find Phase-Shift",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties and Graphs of Trigonometric Functions | Find Vertical-Shift",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2682,6 +2730,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Probability Calculations: ", loop_length, i);
                     re_q.push($X.math.Middle_School_Mathematics.Statistics_and_Probability.Probability_Calculations(results[308], results[309], results[310], results[311]));
+                }
+            }
+            if (results[312] == true) {
+                loop_length = Number(results[313]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Properties and Graphs of Trigonometric Functions: ", loop_length, i);
+                    re_q.push($X.math.Middle_School_Mathematics.Statistics_and_Probability.Probability_Calculations(results[314], results[315], results[316], results[317], results[318], results[319], results[320]));
                 }
             }
             /*打乱顺序*/

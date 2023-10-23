@@ -15,6 +15,8 @@ This function generates questions related to various trigonometric identities ba
 Example Usage:
 const result = TrigonometricIdentities(true, false, true);
 console.log(result); // Output: ['Given sin(theta) = 0.6, find cos(theta) using the reciprocal identity.', 'cos(theta) is equal to 0.8.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function TrigonometricIdentities(C_pythagorean, C_quotient, C_reciprocal) {

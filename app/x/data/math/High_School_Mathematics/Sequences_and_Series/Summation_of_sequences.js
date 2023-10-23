@@ -14,6 +14,8 @@ This function generates questions related to the summation of arithmetic and geo
 Example Usage:
 const result = SummationOfSequences(true, false);
 console.log(result); // Output: ['Find the sum of the first 10 terms of the arithmetic sequence 2, 5, 8, 11, ...', 'The sum is 145.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function SummationOfSequences(C_arithmetic, C_geometric) {

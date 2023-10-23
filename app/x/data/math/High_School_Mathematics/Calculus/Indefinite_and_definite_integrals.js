@@ -14,6 +14,8 @@ This function generates questions related to both indefinite and definite integr
 Example Usage:
 const result = IndefiniteAndDefiniteIntegrals(true, false);
 console.log(result); // Output: ['Find the indefinite integral of the function f(x) = 3x^2 + 2x - 5', 'The indefinite integral is F(x) = x^3 + x^2 - 5x + C.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function IndefiniteAndDefiniteIntegrals(C_indefinite, C_definite) {

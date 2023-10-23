@@ -15,6 +15,8 @@ This function generates questions related to solving trigonometric equations bas
 Example Usage:
 const result = SolvingTrigonometricEquations(true, false, true);
 console.log(result); // Output: ['Find the value of x satisfying the equation sin(x) = 0.5 in the interval [0, 2π].', 'x is equal to π/6 or 5π/6.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function SolvingTrigonometricEquations(C_linear, C_quadratic, C_exponential) {

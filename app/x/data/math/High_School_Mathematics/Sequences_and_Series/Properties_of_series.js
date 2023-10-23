@@ -14,6 +14,8 @@ This function generates questions related to the properties of series, including
 Example Usage:
 const result = PropertiesOfSeries(true, false);
 console.log(result); // Output: ['Determine the convergence of the series 1 + 1/2 + 1/4 + 1/8 + ...', 'The series converges to 2.']
+
+PS: The answer should be in fractions (Katex), using GCF to calculate the simplest fraction.
 */
 
 function PropertiesOfSeries(C_convergence, C_divergence) {

@@ -2989,6 +2989,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                     re_q.push($X.math.High_School_Mathematics.Calculus.DifferentialEquations(results[353], results[354]));
                 }
             }
+            
             /*打乱顺序*/
             if (general_settings[1] == true) {
                 re_q = shuffleArray(re_q);

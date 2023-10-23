@@ -2,7 +2,7 @@ let div_container;
 
 const Operate = {
     newPage: () => {
-        div_container.innerHTML ="";
+        div_container.innerHTML = "";
         let new_title = document.createElement("h1");
         new_title.innerHTML = document.title;
         let new_pageinfo = document.createElement("p");

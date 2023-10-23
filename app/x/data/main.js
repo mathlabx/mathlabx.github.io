@@ -2329,6 +2329,33 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Linear Algebra | Eigenvalues and Eigenvectors&Reg",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Eigenvalues and Eigenvectors | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Eigenvalues and Eigenvectors | Eigenvalues",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Eigenvalues and Eigenvectors | Eigenvectors",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Eigenvalues and Eigenvectors | Eigenbases",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3068,6 +3095,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Vector Spaces and Linear Transformations: ", loop_length, i);
                     re_q.push($X.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformations(results[362], results[363], results[364]));
+                }
+            }
+            if (results[365] == true) {
+                loop_length = Number(results[366]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Eigenvalues and Eigenvectors: ", loop_length, i);
+                    re_q.push($X.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors(results[367], results[368], results[369]));
                 }
             }
 

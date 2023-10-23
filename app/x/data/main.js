@@ -136,7 +136,20 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Sequences_and_Series/Properties_of_series.js',
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Calculus/Calculating_derivatives_and_their_applications.js',
     MPCLabAPIurl + '/data/math/High_School_Mathematics/Calculus/Indefinite_and_definite_integrals.js',
-    MPCLabAPIurl + '/data/math/High_School_Mathematics/Calculus/Differential_equations.js'
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Calculus/Differential_equations.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Linear_Algebra/Matrices_and_determinants.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Linear_Algebra/Vector_spaces_and_linear_transformations.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Linear_Algebra/Eigenvalues_and_eigenvectors.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Differential_Equations/Higher_order_differential_equations.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Differential_Equations/Solution_methods_for_ordinary_differential_equations.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Probability_and_Statistics/Random_variables_and_probability_distributions.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Probability_and_Statistics/Statistical_inference_and_hypothesis_testing.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Complex_Analysis/Complex_numbers_and_complex_functions.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Complex_Analysis/Analytic_functions_and_conformal_mappings.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Linear_Programming/Modeling_and_solving_linear_programming_problems.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Graph_theory.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Combinatorics.js',
+    MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Applications_of_discrete_mathematics_in_computer_science.js'
 ];
 
 let gl_results;
@@ -2262,6 +2275,33 @@ function X_Generate(setting) {
         show: setting[0].topics[2].subtopics[2].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Linear Algebra | Matrices and Determinants&BIG",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Matrices and Determinants | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Matrices and Determinants | Basic Matrix Operations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Matrices and Determinants | Properties of Matrices",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Matrices and Determinants | Determinants of Matrices",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2989,7 +3029,14 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                     re_q.push($X.math.High_School_Mathematics.Calculus.DifferentialEquations(results[353], results[354]));
                 }
             }
-            
+            if (results[355] == true) {
+                loop_length = Number(results[356]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Matrices and determinants: ", loop_length, i);
+                    re_q.push($X.University_Mathematics.Linear_Algebra.MatricesAndDeterminants(results[357], results[358], results[359]));
+                }
+            }
+
             /*打乱顺序*/
             if (general_settings[1] == true) {
                 re_q = shuffleArray(re_q);

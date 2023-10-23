@@ -16,7 +16,7 @@ const result = Applications_Discrete_Math_CS(true, true);
 console.log(result); // Output: ['In a graph G with 5 vertices...', 'The number of edges in the graph G is...']
 */
 
-function Applications_Discrete_Math_CS(graph_theory, logic_circuits) {
+$X.University_Mathematics.Discrete_Mathematics.Applications_Discrete_Math_CS = function(graph_theory, logic_circuits) {
     // Your code goes here
 
     // Return the question and answer in an array

@@ -18,7 +18,7 @@ const result = HigherOrderDifferentialEquations(true, false, true, false);
 console.log(result); // Output: ['Find the particular solution of the nonhomogeneous differential equation y'''' - 2y'' + y = e^x', 'The particular solution is y_p = (1/2) * e^x.']
 */
 
-function HigherOrderDifferentialEquations(C_homogeneous, C_nonhomogeneous, C_boundary_value, C_initial_value) {
+$X.University_Mathematics.Differential_Equations.HigherOrderDifferentialEquations = function (C_homogeneous, C_nonhomogeneous, C_boundary_value, C_initial_value) {
     // Your code goes here
 
     // Return the question and answer in an array

@@ -18,7 +18,7 @@ const result = SolutionMethodsODE(true, false, true, false);
 console.log(result); // Output: ['Solve the Bernoulli differential equation dy/dx - y/x = y^2 * ln(x)', 'The solution to the Bernoulli differential equation is y = 1 / (C - ln(x)).']
 */
 
-function SolutionMethodsODE(C_exact, C_linear, C_bernoulli, C_substitution) {
+$X.University_Mathematics.Differential_Equations.SolutionMethodsODE = function (C_exact, C_linear, C_bernoulli, C_substitution) {
     // Your code goes here
 
     // Return the question and answer in an array

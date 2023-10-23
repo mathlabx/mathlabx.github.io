@@ -17,7 +17,7 @@ const result = ComplexNumbersAndFunctions(true, true, false);
 console.log(result); // Output: ['Perform the division of the complex numbers (3+4i) and (2-3i)...', 'The result of the division is ...']
 */
 
-function ComplexNumbersAndFunctions(C_operations, C_roots, C_complex_functions) {
+$X.University_Mathematics.Complex_Analysis.ComplexNumbersAndFunctions = function(C_operations, C_roots, C_complex_functions) {
     // Your code goes here
 
     // Return the question and answer in an array

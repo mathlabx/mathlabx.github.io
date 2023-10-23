@@ -17,7 +17,7 @@ const result = StatisticalInferenceAndHypothesisTesting(true, true, false);
 console.log(result); // Output: ['Construct a 95% confidence interval for the mean weight of the population given the sample mean... ', 'The 95% confidence interval for the population mean weight is ... ']
 */
 
-function StatisticalInferenceAndHypothesisTesting(C_sampling, C_confidence_intervals, C_hypothesis_testing) {
+$X.University_Mathematics.Probability_and_Statistics.StatisticalInferenceAndHypothesisTesting = function (C_sampling, C_confidence_intervals, C_hypothesis_testing) {
     // Your code goes here
 
     // Return the question and answer in an array

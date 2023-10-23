@@ -17,7 +17,7 @@ const result = RandomVariablesAndDistributions(true, false, true);
 console.log(result); // Output: ['Calculate the expectation for the discrete probability distribution given by the table... ', 'The expectation for the given discrete probability distribution is ... ']
 */
 
-function RandomVariablesAndDistributions(C_discrete, C_continuous, C_expectation) {
+$X.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDistributions = function(C_discrete, C_continuous, C_expectation) {
     // Your code goes here
 
     // Return the question and answer in an array

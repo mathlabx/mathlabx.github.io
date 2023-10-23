@@ -2174,6 +2174,28 @@ function X_Generate(setting) {
         show: setting[0].topics[2].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Sequences and Series | Properties of series&Reg",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of series | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of series | Convergence of Series",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of series | Divergence of Series",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[1].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2871,6 +2893,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Summation of sequences: ", loop_length, i);
                     re_q.push($X.math.High_School_Mathematics.Sequences_and_Series.SummationOfSequences(results[337], results[338]));
+                }
+            }
+            if (results[339] == true) {
+                loop_length = Number(results[340]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Properties of series: ", loop_length, i);
+                    re_q.push($X.math.High_School_Mathematics.Sequences_and_Series.PropertiesOfSeries(results[341], results[342]));
                 }
             }
             /*打乱顺序*/

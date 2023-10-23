@@ -2302,6 +2302,33 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Linear Algebra | Vector Spaces and Linear Transformations&Reg",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Vector Spaces and Linear Transformations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Vector Spaces and Linear Transformations | Related to Vector Spaces",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Vector Spaces and Linear Transformations | Linear transformations",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Vector Spaces and Linear Transformations | Basis and Dimension of Vector Spaces",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[0].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3034,6 +3061,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Matrices and determinants: ", loop_length, i);
                     re_q.push($X.University_Mathematics.Linear_Algebra.MatricesAndDeterminants(results[357], results[358], results[359]));
+                }
+            }
+            if (results[360] == true) {
+                loop_length = Number(results[361]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Vector Spaces and Linear Transformations: ", loop_length, i);
+                    re_q.push($X.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformations(results[362], results[363], results[364]));
                 }
             }
 

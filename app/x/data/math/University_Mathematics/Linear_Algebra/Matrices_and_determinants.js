@@ -17,7 +17,7 @@ const result = MatricesAndDeterminants(true, false, true);
 console.log(result); // Output: ['Find the determinant of the following 2x2 matrix: [[3, 4], [2, 6]]', 'The determinant of the matrix is 10.']
 */
 
-$X.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function (C_matrix_operations, C_matrix_properties, C_determinants) {
+$X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function (C_matrix_operations, C_matrix_properties, C_determinants) {
     // Your code goes here
 
     // Return the question and answer in an array

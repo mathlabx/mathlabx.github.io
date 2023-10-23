@@ -17,7 +17,7 @@ const result = VectorSpacesAndLinearTransformations(true, false, true);
 console.log(result); // Output: ['Determine if the set of vectors forms a vector space: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]', 'The set of vectors forms a vector space.']
 */
 
-$X.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformations = function(C_vector_spaces, C_linear_transformations, C_basis_and_dimension) {
+$X.math.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformations = function(C_vector_spaces, C_linear_transformations, C_basis_and_dimension) {
     // Your code goes here
 
     // Return the question and answer in an array

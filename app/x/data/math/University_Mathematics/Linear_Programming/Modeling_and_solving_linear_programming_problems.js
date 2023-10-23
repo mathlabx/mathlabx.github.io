@@ -16,7 +16,7 @@ const result = LinearProgramming(true, true);
 console.log(result); // Output: ['Explain the simplex algorithm...', 'The simplex algorithm is a method for...']
 */
 
-$X.University_Mathematics.Linear_Programming.LinearProgramming = function (LP_modeling, LP_solving) {
+$X.math.University_Mathematics.Linear_Programming.LinearProgramming = function (LP_modeling, LP_solving) {
     // Your code goes here
 
     // Return the question and answer in an array

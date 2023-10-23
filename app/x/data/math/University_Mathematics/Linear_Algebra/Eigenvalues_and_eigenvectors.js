@@ -17,7 +17,7 @@ const result = EigenvaluesAndEigenvectors(true, false, true);
 console.log(result); // Output: ['Find the eigenvalues of the matrix [[3, 1], [2, 4]]', 'The eigenvalues are 2 and 5.']
 */
 
-$X.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors = function(C_eigenvalues, C_eigenvectors, C_eigenbases) {
+$X.math.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors = function(C_eigenvalues, C_eigenvectors, C_eigenbases) {
     // Your code goes here
 
     // Return the question and answer in an array

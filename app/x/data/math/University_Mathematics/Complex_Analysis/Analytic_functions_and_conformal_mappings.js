@@ -16,7 +16,7 @@ const result = AnalyticFunctionsAndMappings(true, true);
 console.log(result); // Output: ['Explain the concept of complex differentiability...', 'The concept of complex differentiability refers to...']
 */
 
-$X.University_Mathematics.Complex_Analysis.AnalyticFunctionsAndMappings = function(A_functions, A_mappings) {
+$X.math.University_Mathematics.Complex_Analysis.AnalyticFunctionsAndMappings = function(A_functions, A_mappings) {
     // Your code goes here
 
     // Return the question and answer in an array

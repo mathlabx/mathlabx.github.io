@@ -16,7 +16,7 @@ const result = Combinatorics(true, true);
 console.log(result); // Output: ['How many ways can 5 books be arranged on a shelf...', 'The number of ways to arrange 5 books on a shelf is...']
 */
 
-$X.University_Mathematics.Discrete_Mathematics.Combinatorics = function(counting_principles, permutations_combinations) {
+$X.math.University_Mathematics.Discrete_Mathematics.Combinatorics = function(counting_principles, permutations_combinations) {
     // Your code goes here
 
     // Return the question and answer in an array

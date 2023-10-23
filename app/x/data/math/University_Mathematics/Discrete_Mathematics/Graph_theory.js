@@ -16,7 +16,7 @@ const result = GraphTheory(true, true);
 console.log(result); // Output: ['Explain what a spanning tree is...', 'A spanning tree of a graph G is...']
 */
 
-$X.University_Mathematics.Discrete_Mathematics.GraphTheory = function (graph_properties, graph_algorithms) {
+$X.math.University_Mathematics.Discrete_Mathematics.GraphTheory = function (graph_properties, graph_algorithms) {
     // Your code goes here
 
     // Return the question and answer in an array

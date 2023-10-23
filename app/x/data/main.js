@@ -128,7 +128,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Data_collection_and_analysis.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Basic_probability_concepts.js',
     MPCLabAPIurl + '/data/math/Middle_School_Mathematics/Statistics_and_Probability/Probability_calculations.js',
-    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Properties_and_graphs_of_trigonometric_functions.js'
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Properties_and_graphs_of_trigonometric_functions.js',
+    MPCLabAPIurl + '/data/math/High_School_Mathematics/Trigonometry/Trigonometric_identities.js'
 ];
 
 let gl_results;
@@ -2068,6 +2069,33 @@ function X_Generate(setting) {
         show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Trigonometry | Trigonometric Identities&Reg",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Trigonometric Identities | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Trigonometric Identities | Pythagorean Identities",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Trigonometric Identities | Quotient Identities",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Trigonometric Identities | Reciprocal Identities",
+        Typ: "checked",
+        show: setting[0].topics[2].subtopics[0].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -2737,6 +2765,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Properties and Graphs of Trigonometric Functions: ", loop_length, i);
                     re_q.push($X.math.High_School_Mathematics.Trigonometry.TrigonometricFunctionsProperties(results[314], results[315], results[316], results[317], results[318], results[319], results[320]));
+                }
+            }
+            if (results[321] == true) {
+                loop_length = Number(results[322]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Trigonometric Identities: ", loop_length, i);
+                    re_q.push($X.math.High_School_Mathematics.Trigonometry.TrigonometricIdentities(results[323], results[324], results[325]));
                 }
             }
             /*打乱顺序*/

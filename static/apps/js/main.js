@@ -1,6 +1,16 @@
 let div_container;
 
 const Operate = {
+    newPage: () => {
+        div_container.innerHTML ="";
+        let new_title = document.createElement("h1");
+        new_title.innerHTML = document.title;
+        let new_pageinfo = document.createElement("p");
+        new_pageinfo.innerHTML = document.querySelector('meta[name="description"]').getAttribute('content');
+        div_container.append(new_title);
+        div_container.append(new_pageinfo)
+    },
+
     newInput: (words) => {
         const formIndex = Math.floor(Math.random() * 1000000); // 生成一个随机的 formIndex
         return new Promise((resolve, reject) => {

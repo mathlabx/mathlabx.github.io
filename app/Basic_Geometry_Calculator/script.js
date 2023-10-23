@@ -1,4 +1,7 @@
 function main() {
+    //Start Page
+    Operate.newPage();
+
     Operate.newStart("Shapes: ");
     Operate.newStep("Square");
     Operate.newStep("Rectangle");

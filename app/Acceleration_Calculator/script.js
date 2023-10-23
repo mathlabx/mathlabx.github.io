@@ -1,4 +1,7 @@
 function main() {
+	//Start Page
+	Operate.newPage();
+
 	// Display some equations or formulas using KaTeX
 	Operate.newStart("Equations:");
 	Operate.newStep("Eq. 1: \(a = \\frac{{v_f - v_i}}{{t}}\)");

@@ -1,4 +1,7 @@
 function main() {
+	//Start Page
+	Operate.newPage();
+
 	const equation1 = "a_1x + b_1y + c_1z + d_1w = e_1";
 	const equation2 = "a_2x + b_2y + c_2z + d_2w = e_2";
 	const equation3 = "a_3x + b_3y + c_3z + d_3w = e_3";

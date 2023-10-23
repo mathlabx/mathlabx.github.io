@@ -1,4 +1,7 @@
 function main() {
+    //Start Page
+    Operate.newPage();
+
     // 以 KaTeX 格式显示矩阵
     function matrixToKaTeX(matrix) {
         return matrix.map(row => row.join(" & ")).join("\\\\");

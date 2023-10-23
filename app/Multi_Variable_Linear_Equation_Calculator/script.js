@@ -1,17 +1,7 @@
-Operate.newInput(["n"]).then((countData) => {
-    const n = parseInt(countData[0]);
-    if (isNaN(n) || n <= 0) {
-        // Handle invalid input here
-        Operate.newSolution("Invalid\\ input\\ for\\ the\\ number\\ of\\ data\\ values.");
-        return;
-    }
-    // Prompt the user to enter n data values
-    Operate.newInput(Array.from({ length: n }, (_, i) => `x${i + 1}`)).then((dataArray) => {
-        const values = dataArray.map((data, i) => parseInt(data));
-        interpretData(values);
-    });
-});
 function main() {
+	//Start Page
+	Operate.newPage();
+
 	const equation1 = "a_1x + b_1y + c_1z + ... + y_1b = z_1a";
 	const equation2 = "a_2x + b_2y + c_2z + ... + y_2b = z_2a";
 	const equation3 = "a_3x + b_3y + c_3z + ... + y_3b = z_3a";
@@ -24,38 +14,38 @@ function main() {
 	Operate.newStep(`${equation3}`);
 	Operate.newStep(`${equation4}`);
 
-    Operate.newStart("Please number of variable:");
+	Operate.newStart("Please number of variable:");
 
-    Operate.newInput(["n"]).then((countData) => {
-        const n = parseInt(countData[0]);
-        if (isNaN(n) || n <= 0) {
-            // Handle invalid input here
-            Operate.newSolution("Invalid\\ input\\ for\\ the\\ number\\ of\\ data\\ values.");
-            return;
-        }
-        // Prompt the user to enter n data values
-        Operate.newInput(Array.from({ length: (n + 1) * n }, (_, i) => `x${i + 1}`)).then((dataArray) => {
-            const values = dataArray.map((data, i) => parseInt(data));
-		console.log(values);
-		let solution = [];
-       		let coefficientsArray = [];
-		for(var i = 0; i < n; i++){
-			var temp = [];
-			for(var j = 0; j <= n; j++){
-				temp.push(values[j + i * (n + 1)]);
-			}
-			coefficientsArray.push(temp);
+	Operate.newInput(["n"]).then((countData) => {
+		const n = parseInt(countData[0]);
+		if (isNaN(n) || n <= 0) {
+			// Handle invalid input here
+			Operate.newSolution("Invalid\\ input\\ for\\ the\\ number\\ of\\ data\\ values.");
+			return;
 		}
-		console.log(coefficientsArray);
-            // let solution = [];
-            // let coefficientsArray = [[a1, b1, c1, d1, e1], [a2, b2, c2, d2, e2], [a3, b3, c3, d3, e3], [a4, b4, c4, d4, e4]];
-            // solution = solveEquation(coefficientsArray, n);
-            // Operate.newSolution("Solution\\ to\\ the\\ equations:");
-            // solution.forEach((solution) => {
-            //     Operate.newStep(String(solution));
-            // });
-        });
-    });
+		// Prompt the user to enter n data values
+		Operate.newInput(Array.from({ length: (n + 1) * n }, (_, i) => `x${i + 1}`)).then((dataArray) => {
+			const values = dataArray.map((data, i) => parseInt(data));
+			console.log(values);
+			let solution = [];
+			let coefficientsArray = [];
+			for (var i = 0; i < n; i++) {
+				var temp = [];
+				for (var j = 0; j <= n; j++) {
+					temp.push(values[j + i * (n + 1)]);
+				}
+				coefficientsArray.push(temp);
+			}
+			console.log(coefficientsArray);
+			// let solution = [];
+			// let coefficientsArray = [[a1, b1, c1, d1, e1], [a2, b2, c2, d2, e2], [a3, b3, c3, d3, e3], [a4, b4, c4, d4, e4]];
+			// solution = solveEquation(coefficientsArray, n);
+			// Operate.newSolution("Solution\\ to\\ the\\ equations:");
+			// solution.forEach((solution) => {
+			//     Operate.newStep(String(solution));
+			// });
+		});
+	});
 
 	function solveEquation(coefficientsArray, n) {
 		let differenceArray = [];

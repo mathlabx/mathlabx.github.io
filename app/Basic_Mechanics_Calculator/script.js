@@ -1,4 +1,7 @@
 function main() {
+	//Start Page
+	Operate.newPage();
+
 	// Display some equations or formulas using KaTeX
 	Operate.newStart("Equations:");
 	Operate.newStep("Equation 1: \(F = ma\)");

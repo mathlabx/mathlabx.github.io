@@ -1,4 +1,7 @@
 function main() {
+    //Start Page
+    Operate.newPage();
+
     Operate.newStart("Statistics Distribution");
     Operate.newStart("Use ',' to split numbers");
     // 提示用户输入所有数据，以逗号隔开

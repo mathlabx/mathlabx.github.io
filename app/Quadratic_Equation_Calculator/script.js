@@ -1,4 +1,7 @@
 function main() {
+    //Start Page
+    Operate.newPage();
+
     // Print the quadratic equation
     const equation = "ax^2 + bx + c = 0";
     Operate.newStep(`Quadratic\\ Equation: ${equation}`);

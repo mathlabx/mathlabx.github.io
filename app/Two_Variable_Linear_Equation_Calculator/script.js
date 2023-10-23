@@ -1,4 +1,7 @@
 function main() {
+    //Start Page
+    Operate.newPage();
+
     const equation1 = "a_1x + b_1y = c_1";
     const equation2 = "a_2x + b_2y = c_2";
     Operate.newStart("System of Linear Equations: ")

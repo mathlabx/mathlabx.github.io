@@ -2474,6 +2474,33 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[2].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Complex_Analysis | Complex Numbers and Complex Functions&BIG",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[3].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Complex Numbers and Complex Functions | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[0].topics[3].subtopics[3].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Complex Numbers and Complex Functions | Basic Operations with Complex Numbers",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[3].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Complex Numbers and Complex Functions | Finding Roots of Complex Numbers",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[3].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Complex Numbers and Complex Functions | Complex Functions",
+        Typ: "checked",
+        show: setting[0].topics[3].subtopics[3].subtopics[0]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3206,49 +3233,56 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[356]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Matrices and determinants: ", loop_length, i);
-                    re_q.push($X.University_Mathematics.Linear_Algebra.MatricesAndDeterminants(results[357], results[358], results[359]));
+                    re_q.push($X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants(results[357], results[358], results[359]));
                 }
             }
             if (results[360] == true) {
                 loop_length = Number(results[361]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Vector Spaces and Linear Transformations: ", loop_length, i);
-                    re_q.push($X.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformations(results[362], results[363], results[364]));
+                    re_q.push($X.math.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformations(results[362], results[363], results[364]));
                 }
             }
             if (results[365] == true) {
                 loop_length = Number(results[366]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Eigenvalues and Eigenvectors: ", loop_length, i);
-                    re_q.push($X.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors(results[367], results[368], results[369]));
+                    re_q.push($X.math.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors(results[367], results[368], results[369]));
                 }
             }
             if (results[370] == true) {
                 loop_length = Number(results[371]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Higher-order Differential Equations: ", loop_length, i);
-                    re_q.push($X.University_Mathematics.Differential_Equations.HigherOrderDifferentialEquations(results[372], results[373], results[374], results[375]));
+                    re_q.push($X.math.University_Mathematics.Differential_Equations.HigherOrderDifferentialEquations(results[372], results[373], results[374], results[375]));
                 }
             }
             if (results[376] == true) {
                 loop_length = Number(results[377]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Solution Methods for Ordinary Differential Equations: ", loop_length, i);
-                    re_q.push($X.University_Mathematics.Differential_Equations.SolutionMethodsODE(results[378], results[379], results[380], results[381]));
+                    re_q.push($X.math.University_Mathematics.Differential_Equations.SolutionMethodsODE(results[378], results[379], results[380], results[381]));
                 }
             }
             if (results[382] == true) {
                 loop_length = Number(results[383]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Random Variables and Probability Distributions: ", loop_length, i);
-                    re_q.push($X.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDistributions(results[384], results[385], results[386]));
+                    re_q.push($X.math.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDistributions(results[384], results[385], results[386]));
                 }
             }
             if (results[387] == true) {
                 loop_length = Number(results[388]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Statistical Inference and Hypothesis Testing: ", loop_length, i);
-                    re_q.push($X.University_Mathematics.Probability_and_Statistics.StatisticalInferenceAndHypothesisTesting(results[389], results[390], results[391]));
+                    re_q.push($X.math.University_Mathematics.Probability_and_Statistics.StatisticalInferenceAndHypothesisTesting(results[389], results[390], results[391]));
+                }
+            }
+            if (results[392] == true) {
+                loop_length = Number(results[393]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Complex Numbers and Complex Functions: ", loop_length, i);
+                    re_q.push($X.math.University_Mathematics.Complex_Analysis.ComplexNumbersAndFunctions(results[394], results[395], results[396]));
                 }
             }
 

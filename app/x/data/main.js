@@ -171,6 +171,7 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Combinatorics.js',
     MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Applications_of_discrete_mathematics_in_computer_science.js',
     MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Matter_and_its_Properties.js',
+    MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Size_Shape_and_Color_of_Objects.js',
 ];
 
 let gl_results;
@@ -2659,6 +2660,33 @@ function X_Generate(setting) {
         show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Basic Physics Concepts | Size, Shape, and Color of Objects&Reg",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Size, Shape, and Color of Objects | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Size, Shape, and Color of Objects | Size of Objects",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Size, Shape, and Color of Objects | Shapes of Objects",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Size, Shape, and Color of Objects | Colors of Objects",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[0].subtopics[1]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3483,6 +3511,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Matter and its Properties: ", loop_length, i);
                     re_q.push($X.physics.Elementary_Physics.Basic_Physics_Concepts.Matter_Properties(results[419], results[420], results[421]));
+                }
+            }
+            if (results[422] == true) {
+                loop_length = Number(results[423]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Size, Shape, and Color of Objects: ", loop_length, i);
+                    re_q.push($X.physics.Elementary_Physics.Basic_Physics_Concepts.Size_Shape_Color_Objects(results[424], results[425], results[426]));
                 }
             }
 

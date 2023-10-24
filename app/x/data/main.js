@@ -2900,6 +2900,28 @@ function X_Generate(setting) {
         show: setting[1].topics[1].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Electromagnetism | Magnetic Fields and Electromagnetic Induction&Reg",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Magnetic Fields and Electromagnetic Induction | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Magnetic Fields and Electromagnetic Induction | Magnetic Fields",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Magnetic Fields and Electromagnetic Induction | Electromagnetic Induction",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3793,6 +3815,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Electric Current and Circuits: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Electromagnetism.Electric_Current_and_Circuits(results[461], results[462]));
+                }
+            }
+            if (results[463] == true) {
+                loop_length = Number(results[464]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Magnetic Fields and Electromagnetic Induction: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Electromagnetism.Magnetic_Fields_and_Electromagnetic_Induction(results[465], results[466]));
                 }
             }
 

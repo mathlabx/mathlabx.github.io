@@ -17,7 +17,7 @@ const result = Characteristics_and_Frequency_of_Sound(true, true, true);
 console.log(result); // Output: ['What is the pitch of a sound wave with a frequency of 440 Hz?', 'The pitch of a sound wave with a frequency of 440 Hz is A4.']
 */
 
-function Characteristics_and_Frequency_of_Sound(pitch, frequency, characteristics) {
+$X.physics.Middle_School_Physics.Acoustics.Characteristics_and_Frequency_of_Sound = function(pitch, frequency, characteristics) {
     const questions = [];
     const answers = [];
 

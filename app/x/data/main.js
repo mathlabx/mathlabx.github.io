@@ -2944,6 +2944,50 @@ function X_Generate(setting) {
         show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Acoustics | Characteristics and Frequency of Sound&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Characteristics and Frequency of Sound | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Characteristics and Frequency of Sound | Sound Pitch",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Characteristics and Frequency of Sound | Sound Frequency",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Acoustics | Sound Reflection and Absorption&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Sound Reflection and Absorption | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Sound Reflection and Absorption | Sound Reflection",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Sound Reflection and Absorption | Sound Absorption",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3851,6 +3895,20 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Propagation of Sound: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Acoustics.Propagation_of_Sound(results[469], results[470]));
+                }
+            }
+            if (results[471] == true) {
+                loop_length = Number(results[472]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Characteristics and Frequency of Sound: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Acoustics.Characteristics_and_Frequency_of_Sound(results[473], results[474]));
+                }
+            }
+            if (results[475] == true) {
+                loop_length = Number(results[476]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Sound Reflection and Absorption: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Acoustics.Sound_Reflection_and_Absorption(results[477], results[478]));
                 }
             }
 

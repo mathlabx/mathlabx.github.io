@@ -18,6 +18,38 @@ console.log(result); // Output: ['What is the pitch of a sound wave with a frequ
 */
 
 $X.physics.Middle_School_Physics.Acoustics.Characteristics_and_Frequency_of_Sound = function(pitch, frequency, characteristics) {
+    function generateRandomNote() {
+        const notes = ['A0', 'C1', 'E1', 'A1', 'C2', 'E2', 'A2', 'C3', 'E3'];
+        return notes[Math.floor(Math.random() * notes.length)];
+    }
+    
+    function generateRandomFrequency() {
+        return (Math.random() * 1000 + 200).toFixed(2);
+    }
+    
+    function convertToNoteName(frequency) {
+        const a4Frequency = 440;
+        const a4Note = 'A4';
+        const semitone = 69;
+        const noteValue = 12 * (Math.log2(frequency / a4Frequency)) + semitone;
+        const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+        const octave = Math.floor(noteValue / 12) - 1;
+        const noteName = noteNames[noteValue % 12] + octave;
+        return noteName;
+    }
+    
+    function convertToFrequency(note) {
+        const a4Frequency = 440;
+        const a4Note = 'A4';
+        const semitone = 69;
+        const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+        const octave = parseInt(note.slice(-1));
+        const noteName = note.slice(0, -1);
+        const noteValue = noteNames.indexOf(noteName) + 1 + (octave + 1) * 12;
+        const frequency = a4Frequency * Math.pow(2, (noteValue - semitone) / 12);
+        return frequency.toFixed(2);
+    }
+    
     const questions = [];
     const answers = [];
 
@@ -56,36 +88,4 @@ $X.physics.Middle_School_Physics.Acoustics.Characteristics_and_Frequency_of_Soun
     }
 
     return result;
-}
-
-function generateRandomNote() {
-    const notes = ['A0', 'C1', 'E1', 'A1', 'C2', 'E2', 'A2', 'C3', 'E3'];
-    return notes[Math.floor(Math.random() * notes.length)];
-}
-
-function generateRandomFrequency() {
-    return (Math.random() * 1000 + 200).toFixed(2);
-}
-
-function convertToNoteName(frequency) {
-    const a4Frequency = 440;
-    const a4Note = 'A4';
-    const semitone = 69;
-    const noteValue = 12 * (Math.log2(frequency / a4Frequency)) + semitone;
-    const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-    const octave = Math.floor(noteValue / 12) - 1;
-    const noteName = noteNames[noteValue % 12] + octave;
-    return noteName;
-}
-
-function convertToFrequency(note) {
-    const a4Frequency = 440;
-    const a4Note = 'A4';
-    const semitone = 69;
-    const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-    const octave = parseInt(note.slice(-1));
-    const noteName = note.slice(0, -1);
-    const noteValue = noteNames.indexOf(noteName) + 1 + (octave + 1) * 12;
-    const frequency = a4Frequency * Math.pow(2, (noteValue - semitone) / 12);
-    return frequency.toFixed(2);
 }

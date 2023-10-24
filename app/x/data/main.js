@@ -64,7 +64,27 @@ let $X = {
         }
     },
     physics: {
-
+        Elementary_Physics: {
+            Basic_Physics_Concepts: new Object(),
+            Force_and_Motion: new Object()
+        },
+        Middle_School_Physics: {
+            Thermodynamics: new Object(),
+            Electromagnetism: new Object(),
+            Acoustics: new Object()
+        },
+        High_School_Physics: {
+            Mechanics: new Object(),
+            Optics: new Object(),
+            Atomic_and_Nuclear_Physics: new Object()
+        },
+        University_Physics: {
+            Thermodynamics: new Object(),
+            Electromagnetism: new Object(),
+            Quantum_Mechanics: new Object(),
+            Relativity: new Object(),
+            Solid_State_Physics: new Object()
+        }
     },
     chemistry: {
 
@@ -149,7 +169,8 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/University_Mathematics/Linear_Programming/Modeling_and_solving_linear_programming_problems.js',
     MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Graph_theory.js',
     MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Combinatorics.js',
-    MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Applications_of_discrete_mathematics_in_computer_science.js'
+    MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Applications_of_discrete_mathematics_in_computer_science.js',
+    MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Energy_and_Work.js',
 ];
 
 let gl_results;
@@ -2611,6 +2632,18 @@ function X_Generate(setting) {
         show: setting[0].topics[3].subtopics[5].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Basic Physics Concepts | Energy and Work&BIG",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Energy and Work | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -3428,6 +3461,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Applications of Discrete Mathematics in Computer Science: ", loop_length, i);
                     re_q.push($X.math.University_Mathematics.Discrete_Mathematics.Applications_Discrete_Math_CS(results[415], results[416]));
+                }
+            }
+            if (results[417] == true) {
+                loop_length = Number(results[418]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Energy and Work: ", loop_length, i);
+                    re_q.push($X.physics.Elementary_Physics.Basic_Physics_Concepts.EnergyAndWork());
                 }
             }
 

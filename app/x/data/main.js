@@ -2788,6 +2788,28 @@ function X_Generate(setting) {
         show: setting[1].topics[0].subtopics[1].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Thermodynamics | Temperature and Temperature Measurement&BIG",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Temperature and Temperature Measurement | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Temperature and Temperature Measurement | Temperature Conversions",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Temperature and Temperature Measurement | Temperature Measurements",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3646,6 +3668,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Simple Machines: ", loop_length, i);
                     re_q.push($X.physics.Elementary_Physics.Force_and_Motion.Simple_Machines(results[441], results[442]));
+                }
+            }
+            if (results[443] == true) {
+                loop_length = Number(results[444]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Temperature and Temperature Measurement: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Thermodynamics.Temperature_and_Temperature_Measurement(results[445], results[446]));
                 }
             }
 

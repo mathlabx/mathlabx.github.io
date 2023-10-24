@@ -2925,67 +2925,67 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Acoustics | Propagation of Sound&BIG",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
         Name: "Propagation of Sound | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
-        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
         Name: "Propagation of Sound | Sound Propagation in Different Media",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
         Name: "Propagation of Sound | The Speed of Sound",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[0]._checked
     });
 
     Setting_Array.push({
         Name: "Acoustics | Characteristics and Frequency of Sound&Reg",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[1]._checked
     });
     Setting_Array.push({
         Name: "Characteristics and Frequency of Sound | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
-        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[1]._checked
     });
     Setting_Array.push({
         Name: "Characteristics and Frequency of Sound | Sound Pitch",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[1]._checked
     });
     Setting_Array.push({
         Name: "Characteristics and Frequency of Sound | Sound Frequency",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[1]._checked
     });
 
     Setting_Array.push({
         Name: "Acoustics | Sound Reflection and Absorption&Reg",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[2]._checked
     });
     Setting_Array.push({
         Name: "Sound Reflection and Absorption | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
-        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[2]._checked
     });
     Setting_Array.push({
         Name: "Sound Reflection and Absorption | Sound Reflection",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[2]._checked
     });
     Setting_Array.push({
         Name: "Sound Reflection and Absorption | Sound Absorption",
         Typ: "checked",
-        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+        show: setting[1].topics[1].subtopics[2].subtopics[2]._checked
     });
 
 

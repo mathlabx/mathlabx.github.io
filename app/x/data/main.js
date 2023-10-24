@@ -170,7 +170,7 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Graph_theory.js',
     MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Combinatorics.js',
     MPCLabAPIurl + '/data/math/University_Mathematics/Discrete_Mathematics/Applications_of_discrete_mathematics_in_computer_science.js',
-    MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Energy_and_Work.js',
+    MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Matter_and_its_Properties.js',
 ];
 
 let gl_results;
@@ -2633,14 +2633,29 @@ function X_Generate(setting) {
     });
 
     Setting_Array.push({
-        Name: "Basic Physics Concepts | Energy and Work&BIG",
+        Name: "Basic Physics Concepts | Matter and its Properties&BIG",
         Typ: "checked",
         show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Energy and Work | Number of questions to generate",
+        Name: "Matter and its Properties | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
+        show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Matter and its Properties | Solid",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Matter and its Properties | Liquid",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Matter and its Properties | Gas",
+        Typ: "checked",
         show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
     });
 
@@ -3466,8 +3481,8 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
             if (results[417] == true) {
                 loop_length = Number(results[418]);
                 for (let i = 0; i < loop_length; i++) {
-                    gen_log("Generating - Energy and Work: ", loop_length, i);
-                    re_q.push($X.physics.Elementary_Physics.Basic_Physics_Concepts.EnergyAndWork());
+                    gen_log("Generating - Matter and its Properties: ", loop_length, i);
+                    re_q.push($X.physics.Elementary_Physics.Basic_Physics_Concepts.Matter_Properties(results[419], results[420], results[421]));
                 }
             }
 

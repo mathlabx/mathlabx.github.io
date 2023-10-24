@@ -2810,6 +2810,28 @@ function X_Generate(setting) {
         show: setting[1].topics[1].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Thermodynamics | Heat Conduction and Transfer&Reg",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat Conduction and Transfer | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat Conduction and Transfer | Heat Conduction",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat Conduction and Transfer | Heat Transfer",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[0].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3675,6 +3697,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Temperature and Temperature Measurement: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Thermodynamics.Temperature_and_Temperature_Measurement(results[445], results[446]));
+                }
+            }
+            if (results[447] == true) {
+                loop_length = Number(results[448]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Heat Conduction and Transfer: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer(results[449], results[450]));
                 }
             }
 

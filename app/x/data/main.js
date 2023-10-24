@@ -2757,6 +2757,28 @@ function X_Generate(setting) {
         show: setting[1].topics[0].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Force and Motion | Simple Machines&Reg",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Simple Machines | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 12, 40],
+        show: setting[1].topics[0].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Simple Machines | Different types of Simple Machines",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Simple Machines | Applications of Simple Machines",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[1].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3608,6 +3630,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Motion and Rest of Objects: ", loop_length, i);
                     re_q.push($X.physics.Elementary_Physics.Force_and_Motion.Motion_Rest_Objects(results[437], results[438]));
+                }
+            }
+            if (results[439] == true) {
+                loop_length = Number(results[440]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Simple Machines: ", loop_length, i);
+                    re_q.push($X.physics.Elementary_Physics.Force_and_Motion.Simple_Machines(results[441], results[442]));
                 }
             }
 

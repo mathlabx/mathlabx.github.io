@@ -2856,6 +2856,28 @@ function X_Generate(setting) {
         show: setting[1].topics[1].subtopics[0].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Electromagnetism | Electric Charge and Static Electricity&BIG",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Electric Charge and Static Electricity | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Electric Charge and Static Electricity | Electric Charge",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Electric Charge and Static Electricity | Static Electricity",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3735,6 +3757,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Thermal Expansion of Materials: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Thermodynamics.Thermal_Expansion_of_Materials(results[453], results[454]));
+                }
+            }
+            if (results[455] == true) {
+                loop_length = Number(results[456]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Electric Charge and Static Electricity: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Electromagnetism.Electric_Charge_and_Static_Electricity(results[457], results[458]));
                 }
             }
 

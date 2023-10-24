@@ -176,6 +176,15 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/physics/Elementary_Physics/Force_and_Motion/Concept_of_Force.js',
     MPCLabAPIurl + '/data/physics/Elementary_Physics/Force_and_Motion/Motion_and_Rest_of_Objects.js',
     MPCLabAPIurl + '/data/physics/Elementary_Physics/Force_and_Motion/Simple_Machines.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Thermodynamics/Temperature_and_Temperature_Measurement.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Thermodynamics/Heat_Conduction_and_Transfer.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Thermodynamics/Thermal_Expansion_of_Materials.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Electromagnetism/Electric_Charge_and_Static_Electricity.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Electromagnetism/Electric_Current_and_Circuits.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Electromagnetism/Magnetic_Fields_and_Electromagnetic_Induction.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Acoustics/Propagation_of_Sound.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Acoustics/Characteristics_and_Frequency_of_Sound.js',
+    MPCLabAPIurl + '/data/physics/Middle_School_Physics/Acoustics/Sound_Reflection_and_Absorption.js',
 ];
 
 let gl_results;
@@ -2645,7 +2654,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Matter and its Properties | Number of questions to generate",
         Typ: "range",
-        Range: [1, 10, 40],
+        Range: [1, 10, 4],
         show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -2672,7 +2681,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Size, Shape, and Color of Objects | Number of questions to generate",
         Typ: "range",
-        Range: [1, 10, 40],
+        Range: [1, 10, 4],
         show: setting[1].topics[0].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -2699,7 +2708,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Position and Direction of Objects | Number of questions to generate",
         Typ: "range",
-        Range: [1, 8, 40],
+        Range: [1, 8, 4],
         show: setting[1].topics[0].subtopics[0].subtopics[2]._checked
     });
     Setting_Array.push({
@@ -2721,7 +2730,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Concept of Force | Number of questions to generate",
         Typ: "range",
-        Range: [1, 8, 40],
+        Range: [1, 8, 4],
         show: setting[1].topics[0].subtopics[1].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -2743,7 +2752,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Motion and Rest of Objects | Number of questions to generate",
         Typ: "range",
-        Range: [1, 8, 40],
+        Range: [1, 8, 4],
         show: setting[1].topics[0].subtopics[1].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -2765,7 +2774,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Simple Machines | Number of questions to generate",
         Typ: "range",
-        Range: [1, 12, 40],
+        Range: [1, 12, 4],
         show: setting[1].topics[0].subtopics[1].subtopics[2]._checked
     });
     Setting_Array.push({

@@ -2791,23 +2791,23 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Thermodynamics | Temperature and Temperature Measurement&BIG",
         Typ: "checked",
-        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
         Name: "Temperature and Temperature Measurement | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
-        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
         Name: "Temperature and Temperature Measurement | Temperature Conversions",
         Typ: "checked",
-        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
         Name: "Temperature and Temperature Measurement | Temperature Measurements",
         Typ: "checked",
-        show: setting[1].topics[0].subtopics[2].subtopics[0]._checked
+        show: setting[1].topics[1].subtopics[0].subtopics[0]._checked
     });
 
 

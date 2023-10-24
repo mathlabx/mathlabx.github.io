@@ -208,9 +208,11 @@ function X_Result(results) {
     X_Operate.newPage();
     X_Operate.newResult(results.length, "Please select an option below to continue.", results_ar);
     APP.log("Generating: Completed");
+    /*
     for (let i = 0; i < results.length; i++) {
         console.log(results[i]);
     }
+    */
 }
 
 function View_Results() {

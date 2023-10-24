@@ -2834,6 +2834,28 @@ function X_Generate(setting) {
         show: setting[1].topics[1].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Thermodynamics | Thermal Expansion of Materials&Reg",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Thermal Expansion of Materials | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Thermal Expansion of Materials | Thermal Expansion of Solids",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Thermal Expansion of Materials | Thermal Expansion of Liquids",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[0].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3706,6 +3728,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Heat Conduction and Transfer: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer(results[449], results[450]));
+                }
+            }
+            if (results[451] == true) {
+                loop_length = Number(results[452]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Thermal Expansion of Materials: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Thermodynamics.Thermal_Expansion_of_Materials(results[453], results[454]));
                 }
             }
 

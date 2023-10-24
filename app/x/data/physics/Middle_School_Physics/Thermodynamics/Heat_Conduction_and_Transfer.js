@@ -16,7 +16,7 @@ const result = Heat_Conduction_and_Transfer(true, true);
 console.log(result); // Output: ['Explain the concept of heat transfer.', 'Heat transfer refers to the process of thermal energy moving from a hotter object to a cooler one.']
 */
 
-$X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = function(conduction, transfer) {
+$X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = function (conduction, transfer) {
     const questions = [];
     const answers = [];
 
@@ -28,7 +28,7 @@ $X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = f
         const temperature1 = Math.floor(Math.random() * 100);
         const temperature2 = Math.floor(Math.random() * 100);
         questions.push(`How does heat conduction occur in ${material1} and ${material2} at different temperatures?`);
-        answers.push(`Heat conduction occurs in ${material1} and ${material2} when there is a temperature difference between the materials, causing the heat to flow from the higher temperature material to the lower temperature material. The rate of heat conduction is influenced by the thermal conductivity, the area of cross-section, and the temperature difference, and can be calculated using the formula Q = k * A * (T1 - T2) / L, where Q is the amount of heat conducted, k is the thermal conductivity, A is the area of cross-section, T1 and T2 are the temperatures of the two materials, and L is the length of the materials.`);
+        answers.push([`Heat conduction occurs in ${material1} and ${material2} when there is a temperature difference between the materials, causing the heat to flow from the higher temperature material to the lower temperature material.`, ` The rate of heat conduction is influenced by the thermal conductivity, the area of cross-section, and the temperature difference, and can be calculated using the formula: `, `Q = k * A * (T1 - T2) / L, where Q is the amount of heat conducted, k is the thermal conductivity, A is the area of cross-section, T1 and T2 are the temperatures of the two materials, and L is the length of the materials.`]);
 
         const material3 = generateRandomMaterial();
         const length2 = Math.floor(Math.random() * 100) + 1;
@@ -36,7 +36,7 @@ $X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = f
         const temperature3 = Math.floor(Math.random() * 100);
         const rate = Math.random().toFixed(2);
         questions.push(`Calculate the rate of heat conduction in ${material3} with a length of ${length2} cm, an area of ${area2} cm², and a temperature difference of ${temperature3} degrees Celsius, given the thermal conductivity as ${rate} W/mK.`);
-        answers.push(`The rate of heat conduction in ${material3} can be calculated using the formula Q = k * A * (T), where Q is the rate of heat conduction, k is the thermal conductivity, A is the area of cross-section, and T is the temperature difference. Substituting the given values, the rate of heat conduction is ${rate * area2 * temperature3 / length2} W.`);
+        answers.push([`The rate of heat conduction in ${material3} can be calculated using the formula Q = k * A * (T), where Q is the rate of heat conduction, k is the thermal conductivity, A is the area of cross-section, and T is the temperature difference. `, `Substituting the given values, the rate of heat conduction is ${rate * area2 * temperature3 / length2} W.`]);
     }
 
     if (transfer) {
@@ -44,12 +44,12 @@ $X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = f
         const object2 = generateRandomObject();
         const energy = Math.floor(Math.random() * 100) + 1;
         questions.push(`Explain the process of heat transfer between ${object1} and ${object2} due to the energy difference.`);
-        answers.push(`Heat transfer occurs between ${object1} and ${object2} due to the energy difference, leading to the flow of heat from the object with higher energy to the one with lower energy. This transfer can take place through various methods, including conduction, convection, and radiation, depending on the medium through which the heat travels.`);
+        answers.push([`Heat transfer occurs between ${object1} and ${object2} due to the energy difference, leading to the flow of heat from the object with higher energy to the one with lower energy. `, `This transfer can take place through various methods, including conduction, convection, and radiation, depending on the medium through which the heat travels.`]);
 
         const method = generateRandomMethod();
         const material4 = generateRandomMaterial();
         questions.push(`Describe how ${method} is employed in ${material4} for efficient heat transfer.`);
-        answers.push(`The method of ${method} is employed in ${material4} for efficient heat transfer by utilizing the properties of the material to facilitate the movement of heat. For example, in the case of convection, fluid dynamics are utilized to transfer heat, while in radiation, the material's ability to emit and absorb thermal radiation is harnessed for effective heat transfer.`);
+        answers.push([`The method of ${method} is employed in ${material4} for efficient heat transfer by utilizing the properties of the material to facilitate the movement of heat. `, `For example, in the case of convection, fluid dynamics are utilized to transfer heat, while in radiation, the material's ability to emit and absorb thermal radiation is harnessed for effective heat transfer.`]);
     }
 
     const result = [];

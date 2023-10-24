@@ -173,6 +173,9 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Matter_and_its_Properties.js',
     MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Size_Shape_and_Color_of_Objects.js',
     MPCLabAPIurl + '/data/physics/Elementary_Physics/Basic_Physics_Concepts/Position_and_Direction_of_Objects.js',
+    MPCLabAPIurl + '/data/physics/Elementary_Physics/Force_and_Motion/Concept_of_Force.js',
+    MPCLabAPIurl + '/data/physics/Elementary_Physics/Force_and_Motion/Motion_and_Rest_of_Objects.js',
+    MPCLabAPIurl + '/data/physics/Elementary_Physics/Force_and_Motion/Simple_Machines.js',
 ];
 
 let gl_results;
@@ -2642,7 +2645,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Matter and its Properties | Number of questions to generate",
         Typ: "range",
-        Range: [1, 10000, 40],
+        Range: [1, 10, 40],
         show: setting[1].topics[0].subtopics[0].subtopics[0]._checked
     });
     Setting_Array.push({
@@ -2669,7 +2672,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Size, Shape, and Color of Objects | Number of questions to generate",
         Typ: "range",
-        Range: [1, 10000, 40],
+        Range: [1, 10, 40],
         show: setting[1].topics[0].subtopics[0].subtopics[1]._checked
     });
     Setting_Array.push({
@@ -2696,7 +2699,7 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Position and Direction of Objects | Number of questions to generate",
         Typ: "range",
-        Range: [1, 10000, 40],
+        Range: [1, 8, 40],
         show: setting[1].topics[0].subtopics[0].subtopics[2]._checked
     });
     Setting_Array.push({
@@ -2708,6 +2711,28 @@ function X_Generate(setting) {
         Name: "Position and Direction of Objects | The Direction of Objects",
         Typ: "checked",
         show: setting[1].topics[0].subtopics[0].subtopics[2]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Force and Motion | Concept of Force&BIG",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Concept of Force | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 8, 40],
+        show: setting[1].topics[0].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Concept of Force | Different Types of Forces",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Concept of Force | The Applications of Forces",
+        Typ: "checked",
+        show: setting[1].topics[0].subtopics[1].subtopics[0]._checked
     });
 
 
@@ -3547,6 +3572,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Position and Direction of Objects: ", loop_length, i);
                     re_q.push($X.physics.Elementary_Physics.Basic_Physics_Concepts.Position_Direction_Objects(results[429], results[430]));
+                }
+            }
+            if (results[431] == true) {
+                loop_length = Number(results[432]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Concept of Force: ", loop_length, i);
+                    re_q.push($X.physics.Elementary_Physics.Force_and_Motion.Concept_Force(results[433], results[434]));
                 }
             }
 

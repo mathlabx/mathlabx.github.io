@@ -2922,6 +2922,28 @@ function X_Generate(setting) {
         show: setting[1].topics[1].subtopics[1].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Acoustics | Propagation of Sound&BIG",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation of Sound | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation of Sound | Sound Propagation in Different Media",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation of Sound | The Speed of Sound",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3822,6 +3844,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Magnetic Fields and Electromagnetic Induction: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Electromagnetism.Magnetic_Fields_and_Electromagnetic_Induction(results[465], results[466]));
+                }
+            }
+            if (results[467] == true) {
+                loop_length = Number(results[468]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Propagation of Sound: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Acoustics.Propagation_of_Sound(results[469], results[470]));
                 }
             }
 

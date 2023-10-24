@@ -64,6 +64,7 @@ const X_Operate = {
 
     newPage: () => {
         window_load(false, 0);
+        document.body.scrollIntoView();
         div_container.innerHTML = "";
         window_load(true, 1000);
     },

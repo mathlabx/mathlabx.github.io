@@ -2878,6 +2878,28 @@ function X_Generate(setting) {
         show: setting[1].topics[1].subtopics[1].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Electromagnetism | Electric Current and Circuits&Reg",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electric Current and Circuits | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[1].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electric Current and Circuits | Electric Current",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electric Current and Circuits | Electric Circuits",
+        Typ: "checked",
+        show: setting[1].topics[1].subtopics[1].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3764,6 +3786,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Electric Charge and Static Electricity: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Electromagnetism.Electric_Charge_and_Static_Electricity(results[457], results[458]));
+                }
+            }
+            if (results[459] == true) {
+                loop_length = Number(results[460]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Electric Current and Circuits: ", loop_length, i);
+                    re_q.push($X.physics.Middle_School_Physics.Electromagnetism.Electric_Current_and_Circuits(results[461], results[462]));
                 }
             }
 

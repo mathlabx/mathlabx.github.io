@@ -3083,6 +3083,70 @@ function X_Generate(setting) {
         show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Optics | Propagation and Reflection of Light&BIG",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation and Reflection of Light | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation and Reflection of Light | Refraction of Light",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation and Reflection of Light | Total Internal Reflection",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation and Reflection of Light | Mirrors Should",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Propagation and Reflection of Light | Lenses",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Optics | Mirrors and Lenses&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mirrors and Lenses | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mirrors and Lenses | Concave Mirrors",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mirrors and Lenses | Convex Mirrors",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mirrors and Lenses | Concave Lenses",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mirrors and Lenses | Convex Lenses",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4017,14 +4081,28 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[484]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Newton Laws and Equilibrium of Forces: ", loop_length, i);
-                    re_q.push($X.physics.High_School_Physics.Mechanics.NewtonLawsAndEquilibrium(results[485], results[486]));
+                    re_q.push($X.physics.High_School_Physics.Mechanics.NewtonLawsAndEquilibrium(results[485], results[486], results[487], results[488]));
                 }
             }
-            if (results[487] == true) {
-                loop_length = Number(results[488]);
+            if (results[489] == true) {
+                loop_length = Number(results[490]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Momentum and Energy: ", loop_length, i);
-                    re_q.push($X.physics.High_School_Physics.Mechanics.MomentumAndEnergy(results[489], results[490]));
+                    re_q.push($X.physics.High_School_Physics.Mechanics.MomentumAndEnergy(results[491], results[492], results[493], results[494]));
+                }
+            }
+            if (results[495] == true) {
+                loop_length = Number(results[496]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Propagation and Reflection of Light: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Optics.PropagationAndReflectionOfLight(results[497], results[498], results[499], results[500]));
+                }
+            }
+            if (results[501] == true) {
+                loop_length = Number(results[502]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Mirrors and Lenses: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Optics.PropagationAndReflectionOfLight(results[503], results[504], results[505], results[506]));
                 }
             }
 

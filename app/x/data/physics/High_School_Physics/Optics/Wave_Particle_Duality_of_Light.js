@@ -17,7 +17,7 @@ const result = WaveParticleDualityOfLight(true, true, false);
 console.log(result); // Output: ['What is the frequency of a light wave with a wavelength of 500 nm?', 'The frequency of the light wave is 6.0 * 10^14 Hz.']
 */
 
-function WaveParticleDualityOfLight(wavelength, frequency, energy) {
+$X.physics.High_School_Physics.Optics.WaveParticleDualityOfLight = function (wavelength, frequency, energy) {
     var question = "";
     var answer = "";
 

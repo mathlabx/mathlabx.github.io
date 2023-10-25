@@ -18,7 +18,7 @@ const result = MirrorsAndLenses(true, false, true, false);
 console.log(result); // Output: ['A concave lens has a focal length of 15 cm. What is its power?', 'The power of the concave lens is -6.67 diopters.']
 */
 
-function MirrorsAndLenses(concaveMirror, convexMirror, concaveLens, convexLens) {
+$X.physics.High_School_Physics.Optics.MirrorsAndLenses = function(concaveMirror, convexMirror, concaveLens, convexLens) {
     var question = "";
     var answer = "";
 

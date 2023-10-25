@@ -18,7 +18,7 @@ const result = PropagationAndReflectionOfLight(true, false, true, false);
 console.log(result); // Output: ['A concave mirror has a radius of curvature of 10 cm. What is its focal length?', 'The focal length of the mirror is 5 cm.']
 */
 
-function PropagationAndReflectionOfLight(refraction, totalInternalReflection, mirrors, lenses) {
+$X.physics.High_School_Physics.Optics.PropagationAndReflectionOfLight = function (refraction, totalInternalReflection, mirrors, lenses) {
     var question = "";
     var answer = "";
 

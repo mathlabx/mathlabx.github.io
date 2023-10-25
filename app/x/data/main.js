@@ -1,6 +1,6 @@
 function loadScripts(scriptUrls, callback) {
     console.clear();
-    APP.log("Start loading function files...");
+    APP.log("Start loading function files...", 1000);
     var totalScripts = scriptUrls.length;
     var startTime = performance.now(); // 记录开始加载时间
 
@@ -10,8 +10,8 @@ function loadScripts(scriptUrls, callback) {
             script.src = url;
             script.onload = function () {
                 var progress = ((index + 1) / totalScripts) * 100;
-                APP.log(`Script at ${url} loaded`);
-                APP.log(`Script loading progress: ${index + 1}/${totalScripts} - ${progress.toFixed(2)}%`);
+                APP.log(`Script at ${url} loaded`, 1000);
+                APP.log(`Script loading progress: ${index + 1}/${totalScripts} - ${progress.toFixed(2)}%`, 1000);
                 resolve();
             };
             document.head.appendChild(script);
@@ -24,9 +24,9 @@ function loadScripts(scriptUrls, callback) {
         }
         var endTime = performance.now(); // 记录加载完成时间
         var loadTime = (endTime - startTime) / 1000; // 转换为秒
-        APP.log(`All scripts loaded, total loading time: ${loadTime.toFixed(2)} Second`);
+        APP.log(`All scripts loaded, total loading time: ${loadTime.toFixed(2)} Second`, 1000);
         setTimeout(() => {
-            APP.log("Execute main function...");
+            APP.log("Execute main function...", 1000);
             callback();
         }, 1000);
     })();

@@ -34,8 +34,8 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
     return [question, answer];
 }
 function makeEquation(oper, vari, leng){
-		var equation = "";
-		var answer = "";
+		var equation = `\int`;
+		var answer = ``;
 		for(var i = 0; i < leng; i++){
 			const operNum = Math.floor(Math.random() * oper.length);
 			const varNum = Math.floor(Math.random() * vari.length);

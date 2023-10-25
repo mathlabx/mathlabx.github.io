@@ -64,42 +64,165 @@ $X.math.High_School_Mathematics.Calculus.CalculatingDerivativesAndApplications =
 		}
 		return [equation, derivative];
 	}
-
-	function deriveFunction(func) {
-		if (func === "x") {
+	function makeApproximationEquation(length, value){
+		const functionArray = ["x", "x^2", "cos(x)", "sin(x)", "ln(x)", "tan(x)", "e^x", "log(x)", "cot(x)", "sec(x)", "csc(x)", "arctan(x)", "arccot(x)", "sinh(x)", "cosh(x)", "tanh(x)"];
+		const operatorArray = ["+", "-", "*"];
+		var equation = "f(x) = ";
+		var slope = 0;
+		var pointValue = 0;
+		var answer;
+		for(var i = 0; i < length; i++){
+		var randNum1 = Math.floor(Math.random() * functionArray.length);
+		var randNum2 = Math.floor(Math.random() * operatorArray.length);
+		if(randNum2 < 2){
+			if(i < length - 1){
+				var randNum1 = Math.floor(Math.random() * functionArray.length);
+				equation += functionArray[randNum1] + " " + operatorArray[1] + " ";
+				pointValue += calculateValue(functionArray[randNum1], value);
+				slope += calculateValue(deriveFunction(functionArray[randNum1]), value);
+			}else{
+				var randNum1 = Math.floor(Math.random() * functionArray.length);
+				equation += functionArray[randNum1];
+				pointValue += calculateValue(functionArray[randNum1], value);
+				slope += calculateValue(deriveFunction(functionArray[randNum1]), value);
+			}
+		}else{
+			if(i < length - 1){
+				var randNum3 = Math.floor(Math.random() * functionArray.length);
+				var randNum4 = Math.round(Math.random());
+				equation += "( " + functionArray[randNum1] + " " + operatorArray[2] + " " + functionArray[randNum3] + " ) " + operatorArray[randNum4] + " ";
+				pointValue += calculateValue(functionArray[randNum1], value);
+				slope += calculateValue(functionArray[randNum1], value) * calculateValue(deriveFunction(functionArray[randNum3]), value) + calculateValue(functionArray[randNum3], value) *  calculateValue(deriveFunction(functionArray[randNum3]), value);
+			}else{
+				var randNum3 = Math.floor(Math.random() * functionArray.length);
+				equation += "( " + functionArray[randNum1] + " " + operatorArray[2] + " " + functionArray[randNum3] + " ) ";
+				pointValue += calculateValue(functionArray[randNum1], value);
+				slope += calculateValue(functionArray[randNum1], value) * calculateValue(deriveFunction(functionArray[randNum3]), value) + calculateValue(functionArray[randNum3], value) *  calculateValue(deriveFunction(functionArray[randNum1]), value);
+			}
+		}
+		}
+		console.log(slope);
+		if(isFinite(slope)){
+			answer = pointValue + slope * (.1);
+		}
+		if(!isFinite(slope) || !isFinite(pointValue)){
+			answer = "There exist a non finite number in the approximation so it can't be solved.";
+		}
+		return [equation, answer];
+	}
+	
+	function deriveFunction(func){
+		if(func === "x"){
 			return "1";
-		} else if (func === "x^2") {
+		}else if(func === "x^2"){
 			return "2x";
-		} else if (func === "cos(x)") {
+		}else if(func === "cos(x)"){
 			return "(-sin(x))";
-		} else if (func === "sin(x)") {
+		}else if(func === "sin(x)"){
 			return "cos(x)";
-		} else if (func === "ln(x)") {
-			return `(\\frac{1}{x})`;
-		} else if (func === "tan(x)") {
+		}else if(func === "ln(x)"){
+			return "(1/x)";
+		}else if(func === "tan(x)"){
 			return "sec^2(x)";
-		} else if (func === "e^x") {
+		}else if(func === "e^x"){
 			return "(e^x)";
-		} else if (func === "log(x)") {
-			return `\\frac{1}{x*ln(10)}`;
-		} else if (func === "cot(x)") {
+		}else if(func === "log(x)"){
+			return "(1/x*ln(10))";
+		}else if(func === "cot(x)"){
 			return "(-csc^2(x))";
-		} else if (func === "sec(x)") {
+		}else if(func === "sec(x)"){
 			return "tan(x) * sec(x)";
-		} else if (func === "csc(x)") {
+		}else if(func === "csc(x)"){
 			return "-cot(x) * csc(x)";
-		} else if (func === "arcsin(x)") {
-			return `\\frac{1}{sqrt{1-x^2}}`;
-		} else if (func === "arccos(x)") {
-			return `\\frac{-1}{sqrt{1-x^2}}`;
-		} else if (func === "arctan(x)") {
-			return `\\frac{1}{1-x^2}`;
-		} else if (func === "arccsc(x)") {
-			return `\\frac{-x}{x^2 * (sqrt{x^2 - 1})}`;
-		} else if (func === "arcsec(x)") {
-			return `\\frac{x}{x^2 * (sqrt{x^2 - 1})}`;
-		} else if (func === "arccot(x)") {
-			return `\\frac{-1}{1+x^2}`;
+		}else if(func === "arcsin(x)"){
+			return "(1/sqrt(1-x^2))";
+		}else if(func === "arccos(x)"){
+			return "-(1/sqrt(1-x^2))";
+		}else if(func === "arctan(x)"){
+			return "(1 / (1 + x^2))";
+		}else if(func === "arccsc(x)"){
+			return "-(x / (x^2 * (sqrt(x^2 - 1))))";
+		}else if(func === "arcsec(x)"){
+			return "(x / (x^2 * (sqrt(x^2 - 1))))";
+		}else if(func === "arccot(x)"){
+			return "-(1/(1+x^2))";
+		}else if(func === "tanh(x)"){
+			return "sech^2(x)";
+		}else if(func === "sinh(x)"){
+			return "cosh(x)";
+		}else if(func === "cosh(x)"){
+			return "sinh(x)";
+		}
+	}
+	function calculateValue(func, value){
+		if(func === "x"){
+			return value;
+		}else if(func === "x^2"){
+			return (value*value);
+		}else if(func === "cos(x)"){
+			return (Math.cos(value));
+		}else if(func === "sin(x)"){
+			return (Math.sin(value));
+		}else if(func === "ln(x)"){
+			return Math.log(value);
+		}else if(func === "tan(x)"){
+			return (Math.tan(value));
+		}else if(func === "e^x"){
+			return Math.exp(value);
+		}else if(func === "log(x)"){
+			return Math.log10(value);
+		}else if(func === "cot(x)"){
+			return (1/Math.tan(value));
+		}else if(func === "sec(x)"){
+			return (1/Math.cos(value));
+		}else if(func === "csc(x)"){
+			return (1/Math.sin(value));
+		}else if(func === "arctan(x)"){
+			return Math.atan(value);
+		}else if(func === "arccot(x)"){
+			return (1/Math.atan(value));
+		}else if(func === "sinh(x)"){
+			return Math.sinh(value);
+		}else if(func === "cosh(x)"){
+			return Math.cosh(value);
+		}else if(func === "tanh(x)"){
+			return Math.tanh(value);
+		}else if(func === "1"){ /////////////////////
+			return 1;
+		}else if(func === "2x"){
+			return 2*value;
+		}else if(func === "(-sin(x))"){
+			return (-1*Math.sin(value));
+		}else if(func === "cos(x)"){
+			return Math.cos(value);
+		}else if(func === "(1/x)"){
+			return 1/value;
+		}else if(func === "sec^2(x)"){
+			return (1/(Math.cos(value)*Math.cos(value)));
+		}else if(func === "(e^x)"){
+			return Math.exp(value);
+		}else if(func === "(1/x*ln(10))"){
+			return (1/(value*Math.log(10)));
+		}else if(func === "(-csc^2(x))"){
+			return (-1/(Math.sin(value)*Math.sin(value)));
+		}else if(func === "tan(x) * sec(x)"){
+			return (Math.tan(value) * (1/Math.cos(value)));
+		}else if(func === "-cot(x) * csc(x)"){
+			return (-1/(Math.tan(value)*Math.sin(value)));
+		}else if(func === "(1/sqrt(1-x^2))"){
+			return (1/Math.sqrt(1-value*value));
+		}else if(func === "-(1/sqrt(1-x^2))"){
+			return (-1/Math.sqrt(1-value*value));
+		}else if(func === "(1 / (1 + x^2))"){
+			return (1/(1+value*value));
+		}else if(func === "-(x / (x^2 * (sqrt(x^2 - 1))))"){
+			return (-1*value/(value*value*(sqrt(value*value-1))));
+		}else if(func === "(x / (x^2 * (sqrt(x^2 - 1))))"){
+			return (value/(value*value*(sqrt(value*value-1))));
+		}else if(func === "-(1/(1+x^2))"){
+			return (-1/(1+value*value));
+		}else if(func === "sech^2(x)"){
+			return (1/(Math.cosh(value)*Math.cosh(value)));
 		}
 	}
 
@@ -114,7 +237,19 @@ $X.math.High_School_Mathematics.Calculus.CalculatingDerivativesAndApplications =
 		question = output[0];
 		answer = output[1];
 	} else {
-		return null;
+		const application = ["related rate", "optimization", "approximation", "tangent line"];
+		const randApp = 2; //Math.floor(Math.random() * application.length);
+		if(application[randApp] === "related rate"){
+			var output = makeRelatedRatesProblem();
+		}else if(application[randApp] === "optimization"){
+			var output = makeOptimizationProblem();
+		}else if(application[randApp] === "approximation"){
+			var output = makeApproximationProblem(functionLength);
+			equation = output[0];
+			answer = output[1];
+		}else if(application[randApp] === "tangent line"){
+			var output = makeTangentLineProblem(functionArray, operatorArray, functionLength);
+		}
 	}
 	// Return the question and answer in an array
 	return [question, answer];

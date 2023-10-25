@@ -38,7 +38,7 @@ $X.physics.Middle_School_Physics.Electromagnetism.Electric_Charge_and_Static_Ele
         const distance = Math.floor(Math.random() * 100) + 1;
         const force = (8.99 * Math.pow(10, 9) * charge1 * charge2 / Math.pow(distance, 2)).toExponential(2);
         questions.push(`Explain the interaction between ${object1} and ${object2} due to the electric charges of ${charge1} C and ${charge2} C separated by a distance of ${distance} cm.`);
-        answers.push(`The interaction between ${object1} and ${object2} is governed by Coulomb's law, which describes the electrostatic force between two charged objects as F = k * 丨q1 * q2丨 / r², where F is the force, k is Coulomb's constant (8.99 x 10^9 Nm²/C²), q1 and q2 are the charges (${charge1} C and ${charge2} C), and r is the distance (${distance} cm). The force between the objects is approximately ${force} N.`);
+        answers.push(`The interaction between ${object1} and ${object2} is governed by Coulomb's law, which describes the electrostatic force between two charged objects as F = k * 丨q1 * q2丨 / r², where F is the force, k is Coulomb's constant (8.99 x 10⁹ Nm²/C²), q1 and q2 are the charges (${charge1} C and ${charge2} C), and r is the distance (${distance} cm). The force between the objects is approximately ${force} N.`);
         const object3 = generateRandomObject();
         const charge3 = (Math.random() * 10).toFixed(2);
         const work = (charge3 * Math.random() * 10).toFixed(2);

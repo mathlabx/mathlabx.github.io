@@ -53,13 +53,29 @@ function makeMixEquation(func, oper,length){
 				derivative += deriveFunction(func[randNum1]);
 			}
 		}else if(randNum2 == 2){
-			var randNum3 = Math.floor(Math.random() * func.length);
-			equation += "( " + func[randNum1] + " " + oper[2] + " " + func[randNum3] + " ) ";
-			derivative += func[randNum1] + " * " + deriveFunction(func[randNum3]) + " + " + func[randNum3] + " * " + deriveFunction(func[randNum1]);
+			if(i < length - 1){
+				var randNum3 = Math.floor(Math.random() * func.length);
+				var randNum4 = Math.round(Math.random());
+				equation += "( " + func[randNum1] + " " + oper[2] + " " + func[randNum3] + " ) " + oper[randNum4] + " ";
+				derivative += "( " + func[randNum1] + " * " + deriveFunction(func[randNum3]) + " + " + func[randNum3] + " * " + deriveFunction(func[randNum1]) + " ) " + oper[randNum4] + " ";
+			}else{
+				var randNum3 = Math.floor(Math.random() * func.length);
+				var randNum4 = Math.round(Math.random());
+				equation += "( " + func[randNum1] + " " + oper[2] + " " + func[randNum3] + " ) ";
+				derivative += "( " + func[randNum1] + " * " + deriveFunction(func[randNum3]) + " + " + func[randNum3] + " * " + deriveFunction(func[randNum1]) + " ) ";
+			}
 		}else{
-			var randNum3 = Math.floor(Math.random() * func.length);
-			equation += "( " + func[randNum1] + " " + oper[3] + " " + func[randNum3] + " )";
-			derivative += func[randNum3] + " * " + deriveFunction(func[randNum1]) + " - " + func[randNum1] + " * " + deriveFunction(func[randNum3]) + ")/((" + func[randNum3] + ")^2)";
+			if(i < length - 1){
+				var randNum3 = Math.floor(Math.random() * func.length);
+				var randNum4 = Math.round(Math.random());
+				equation += "( " + func[randNum1] + " " + oper[3] + " " + func[randNum3] + " ) " + oper[randNum4] + " ";
+				derivative += "( " + func[randNum3] + " * " + deriveFunction(func[randNum1]) + " - " + func[randNum1] + " * " + deriveFunction(func[randNum3]) + ")/((" + func[randNum3] + ")^2) ) " + oper[randNum4] + " ";
+			}else{
+				var randNum3 = Math.floor(Math.random() * func.length);
+				var randNum4 = Math.round(Math.random());
+				equation += "( " + func[randNum1] + " " + oper[3] + " " + func[randNum3] + " ) ";
+				derivative += "( " + func[randNum3] + " * " + deriveFunction(func[randNum1]) + " - " + func[randNum1] + " * " + deriveFunction(func[randNum3]) + ")/((" + func[randNum3] + ")^2) ) ";
+			}
 		}
 	}
 	return [equation, derivative];

@@ -194,6 +194,21 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/physics/High_School_Physics/Atomic_and_Nuclear_Physics/Atomic_Structure_and_the_Periodic_table.js',
     MPCLabAPIurl + '/data/physics/High_School_Physics/Atomic_and_Nuclear_Physics/Nuclear_Reactions_and_Radioactive_Decay.js',
     MPCLabAPIurl + '/data/physics/High_School_Physics/Atomic_and_Nuclear_Physics/Structure_of_Atomic_Nuclei.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Thermodynamics/Ideal_Gas_Law.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Thermodynamics/Thermodynamic_Cycles.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Thermodynamics/Entropy_and_the_Second_Law_of_Thermodynamics.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Electromagnetism/Maxwell_Equations.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Electromagnetism/Electromagnetic_Waves_and_the_Propagation_of_Light.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Electromagnetism/Interaction_of_Electromagnetic_Fields.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Quantum_Mechanics/Wave_Particle_Duality.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Quantum_Mechanics/Wave_Functions_and_the_Schrodinger_Equation.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Quantum_Mechanics/Operators_and_Measurements_in_Quantum_Mechanics.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Relativity/Special_Relativity_and_the_Lorentz_Transformation.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Relativity/Mass_Energy_Equivalence.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Relativity/Gravity_and_General_Relativity.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Solid_State_Physics/Crystal_Structures_and_Lattice_Vibrations.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Solid_State_Physics/Electronic_Band_Theory.js',
+    MPCLabAPIurl + '/data/physics/University_Physics/Solid_State_Physics/Semiconductors_and_Conductors.js',
 ];
 
 let gl_results;

@@ -3201,6 +3201,28 @@ function X_Generate(setting) {
         show: setting[1].topics[2].subtopics[2].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Atomic and Nuclear Physics | Nuclear Reactions and Radioactive Decay&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Nuclear Reactions and Radioactive Decay | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Nuclear Reactions and Radioactive Decay | Nuclear Reactions",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Nuclear Reactions and Radioactive Decay | Radioactive Decay",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4171,6 +4193,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Atomic Structure and the Periodic-table: ", loop_length, i);
                     re_q.push($X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.AtomicStructureAndPeriodicTable(results[514], results[515], results[516]));
+                }
+            }
+            if (results[517] == true) {
+                loop_length = Number(results[518]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Nuclear Reactions and Radioactive Decay: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.NuclearReactionsAndRadioactiveDecay(results[519], results[520]));
                 }
             }
 

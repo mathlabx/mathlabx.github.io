@@ -3,6 +3,50 @@
 */
 
 $X.math.Middle_School_Mathematics.Statistics_and_Probability.Data_Collection_And_Analysis = function (mean, median, mode, range) {
+    function generateRandomData() {
+        var dataLength = Math.floor(Math.random() * 8) + 3; // Random data length between 3 and 10
+        var data = [];
+        for (var i = 0; i < dataLength; i++) {
+            data.push(Math.floor(Math.random() * 20) + 1); // Random data points between 1 and 20
+        }
+        return data;
+    }
+
+    function calculateMean(data) {
+        return (data.reduce((a, b) => a + b, 0) / data.length).toFixed(2);
+    }
+
+    function calculateMedian(data) {
+        var sortedData = data.slice().sort(function (a, b) { return a - b; });
+        var medianValue = 0;
+        if (sortedData.length % 2 === 0) {
+            medianValue = ((sortedData[sortedData.length / 2 - 1] + sortedData[sortedData.length / 2]) / 2).toFixed(2);
+        } else {
+            medianValue = sortedData[Math.floor(sortedData.length / 2)].toFixed(2);
+        }
+        return medianValue;
+    }
+
+    function calculateMode(data) {
+        var modeMap = {};
+        var maxCount = 0;
+        var modes = [];
+        data.forEach(function (element) {
+            modeMap[element] = (modeMap[element] || 0) + 1;
+            if (modeMap[element] > maxCount) {
+                modes = [element];
+                maxCount = modeMap[element];
+            } else if (modeMap[element] === maxCount) {
+                modes.push(element);
+            }
+        });
+        return modes.length > 1 ? "multiple, including " + modes.join(", ") : modes[0];
+    }
+
+    function calculateRange(data) {
+        return (Math.max(...data) - Math.min(...data)).toFixed(2);
+    }
+
     var dataAnalysis = {};
 
     const analysisArray = [mean, median, mode, range];
@@ -53,47 +97,3 @@ $X.math.Middle_School_Mathematics.Statistics_and_Probability.Data_Collection_And
     // Return the data analysis
     return [dataAnalysis.question, dataAnalysis.answer];
 };
-
-function generateRandomData() {
-    var dataLength = Math.floor(Math.random() * 8) + 3; // Random data length between 3 and 10
-    var data = [];
-    for (var i = 0; i < dataLength; i++) {
-        data.push(Math.floor(Math.random() * 20) + 1); // Random data points between 1 and 20
-    }
-    return data;
-}
-
-function calculateMean(data) {
-    return (data.reduce((a, b) => a + b, 0) / data.length).toFixed(2);
-}
-
-function calculateMedian(data) {
-    var sortedData = data.slice().sort(function (a, b) { return a - b; });
-    var medianValue = 0;
-    if (sortedData.length % 2 === 0) {
-        medianValue = ((sortedData[sortedData.length / 2 - 1] + sortedData[sortedData.length / 2]) / 2).toFixed(2);
-    } else {
-        medianValue = sortedData[Math.floor(sortedData.length / 2)].toFixed(2);
-    }
-    return medianValue;
-}
-
-function calculateMode(data) {
-    var modeMap = {};
-    var maxCount = 0;
-    var modes = [];
-    data.forEach(function (element) {
-        modeMap[element] = (modeMap[element] || 0) + 1;
-        if (modeMap[element] > maxCount) {
-            modes = [element];
-            maxCount = modeMap[element];
-        } else if (modeMap[element] === maxCount) {
-            modes.push(element);
-        }
-    });
-    return modes.length > 1 ? "multiple, including " + modes.join(", ") : modes[0];
-}
-
-function calculateRange(data) {
-    return (Math.max(...data) - Math.min(...data)).toFixed(2);
-}

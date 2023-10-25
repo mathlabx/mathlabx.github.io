@@ -82,13 +82,12 @@ $X.physics.Elementary_Physics.Basic_Physics_Concepts.Matter_Properties = functio
     }
 
     const result = [];
-    while (selectedQuestions.length > 0) {
-        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
-        result.push(selectedQuestions[randomIndex]);
-        result.push(selectedAnswers[randomIndex]);
-        selectedQuestions.splice(randomIndex, 1);
-        selectedAnswers.splice(randomIndex, 1);
-    }
 
-    return result;
+    const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+    question = selectedQuestions[randomIndex];
+    answer = selectedAnswers[randomIndex];
+    selectedQuestions.splice(randomIndex, 1);
+    selectedAnswers.splice(randomIndex, 1);
+
+    return [question, answer];
 }

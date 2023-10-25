@@ -3147,6 +3147,33 @@ function X_Generate(setting) {
         show: setting[1].topics[2].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Optics | Wave Particle Duality of Light&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Wave Particle Duality of Light | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Wave Particle Duality of Light | Wavelength",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Wave Particle Duality of Light | Frequency",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Wave Particle Duality of Light | Energy",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[1].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4102,7 +4129,14 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[502]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Mirrors and Lenses: ", loop_length, i);
-                    re_q.push($X.physics.High_School_Physics.Optics.PropagationAndReflectionOfLight(results[503], results[504], results[505], results[506]));
+                    re_q.push($X.physics.High_School_Physics.Optics.MirrorsAndLenses(results[503], results[504], results[505], results[506]));
+                }
+            }
+            if (results[507] == true) {
+                loop_length = Number(results[508]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Wave Particle Duality of Light: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Optics.WaveParticleDualityOfLight(results[509], results[510], results[511]));
                 }
             }
 

@@ -2,17 +2,25 @@ function loadScripts(scriptUrls, callback) {
     console.clear();
     APP.log("Start loading function files...", 2000);
     var totalScripts = scriptUrls.length;
+    var loadedScripts = 0;
     var startTime = performance.now(); // 记录开始加载时间
 
-    async function loadScript(url, index) {
+    function loadScript(url, index) {
         return new Promise((resolve, reject) => {
             var script = document.createElement('script');
-            script.src = url;
+            // 添加时间戳或版本号来确保缓存
+            var timestamp = new Date().getTime();
+            script.src = `${url}?v=${timestamp}`;
             script.onload = function () {
-                var progress = ((index + 1) / totalScripts) * 100;
+                loadedScripts++;
+                var progress = (loadedScripts / totalScripts) * 100;
                 APP.log(`Script at ${url} loaded`, 1000);
-                APP.log(`Script loading progress: ${index + 1}/${totalScripts} - ${progress.toFixed(2)}%`, 1000);
+                APP.log(`Script loading progress: ${loadedScripts}/${totalScripts} - ${progress.toFixed(2)}%`, 1000);
                 resolve();
+            };
+            script.onerror = function () {
+                APP.log(`Error loading script at ${url}`, 1000);
+                reject();
             };
             document.head.appendChild(script);
         });
@@ -20,7 +28,13 @@ function loadScripts(scriptUrls, callback) {
 
     (async function () {
         for (let i = 0; i < scriptUrls.length; i++) {
-            await loadScript(scriptUrls[i], i);
+            try {
+                await loadScript(scriptUrls[i], i);
+            } catch (error) {
+                // Handle error here
+                console.error(`Failed to load script at index ${i}: ${scriptUrls[i]}`);
+                // You can choose to continue loading other scripts even if one fails
+            }
         }
         var endTime = performance.now(); // 记录加载完成时间
         var loadTime = (endTime - startTime) / 1000; // 转换为秒

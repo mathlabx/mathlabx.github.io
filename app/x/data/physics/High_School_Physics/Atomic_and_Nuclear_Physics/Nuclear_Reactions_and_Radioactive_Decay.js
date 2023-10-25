@@ -41,7 +41,7 @@ $X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.NuclearReactionsAndRad
         return questions[Math.floor(Math.random() * questions.length)];
     };
 
-    let selectedQuestions, selectedAnswers;
+    let selectedQuestions, selectedAnswers = [];
 
     if (nuclearReactions) {
         const reactant1 = getRandomElement();

@@ -77,11 +77,16 @@ $X.physics.Elementary_Physics.Force_and_Motion.Concept_Force = function (types, 
         selectedAnswers.push(allAnswers[9]);
     }
 
-    const result = [];
-    for (let i = 0; i < selectedQuestions.length; i++) {
-        result.push(selectedQuestions[i]);
-        result.push(selectedAnswers[i]);
+    function getRandomItem(items) {
+        const randomIndex = Math.floor(Math.random() * items.length);
+        return items[randomIndex];
     }
 
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
+    }
+
+    const result = getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers);
     return result;
 }

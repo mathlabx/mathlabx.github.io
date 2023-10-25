@@ -16,7 +16,7 @@ const result = Sound_Reflection_and_Absorption(true, true);
 console.log(result); // Output: ['What is the percentage of sound absorbed by the surface with an absorption coefficient of 0.6?', 'The surface with an absorption coefficient of 0.6 absorbs 60% of the sound.']
 */
 
-$X.physics.Middle_School_Physics.Acoustics.Sound_Reflection_and_Absorption = function(reflection, absorption) {
+$X.physics.Middle_School_Physics.Acoustics.Sound_Reflection_and_Absorption = function (reflection, absorption) {
     function getRandomAngle() {
         return (Math.random() * 90).toFixed(2);
     }

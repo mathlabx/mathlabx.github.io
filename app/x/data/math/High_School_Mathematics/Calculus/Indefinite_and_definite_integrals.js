@@ -22,15 +22,17 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
     // Your code goes here
     var question;
     var answer;
+    const operation = ["+", "-"];
+    const variable = ["const", "x", "cos(x)", "sin(x)", "tan(x)", "1/x", "ln(x)", "tan(x)", "sec^2(x)", "e^x", "log(x)", "csc^2(x)","sec(x)tan(x)", "cot(x)csc(x)", "1/sqrt(1-x^2)", "1/1+x^2", "sinh(x)", "cosh(x)", "tanh(x)", "cot(x)", "sec(x)", "csc(x)"];
+    const equaLength = Math.ceil(Math.random() * length);
     if(C_indefinite){
-        const operation = ["+", "-"];
-	    const variable = ["const", "x", "cos(x)", "sin(x)", "tan(x)", "1/x", "ln(x)", "tan(x)", "sec^2(x)", "e^x", "log(x)", "csc^2(x)","sec(x)tan(x)", "cot(x)csc(x)", "1/sqrt(1-x^2)", "1/1+x^2", "sinh(x)", "cosh(x)", "tanh(x)", "cot(x)", "sec(x)", "csc(x)"];
-		const equaLength = Math.ceil(Math.random() * length);
-		const holder = makeEquation(operation, variable, equaLength);
-		equation = holder[0];
-		answer = holder[1];
+	const holder = makeEquation(operation, variable, equaLength);
+	question = holder[0];
+	answer = holder[1];
     }else{
-	return null;
+	const holder = makeEquation(operation, variable, equaLength);
+	question = holder[0];
+	answer = holder[1]; 
     }
     // Return the question and answer in an array
     return [question, answer];

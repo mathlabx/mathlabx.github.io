@@ -3223,6 +3223,28 @@ function X_Generate(setting) {
         show: setting[1].topics[2].subtopics[2].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Atomic and Nuclear Physics | Structure of Atomic Nuclei&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Structure of Atomic Nuclei | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Structure of Atomic Nuclei | Subatomic Particles",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Structure of Atomic Nuclei | Nuclear Forces",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4200,6 +4222,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Nuclear Reactions and Radioactive Decay: ", loop_length, i);
                     re_q.push($X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.NuclearReactionsAndRadioactiveDecay(results[519], results[520]));
+                }
+            }
+            if (results[521] == true) {
+                loop_length = Number(results[522]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Structure of Atomic Nuclei: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.StructureOfAtomicNuclei(results[523], results[524]));
                 }
             }
 

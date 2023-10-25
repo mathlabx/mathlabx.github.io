@@ -168,49 +168,49 @@ function solveDefiniteIntergal(fun, bound) {
 		return ans;
 	}
 }
-function solveDefiniteIntergal(fun, bound) {
-	if (!isNaN(fun)) {
-		return fun * bound;
-	} else if (fun === "x") {
-		return (bound * bound) / 2;
-	} else if (fun === "cos(x)") {
-		return Math.sin(bound);
-	} else if (fun === "sin(x)") {
-		return -Math.cos(bound);
-	} else if (fun === "1/x") {
-		return "ln(x)";
-	} else if (fun === "ln(x)") {
-		return "(xln(x) - x)";
-	} else if (fun === "sec^2(x)") {
-		return "tan(x)";
-	} else if (fun === "e^x") {
-		return "e^x";
-	} else if (fun === "log(x)") {
-		return "(xlog(x)) - (x/ln(10))";
-	} else if (fun === "csc^2(x)") {
-		return "(-cot(x))";
-	} else if (fun === "sec(x)tan(x)") {
-		return "sec(x)";
-	} else if (fun === "cot(x)csc(x)") {
-		return "(-csc(x))";
-	} else if (fun === "1/sqrt(1-x^2)") {
-		return "arcsin(x)";
-	} else if (fun === "1/1+x^2") {
-		return "arctan(x)";
-	} else if (fun === "sinh(x)") {
-		return "cosh(x)";
-	} else if (fun === "cosh(x)") {
-		return "sinh(x)";
-	} else if (fun === "tan(x)") {
-		return "(-ln(cos(x)))";
-	} else if (fun === "cot(x)") {
-		return "ln(sin(x))";
-	} else if (fun === "sec(x)") {
-		return "ln(sec(x) + tan(x))";
-	} else if (fun === "csc(x)") {
-		return "(-ln(csc(x) + cot(x)))";
-	} else if (fun === "tanh(x)") {
-		return "ln(cosh(x))";
+function solveIndefiniteIntergal(fun){
+		if(!isNaN(fun)){
+			return fun + "x";
+		}else if(fun === "x"){
+			return "x^2/2";
+		}else if(fun === "cos(x)"){
+			return "sin(x)";
+		}else if(fun === "sin(x)"){
+			return "(-cos(x))";
+		}else if(fun === "1/x"){
+			return "ln(x)";
+		}else if(fun === "ln(x)"){
+			return "(xln(x) - x)";
+		}else if(fun === "sec^2(x)"){
+			return "tan(x)";
+		}else if(fun === "e^x"){
+			return "e^x";
+		}else if(fun === "log(x)"){
+			return "(xlog(x)) - (x/ln(10))";
+		}else if(fun === "csc^2(x)"){
+			return "(-cot(x))";
+		}else if(fun === "sec(x)tan(x)"){
+			return "sec(x)";
+		}else if(fun === "cot(x)csc(x)"){
+			return "(-csc(x))";
+		}else if(fun === "1/sqrt(1-x^2)"){
+			return "arcsin(x)";
+		}else if(fun === "1/1+x^2"){
+			return "arctan(x)";
+		}else if(fun === "sinh(x)"){
+			return "cosh(x)";
+		}else if(fun === "cosh(x)"){
+			return "sinh(x)";
+		}else if(fun === "tan(x)"){
+			return "(-ln(cos(x)))";
+		}else if(fun === "cot(x)"){
+			return "ln(sin(x))";
+		}else if(fun === "sec(x)"){
+			return "ln(sec(x) + tan(x))";
+		}else if(fun === "csc(x)"){
+			return "(-ln(csc(x) + cot(x)))";
+		}else if(fun === "tanh(x)"){
+			return "ln(cosh(x))";
+		}
 	}
-}
 

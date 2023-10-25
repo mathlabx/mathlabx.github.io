@@ -17,6 +17,21 @@ console.log(result); // Output: ['Explain the concept of heat transfer.', 'Heat 
 */
 
 $X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = function (conduction, transfer) {
+    function generateRandomMaterial() {
+        const materials = ['metal', 'plastic', 'wood', 'glass', 'ceramic', 'concrete', 'air', 'water'];
+        return materials[Math.floor(Math.random() * materials.length)];
+    }
+
+    function generateRandomObject() {
+        const objects = ['a hot cup of coffee', 'an ice cube', 'a metal rod', 'a plastic container', 'a glass window', 'a ceramic plate', 'a concrete wall', 'a water tank'];
+        return objects[Math.floor(Math.random() * objects.length)];
+    }
+
+    function generateRandomMethod() {
+        const methods = ['conduction', 'convection', 'radiation'];
+        return methods[Math.floor(Math.random() * methods.length)];
+    }
+
     const questions = [];
     const answers = [];
 
@@ -62,19 +77,4 @@ $X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = f
     }
 
     return result;
-}
-
-function generateRandomMaterial() {
-    const materials = ['metal', 'plastic', 'wood', 'glass', 'ceramic', 'concrete', 'air', 'water'];
-    return materials[Math.floor(Math.random() * materials.length)];
-}
-
-function generateRandomObject() {
-    const objects = ['a hot cup of coffee', 'an ice cube', 'a metal rod', 'a plastic container', 'a glass window', 'a ceramic plate', 'a concrete wall', 'a water tank'];
-    return objects[Math.floor(Math.random() * objects.length)];
-}
-
-function generateRandomMethod() {
-    const methods = ['conduction', 'convection', 'radiation'];
-    return methods[Math.floor(Math.random() * methods.length)];
 }

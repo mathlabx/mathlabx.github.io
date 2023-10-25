@@ -17,28 +17,60 @@ const result = AtomicStructureAndPeriodicTable(true, true, false);
 console.log(result); // Output: ['What is the atomic number of the element with 12 protons?', 'The atomic number is 12.']
 */
 
-$X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.AtomicStructureAndPeriodicTable = function(atomicNumber, isotopes, periodicTable) {
-    var question = "";
-    var answer = "";
+$X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.AtomicStructureAndPeriodicTable = function (atomicNumber, isotopes, periodicTable) {
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function getRandomElement() {
+        const elements = [
+            'Hydrogen', 'Helium', 'Lithium', 'Beryllium', 'Boron', 'Carbon', 'Nitrogen', 'Oxygen', 'Fluorine', 'Neon',
+            'Sodium', 'Magnesium', 'Aluminum', 'Silicon', 'Phosphorus', 'Sulfur', 'Chlorine', 'Argon', 'Potassium', 'Calcium',
+            'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc',
+            'Gallium', 'Germanium', 'Arsenic', 'Selenium', 'Bromine', 'Krypton', 'Rubidium', 'Strontium', 'Yttrium', 'Zirconium',
+            'Niobium', 'Molybdenum', 'Technetium', 'Ruthenium', 'Rhodium', 'Palladium', 'Silver', 'Cadmium', 'Indium', 'Tin',
+            'Antimony', 'Tellurium', 'Iodine', 'Xenon', 'Cesium', 'Barium', 'Lanthanum', 'Cerium', 'Praseodymium', 'Neodymium',
+            'Promethium', 'Samarium', 'Europium', 'Gadolinium', 'Terbium', 'Dysprosium', 'Holmium', 'Erbium', 'Thulium', 'Ytterbium',
+            'Lutetium', 'Hafnium', 'Tantalum', 'Tungsten', 'Rhenium', 'Osmium', 'Iridium', 'Platinum', 'Gold', 'Mercury', 'Thallium',
+            'Lead', 'Bismuth', 'Polonium', 'Astatine', 'Radon', 'Francium', 'Radium', 'Actinium', 'Thorium', 'Protactinium', 'Uranium',
+            'Neptunium', 'Plutonium', 'Americium', 'Curium', 'Berkelium', 'Californium', 'Einsteinium', 'Fermium', 'Mendelevium', 'Nobelium',
+            'Lawrencium', 'Rutherfordium', 'Dubnium', 'Seaborgium', 'Bohrium', 'Hassium', 'Meitnerium', 'Darmstadtium', 'Roentgenium', 'Copernicium',
+            'Nihonium', 'Flerovium', 'Moscovium', 'Livermorium', 'Tennessine', 'Oganesson'
+        ];
+        return elements[Math.floor(Math.random() * elements.length)];
+    }
+
+    const questions = [];
+    const answers = [];
 
     if (atomicNumber) {
-        // Logic for questions related to atomic number
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        const protons = getRandomNumber(1, 118);
+        questions.push(`What is the atomic number of the element with ${protons} protons?`);
+        answers.push(protons);
     }
 
     if (isotopes) {
-        // Logic for questions related to isotopes
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        const element = getRandomElement();
+        const isotopeNumber = getRandomNumber(1, 10);
+        questions.push(`How many protons and neutrons are in the nucleus of ${isotopeNumber}${element}?`);
+        const protons = getRandomNumber(1, 100);
+        const neutrons = getRandomNumber(1, 150);
+        answers.push(`${protons} protons and ${neutrons} neutrons`);
     }
 
     if (periodicTable) {
-        // Logic for questions related to the periodic table
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        const element = getRandomElement();
+        const group = getRandomNumber(1, 18);
+        const period = getRandomNumber(1, 7);
+        questions.push(`Which element is located at Group ${group} and Period ${period} in the periodic table?`);
+        answers.push(element);
     }
 
-    // Return the question and answer in an array
-    return [question, answer];
+    const result = [];
+    for (let i = 0; i < questions.length; i++) {
+        result.push(questions[i]);
+        result.push(answers[i]);
+    }
+
+    return result;
 }

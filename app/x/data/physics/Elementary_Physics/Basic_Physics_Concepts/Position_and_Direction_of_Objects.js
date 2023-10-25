@@ -46,6 +46,14 @@ $X.physics.Elementary_Physics.Basic_Physics_Concepts.Position_Direction_Objects 
     const selectedQuestions = [];
     const selectedAnswers = [];
 
+    if (position && direction) {
+        if (Math.random() >= 0.5) {
+            position = false;
+        } else {
+            direction = false;
+        }
+    }
+
     if (position) {
         selectedQuestions.push(allQuestions[0]);
         selectedAnswers.push(allAnswers[0]);

@@ -70,11 +70,11 @@ $X.physics.Middle_School_Physics.Thermodynamics.Heat_Conduction_and_Transfer = f
         answers.push(`The method of ${method} is employed in ${material4} for efficient heat transfer by utilizing the properties of the material to facilitate the movement of heat. For example, in the case of convection, fluid dynamics are utilized to transfer heat, while in radiation, the material's ability to emit and absorb thermal radiation is harnessed for effective heat transfer.`);
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(questions, answers);
     return result;
 }

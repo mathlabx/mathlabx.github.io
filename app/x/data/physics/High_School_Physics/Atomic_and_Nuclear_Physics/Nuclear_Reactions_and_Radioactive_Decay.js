@@ -46,24 +46,30 @@ $X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.NuclearReactionsAndRad
     if (nuclearReactions) {
         const reactant1 = getRandomElement();
         const reactant2 = getRandomElement();
-        result.push(`${getRandomQuestion()} ${reactant1} + ${reactant2}?`);
+        selectedQuestions.push(`${getRandomQuestion()} ${reactant1} + ${reactant2}?`);
 
         // Here you can provide the logic for the product based on the reactants
         // For example:
         const product = "To be determined";
-        result.push(product);
+        selectedAnswers.push(product);
     }
 
     if (radioactiveDecay) {
         const element = getRandomElement();
         const decayType = getRandomDecayType();
-        result.push(`${getRandomQuestion()} ${element} in ${decayType}?`);
+        selectedQuestions.push(`${getRandomQuestion()} ${element} in ${decayType}?`);
 
         // Here you can provide the logic for the type of decay based on the element and decay type
         // For example:
         const decayProduct = "To be determined";
-        result.push(decayProduct);
+        selectedAnswers.push(decayProduct);
+    }
+    
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers);
     return result;
 }

@@ -83,12 +83,7 @@ $X.physics.Elementary_Physics.Basic_Physics_Concepts.Position_Direction_Objects 
         selectedQuestions.push(allQuestions[9]);
         selectedAnswers.push(allAnswers[9]);
     }
-
-    function getRandomItem(items) {
-        const randomIndex = Math.floor(Math.random() * items.length);
-        return items[randomIndex];
-    }
-
+    
     function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
         const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
         return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];

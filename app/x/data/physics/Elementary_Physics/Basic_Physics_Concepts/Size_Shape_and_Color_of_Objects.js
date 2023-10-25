@@ -89,11 +89,6 @@ $X.physics.Elementary_Physics.Basic_Physics_Concepts.Size_Shape_Color_Objects = 
         selectedAnswers.push(allAnswers[11]);
     }
 
-    function getRandomItem(items) {
-        const randomIndex = Math.floor(Math.random() * items.length);
-        return items[randomIndex];
-    }
-
     function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
         const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
         return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];

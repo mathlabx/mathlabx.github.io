@@ -63,11 +63,11 @@ $X.physics.Middle_School_Physics.Electromagnetism.Magnetic_Fields_and_Electromag
         answers.push(`The induced current in the ${coil3} can be calculated using the formula I = B * A, where I is the induced current, B is the magnetic field, and A is the area of the coil. Substituting the given values, the induced current is ${inducedCurrent} A.`);
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(questions, answers);
     return result;
 }

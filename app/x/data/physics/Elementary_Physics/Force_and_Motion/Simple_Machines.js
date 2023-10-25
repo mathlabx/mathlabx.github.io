@@ -86,11 +86,6 @@ $X.physics.Elementary_Physics.Force_and_Motion.Simple_Machines = function (types
         }
     }
 
-    function getRandomItem(items) {
-        const randomIndex = Math.floor(Math.random() * items.length);
-        return items[randomIndex];
-    }
-
     function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
         const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
         return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];

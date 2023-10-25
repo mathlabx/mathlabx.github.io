@@ -45,11 +45,11 @@ $X.physics.Middle_School_Physics.Acoustics.Propagation_of_Sound = function (medi
         }
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(questions, answers);
     return result;
 }

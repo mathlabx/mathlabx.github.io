@@ -55,11 +55,11 @@ $X.physics.Middle_School_Physics.Thermodynamics.Thermal_Expansion_of_Materials =
         answers.push(`Volume expansion in ${liquid1} is the increase in volume resulting from a temperature change. It is represented by the equation ΔV = β * V * ΔT, where ΔV is the change in volume, β is the coefficient of volume expansion (${coefficient3} per degree Celsius), V is the initial volume, and ΔT is the change in temperature (${temperature3} degrees Celsius).`);
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(questions, answers);
     return result;
 }

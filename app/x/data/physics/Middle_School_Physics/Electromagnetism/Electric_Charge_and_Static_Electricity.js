@@ -59,11 +59,11 @@ $X.physics.Middle_School_Physics.Electromagnetism.Electric_Charge_and_Static_Ele
         answers.push(`Inducing a charge of ${inducedCharge} C on ${object4} using a charged rod involves bringing the charged rod near the object, causing a temporary redistribution of charges in the object. This process results in the induction of an opposite charge on one side and a corresponding charge of the same magnitude on the other side of the object.`);
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(questions, answers);
     return result;
 }

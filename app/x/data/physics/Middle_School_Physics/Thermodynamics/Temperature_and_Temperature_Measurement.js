@@ -50,11 +50,11 @@ $X.physics.Middle_School_Physics.Thermodynamics.Temperature_and_Temperature_Meas
         answers.push(`An infrared thermometer operates based on the principle of detecting and measuring the infrared radiation emitted by an object, which correlates to its temperature and is displayed as ${measurement3} degrees.`);
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(questions, answers);
     return result;
 }

@@ -81,11 +81,11 @@ $X.physics.Middle_School_Physics.Acoustics.Characteristics_and_Frequency_of_Soun
         answers.push(`In a sound wave with an amplitude of ${amplitude2} m and a frequency of ${frequency3} Hz, the wavelength can be calculated using the formula wavelength = amplitude / frequency. Therefore, the wavelength is ${wavelength2} m.`);
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
     }
 
+    const result = getRandomQuestionWithAnswer(questions, answers);
     return result;
 }

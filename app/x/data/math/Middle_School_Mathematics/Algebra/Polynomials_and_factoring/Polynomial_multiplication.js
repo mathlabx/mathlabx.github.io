@@ -37,7 +37,7 @@ $X.math.Middle_School_Mathematics.Algebra.Polynomials_multiplication = function 
         var term1 = `${coefficient1}${variable1}`;
         var term2 = `${coefficient2}(${coefficient1}${variable1}+${coefficient2}${variable2})`;
         problem = term1 + term2;
-        answer = ''; // You need to compute the answer here based on the generated coefficients
+        answer = `${coefficient1 * coefficient2}(${coefficient1}x+${coefficient2}y)`;
     }
 
     if (two_two) {
@@ -45,7 +45,7 @@ $X.math.Middle_School_Mathematics.Algebra.Polynomials_multiplication = function 
         var term1 = `(${coefficient1}${variable1}+${coefficient2})`;
         var term2 = `(${coefficient1}${variable1}+${coefficient2})`;
         problem = term1 + term2;
-        answer = ''; // You need to compute the answer here based on the generated coefficients
+        answer = `${coefficient1 * coefficient1}x^2+${2 * coefficient1 * coefficient2}xy+${coefficient2 * coefficient2}`;
     }
 
     if (two_three) {
@@ -53,7 +53,7 @@ $X.math.Middle_School_Mathematics.Algebra.Polynomials_multiplication = function 
         var term1 = `(${coefficient1}${variable1}^2+${coefficient2})`;
         var term2 = `(${coefficient1}${variable1}^2+${coefficient2}${variable1}+${coefficient1})`;
         problem = term1 + term2;
-        answer = ''; // You need to compute the answer here based on the generated coefficients
+        answer = `${coefficient1 * coefficient1}x^4+${2 * coefficient1 * coefficient2}x^3y+${(2 * coefficient1 * coefficient1 + coefficient2 * coefficient1)}x^2+${coefficient2 * coefficient2}x+${coefficient1 * coefficient1}`;
     }
 
     if (three_three) {
@@ -61,7 +61,7 @@ $X.math.Middle_School_Mathematics.Algebra.Polynomials_multiplication = function 
         var term1 = `(${coefficient1}${variable1}^2+${coefficient2}${variable1}+${coefficient1})`;
         var term2 = `(${coefficient2}${variable1}^2+${coefficient1}${variable1}+${coefficient2})`;
         problem = term1 + term2;
-        answer = ''; // You need to compute the answer here based on the generated coefficients
+        answer = `${coefficient1 * coefficient2}x^4+${(2 * coefficient1 * coefficient1 + 2 * coefficient2 * coefficient2)}x^3+${(2 * coefficient1 * coefficient2 + 2 * coefficient2 * coefficient1)}x^2+${coefficient1 * coefficient1 + coefficient2 * coefficient2}x+${coefficient1 * coefficient2}`;
     }
 
     return [problem, answer];

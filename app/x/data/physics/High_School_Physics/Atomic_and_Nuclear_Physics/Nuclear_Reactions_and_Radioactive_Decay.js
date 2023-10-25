@@ -41,6 +41,8 @@ $X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.NuclearReactionsAndRad
         return questions[Math.floor(Math.random() * questions.length)];
     };
 
+    let selectedQuestions, selectedAnswers;
+
     if (nuclearReactions) {
         const reactant1 = getRandomElement();
         const reactant2 = getRandomElement();
@@ -62,7 +64,7 @@ $X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.NuclearReactionsAndRad
         const decayProduct = "To be determined";
         selectedAnswers.push(decayProduct);
     }
-    
+
     function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
         const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
         return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];

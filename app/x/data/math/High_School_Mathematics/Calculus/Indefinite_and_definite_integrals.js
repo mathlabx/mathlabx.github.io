@@ -20,7 +20,7 @@ PS: The answer should be in fractions (Katex), using GCF to calculate the simple
 
 $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = function (C_indefinite, C_definite) {
     // Your code goes here
-    var equation;
+    var question;
     var answer;
     if(C_indefinite){
         const operation = ["+", "-"];

@@ -1,6 +1,6 @@
 function loadScripts(scriptUrls, callback) {
     console.clear();
-    APP.log("Start loading function files...", 1000);
+    APP.log("Start loading function files...", 2000);
     var totalScripts = scriptUrls.length;
     var startTime = performance.now(); // 记录开始加载时间
 
@@ -24,9 +24,9 @@ function loadScripts(scriptUrls, callback) {
         }
         var endTime = performance.now(); // 记录加载完成时间
         var loadTime = (endTime - startTime) / 1000; // 转换为秒
-        APP.log(`All scripts loaded, total loading time: ${loadTime.toFixed(2)} Second`, 1000);
+        APP.log(`All scripts loaded, total loading time: ${loadTime.toFixed(2)} Second`, 3000);
         setTimeout(() => {
-            APP.log("Execute main function...", 1000);
+            APP.log("Execute main function...", 2000);
             callback();
         }, 1000);
     })();

@@ -185,6 +185,15 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/physics/Middle_School_Physics/Acoustics/Propagation_of_Sound.js',
     MPCLabAPIurl + '/data/physics/Middle_School_Physics/Acoustics/Characteristics_and_Frequency_of_Sound.js',
     MPCLabAPIurl + '/data/physics/Middle_School_Physics/Acoustics/Sound_Reflection_and_Absorption.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Mechanics/Kinematics.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Mechanics/Newton_Laws_and_Equilibrium_of_Forces.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Mechanics/Momentum_and_Energy.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Optics/Propagation_and_Reflection_of_Light.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Optics/Mirrors_and_Lenses.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Optics/Wave_Particle_Duality_of_Light.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Atomic_and_Nuclear_Physics/Atomic_Structure_and_the_Periodic_table.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Atomic_and_Nuclear_Physics/Nuclear_Reactions_and_Radioactive_Decay.js',
+    MPCLabAPIurl + '/data/physics/High_School_Physics/Atomic_and_Nuclear_Physics/Structure_of_Atomic_Nuclei.js',
 ];
 
 let gl_results;

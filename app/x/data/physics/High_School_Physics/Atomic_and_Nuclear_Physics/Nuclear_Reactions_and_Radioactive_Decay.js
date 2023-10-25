@@ -16,7 +16,7 @@ const result = NuclearReactionsAndRadioactiveDecay(true, false);
 console.log(result); // Output: ['What is the product of the nuclear reaction 4He + 9Be?', 'The product is 12C.']
 */
 
-function NuclearReactionsAndRadioactiveDecay(nuclearReactions, radioactiveDecay) {
+$X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.NuclearReactionsAndRadioactiveDecay = function(nuclearReactions, radioactiveDecay) {
     var question = "";
     var answer = "";
 

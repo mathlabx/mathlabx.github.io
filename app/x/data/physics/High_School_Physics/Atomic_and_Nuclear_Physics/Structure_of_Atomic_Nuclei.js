@@ -16,7 +16,7 @@ const result = StructureOfAtomicNuclei(true, false);
 console.log(result); // Output: ['What are the subatomic particles present in a nucleus?', 'The subatomic particles are protons and neutrons.']
 */
 
-function StructureOfAtomicNuclei(subatomicParticles, nuclearForces) {
+$X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.StructureOfAtomicNuclei = function (subatomicParticles, nuclearForces) {
     var question = "";
     var answer = "";
 

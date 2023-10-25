@@ -3174,6 +3174,33 @@ function X_Generate(setting) {
         show: setting[1].topics[2].subtopics[1].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Atomic and Nuclear Physics | Atomic Structure and the Periodic-table&BIG",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Atomic Structure and the Periodic-table | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Atomic Structure and the Periodic-table | Atomic Number",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Atomic Structure and the Periodic-table | Isotopes",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Atomic Structure and the Periodic-table | Periodic Table",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[2].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4137,6 +4164,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Wave Particle Duality of Light: ", loop_length, i);
                     re_q.push($X.physics.High_School_Physics.Optics.WaveParticleDualityOfLight(results[509], results[510], results[511]));
+                }
+            }
+            if (results[512] == true) {
+                loop_length = Number(results[513]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Atomic Structure and the Periodic-table: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.AtomicStructureAndPeriodicTable(results[514], results[515], results[516]));
                 }
             }
 

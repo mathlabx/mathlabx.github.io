@@ -17,7 +17,7 @@ const result = AtomicStructureAndPeriodicTable(true, true, false);
 console.log(result); // Output: ['What is the atomic number of the element with 12 protons?', 'The atomic number is 12.']
 */
 
-function AtomicStructureAndPeriodicTable(atomicNumber, isotopes, periodicTable) {
+$X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.AtomicStructureAndPeriodicTable = function(atomicNumber, isotopes, periodicTable) {
     var question = "";
     var answer = "";
 

@@ -17,6 +17,16 @@ console.log(result); // Output: ['Explain the concept of thermal expansion in so
 */
 
 $X.physics.Middle_School_Physics.Thermodynamics.Thermal_Expansion_of_Materials = function(solids, liquids) {
+    function generateRandomSolid() {
+        const solids = ['steel', 'aluminum', 'copper', 'iron', 'zinc', 'nickel', 'silver', 'gold'];
+        return solids[Math.floor(Math.random() * solids.length)];
+    }
+    
+    function generateRandomLiquid() {
+        const liquids = ['water', 'alcohol', 'mercury', 'glycerin', 'oil', 'ethyl alcohol', 'milk', 'acetone'];
+        return liquids[Math.floor(Math.random() * liquids.length)];
+    }
+    
     const questions = [];
     const answers = [];
 
@@ -52,14 +62,4 @@ $X.physics.Middle_School_Physics.Thermodynamics.Thermal_Expansion_of_Materials =
     }
 
     return result;
-}
-
-function generateRandomSolid() {
-    const solids = ['steel', 'aluminum', 'copper', 'iron', 'zinc', 'nickel', 'silver', 'gold'];
-    return solids[Math.floor(Math.random() * solids.length)];
-}
-
-function generateRandomLiquid() {
-    const liquids = ['water', 'alcohol', 'mercury', 'glycerin', 'oil', 'ethyl alcohol', 'milk', 'acetone'];
-    return liquids[Math.floor(Math.random() * liquids.length)];
 }

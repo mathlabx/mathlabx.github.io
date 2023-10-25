@@ -21,22 +21,57 @@ $X.physics.High_School_Physics.Optics.WaveParticleDualityOfLight = function (wav
     var question = "";
     var answer = "";
 
+    // Adjust the input parameters to ensure only one remains true
+    var options = [wavelength, frequency, energy];
+    var trueCount = 0;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i] === true) {
+            trueCount++;
+        }
+    }
+
+    if (trueCount > 1) {
+        var randomIndex = Math.floor(Math.random() * options.length);
+        for (var j = 0; j < options.length; j++) {
+            if (j === randomIndex) {
+                options[j] = true;
+            } else {
+                options[j] = false;
+            }
+        }
+        wavelength = options[0];
+        frequency = options[1];
+        energy = options[2];
+    }
+
     if (wavelength) {
         // Logic for questions related to wavelength
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        var speedOfLight = 3 * Math.pow(10, 8); // Speed of light in m/s
+        var frequencyValue = Math.floor(Math.random() * 5) + 1; // Random frequency value between 1 and 5 Hz
+
+        question = 'Calculate the wavelength of light with a frequency of ' + frequencyValue + ' Hz.';
+        var wavelengthValue = speedOfLight / frequencyValue;
+        answer = 'The wavelength of light is ' + wavelengthValue.toFixed(2) + ' m.';
     }
 
     if (frequency) {
         // Logic for questions related to frequency
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        var speedOfLight = 3 * Math.pow(10, 8); // Speed of light in m/s
+        var wavelengthValue = Math.floor(Math.random() * 500) + 100; // Random wavelength value between 100 and 600 nm
+
+        question = 'Calculate the frequency of light with a wavelength of ' + wavelengthValue + ' nm.';
+        var frequencyValue = speedOfLight / (wavelengthValue * Math.pow(10, -9));
+        answer = 'The frequency of light is ' + frequencyValue.toFixed(2) + ' Hz.';
     }
 
     if (energy) {
         // Logic for questions related to energy
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        var plankConstant = 6.63 * Math.pow(10, -34); // Planck constant in J*s
+        var frequencyValue = Math.floor(Math.random() * 5) + 1; // Random frequency value between 1 and 5 Hz
+
+        question = 'Calculate the energy of a photon with a frequency of ' + frequencyValue + ' Hz.';
+        var energyValue = plankConstant * frequencyValue;
+        answer = 'The energy of the photon is ' + energyValue.toFixed(2) + ' J.';
     }
 
     // Return the question and answer in an array

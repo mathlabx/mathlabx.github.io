@@ -68,7 +68,7 @@ function makeIndefiniteEquation(oper, vari, leng) {
 	return [equation, answer];
 }
 function makeDefiniteEquation(oper, vari, leng, low, up) {
-	var equation = "";
+	var equation = `\int_{`+low+`}^{`+up+`} `;
 	var lower = 0;
 	var upper = 0;
 	for (var i = 0; i < leng; i++) {

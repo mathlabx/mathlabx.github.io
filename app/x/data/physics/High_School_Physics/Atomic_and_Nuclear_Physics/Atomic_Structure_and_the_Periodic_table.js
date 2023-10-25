@@ -66,11 +66,16 @@ $X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.AtomicStructureAndPeri
         answers.push(element);
     }
 
-    const result = [];
-    for (let i = 0; i < questions.length; i++) {
-        result.push(questions[i]);
-        result.push(answers[i]);
+    function getRandomItem(items) {
+        const randomIndex = Math.floor(Math.random() * items.length);
+        return items[randomIndex];
     }
 
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
+    }
+
+    const result = getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers);
     return result;
 }

@@ -26,7 +26,7 @@ $X.physics.Middle_School_Physics.Thermodynamics.Temperature_and_Temperature_Meas
         questions.push(`Convert ${celsius} degrees Celsius to Fahrenheit.`);
         answers.push(`${celsius} degrees Celsius is equal to ${fahrenheit} degrees Fahrenheit.`);
 
-        const kelvin = Math.floor(Math.random() * 100) + 273.15;
+        const kelvin = celsius + 273.15; // Fixing the conversion to Kelvin
         questions.push(`Convert ${celsius} degrees Celsius to Kelvin.`);
         answers.push(`${celsius} degrees Celsius is equal to ${kelvin} Kelvin.`);
 

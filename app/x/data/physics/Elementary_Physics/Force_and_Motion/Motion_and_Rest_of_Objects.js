@@ -17,6 +17,10 @@ console.log(result); // Output: ['What are the different types of motion?', 'The
 */
 
 $X.physics.Elementary_Physics.Force_and_Motion.Motion_Rest_Objects = function (types, applications) {
+    // Generating random boolean values
+    types = Math.random() < 0.5;
+    applications = !types;
+
     const allQuestions = [
         'What is the fundamental concept of motion in classical mechanics?',
         'How is the displacement of an object calculated in the context of its motion?',

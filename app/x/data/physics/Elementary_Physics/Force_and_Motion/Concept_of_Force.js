@@ -16,7 +16,12 @@ const result = Concept_Force(true, false);
 console.log(result); // Output: ['What are the different types of forces?', 'The different types of forces include...']
 */
 
-$X.physics.Elementary_Physics.Force_and_Motion.Concept_Force = function(types, applications) {
+$X.physics.Elementary_Physics.Force_and_Motion.Concept_Force = function (types, applications) {
+    // Generating random boolean values
+    types = Math.random() < 0.5;
+    applications = !types;
+
+
     const allQuestions = [
         'What is the fundamental concept of force in physics?',
         'How is force defined and measured in the field of mechanics?',

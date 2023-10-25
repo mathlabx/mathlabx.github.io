@@ -18,6 +18,11 @@ console.log(result); // Output: ['What is the shape of...', 'The size of the obj
 */
 
 $X.physics.Elementary_Physics.Basic_Physics_Concepts.Size_Shape_Color_Objects = function (size, shape, color) {
+    // Generating random boolean values
+    size = Math.random() < 0.5;
+    shape = Math.random() < 0.5 && !size;
+    color = !size && !shape;
+
     const allQuestions = [
         'What is the actual physical dimension of the object in terms of length, width, and height?',
         'What is the relative size of the object in comparison to other objects nearby?',

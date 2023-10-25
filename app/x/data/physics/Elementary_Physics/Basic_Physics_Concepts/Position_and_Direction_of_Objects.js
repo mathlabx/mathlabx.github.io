@@ -17,6 +17,10 @@ console.log(result); // Output: ['Where is the object located?', 'The object is 
 */
 
 $X.physics.Elementary_Physics.Basic_Physics_Concepts.Position_Direction_Objects = function (position, direction) {
+     // Generating random boolean values
+    position = Math.random() < 0.5;
+    direction = !position;
+
     const allQuestions = [
         'How is the absolute position of an object determined in a global coordinate system?',
         'What are the different methods for expressing the position of an object in a relative coordinate system?',

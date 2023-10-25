@@ -16,7 +16,11 @@ const result = Simple_Machines(true, false);
 console.log(result); // Output: ['What are the different types of simple machines?', 'The different types of simple machines include...']
 */
 
-$X.physics.Elementary_Physics.Force_and_Motion.Simple_Machines = function(types, applications) {
+$X.physics.Elementary_Physics.Force_and_Motion.Simple_Machines = function (types, applications) {
+    // Generating random boolean values
+    types = Math.random() < 0.5;
+    applications = !types;
+
     const allQuestions = [
         'What is the fundamental principle behind the functioning of simple machines?',
         'How does the concept of mechanical advantage relate to the efficiency of simple machines?',

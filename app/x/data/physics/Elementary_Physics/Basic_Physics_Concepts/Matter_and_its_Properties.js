@@ -18,6 +18,11 @@ console.log(result); // Output: ['Solid matter has a fixed...', 'The molecules i
 */
 
 $X.physics.Elementary_Physics.Basic_Physics_Concepts.Matter_Properties = function (solid, liquid, gas) {
+    // Generating random boolean values
+    solid = Math.random() < 0.5;
+    liquid = Math.random() < 0.5 && !solid;
+    gas = !solid && !liquid;
+
     const allQuestions = [
         'What is a characteristic property of solid matter?',
         'How do the molecules in a solid behave?',

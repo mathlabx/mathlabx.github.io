@@ -20,6 +20,181 @@ PS: The answer should be in fractions (Katex), using GCF to calculate the simple
 
 $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = function (C_indefinite, C_definite) {
 	// Your code goes here
+	function makeIndefiniteEquation(oper, vari, leng) {
+		var equation = ``;
+		var answer = ``;
+		for (var i = 0; i < leng; i++) {
+			const operNum = Math.floor(Math.random() * oper.length);
+			const varNum = Math.floor(Math.random() * vari.length);
+			if (i != leng - 1) {
+				if (vari[varNum] === "const") {
+					const temp = Math.ceil(Math.random() * leng);
+					equation += temp + " " + oper[operNum] + " ";
+					answer += solveIndefiniteIntergal(temp) + " " + oper[operNum] + " ";
+				} else {
+					equation += vari[varNum] + " " + oper[operNum] + " ";
+					answer += solveIndefiniteIntergal(vari[varNum]) + " " + oper[operNum] + " ";
+				}
+			} else {
+				if (vari[varNum] === "const") {
+					const temp = Math.ceil(Math.random() * leng);
+					equation += temp;
+					answer += solveIndefiniteIntergal(temp) + " + C";
+				} else {
+					equation += vari[varNum];
+					answer += solveIndefiniteIntergal(vari[varNum]) + " + C";
+				}
+			}
+		}
+		return [equation, answer];
+	}
+	function makeDefiniteEquation(oper, vari, leng, low, up) {
+		var equation = `\int_{` + low + `}^{` + up + `} `;
+		var lower = 0;
+		var upper = 0;
+		for (var i = 0; i < leng; i++) {
+			const operNum = Math.floor(Math.random() * oper.length);
+			const varNum = Math.floor(Math.random() * vari.length);
+			if (i != leng - 1) {
+				if (vari[varNum] === "const") {
+					const temp = Math.ceil(Math.random() * leng);
+					equation += temp + " " + oper[operNum] + " ";
+					lower += solveDefiniteIntergal(temp, low);
+					upper += solveDefiniteIntergal(temp, up);
+				} else {
+					equation += vari[varNum] + " " + oper[operNum] + " ";
+					lower += solveDefiniteIntergal(vari[varNum], low);
+					upper += solveDefiniteIntergal(vari[varNum], up);
+				}
+			} else {
+				if (vari[varNum] === "const") {
+					const temp = Math.ceil(Math.random() * leng);
+					equation += temp + "dx";
+					lower += solveDefiniteIntergal(temp, low);
+					upper += solveDefiniteIntergal(temp, up);
+				} else {
+					equation += vari[varNum] + "dx";
+					lower += solveDefiniteIntergal(vari[varNum], low);
+					upper += solveDefiniteIntergal(vari[varNum], up);
+				}
+			}
+		}
+		const answer = upper - lower;
+		return [equation, answer];
+	}
+
+	function solveDefiniteIntergal(fun, bound) {
+		if (!isNaN(fun)) {
+			const ans = fun * bound;
+			return ans;
+		} else if (fun === "x") {
+			const ans = (bound * bound) / 2;
+			return ans;
+		} else if (fun === "cos(x)") {
+			const ans = Math.sin(bound);
+			return ans;
+		} else if (fun === "sin(x)") {
+			const ans = -Math.cos(bound);
+			return ans;
+		} else if (fun === "1/x") {
+			const ans = Math.log(bound);
+			return ans;
+		} else if (fun === "ln(x)") {
+			const ans = (bound * Math.log(bound) - bound);
+			return ans;
+		} else if (fun === "sec^2(x)") {
+			const ans = Math.tan(bound);
+			return ans;
+		} else if (fun === "e^x") {
+			const ans = Math.exp(bound);
+			return ans;
+		} else if (fun === "log(x)") {
+			const ans = (bound * Math.log10(bound) - (bound / Math.log(10)));
+			return ans;
+		} else if (fun === "csc^2(x)") {
+			const ans = -1 * (1 / Math.tan(bound));
+			return ans;
+		} else if (fun === "sec(x)tan(x)") {
+			const ans = (1 / Math.cos(bound));
+			return ans;
+		} else if (fun === "cot(x)csc(x)") {
+			const ans = -1 * (1 / Math.sin(bound));
+			return ans;
+		} else if (fun === "1/sqrt(1-x^2)") {
+			const ans = Math.asin(bound);
+			return ans;
+		} else if (fun === "1/1+x^2") {
+			const ans = Math.atan(bound);
+			return ans;
+		} else if (fun === "sinh(x)") {
+			const ans = Math.cosh(bound);
+			return ans;
+		} else if (fun === "cosh(x)") {
+			const ans = Math.sinh(bound);
+			return ans;
+		} else if (fun === "tan(x)") {
+			const ans = -1 * (Math.log(Math.abs(Math.cos(bound))));
+			return ans;
+		} else if (fun === "cot(x)") {
+			const ans = Math.log(Math.sin(bound));
+			return ans;
+		} else if (fun === "sec(x)") {
+			const ans = Math.log((1 / Math.cos(bound)) + Math.tan(bound));
+			return ans;
+		} else if (fun === "csc(x)") {
+			const ans = -1 * (Math.log(Math.abs((1 / Math.sin(bound)) + (1 / Math.tan(bound)))));
+			return ans;
+		} else if (fun === "tanh(x)") {
+			const ans = Math.log(Math.cosh(bound));
+			return ans;
+		}
+	}
+	function solveIndefiniteIntergal(fun) {
+		if (!isNaN(fun)) {
+			return fun + "x";
+		} else if (fun === "x") {
+			return "x^2/2";
+		} else if (fun === "cos(x)") {
+			return "sin(x)";
+		} else if (fun === "sin(x)") {
+			return "(-cos(x))";
+		} else if (fun === "1/x") {
+			return "ln(x)";
+		} else if (fun === "ln(x)") {
+			return "(xln(x) - x)";
+		} else if (fun === "sec^2(x)") {
+			return "tan(x)";
+		} else if (fun === "e^x") {
+			return "e^x";
+		} else if (fun === "log(x)") {
+			return "(xlog(x)) - (x/ln(10))";
+		} else if (fun === "csc^2(x)") {
+			return "(-cot(x))";
+		} else if (fun === "sec(x)tan(x)") {
+			return "sec(x)";
+		} else if (fun === "cot(x)csc(x)") {
+			return "(-csc(x))";
+		} else if (fun === "1/sqrt(1-x^2)") {
+			return "arcsin(x)";
+		} else if (fun === "1/1+x^2") {
+			return "arctan(x)";
+		} else if (fun === "sinh(x)") {
+			return "cosh(x)";
+		} else if (fun === "cosh(x)") {
+			return "sinh(x)";
+		} else if (fun === "tan(x)") {
+			return "(-ln(cos(x)))";
+		} else if (fun === "cot(x)") {
+			return "ln(sin(x))";
+		} else if (fun === "sec(x)") {
+			return "ln(sec(x) + tan(x))";
+		} else if (fun === "csc(x)") {
+			return "(-ln(csc(x) + cot(x)))";
+		} else if (fun === "tanh(x)") {
+			return "ln(cosh(x))";
+		}
+	}
+
 	var question;
 	var answer;
 	const operation = ["+", "-"];
@@ -39,178 +214,3 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 	// Return the question and answer in an array
 	return [question, answer];
 }
-function makeIndefiniteEquation(oper, vari, leng) {
-	var equation = ``;
-	var answer = ``;
-	for (var i = 0; i < leng; i++) {
-		const operNum = Math.floor(Math.random() * oper.length);
-		const varNum = Math.floor(Math.random() * vari.length);
-		if (i != leng - 1) {
-			if (vari[varNum] === "const") {
-				const temp = Math.ceil(Math.random() * leng);
-				equation += temp + " " + oper[operNum] + " ";
-				answer += solveIndefiniteIntergal(temp) + " " + oper[operNum] + " ";
-			} else {
-				equation += vari[varNum] + " " + oper[operNum] + " ";
-				answer += solveIndefiniteIntergal(vari[varNum]) + " " + oper[operNum] + " ";
-			}
-		} else {
-			if (vari[varNum] === "const") {
-				const temp = Math.ceil(Math.random() * leng);
-				equation += temp;
-				answer += solveIndefiniteIntergal(temp) + " + C";
-			} else {
-				equation += vari[varNum];
-				answer += solveIndefiniteIntergal(vari[varNum]) + " + C";
-			}
-		}
-	}
-	return [equation, answer];
-}
-function makeDefiniteEquation(oper, vari, leng, low, up) {
-	var equation = `\int_{`+low+`}^{`+up+`} `;
-	var lower = 0;
-	var upper = 0;
-	for (var i = 0; i < leng; i++) {
-		const operNum = Math.floor(Math.random() * oper.length);
-		const varNum = Math.floor(Math.random() * vari.length);
-		if (i != leng - 1) {
-			if (vari[varNum] === "const") {
-				const temp = Math.ceil(Math.random() * leng);
-				equation += temp + " " + oper[operNum] + " ";
-				lower += solveDefiniteIntergal(temp, low);
-				upper += solveDefiniteIntergal(temp, up);
-			} else {
-				equation += vari[varNum] + " " + oper[operNum] + " ";
-				lower += solveDefiniteIntergal(vari[varNum], low);
-				upper += solveDefiniteIntergal(vari[varNum], up);
-			}
-		} else {
-			if (vari[varNum] === "const") {
-				const temp = Math.ceil(Math.random() * leng);
-				equation += temp + "dx";
-				lower += solveDefiniteIntergal(temp, low);
-				upper += solveDefiniteIntergal(temp, up);
-			} else {
-				equation += vari[varNum] + "dx";
-				lower += solveDefiniteIntergal(vari[varNum], low);
-				upper += solveDefiniteIntergal(vari[varNum], up);
-			}
-		}
-	}
-	const answer = upper - lower;
-	return [equation, answer];
-}
-
-function solveDefiniteIntergal(fun, bound) {
-	if (!isNaN(fun)) {
-		const ans = fun * bound;
-		return ans;
-	} else if (fun === "x") {
-		const ans = (bound * bound) / 2;
-		return ans;
-	} else if (fun === "cos(x)") {
-		const ans = Math.sin(bound);
-		return ans;
-	} else if (fun === "sin(x)") {
-		const ans = -Math.cos(bound);
-		return ans;
-	} else if (fun === "1/x") {
-		const ans = Math.log(bound);
-		return ans;
-	} else if (fun === "ln(x)") {
-		const ans = (bound * Math.log(bound) - bound);
-		return ans;
-	} else if (fun === "sec^2(x)") {
-		const ans = Math.tan(bound);
-		return ans;
-	} else if (fun === "e^x") {
-		const ans = Math.exp(bound);
-		return ans;
-	} else if (fun === "log(x)") {
-		const ans = (bound * Math.log10(bound) - (bound / Math.log(10)));
-		return ans;
-	} else if (fun === "csc^2(x)") {
-		const ans = -1 * (1 / Math.tan(bound));
-		return ans;
-	} else if (fun === "sec(x)tan(x)") {
-		const ans = (1 / Math.cos(bound));
-		return ans;
-	} else if (fun === "cot(x)csc(x)") {
-		const ans = -1 * (1 / Math.sin(bound));
-		return ans;
-	} else if (fun === "1/sqrt(1-x^2)") {
-		const ans = Math.asin(bound);
-		return ans;
-	} else if (fun === "1/1+x^2") {
-		const ans = Math.atan(bound);
-		return ans;
-	} else if (fun === "sinh(x)") {
-		const ans = Math.cosh(bound);
-		return ans;
-	} else if (fun === "cosh(x)") {
-		const ans = Math.sinh(bound);
-		return ans;
-	} else if (fun === "tan(x)") {
-		const ans = -1 * (Math.log(Math.abs(Math.cos(bound))));
-		return ans;
-	} else if (fun === "cot(x)") {
-		const ans = Math.log(Math.sin(bound));
-		return ans;
-	} else if (fun === "sec(x)") {
-		const ans = Math.log((1 / Math.cos(bound)) + Math.tan(bound));
-		return ans;
-	} else if (fun === "csc(x)") {
-		const ans = -1 * (Math.log(Math.abs((1 / Math.sin(bound)) + (1 / Math.tan(bound)))));
-		return ans;
-	} else if (fun === "tanh(x)") {
-		const ans = Math.log(Math.cosh(bound));
-		return ans;
-	}
-}
-function solveIndefiniteIntergal(fun){
-		if(!isNaN(fun)){
-			return fun + "x";
-		}else if(fun === "x"){
-			return "x^2/2";
-		}else if(fun === "cos(x)"){
-			return "sin(x)";
-		}else if(fun === "sin(x)"){
-			return "(-cos(x))";
-		}else if(fun === "1/x"){
-			return "ln(x)";
-		}else if(fun === "ln(x)"){
-			return "(xln(x) - x)";
-		}else if(fun === "sec^2(x)"){
-			return "tan(x)";
-		}else if(fun === "e^x"){
-			return "e^x";
-		}else if(fun === "log(x)"){
-			return "(xlog(x)) - (x/ln(10))";
-		}else if(fun === "csc^2(x)"){
-			return "(-cot(x))";
-		}else if(fun === "sec(x)tan(x)"){
-			return "sec(x)";
-		}else if(fun === "cot(x)csc(x)"){
-			return "(-csc(x))";
-		}else if(fun === "1/sqrt(1-x^2)"){
-			return "arcsin(x)";
-		}else if(fun === "1/1+x^2"){
-			return "arctan(x)";
-		}else if(fun === "sinh(x)"){
-			return "cosh(x)";
-		}else if(fun === "cosh(x)"){
-			return "sinh(x)";
-		}else if(fun === "tan(x)"){
-			return "(-ln(cos(x)))";
-		}else if(fun === "cot(x)"){
-			return "ln(sin(x))";
-		}else if(fun === "sec(x)"){
-			return "ln(sec(x) + tan(x))";
-		}else if(fun === "csc(x)"){
-			return "(-ln(csc(x) + cot(x)))";
-		}else if(fun === "tanh(x)"){
-			return "ln(cosh(x))";
-		}
-	}
-

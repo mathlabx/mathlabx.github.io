@@ -29,6 +29,8 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 		const holder = makeEquation(operation, variable, equaLength);
 		equation = holder[0];
 		answer = holder[1];
+    }else{
+	return null;
     }
     // Return the question and answer in an array
     return [question, answer];

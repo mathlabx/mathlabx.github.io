@@ -17,7 +17,7 @@ console.log(result); // Output: ['Where is the object located?', 'The object is 
 */
 
 $X.physics.Elementary_Physics.Basic_Physics_Concepts.Position_Direction_Objects = function (position, direction) {
-     // Generating random boolean values
+    // Generating random boolean values
     position = Math.random() < 0.5;
     direction = !position;
 
@@ -84,11 +84,16 @@ $X.physics.Elementary_Physics.Basic_Physics_Concepts.Position_Direction_Objects 
         selectedAnswers.push(allAnswers[9]);
     }
 
-    const result = [];
-    for (let i = 0; i < selectedQuestions.length; i++) {
-        result.push(selectedQuestions[i]);
-        result.push(selectedAnswers[i]);
+    function getRandomItem(items) {
+        const randomIndex = Math.floor(Math.random() * items.length);
+        return items[randomIndex];
     }
 
+    function getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers) {
+        const randomIndex = Math.floor(Math.random() * selectedQuestions.length);
+        return [selectedQuestions[randomIndex], selectedAnswers[randomIndex]];
+    }
+
+    const result = getRandomQuestionWithAnswer(selectedQuestions, selectedAnswers);
     return result;
 }

@@ -91,13 +91,13 @@ function deriveFunction(func){
 	}else if(func === "sin(x)"){
 		return "cos(x)";
 	}else if(func === "ln(x)"){
-		return `(frac{1}{x})`;
+		return `(\\frac{1}{x})`;
 	}else if(func === "tan(x)"){
 		return "sec^2(x)";
 	}else if(func === "e^x"){
 		return "(e^x)";
 	}else if(func === "log(x)"){
-		return `frac{1}{x*ln(10)}`;
+		return `\\frac{1}{x*ln(10)}`;
 	}else if(func === "cot(x)"){
 		return "(-csc^2(x))";
 	}else if(func === "sec(x)"){
@@ -105,16 +105,16 @@ function deriveFunction(func){
 	}else if(func === "csc(x)"){
 		return "-cot(x) * csc(x)";
 	}else if(func === "arcsin(x)"){
-		return `frac{1}{sqrt{1-x^2}}`;
+		return `\\frac{1}{sqrt{1-x^2}}`;
 	}else if(func === "arccos(x)"){
-		return `frac{-1}{sqrt{1-x^2}}`;
+		return `\\frac{-1}{sqrt{1-x^2}}`;
 	}else if(func === "arctan(x)"){
-		return `frac{1}{1-x^2}`;
+		return `\\frac{1}{1-x^2}`;
 	}else if(func === "arccsc(x)"){
-		return `frac{-x}{x^2 * (sqrt{x^2 - 1})}`;
+		return `\\frac{-x}{x^2 * (sqrt{x^2 - 1})}`;
 	}else if(func === "arcsec(x)"){
-		return `frac{x}{x^2 * (sqrt{x^2 - 1})}`;
+		return `\\frac{x}{x^2 * (sqrt{x^2 - 1})}`;
 	}else if(func === "arccot(x)"){
-		return `frac{-1}{1+x^2}`;
+		return `\\frac{-1}{1+x^2}`;
 	}
 }

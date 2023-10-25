@@ -16,7 +16,7 @@ const result = Kinematics(true, true);
 console.log(result); // Output: ['A car accelerates uniformly from 20 m/s to 50 m/s in 4 seconds. What is the acceleration of the car?', 'The acceleration of the car is 7.5 m/s^2.']
 */
 
-function Kinematics(velocity, acceleration) {
+$X.physics.High_School_Physics.Mechanics.Kinematics = function (velocity, acceleration) {
     var question = "";
     var answer = "";
 

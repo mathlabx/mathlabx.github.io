@@ -18,7 +18,7 @@ const result = NewtonLawsAndEquilibrium(true, true, false, false);
 console.log(result); // Output: ['A force of 10 N acts on a body of mass 2 kg. What is the acceleration of the body according to the second law of Newton?', 'The acceleration of the body is 5 m/s^2.']
 */
 
-function NewtonLawsAndEquilibrium(firstLaw, secondLaw, thirdLaw, equilibrium) {
+$X.physics.High_School_Physics.Mechanics.NewtonLawsAndEquilibrium = function (firstLaw, secondLaw, thirdLaw, equilibrium) {
     var question = "";
     var answer = "";
 

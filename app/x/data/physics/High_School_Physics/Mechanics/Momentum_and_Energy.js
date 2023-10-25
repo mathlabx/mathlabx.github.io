@@ -18,7 +18,7 @@ const result = MomentumAndEnergy(true, true, false, false);
 console.log(result); // Output: ['A body of mass 4 kg has a velocity of 5 m/s. What is its momentum?', 'The momentum of the body is 20 kg*m/s.']
 */
 
-function MomentumAndEnergy(momentum, energyConservation, workEnergy, impulse) {
+$X.physics.High_School_Physics.Mechanics.MomentumAndEnergy = function(momentum, energyConservation, workEnergy, impulse) {
     var question = "";
     var answer = "";
 

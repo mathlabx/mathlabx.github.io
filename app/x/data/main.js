@@ -2997,6 +2997,92 @@ function X_Generate(setting) {
         show: setting[1].topics[1].subtopics[2].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Mechanics | Kinematics&BIG",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Kinematics | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Kinematics | Velocity",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Kinematics | Acceleration",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Mechanics | Newton Laws and Equilibrium of Forces&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Newton Laws and Equilibrium of Forces | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Newton Laws and Equilibrium of Forces | First Law of Newton",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Newton Laws and Equilibrium of Forces | Second Law of Newton",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Newton Laws and Equilibrium of Forces | Third Law of Newton",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Newton Laws and Equilibrium of Forces | Equilibrium of Forces",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[1]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Mechanics | Momentum and Energy&Reg",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Momentum and Energy | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Momentum and Energy | Related to Momentum",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Momentum and Energy | The Conservation of Energy",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Momentum and Energy | Work-Energy Principle",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Momentum and Energy | Impulse",
+        Typ: "checked",
+        show: setting[1].topics[2].subtopics[0].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -3918,6 +4004,27 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Sound Reflection and Absorption: ", loop_length, i);
                     re_q.push($X.physics.Middle_School_Physics.Acoustics.Sound_Reflection_and_Absorption(results[477], results[478]));
+                }
+            }
+            if (results[479] == true) {
+                loop_length = Number(results[480]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Kinematics: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Mechanics.Kinematics(results[481], results[482]));
+                }
+            }
+            if (results[483] == true) {
+                loop_length = Number(results[484]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Newton Laws and Equilibrium of Forces: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Mechanics.NewtonLawsAndEquilibrium(results[485], results[486]));
+                }
+            }
+            if (results[487] == true) {
+                loop_length = Number(results[488]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Momentum and Energy: ", loop_length, i);
+                    re_q.push($X.physics.High_School_Physics.Mechanics.MomentumAndEnergy(results[489], results[490]));
                 }
             }
 

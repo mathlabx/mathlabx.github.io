@@ -3355,6 +3355,33 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[0].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Electromagnetism | Maxwell Equations&BIG",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Maxwell Equations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Maxwell Equations | Electric Fields",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Maxwell Equations | Magnetic Fields",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Maxwell Equations | The Relationships between Charges and Currents",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4360,6 +4387,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Entropy and the Second Law of Thermodynamics: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Thermodynamics.EntropyAndSecondLaw(results[538], results[539]));
+                }
+            }
+            if (results[540] == true) {
+                loop_length = Number(results[541]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Maxwell Equations: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Electromagnetism.MaxwellEquations(results[542], results[543], results[544]));
                 }
             }
 

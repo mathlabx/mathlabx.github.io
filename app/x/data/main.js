@@ -3568,6 +3568,77 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[3].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Solid-State Physics | Crystal Structures and Lattice Vibrations&BIG",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Crystal Structures and Lattice Vibrations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Crystal Structures and Lattice Vibrations | The Concept of Crystal Structures",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Crystal Structures and Lattice Vibrations | The Principles of Lattice Vibrations",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Solid-State Physics | Electronic Band Theory&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electronic Band Theory | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electronic Band Theory | Band Structure",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electronic Band Theory | Conduction Band",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electronic Band Theory | Valence Band",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[1]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Solid-State Physics | Semiconductors and Conductors&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Semiconductors and Conductors | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[4].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Semiconductors and Conductors | Semiconductor Properties",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Semiconductors and Conductors | Conductor Applications",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[4].subtopics[2]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -4637,6 +4708,27 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Gravity and General Relativity: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Relativity.GravityAndGeneralRelativity(results[577], results[578]));
+                }
+            }
+            if (results[579] == true) {
+                loop_length = Number(results[580]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Crystal Structures and Lattice Vibrations: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Solid_State_Physics.CrystalStructuresAndLatticeVibrations(results[581], results[582]));
+                }
+            }
+            if (results[583] == true) {
+                loop_length = Number(results[584]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Electronic Band Theory: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Solid_State_Physics.ElectronicBandTheory(results[585], results[586], results[587]));
+                }
+            }
+            if (results[588] == true) {
+                loop_length = Number(results[589]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Semiconductors and Conductors: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Solid_State_Physics.SemiconductorsAndConductors(results[590], results[591]));
                 }
             }
 

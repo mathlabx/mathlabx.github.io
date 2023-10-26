@@ -3382,6 +3382,33 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[1].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Electromagnetism | Electromagnetic Waves and the Propagation of Light&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electromagnetic Waves and the Propagation of Light | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electromagnetic Waves and the Propagation of Light | Wavelength of the Waves",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electromagnetic Waves and the Propagation of Light | Frequency of the Waves",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Electromagnetic Waves and the Propagation of Light | Speed of Propagation",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4394,6 +4421,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Maxwell Equations: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Electromagnetism.MaxwellEquations(results[542], results[543], results[544]));
+                }
+            }
+            if (results[545] == true) {
+                loop_length = Number(results[546]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Electromagnetic Waves and the Propagation of Light: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Electromagnetism.ElectromagneticWavesAndPropagation(results[547], results[548], results[549]));
                 }
             }
 

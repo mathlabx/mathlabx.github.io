@@ -3274,6 +3274,38 @@ function X_Generate(setting) {
         show: setting[1].topics[2].subtopics[2].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Thermodynamics | Ideal Gas Law&BIG",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Ideal Gas Law | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Ideal Gas Law | Pressure",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Ideal Gas Law | Volume",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Ideal Gas Law | Amount of Substance",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Ideal Gas Law | Temperature",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4258,6 +4290,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Structure of Atomic Nuclei: ", loop_length, i);
                     re_q.push($X.physics.High_School_Physics.Atomic_and_Nuclear_Physics.StructureOfAtomicNuclei(results[523], results[524]));
+                }
+            }
+            if (results[525] == true) {
+                loop_length = Number(results[526]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Ideal Gas Law: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Thermodynamics.IdealGasLaw(results[527], results[528], results[529], results[530]));
                 }
             }
 

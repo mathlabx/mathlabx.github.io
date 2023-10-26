@@ -3736,6 +3736,28 @@ function X_Generate(setting) {
         show: setting[2].topics[0].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Mixtures and Pure Substances | Differences between Mixtures and Pure-Substances&BIG",
+        Typ: "checked",
+        show: setting[2].topics[0].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Differences between Mixtures and Pure-Substances | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[0].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Differences between Mixtures and Pure-Substances | Composition",
+        Typ: "checked",
+        show: setting[2].topics[0].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Differences between Mixtures and Pure-Substances | Properties",
+        Typ: "checked",
+        show: setting[2].topics[0].subtopics[1].subtopics[0]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -4840,6 +4862,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Properties of Matter: ", loop_length, i);
                     re_q.push($X.chemistry.Elementary_Chemistry.Matter_and_Properties.PropertiesOfMatter(results[598], results[599], results[600]));
+                }
+            }
+            if (results[601] == true) {
+                loop_length = Number(results[602]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Differences between Mixtures and Pure-Substances: ", loop_length, i);
+                    re_q.push($X.chemistry.Elementary_Chemistry.Mixtures_and_Pure_Substances.DifferencesBetweenMixturesAndPureSubstances(results[603], results[604]));
                 }
             }
 

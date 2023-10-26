@@ -16,7 +16,7 @@ const result = OperatorsAndMeasurementsInQuantumMechanics(true, false);
 console.log(result); // Output: ['What is the commutation relation between position and momentum operators?', 'The commutation relation between position and momentum operators is [x, p] = iħ.']
 */
 
-$X.physics.University_Physics.QuantumPhysics.OperatorsAndMeasurementsInQuantumMechanics = function (operatorProperties, measurementProcesses) {
+$X.physics.University_Physics.Quantum_Mechanics.OperatorsAndMeasurementsInQuantumMechanics = function (operatorProperties, measurementProcesses) {
     var question = "";
     var answer = "";
 

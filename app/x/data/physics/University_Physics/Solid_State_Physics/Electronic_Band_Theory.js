@@ -17,7 +17,7 @@ const result = ElectronicBandTheory(true, true, false);
 console.log(result); // Output: ['What is the definition of the conduction band?', 'The conduction band is the energy band in a solid that is partially filled with electrons, allowing them to move and conduct electric current.']
 */
 
-$X.physics.University_Physics.SolidStatePhysics.ElectronicBandTheory = function (bandStructure, conductionBand, valenceBand) {
+$X.physics.University_Physics.Solid_State_Physics.ElectronicBandTheory = function (bandStructure, conductionBand, valenceBand) {
     var question = "";
     var answer = "";
 

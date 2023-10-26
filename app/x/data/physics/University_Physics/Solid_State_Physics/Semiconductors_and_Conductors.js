@@ -16,7 +16,7 @@ const result = SemiconductorsAndConductors(true, false);
 console.log(result); // Output: ['What is the definition of a semiconductor?', 'A semiconductor is a material whose conductivity is between that of a conductor and an insulator under the influence of an electric field or magnetic field.']
 */
 
-$X.physics.University_Physics.SolidStatePhysics.SemiconductorsAndConductors = function (semiconductorProperties, conductorApplications) {
+$X.physics.University_Physics.Solid_State_Physics.SemiconductorsAndConductors = function (semiconductorProperties, conductorApplications) {
     var question = "";
     var answer = "";
 

@@ -16,7 +16,7 @@ const result = MassEnergyEquivalence(true, false);
 console.log(result); // Output: ['What does E=mc^2 signify?', 'E=mc^2 signifies the mass-energy equivalence, where E is energy, m is mass, and c is the speed of light.']
 */
 
-$X.physics.University_Physics.SpecialRelativity.MassEnergyEquivalence = function (massEnergyConversionConcepts, massEnergyConversionApplications) {
+$X.physics.University_Physics.Relativity.MassEnergyEquivalence = function (massEnergyConversionConcepts, massEnergyConversionApplications) {
     var question = "";
     var answer = "";
 

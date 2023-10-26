@@ -17,7 +17,7 @@ const result = WaveParticleDuality(true, true, false);
 console.log(result); // Output: ['An electron has a wavelength of 2 nm. What is its frequency?', 'The frequency of the electron is 1.5 x 10^17 Hz.']
 */
 
-$X.physics.University_Physics.QuantumPhysics.WaveParticleDuality = function (wavelength, frequency, energy) {
+$X.physics.University_Physics.Quantum_Mechanics.WaveParticleDuality = function (wavelength, frequency, energy) {
     var question = "";
     var answer = "";
 

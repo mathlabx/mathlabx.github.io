@@ -16,7 +16,7 @@ const result = WaveFunctionsAndSchrodingerEquation(true, false);
 console.log(result); // Output: ['What is the normalization condition for a wave function?', 'The normalization condition for a wave function is ∫|Ψ(x)|^2 dx = 1.']
 */
 
-$X.physics.University_Physics.QuantumPhysics.WaveFunctionsAndSchrodingerEquation = function (waveFunctionProperties, schrodingerApplications) {
+$X.physics.University_Physics.Quantum_Mechanics.WaveFunctionsAndSchrodingerEquation = function (waveFunctionProperties, schrodingerApplications) {
     var question = "";
     var answer = "";
 

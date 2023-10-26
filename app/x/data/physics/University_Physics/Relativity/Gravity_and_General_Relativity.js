@@ -16,7 +16,7 @@ const result = GravityAndGeneralRelativity(true, false);
 console.log(result); // Output: ['What is the principle of equivalence in general relativity?', 'The principle of equivalence states that the effects of gravity are indistinguishable from those of acceleration.']
 */
 
-$X.physics.University_Physics.GeneralRelativity.GravityAndGeneralRelativity = function (gravityConcepts, generalRelativityPrinciples) {
+$X.physics.University_Physics.Relativity.GravityAndGeneralRelativity = function (gravityConcepts, generalRelativityPrinciples) {
     var question = "";
     var answer = "";
 

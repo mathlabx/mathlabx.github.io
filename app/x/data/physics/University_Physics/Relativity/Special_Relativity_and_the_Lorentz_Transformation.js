@@ -16,7 +16,7 @@ const result = SpecialRelativityAndLorentzTransformation(true, false);
 console.log(result); // Output: ['What is time dilation in special relativity?', 'Time dilation is the phenomenon where time appears to pass more slowly in a moving reference frame relative to a stationary observer.']
 */
 
-$X.physics.University_Physics.SpecialRelativity.SpecialRelativityAndLorentzTransformation = function (specialRelativityConcepts, lorentzTransformationApplications) {
+$X.physics.University_Physics.Relativity.SpecialRelativityAndLorentzTransformation = function (specialRelativityConcepts, lorentzTransformationApplications) {
     var question = "";
     var answer = "";
 

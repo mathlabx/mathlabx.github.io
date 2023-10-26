@@ -16,7 +16,7 @@ const result = CrystalStructuresAndLatticeVibrations(true, false);
 console.log(result); // Output: ['What is a unit cell in crystallography?', 'A unit cell is the smallest repeating unit in a crystal lattice.']
 */
 
-$X.physics.University_Physics.SolidStatePhysics.CrystalStructuresAndLatticeVibrations = function (crystalStructureConcepts, latticeVibrationsPrinciples) {
+$X.physics.University_Physics.Solid_State_Physics.CrystalStructuresAndLatticeVibrations = function (crystalStructureConcepts, latticeVibrationsPrinciples) {
     var question = "";
     var answer = "";
 

@@ -3480,6 +3480,28 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[2].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Quantum Mechanics | Operators and Measurements in Quantum Mechanics&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Operators and Measurements in Quantum Mechanics | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Operators and Measurements in Quantum Mechanics | Properties of Operators",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Operators and Measurements in Quantum Mechanics | Measurement Processes",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4520,6 +4542,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Wave Functions and the Schrodinger Equation: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Quantum_Mechanics.WaveFunctionsAndSchrodingerEquation(results[561], results[562]));
+                }
+            }
+            if (results[563] == true) {
+                loop_length = Number(results[564]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Operators and Measurements in Quantum Mechanics: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Quantum_Mechanics.OperatorsAndMeasurementsInQuantumMechanics(results[565], results[566]));
                 }
             }
 

@@ -67,7 +67,7 @@ $X.physics.University_Physics.Quantum_Mechanics.WaveParticleDuality = function (
     function calculateWavelength(energy) {
         // Calculate the wavelength based on the given energy
         // Example calculation: Planck's constant / energy
-        return (6.63 * Math.pow(10, -34)) / (1.6 * Math.pow(10, -19) * parseFloat(energy));
+        return (6.63 * Math.pow(10, -34)) / (1.6 * Math.pow(10, -19) * parseFloat(energy)) * Math.pow(10, 9);
     }
 
     if (wavelength) {

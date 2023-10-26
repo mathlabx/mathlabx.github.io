@@ -3409,6 +3409,28 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Electromagnetism | Interaction of Electromagnetic Fields&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Interaction of Electromagnetic Fields | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Interaction of Electromagnetic Fields | Interaction between Electric and Magnetic Fields",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Interaction of Electromagnetic Fields | The Lorentz Force",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[1].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4428,6 +4450,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Electromagnetic Waves and the Propagation of Light: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Electromagnetism.ElectromagneticWavesAndPropagation(results[547], results[548], results[549]));
+                }
+            }
+            if (results[550] == true) {
+                loop_length = Number(results[551]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Interaction of Electromagnetic Fields: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Electromagnetism.InteractionOfElectromagneticFields(results[552], results[553], results[554]));
                 }
             }
 

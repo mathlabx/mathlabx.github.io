@@ -3709,6 +3709,33 @@ function X_Generate(setting) {
         show: setting[2].topics[0].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Matter and Properties | Properties of Matter&Reg",
+        Typ: "checked",
+        show: setting[2].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Matter | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Matter | Density",
+        Typ: "checked",
+        show: setting[2].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Matter | Solubility",
+        Typ: "checked",
+        show: setting[2].topics[0].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Matter | Conductivity",
+        Typ: "checked",
+        show: setting[2].topics[0].subtopics[0].subtopics[1]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -4806,6 +4833,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Classification of Matter: ", loop_length, i);
                     re_q.push($X.chemistry.Elementary_Chemistry.Matter_and_Properties.ClassificationOfMatter(results[594], results[595]));
+                }
+            }
+            if (results[596] == true) {
+                loop_length = Number(results[597]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Properties of Matter: ", loop_length, i);
+                    re_q.push($X.chemistry.Elementary_Chemistry.Matter_and_Properties.PropertiesOfMatter(results[598], results[599], results[600]));
                 }
             }
 

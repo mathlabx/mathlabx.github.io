@@ -17,7 +17,7 @@ const result = ChemicalReactionEquations(true, false, true);
 console.log(result); // Output: ['Balance the following chemical equation: H2 + O2 -> H2O', 'The balanced chemical equation is 2H2 + O2 -> 2H2O']
 */
 
-$X.chemistry.Elementary_Chemistry.Chemical_Reactions.ChemicalReactionEquations = function (balancingEquations, reactionTypes, characteristics) {
+$X.chemistry.Middle_School_Chemistry.Chemical_Reactions.ChemicalReactionEquations = function (balancingEquations, reactionTypes, characteristics) {
     var question = "";
     var answer = "";
 

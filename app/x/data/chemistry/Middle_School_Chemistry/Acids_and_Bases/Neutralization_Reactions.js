@@ -17,7 +17,7 @@ const result = NeutralizationReactions(true, false, true);
 console.log(result); // Output: ['What are the key concepts involved in neutralization reactions?', 'Neutralization reactions are chemical reactions between an acid and a base that produce a salt and water.']
 */
 
-$X.chemistry.Elementary_Chemistry.NeutralizationReactions = function (basicConcepts, reactionProcesses, reactionProducts) {
+$X.chemistry.Middle_School_Chemistry.Acids_and_Bases.NeutralizationReactions = function (basicConcepts, reactionProcesses, reactionProducts) {
     var question = "";
     var answer = "";
 

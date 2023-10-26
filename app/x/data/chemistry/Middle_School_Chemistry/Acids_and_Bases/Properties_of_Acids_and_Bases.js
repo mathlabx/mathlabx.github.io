@@ -17,7 +17,7 @@ const result = PropertiesOfAcidsAndBases(true, false, true);
 console.log(result); // Output: ['What are the typical properties of acids?', 'The typical properties of acids include a sour taste, the ability to turn blue litmus paper red, and the capacity to react with metals to produce hydrogen gas.']
 */
 
-$X.chemistry.Elementary_Chemistry.PropertiesOfAcidsAndBases = function (acidProperties, baseProperties, rolesInReactions) {
+$X.chemistry.Middle_School_Chemistry.Acids_and_Bases.PropertiesOfAcidsAndBases = function (acidProperties, baseProperties, rolesInReactions) {
     var question = "";
     var answer = "";
 

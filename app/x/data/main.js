@@ -3834,6 +3834,33 @@ function X_Generate(setting) {
         show: setting[2].topics[1].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Chemical Reactions | Basic Concepts of Chemical Reactions&BIG",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Concepts of Chemical Reactions | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Concepts of Chemical Reactions | Reaction Types",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Concepts of Chemical Reactions | Chemical Equations",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Basic Concepts of Chemical Reactions | Reaction Conditions",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[0]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -4964,8 +4991,15 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
             if (results[615] == true) {
                 loop_length = Number(results[616]);
                 for (let i = 0; i < loop_length; i++) {
-                    gen_log("Generating - Chemical Symbols and the Periodic-tables: ", loop_length, i);
+                    gen_log("Generating - Chemical Symbols and the Periodic-table: ", loop_length, i);
                     re_q.push($X.chemistry.Elementary_Chemistry.Elements_and_Compounds.ChemicalSymbolsAndThePeriodicTable(results[617], results[618]));
+                }
+            }
+            if (results[619] == true) {
+                loop_length = Number(results[620]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Basic Concepts of Chemical Reactions: ", loop_length, i);
+                    re_q.push($X.chemistry.Elementary_Chemistry.Chemical_Reactions.BasicConceptsOfChemicalReactions(results[621], results[622], results[623]));
                 }
             }
 

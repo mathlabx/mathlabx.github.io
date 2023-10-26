@@ -17,7 +17,7 @@ const result = BasicConceptsOfChemicalReactions(true, false, true);
 console.log(result); // Output: ['What are the basic conditions necessary for a combustion reaction?', 'The basic conditions necessary for a combustion reaction include the presence of oxygen and a sufficient amount of energy to initiate the reaction.']
 */
 
-$X.chemistry.Elementary_Chemistry.BasicConceptsOfChemicalReactions = function (reactionTypes, chemicalEquations, reactionConditions) {
+$X.chemistry.Elementary_Chemistry.Chemical_Reactions.BasicConceptsOfChemicalReactions = function (reactionTypes, chemicalEquations, reactionConditions) {
     var question = "";
     var answer = "";
 

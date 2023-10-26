@@ -92,11 +92,13 @@ $X.physics.University_Physics.Relativity.SpecialRelativityAndLorentzTransformati
             const randomNounIndex = Math.floor(Math.random() * nounDictionary.muons.length);
             const muonNoun = nounDictionary.muons[randomNounIndex];
             const decayNoun = nounDictionary.decay[randomNounIndex];
+            const timeNoun = nounDictionary.time[randomNounIndex];
             question = `Describe the time dilation observed in the ${decayNoun} of ${muonNoun} in particle accelerators.`;
             answer = `${muonNoun}, being short-lived particles, exhibit ${timeNoun} dilation as they travel at relativistic speeds, allowing them to reach the Earth's surface from the upper atmosphere.`;
         } else if (selectedApplication === 'Twin Paradox') {
             const randomNounIndex = Math.floor(Math.random() * nounDictionary.paradox.length);
             const paradoxNoun = nounDictionary.paradox[randomNounIndex];
+            const timeNoun = nounDictionary.time[randomNounIndex];
             question = `Explain the concept of the ${paradoxNoun} in special relativity.`;
             answer = `The ${paradoxNoun} refers to the scenario where one of the twins embarks on a high-speed space journey, leading to a difference in their ages upon the twin's return due to ${timeNoun} dilation.`;
         } else if (selectedApplication === 'Lorentz-FitzGerald Contraction') {

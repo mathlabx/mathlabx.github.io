@@ -3306,6 +3306,33 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Thermodynamics | Thermodynamic Cycles&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Thermodynamic Cycles | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Thermodynamic Cycles | Carnot cycle",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Thermodynamic Cycles | Stirling cycle",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Thermodynamic Cycles | Brayton cycle",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[0].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4297,6 +4324,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Ideal Gas Law: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Thermodynamics.IdealGasLaw(results[527], results[528], results[529], results[530]));
+                }
+            }
+            if (results[531] == true) {
+                loop_length = Number(results[532]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Thermodynamic Cycles: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Thermodynamics.ThermodynamicCycles(results[533], results[534], results[535]));
                 }
             }
 

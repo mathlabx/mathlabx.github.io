@@ -101,7 +101,27 @@ let $X = {
         }
     },
     chemistry: {
-
+        Elementary_Chemistry: {
+            Matter_and_Properties: new Object(),
+            Mixtures_and_Pure_Substances: new Object()
+        },
+        Middle_School_Chemistry: {
+            Elements_and_Compounds: new Object(),
+            Chemical_Reactions: new Object(),
+            Acids_and_Bases: new Object()
+        },
+        High_School_Chemistry: {
+            Chemical_Bonds_and_Molecular_Structure: new Object(),
+            Chemical_Reaction_Kinetics: new Object(),
+            Chemical_Thermodynamics: new Object()
+        },
+        University_Chemistry: {
+            Organic_Chemistry: new Object(),
+            Inorganic_Chemistry: new Object(),
+            Analytical_Chemistry: new Object(),
+            Properties_of_Matter: new Object(),
+            Nuclear_Chemistry: new Object()
+        }
     }
 };
 
@@ -223,6 +243,24 @@ let scriptsToLoad = [
     MPCLabAPIurl + '/data/physics/University_Physics/Solid_State_Physics/Crystal_Structures_and_Lattice_Vibrations.js',
     MPCLabAPIurl + '/data/physics/University_Physics/Solid_State_Physics/Electronic_Band_Theory.js',
     MPCLabAPIurl + '/data/physics/University_Physics/Solid_State_Physics/Semiconductors_and_Conductors.js',
+    MPCLabAPIurl + '/data/chemistry/Elementary_Chemistry/Matter_and_Properties/Classification_of_Matter.js',
+    MPCLabAPIurl + '/data/chemistry/Elementary_Chemistry/Matter_and_Properties/Properties_of_Matter.js',
+    MPCLabAPIurl + '/data/chemistry/Elementary_Chemistry/Mixtures_and_Pure_Substances/Differences_between_Mixtures_and_Pure_Substances.js',
+    MPCLabAPIurl + '/data/chemistry/Elementary_Chemistry/Mixtures_and_Pure_Substances/Methods_to_Separate_Mixtures.js',
+    MPCLabAPIurl + '/data/chemistry/Middle_School_Chemistry/Elements_and_Compounds/Definitions_of_Elements_and_Compounds.js',
+    MPCLabAPIurl + '/data/chemistry/Middle_School_Chemistry/Elements_and_Compounds/Chemical_Symbols_and_the_Periodic_table.js',
+    MPCLabAPIurl + '/data/chemistry/Middle_School_Chemistry/Chemical_Reactions/Basic_Concepts_of_Chemical_Reactions.js',
+    MPCLabAPIurl + '/data/chemistry/Middle_School_Chemistry/Chemical_Reactions/Chemical_Reaction_Equations.js',
+    MPCLabAPIurl + '/data/chemistry/Middle_School_Chemistry/Acids_and_Bases/Properties_of_Acids_and_Bases.js',
+    MPCLabAPIurl + '/data/chemistry/Middle_School_Chemistry/Acids_and_Bases/Neutralization_Reactions.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Bonds_and_Molecular_Structure/Atomic_and_Molecular_Structure.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Bonds_and_Molecular_Structure/Covalent_and_Ionic_Bonds.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Reaction_Kinetics/Reaction_Rates_and_Activation_Energy.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Reaction_Kinetics/Chemical_Equilibrium_and_Le_Chatelier_Principle.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Reaction_Kinetics/Equilibrium_Constants_for_Chemical_Reactions.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Thermodynamics/Heat_and_Enthalpy.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Thermodynamics/Thermochemical_Equations.js',
+    MPCLabAPIurl + '/data/chemistry/High_School_Chemistry/Chemical_Thermodynamics/Reaction_Enthalpy_and_Entropy_Changes.js',
 ];
 
 let gl_results;

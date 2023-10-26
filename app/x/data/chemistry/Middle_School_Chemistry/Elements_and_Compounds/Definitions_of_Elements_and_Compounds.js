@@ -17,7 +17,7 @@ const result = DefinitionsOfElementsAndCompounds(true, false, true);
 console.log(result); // Output: ['What is the primary difference between elements and compounds?', 'The primary difference between elements and compounds is that elements are made up of only one type of atom, whereas compounds are composed of two or more different types of atoms chemically bonded together.']
 */
 
-$X.chemistry.Elementary_Chemistry.DefinitionsOfElementsAndCompounds = function (elements, compounds, differences) {
+$X.chemistry.Elementary_Chemistry.Elements_and_Compounds.DefinitionsOfElementsAndCompounds = function (elements, compounds, differences) {
     var question = "";
     var answer = "";
 

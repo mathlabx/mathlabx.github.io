@@ -3785,6 +3785,33 @@ function X_Generate(setting) {
         show: setting[2].topics[0].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Elements and Compounds | Definitions of Elements and Compounds&BIG",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Definitions of Elements and Compounds | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Definitions of Elements and Compounds | Elements",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Definitions of Elements and Compounds | Compounds",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Definitions of Elements and Compounds | Differences Between Elements and Compounds",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[0].subtopics[0]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -4903,6 +4930,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Methods to Separate Mixtures: ", loop_length, i);
                     re_q.push($X.chemistry.Elementary_Chemistry.Mixtures_and_Pure_Substances.MethodsToSeparateMixtures(results[607], results[608], results[609]));
+                }
+            }
+            if (results[610] == true) {
+                loop_length = Number(results[611]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Definitions of Elements and Compounds: ", loop_length, i);
+                    re_q.push($X.chemistry.Elementary_Chemistry.Elements_and_Compounds.DefinitionsOfElementsAndCompounds(results[612], results[613], results[614]));
                 }
             }
 

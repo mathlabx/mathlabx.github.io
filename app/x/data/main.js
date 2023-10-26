@@ -3431,6 +3431,33 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[1].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Electromagnetism | Quantum Mechanics&BIG",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Quantum Mechanics | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Quantum Mechanics | The Wavelength",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Quantum Mechanics | The Frequency",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Quantum Mechanics | The Energy",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4457,6 +4484,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Interaction of Electromagnetic Fields: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Electromagnetism.InteractionOfElectromagneticFields(results[552], results[553]));
+                }
+            }
+            if (results[554] == true) {
+                loop_length = Number(results[555]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Quantum Mechanics: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Quantum_Mechanics.WaveParticleDuality(results[556], results[557], results[558]));
                 }
             }
 

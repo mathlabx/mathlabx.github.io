@@ -3861,6 +3861,33 @@ function X_Generate(setting) {
         show: setting[2].topics[1].subtopics[1].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Chemical Reactions | Chemical Reaction Equations&Reg",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Chemical Reaction Equations | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[1].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Chemical Reaction Equations | Balancing Chemical Equations",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Chemical Reaction Equations | Reaction Types",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Chemical Reaction Equations | Reaction Characteristics",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[1].subtopics[1]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -5000,6 +5027,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Basic Concepts of Chemical Reactions: ", loop_length, i);
                     re_q.push($X.chemistry.Elementary_Chemistry.Chemical_Reactions.BasicConceptsOfChemicalReactions(results[621], results[622], results[623]));
+                }
+            }
+            if (results[624] == true) {
+                loop_length = Number(results[625]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Chemical Reaction Equations: ", loop_length, i);
+                    re_q.push($X.chemistry.Elementary_Chemistry.Chemical_Reactions.ChemicalReactionEquations(results[626], results[627], results[628]));
                 }
             }
 

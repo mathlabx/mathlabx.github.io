@@ -52,6 +52,24 @@ $X.physics.University_Physics.Quantum_Mechanics.WaveParticleDuality = function (
         }
     }
 
+    function calculateFrequency(wavelength) {
+        // Calculate the frequency based on the given wavelength
+        // Example calculation: speed of light / wavelength
+        return (3.0 * Math.pow(10, 8)) / (parseFloat(wavelength) * Math.pow(10, -9));
+    }
+
+    function calculateEnergy(frequency) {
+        // Calculate the energy based on the given frequency
+        // Example calculation: Planck's constant * frequency
+        return 6.63 * Math.pow(10, -34) * parseFloat(frequency);
+    }
+
+    function calculateWavelength(energy) {
+        // Calculate the wavelength based on the given energy
+        // Example calculation: Planck's constant / energy
+        return (6.63 * Math.pow(10, -34)) / (1.6 * Math.pow(10, -19) * parseFloat(energy));
+    }
+
     if (wavelength) {
         // Logic for questions related to wavelength
         const wavelengths = ['2 nm', '5 nm', '10 nm', '15 nm', '20 nm']; // Example wavelength values

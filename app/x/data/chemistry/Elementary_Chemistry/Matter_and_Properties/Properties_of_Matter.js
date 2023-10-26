@@ -17,7 +17,7 @@ const result = PropertiesOfMatter(true, false, true);
 console.log(result); // Output: ['What is the definition of conductivity?', 'Conductivity is the ability of a material to conduct an electric current.']
 */
 
-$X.chemistry.Elementary_Chemistry.PropertiesOfMatter = function (density, solubility, conductivity) {
+$X.chemistry.Elementary_Chemistry.Matter_and_Properties.PropertiesOfMatter = function (density, solubility, conductivity) {
     var question = "";
     var answer = "";
 

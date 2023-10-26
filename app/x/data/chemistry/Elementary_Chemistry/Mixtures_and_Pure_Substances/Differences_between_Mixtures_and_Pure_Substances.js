@@ -16,7 +16,7 @@ const result = DifferencesBetweenMixturesAndPureSubstances(true, false);
 console.log(result); // Output: ['What is the primary difference between mixtures and pure substances in terms of composition?', 'The primary difference between mixtures and pure substances is that mixtures are composed of two or more different substances, whereas pure substances are composed of only one type of substance.']
 */
 
-$X.chemistry.Elementary_Chemistry.DifferencesBetweenMixturesAndPureSubstances = function (composition, properties) {
+$X.chemistry.Elementary_Chemistry.Mixtures_and_Pure_Substances.DifferencesBetweenMixturesAndPureSubstances = function (composition, properties) {
     var question = "";
     var answer = "";
 

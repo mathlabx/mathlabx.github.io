@@ -17,7 +17,7 @@ const result = MethodsToSeparateMixtures(true, false, true);
 console.log(result); // Output: ['What is the process of crystallization used for?', 'The process of crystallization is used to separate a solid that has dissolved in a liquid by allowing the liquid to evaporate, leaving behind the solid in its crystalline form.']
 */
 
-$X.chemistry.Elementary_Chemistry.MethodsToSeparateMixtures = function (filtration, evaporation, crystallization) {
+$X.chemistry.Elementary_Chemistry.Mixtures_and_Pure_Substances.MethodsToSeparateMixtures = function (filtration, evaporation, crystallization) {
     var question = "";
     var answer = "";
 

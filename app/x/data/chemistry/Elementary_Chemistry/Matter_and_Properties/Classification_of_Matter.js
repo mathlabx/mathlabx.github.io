@@ -16,7 +16,7 @@ const result = ClassificationOfMatter(true, false);
 console.log(result); // Output: ['What are the different states of matter?', 'The different states of matter are solid, liquid, and gas.']
 */
 
-$X.chemistry.Elementary_Chemistry.ClassificationOfMatter = function (statesOfMatter, chemicalProperties) {
+$X.chemistry.Elementary_Chemistry.Matter_and_Properties.ClassificationOfMatter = function (statesOfMatter, chemicalProperties) {
     var question = "";
     var answer = "";
 

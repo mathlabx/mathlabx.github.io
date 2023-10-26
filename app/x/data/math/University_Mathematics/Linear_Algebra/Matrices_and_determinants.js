@@ -19,7 +19,27 @@ console.log(result); // Output: ['Find the determinant of the following 2x2 matr
 
 $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function (C_matrix_operations, C_matrix_properties, C_determinants) {
     // Your code goes here
-
+    var question;
+    var answer = 0;
+    if(C_matrix_operations){
+        return null;
+    }else if(C_matrix_properties){
+        return null;
+    }else{
+        var question;
+	var answer =0;
+		const matrixRow = 3;//Math.ceil(Math.random() * 4) + 1;
+        const matrix = [];
+        for(var i = 0; i < matrixRow; i++){
+            var temp = [];
+            for(var j = 0; j < matrixRow; j++){
+                temp.push(Math.floor(Math.random() * 9));
+            }
+            matrix.push(temp);
+        }
+        const matrixText = "\\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}";
+        question = "Find the determinant of the matrix." + matrix;
+		answer = matrix[0][0] * ((matrix[1][1] * matrix[2][2]) - (matrix[2][1] * matrix[1][2])) - matrix[1][0] * ((matrix[0][1] * matrix[2][2]) - (matrix[2][1] * matrix[0][2])) + matrix[2][0] * ((matrix[0][1] * matrix[1][2]) - (matrix[1][1] * matrix[0][2]));
     // Return the question and answer in an array
     return [question, answer];
 }

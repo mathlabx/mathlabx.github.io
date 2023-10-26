@@ -17,7 +17,7 @@ const result = MaxwellEquations(true, true, false);
 console.log(result); // Output: ['An electric field in a vacuum has a magnitude of 50 N/C. What is the force experienced by a charge of 2 C?', 'The force experienced by the charge is 100 N.']
 */
 
-$X.physics.University_Physics.Electromagnetism.MaxwellEquations = function(electricField, magneticField, chargesAndCurrents) {
+$X.physics.University_Physics.Electromagnetism.MaxwellEquations = function (electricField, magneticField, chargesAndCurrents) {
 
     function getRandomCharge() {
         return parseFloat((Math.random() * 10).toFixed(2)); // Generate random charge between 0 to 10 C

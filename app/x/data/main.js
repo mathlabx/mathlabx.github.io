@@ -3812,6 +3812,28 @@ function X_Generate(setting) {
         show: setting[2].topics[1].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Elements and Compounds | Chemical Symbols and the Periodic-table&Reg",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Chemical Symbols and the Periodic-table | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Chemical Symbols and the Periodic-table | Chemical Symbols",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Chemical Symbols and the Periodic-table | The Periodic Table",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[0].subtopics[1]._checked
+    });
+
 
 
     X_Operate.newPage();
@@ -4937,6 +4959,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Definitions of Elements and Compounds: ", loop_length, i);
                     re_q.push($X.chemistry.Elementary_Chemistry.Elements_and_Compounds.DefinitionsOfElementsAndCompounds(results[612], results[613], results[614]));
+                }
+            }
+            if (results[615] == true) {
+                loop_length = Number(results[616]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Chemical Symbols and the Periodic-tables: ", loop_length, i);
+                    re_q.push($X.chemistry.Elementary_Chemistry.Elements_and_Compounds.ChemicalSymbolsAndThePeriodicTable(results[617], results[618]));
                 }
             }
 

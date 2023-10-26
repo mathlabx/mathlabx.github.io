@@ -16,7 +16,7 @@ const result = ChemicalSymbolsAndThePeriodicTable(true, false);
 console.log(result); // Output: ['What is the chemical symbol for Oxygen?', 'The chemical symbol for Oxygen is O.']
 */
 
-$X.chemistry.Elementary_Chemistry.ChemicalSymbolsAndThePeriodicTable = function (chemicalSymbols, periodicTable) {
+$X.chemistry.Elementary_Chemistry.Elements_and_Compounds.ChemicalSymbolsAndThePeriodicTable = function (chemicalSymbols, periodicTable) {
     var question = "";
     var answer = "";
 

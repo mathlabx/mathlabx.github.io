@@ -43,7 +43,9 @@ $X.physics.University_Physics.Relativity.SpecialRelativityAndLorentzTransformati
         paradox: ['paradox', 'contradiction', 'enigma', 'puzzle', 'riddle'],
         contraction: ['contraction', 'reduction', 'shrinking', 'narrowing', 'compressing'],
         Doppler: ['Doppler', 'effect', 'influence', 'impact', 'force'],
-        Fizeau: ['Fizeau', 'experiment', 'trial', 'test', 'investigation']
+        Fizeau: ['Fizeau', 'experiment', 'trial', 'test', 'investigation'],
+        Lorentz: ['Lorentz1', 'Lorentz2', 'Lorentz3', 'Lorentz4', 'Lorentz5'],
+        FitzGerald: ['FitzGerald1', 'FitzGerald2', 'FitzGerald3', 'FitzGerald4', 'FitzGerald5']
     };
 
     if (specialRelativityConcepts) {

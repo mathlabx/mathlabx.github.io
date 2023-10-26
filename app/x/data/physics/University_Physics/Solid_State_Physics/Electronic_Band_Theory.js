@@ -80,9 +80,9 @@ $X.physics.University_Physics.Solid_State_Physics.ElectronicBandTheory = functio
             "External stimuli such as temperature, pressure, or electric fields can modify the band structure of semiconductors, altering their electronic and optical properties."
         ];
 
-        var randomIndex = Math.floor(Math.random() * bandStructureQuestions.length);
-        question = bandStructureQuestions[randomIndex];
-        answer = bandStructureAnswers[randomIndex];
+        var randomIndex = Math.floor(Math.random() * additionalBandStructureQuestions.length);
+        question = additionalBandStructureQuestions[randomIndex];
+        answer = additionalBandStructureAnswers[randomIndex];
     }
 
     if (conductionBand) {
@@ -112,9 +112,9 @@ $X.physics.University_Physics.Solid_State_Physics.ElectronicBandTheory = functio
             "Band structures can significantly affect the mobility of charge carriers, affecting the electrical conductivity and resistivity of materials."
         ];
 
-        var randomIndex = Math.floor(Math.random() * conductionBandQuestions.length);
-        question = conductionBandQuestions[randomIndex];
-        answer = conductionBandAnswers[randomIndex];
+        var randomIndex = Math.floor(Math.random() * additionalConductionBandQuestions.length);
+        question = additionalConductionBandQuestions[randomIndex];
+        answer = additionalConductionBandAnswers[randomIndex];
     }
 
     if (valenceBand) {
@@ -144,9 +144,9 @@ $X.physics.University_Physics.Solid_State_Physics.ElectronicBandTheory = functio
             "The valence band structure significantly impacts the thermoelectric performance of materials, affecting their ability to convert heat into electrical energy."
         ];
 
-        var randomIndex = Math.floor(Math.random() * valenceBandQuestions.length);
-        question = valenceBandQuestions[randomIndex];
-        answer = valenceBandAnswers[randomIndex];
+        var randomIndex = Math.floor(Math.random() * additionalValenceBandQuestions.length);
+        question = additionalValenceBandQuestions[randomIndex];
+        answer = additionalValenceBandAnswers[randomIndex];
     }
 
     // Return the question and answer in an array

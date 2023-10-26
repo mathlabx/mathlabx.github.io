@@ -3502,6 +3502,29 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[2].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Relativity | Special Relativity and the Lorentz Transformation&BIG",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Special Relativity and the Lorentz Transformation | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[3].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Special Relativity and the Lorentz Transformation | Semiconductor Properties",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Special Relativity and the Lorentz Transformation | Conductor Applications",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[0]._checked
+    });
+
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -4549,6 +4572,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Operators and Measurements in Quantum Mechanics: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Quantum_Mechanics.OperatorsAndMeasurementsInQuantumMechanics(results[565], results[566]));
+                }
+            }
+            if (results[567] == true) {
+                loop_length = Number(results[568]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Special Relativity and the Lorentz Transformation: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Solid_State_Physics.SemiconductorsAndConductors(results[569], results[570]));
                 }
             }
 

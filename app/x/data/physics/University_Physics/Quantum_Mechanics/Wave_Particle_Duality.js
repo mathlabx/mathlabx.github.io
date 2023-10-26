@@ -21,22 +21,65 @@ $X.physics.University_Physics.Quantum_Mechanics.WaveParticleDuality = function (
     var question = "";
     var answer = "";
 
+    if (wavelength && frequency && energy) {
+        if (Math.random() < 1 / 3) {
+            frequency = false;
+            energy = false;
+        } else if (Math.random() < 0.5) {
+            wavelength = false;
+            energy = false;
+        } else {
+            wavelength = false;
+            frequency = false;
+        }
+    } else if (wavelength && frequency) {
+        if (Math.random() < 0.5) {
+            frequency = false;
+        } else {
+            wavelength = false;
+        }
+    } else if (wavelength && energy) {
+        if (Math.random() < 0.5) {
+            energy = false;
+        } else {
+            wavelength = false;
+        }
+    } else if (frequency && energy) {
+        if (Math.random() < 0.5) {
+            energy = false;
+        } else {
+            frequency = false;
+        }
+    }
+
     if (wavelength) {
         // Logic for questions related to wavelength
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        const wavelengths = ['2 nm', '5 nm', '10 nm', '15 nm', '20 nm']; // Example wavelength values
+        const randomWavelengthIndex = Math.floor(Math.random() * wavelengths.length);
+        const randomWavelength = wavelengths[randomWavelengthIndex];
+        question = `An electron has a wavelength of ${randomWavelength}. What is its frequency?`;
+        // Perform calculations to determine the frequency based on the given wavelength
+        answer = `The frequency of the electron is ${calculateFrequency(randomWavelength)} Hz.`; // Example frequency calculation
     }
 
     if (frequency) {
         // Logic for questions related to frequency
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        const frequencies = ['1.5 x 10^17 Hz', '2.0 x 10^17 Hz', '2.5 x 10^17 Hz', '3.0 x 10^17 Hz', '3.5 x 10^17 Hz']; // Example frequency values
+        const randomFrequencyIndex = Math.floor(Math.random() * frequencies.length);
+        const randomFrequency = frequencies[randomFrequencyIndex];
+        question = `A photon has a frequency of ${randomFrequency}. What is its energy?`;
+        // Perform calculations to determine the energy based on the given frequency
+        answer = `The energy of the photon is ${calculateEnergy(randomFrequency)} eV.`; // Example energy calculation
     }
 
     if (energy) {
         // Logic for questions related to energy
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        const energies = ['2.0 eV', '3.5 eV', '5.0 eV', '7.5 eV', '10.0 eV']; // Example energy values
+        const randomEnergyIndex = Math.floor(Math.random() * energies.length);
+        const randomEnergy = energies[randomEnergyIndex];
+        question = `A particle has an energy of ${randomEnergy}. What is the corresponding wavelength?`;
+        // Perform calculations to determine the wavelength based on the given energy
+        answer = `The corresponding wavelength of the particle is ${calculateWavelength(randomEnergy)} nm.`; // Example wavelength calculation
     }
 
     // Return the question and answer in an array

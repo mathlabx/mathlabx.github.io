@@ -20,18 +20,38 @@ $X.physics.University_Physics.Electromagnetism.InteractionOfElectromagneticField
     var question = "";
     var answer = "";
 
-    if (fieldInteraction) {
+    if (fieldInteraction && lorentzForce) {
+        if (Math.random() < 0.5) {
+            const electricFieldStrength = Math.floor(Math.random() * 20) + 1;
+            const magneticFieldStrength = (Math.floor(Math.random() * 50) + 1) / 10;
+            const force = electricFieldStrength * magneticFieldStrength;
+            question = `An electric field of ${electricFieldStrength} N/C interacts with a magnetic field of ${magneticFieldStrength} T. What is the resulting force?`;
+            answer = `The resulting force is ${force} N.`;
+        } else {
+            const velocity = Math.floor(Math.random() * 10) + 1;
+            const magneticField = (Math.floor(Math.random() * 50) + 1) / 10;
+            const force = (1.6 * Math.pow(10, -19) * velocity * magneticField).toExponential(2);
+            question = `An electron moves with a velocity of ${velocity} m/s in a magnetic field of ${magneticField} T. What is the magnetic force experienced by the electron?`;
+            answer = `The magnetic force experienced by the electron is ${force} N.`;
+        }
+    } if (fieldInteraction) {
         // Logic for questions related to the interaction between electric and magnetic fields
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
+        var electricFieldStrength = Math.floor(Math.random() * 100) + 1; // Generating a random electric field strength
+        var magneticFieldStrength = Math.floor(Math.random() * 10) + 1; // Generating a random magnetic field strength
 
-    if (lorentzForce) {
+        question = `An electron moves in an electric field of ${electricFieldStrength} N/C and a magnetic field of ${magneticFieldStrength} T. What is the force experienced by the electron?`;
+        var magneticForce = electricFieldStrength * magneticFieldStrength; // Simple calculation for the force
+        answer = `The force experienced by the electron is ${magneticForce} N.`;
+    } else if (lorentzForce) {
         // Logic for questions related to the Lorentz force
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        var charge = Math.floor(Math.random() * 10) + 1; // Generating a random charge
+        var velocity = Math.floor(Math.random() * 10) + 1; // Generating a random velocity
+
+        question = `An electron with a charge of ${charge} C moves with a velocity of ${velocity} m/s in a magnetic field. What is the magnetic force experienced by the electron?`;
+        var lorentzForce = charge * velocity; // Simple calculation for the force
+        answer = `The magnetic force experienced by the electron is ${lorentzForce} N.`;
     }
 
-    // Return the question and answer in an array
+
     return [question, answer];
 }

@@ -3915,6 +3915,33 @@ function X_Generate(setting) {
         show: setting[2].topics[1].subtopics[2].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Acids and Bases | Neutralization Reactions&Reg",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Neutralization Reactions | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Neutralization Reactions | Basic Concepts of Neutralization Reactions",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Neutralization Reactions | Processes Involved in Reutralization Reactions",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Neutralization Reactions | Products of Neutralization Reactions",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5067,6 +5094,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Properties of Acids and Bases: ", loop_length, i);
                     re_q.push($X.chemistry.Middle_School_Chemistry.Acids_and_Bases.PropertiesOfAcidsAndBases(results[631], results[632], results[633]));
+                }
+            }
+            if (results[634] == true) {
+                loop_length = Number(results[635]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Neutralization Reactions: ", loop_length, i);
+                    re_q.push($X.chemistry.Middle_School_Chemistry.Acids_and_Bases.NeutralizationReactions(results[636], results[637], results[638]));
                 }
             }
 

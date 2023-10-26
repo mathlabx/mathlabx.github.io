@@ -3514,14 +3514,58 @@ function X_Generate(setting) {
         show: setting[1].topics[3].subtopics[3].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Special Relativity and the Lorentz Transformation | Semiconductor Properties",
+        Name: "Special Relativity and the Lorentz Transformation | Basic Concepts of Special Relativity",
         Typ: "checked",
         show: setting[1].topics[3].subtopics[3].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Special Relativity and the Lorentz Transformation | Conductor Applications",
+        Name: "Special Relativity and the Lorentz Transformation | Applications of The Lorentz Transformation",
         Typ: "checked",
         show: setting[1].topics[3].subtopics[3].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Relativity | Mass Energy Equivalence&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mass Energy Equivalence | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[3].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mass Energy Equivalence | Concept of Mass-energy Conversion",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mass Energy Equivalence | Applications of Mass-energy Conversion",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[1]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Relativity | Gravity and General Relativity&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Gravity and General Relativity | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[3].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Gravity and General Relativity | Concept of Gravity",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Gravity and General Relativity | The Principles of General Relativity",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[3].subtopics[2]._checked
     });
 
 
@@ -4578,7 +4622,21 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[568]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Special Relativity and the Lorentz Transformation: ", loop_length, i);
-                    re_q.push($X.physics.University_Physics.Solid_State_Physics.SemiconductorsAndConductors(results[569], results[570]));
+                    re_q.push($X.physics.University_Physics.Relativity.SpecialRelativityAndLorentzTransformation(results[569], results[570]));
+                }
+            }
+            if (results[571] == true) {
+                loop_length = Number(results[572]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Mass Energy Equivalence: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Relativity.MassEnergyEquivalence(results[573], results[574]));
+                }
+            }
+            if (results[575] == true) {
+                loop_length = Number(results[576]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Gravity and General Relativity: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Relativity.GravityAndGeneralRelativity(results[577], results[578]));
                 }
             }
 

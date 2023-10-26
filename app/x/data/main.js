@@ -3888,6 +3888,32 @@ function X_Generate(setting) {
         show: setting[2].topics[1].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Acids and Bases | Properties of Acids and Bases&BIG",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Acids and Bases | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Acids and Bases | Acid Properties",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Acids and Bases | Base Properties",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Properties of Acids and Bases | Roles of Acids and Bases in Reactions",
+        Typ: "checked",
+        show: setting[2].topics[1].subtopics[2].subtopics[0]._checked
+    });
 
 
     X_Operate.newPage();
@@ -5034,6 +5060,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Chemical Reaction Equations: ", loop_length, i);
                     re_q.push($X.chemistry.Elementary_Chemistry.Chemical_Reactions.ChemicalReactionEquations(results[626], results[627], results[628]));
+                }
+            }
+            if (results[629] == true) {
+                loop_length = Number(results[630]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Properties of Acids and Bases: ", loop_length, i);
+                    re_q.push($X.chemistry.Middle_School_Chemistry.Acids_and_Bases.PropertiesOfAcidsAndBases(results[631], results[632], results[633]));
                 }
             }
 

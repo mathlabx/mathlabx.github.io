@@ -22,27 +22,54 @@ $X.physics.University_Physics.Thermodynamics.IdealGasLaw = function (pressure, v
     var question = "";
     var answer = "";
 
-    if (pressure) {
-        // Logic for questions related to pressure
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
+    if (pressure || volume || moles || temperature) {
+        const trueInputs = [];
+        if (pressure) trueInputs.push("pressure");
+        if (volume) trueInputs.push("volume");
+        if (moles) trueInputs.push("moles");
+        if (temperature) trueInputs.push("temperature");
 
-    if (volume) {
-        // Logic for questions related to volume
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
+        const selectedInput = trueInputs[Math.floor(Math.random() * trueInputs.length)];
 
-    if (moles) {
-        // Logic for questions related to the amount of substance
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
-
-    if (temperature) {
-        // Logic for questions related to temperature
-        // Generate questions and answers with randomly generated numerical values
+        if (selectedInput === "pressure") {
+            // Logic for questions related to pressure
+            // Generate questions and answers with randomly generated numerical values
+            var volumeValue = Math.floor(Math.random() * 10 + 1);
+            var pressureValue = (Math.random() * 5 + 1).toFixed(2);
+            var temperatureValue = Math.floor(Math.random() * 500 + 200);
+            question = "A gas occupies a volume of " + volumeValue + " L at a pressure of " + pressureValue + " atm. What is the amount of substance if the temperature is " + temperatureValue + " K?";
+            var molesValue = (pressureValue * volumeValue) / (8.31 * temperatureValue);
+            answer = "The amount of substance is " + molesValue.toFixed(2) + " mol.";
+        } else if (selectedInput === "volume") {
+            // Logic for questions related to volume
+            // Generate questions and answers with randomly generated numerical values
+            var molesValue = (Math.random() * 5 + 1).toFixed(2);
+            var pressureValue = Math.floor(Math.random() * 5 + 1);
+            var temperatureValue = Math.floor(Math.random() * 500 + 200);
+            var volumeValue = (molesValue * 8.31 * temperatureValue) / pressureValue;
+            question = "A gas has " + molesValue + " mol of substance at a pressure of " + pressureValue + " atm. What is the volume of the gas if the temperature is " + temperatureValue + " K?";
+            answer = "The volume of the gas is " + volumeValue.toFixed(2) + " L.";
+        } else if (selectedInput === "moles") {
+            // Logic for questions related to the amount of substance
+            // Generate questions and answers with randomly generated numerical values
+            var volumeValue = Math.floor(Math.random() * 10 + 1);
+            var pressureValue = (Math.random() * 5 + 1).toFixed(2);
+            var molesValue = (Math.random() * 5 + 1).toFixed(2);
+            var temperatureValue = (pressureValue * volumeValue) / (8.31 * molesValue);
+            question = "A gas occupies a volume of " + volumeValue + " L at a pressure of " + pressureValue + " atm. What is the temperature if the amount of substance is " + molesValue + " mol?";
+            answer = "The temperature is " + temperatureValue.toFixed(2) + " K.";
+        } else if (selectedInput === "temperature") {
+            // Logic for questions related to temperature
+            // Generate questions and answers with randomly generated numerical values
+            var molesValue = (Math.random() * 5 + 1).toFixed(2);
+            var volumeValue = Math.floor(Math.random() * 10 + 1);
+            var temperatureValue = Math.floor(Math.random() * 500 + 200);
+            var pressureValue = (molesValue * 8.31 * temperatureValue) / volumeValue;
+            question = "A gas has " + molesValue + " mol of substance at a volume of " + volumeValue + " L. What is the pressure of the gas if the temperature is " + temperatureValue + " K?";
+            answer = "The pressure of the gas is " + pressureValue.toFixed(2) + " atm.";
+        }
+    } else {
+        // Handle the case where no true inputs are provided
         // ...
     }
 

@@ -4456,7 +4456,7 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[551]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Interaction of Electromagnetic Fields: ", loop_length, i);
-                    re_q.push($X.physics.University_Physics.Electromagnetism.InteractionOfElectromagneticFields(results[552], results[553], results[554]));
+                    re_q.push($X.physics.University_Physics.Electromagnetism.InteractionOfElectromagneticFields(results[552], results[553]));
                 }
             }
 

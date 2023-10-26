@@ -3432,30 +3432,52 @@ function X_Generate(setting) {
     });
 
     Setting_Array.push({
-        Name: "Electromagnetism | Quantum Mechanics&BIG",
+        Name: "Quantum Mechanics | Wave Particle Duality&BIG",
         Typ: "checked",
         show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Quantum Mechanics | Number of questions to generate",
+        Name: "Wave Particle Duality | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
         show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Quantum Mechanics | The Wavelength",
+        Name: "Wave Particle Duality | The Wavelength",
         Typ: "checked",
         show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Quantum Mechanics | The Frequency",
+        Name: "Wave Particle Duality | The Frequency",
         Typ: "checked",
         show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
     });
     Setting_Array.push({
-        Name: "Quantum Mechanics | The Energy",
+        Name: "Wave Particle Duality | The Energy",
         Typ: "checked",
         show: setting[1].topics[3].subtopics[2].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Quantum Mechanics | Wave Functions and the Schrodinger Equation&Reg",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Wave Functions and the Schrodinger Equation | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[1].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Wave Functions and the Schrodinger Equation | Properties of Wave",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Wave Functions and the Schrodinger Equation | Applications of The Schrodinger Equation",
+        Typ: "checked",
+        show: setting[1].topics[3].subtopics[2].subtopics[1]._checked
     });
 
 
@@ -4489,8 +4511,15 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
             if (results[554] == true) {
                 loop_length = Number(results[555]);
                 for (let i = 0; i < loop_length; i++) {
-                    gen_log("Generating - Quantum Mechanics: ", loop_length, i);
+                    gen_log("Generating - Wave Particle Duality: ", loop_length, i);
                     re_q.push($X.physics.University_Physics.Quantum_Mechanics.WaveParticleDuality(results[556], results[557], results[558]));
+                }
+            }
+            if (results[559] == true) {
+                loop_length = Number(results[560]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Wave Functions and the Schrodinger Equation: ", loop_length, i);
+                    re_q.push($X.physics.University_Physics.Quantum_Mechanics.WaveFunctionsAndSchrodingerEquation(results[561], results[562]));
                 }
             }
 

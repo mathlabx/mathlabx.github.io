@@ -105,6 +105,7 @@ $X.physics.University_Physics.Relativity.SpecialRelativityAndLorentzTransformati
             answer = `The ${paradoxNoun} refers to the scenario where one of the twins embarks on a high-speed space journey, leading to a difference in their ages upon the twin's return due to ${timeNoun} dilation.`;
         } else if (selectedApplication === 'Lorentz-FitzGerald Contraction') {
             const randomNounIndex = Math.floor(Math.random() * nounDictionary.contraction.length);
+            const lengthNoun = nounDictionary.length[randomNounIndex];
             const contractionNoun = nounDictionary.contraction[randomNounIndex];
             question = `Define ${nounDictionary.Lorentz[randomNounIndex]}-${nounDictionary.FitzGerald[randomNounIndex]} ${contractionNoun} in the context of special relativity.`;
             answer = `${nounDictionary.Lorentz[randomNounIndex]}-${nounDictionary.FitzGerald[randomNounIndex]} ${contractionNoun} proposes that the ${lengthNoun} of an object in motion contracts in the direction of its motion, resulting from its relativistic speeds.`;

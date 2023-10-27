@@ -72,13 +72,55 @@ let Test = {
         Test.Settings.Set_Up();
         Test.Test_Taker.UID = APP.account.UID;
         Test.Test_Taker.CID = GetData.Class_ID;
+
+        let pre_test = document.getElementById("pre_test");
+        let new_title = document.createElement("h1");
+        new_title.innerHTML = "MPC Test";
+        pre_test.append(new_title);
+        let new_no = document.createElement("h2");
+        let test_length = Test.Questions.length;
+        new_no.innerHTML = test_length + "Questions";
+        pre_test.append(new_no);
+        let next_botton = document.createElement("button");
+        next_botton.innerHTML = "Next";
+        next_botton.addEventListener("click", () => {
+            pre_test.innerHTML = "";
+            let information_title = document.createElement("h1");
+            information_title.innerHTML = "test informations";
+            pre_test.append(information_title);
+            let new_p = document.createElement("p");
+            new_p.innerHTML = `
+            Time Limit: ${Test.Settings.Timing.Time_Limit}
+            Show Remaining Time: ${Test.Settings.Timing.Show_remaining_time}
+            Automatic Reminder of Remaining Time: ${Test.Settings.Timing.Automatic_reminder_of_remaining_time}
+            Force full Screen: ${Test.Settings.Full_screen.Force_full_screen}
+            End Test on exit from Full-screen: ${Test.Settings.Anti_cheating.End_test_on_exit_from_full_screen}
+            End exam When Switching Apps/Tabs: ${Test.Settings.Anti_cheating.End_test_when_switching_apps_tabs}
+            Prevent copy-paste: ${Test.Settings.Anti_cheating.Prevent_copy_paste}
+            Typing no cheating guarantee agreement: ${Test.Settings.Anti_cheating.Typing_no_cheating_guarantee_agreement}
+            Enable calculator tool: ${Test.Settings.Tools.Enable_calculator_tool}
+            Enable periodic table: ${Test.Settings.Tools.Enable_periodic_table}
+            Eye protection mode: ${Test.Settings.Tools.Enable_eye_protection_mode}
+            Each question shows right or wrong: ${Test.Settings.Questions.Each_question_shows_right_or_wrong}
+            Number of submissions allowed per question: ${Test.Settings.Questions.Number_of_submissions_allowed_per_question}
+            Intelligent answer correction: ${Test.Settings.Questions.Intelligent_answer_correction}
+            `;
+            pre_test.append(new_p);
+            let start_button = document.createElement("button");
+            start_button.innerHTML = "Start Test";
+            start_button.addEventListener("click", () => {
+                Test.Start();
+            });
+            pre_test.append(start_button);
+        });
+        pre_test.append(next_botton);
     },
     Start: function () {
         Test_Star_Time = new Date().getTime();
-        
+
     },
-    End: function(){
-        
+    End: function () {
+
     }
 }
 
@@ -93,7 +135,7 @@ let Test = {
 7 Anti-cheating | Prevent copy-paste
 8 Anti-cheating | Typing no cheating guarantee agreement
 9 Tools | Enable calculator tool
-10 Tools | Enable Enable periodic table
+10 Tools | Enable periodic table
 11 Tools | Enable eye protection mode
 12 Questions | Each question shows right or wrong
 13 Questions | Number of submissions allowed per question

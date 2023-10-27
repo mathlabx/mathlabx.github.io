@@ -4030,6 +4030,28 @@ function X_Generate(setting) {
         show: setting[2].topics[2].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Chemical Reaction Kinetics | Equilibrium Constants for Chemical Reactions&Reg",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Equilibrium Constants for Chemical Reactions | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Equilibrium Constants for Chemical Reactions | Calculation of Equilibrium Constants",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[1].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Equilibrium Constants for Chemical Reactions | Interpretation of Equilibrium Constants",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[1].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5217,6 +5239,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Chemical Equilibrium and Le-Chatelier-Principle: ", loop_length, i);
                     re_q.push($X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.ChemicalEquilibriumAndLeChateliersPrinciple(results[653], results[654]));
+                }
+            }
+            if (results[655] == true) {
+                loop_length = Number(results[656]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Equilibrium Constants for Chemical Reactions: ", loop_length, i);
+                    re_q.push($X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.EquilibriumConstantsForChemicalReactions(results[657], results[658]));
                 }
             }
 

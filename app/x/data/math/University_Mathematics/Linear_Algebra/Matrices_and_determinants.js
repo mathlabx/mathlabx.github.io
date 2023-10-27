@@ -19,6 +19,15 @@ console.log(result); // Output: ['Find the determinant of the following 2x2 matr
 
 $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function (C_matrix_operations, C_matrix_properties, C_determinants) {
     // Your code goes here
+    const determinant = m => 
+      m.length == 1 ?
+      m[0][0] :
+      m.length == 2 ? 
+      m[0][0]*m[1][1]-m[0][1]*m[1][0] :
+      m[0].reduce((r,e,i) => 
+        r+(-1)**(i+2)*e*determinant(m.slice(1).map(c => 
+          c.filter((_,j) => i != j))),0)
+
     var question;
     var answer = 0;
     if (C_matrix_operations) {
@@ -28,7 +37,7 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
     } else {
         var question;
         var answer = 0;
-        const matrixRow = 3;//Math.ceil(Math.random() * 4) + 1;
+        const matrixRow = Math.ceil(Math.random() * 4) + 1;
         const matrix = [];
         for (var i = 0; i < matrixRow; i++) {
             var temp = [];
@@ -39,7 +48,7 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         }
         const matrixText = "\\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}";
         question = "Find the determinant of the matrix." + matrix;
-        answer = matrix[0][0] * ((matrix[1][1] * matrix[2][2]) - (matrix[2][1] * matrix[1][2])) - matrix[1][0] * ((matrix[0][1] * matrix[2][2]) - (matrix[2][1] * matrix[0][2])) + matrix[2][0] * ((matrix[0][1] * matrix[1][2]) - (matrix[1][1] * matrix[0][2]));
+        answer = determinant(matrix);
         // Return the question and answer in an array
         return [question, answer];
     }

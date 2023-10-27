@@ -118,7 +118,7 @@ let Test = {
     },
     Start: function () {
         Test_Star_Time = new Date().getTime();
-
+        
     },
     End: function () {
 

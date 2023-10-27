@@ -200,6 +200,8 @@ ins.adsbygoogle {
 /* Style for the Flow Element Button */
 .flow-element button {
     background-color: #DCB6FF;
+    font-weight: bolder;
+    font-size: x-large;
     color: #fff;
     border-radius: 10px;
     margin: 10px;

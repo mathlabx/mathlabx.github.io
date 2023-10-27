@@ -19,7 +19,46 @@ console.log(result); // Output: ['Determine if the set of vectors forms a vector
 
 $X.math.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformations = function(C_vector_spaces, C_linear_transformations, C_basis_and_dimension) {
     // Your code goes here
-
+    if(C_vector_spaces){
+        var question;
+        var answer;
+        var vector1 = [];
+        var vector2 = [];
+        var vector3 = [];
+        for(var i = 0; i<3; i++){vector1.push(Math.ceil(Math.random() * 9));}
+        for(var i = 0; i<3; i++){vector2.push(Math.ceil(Math.random() * 9));}
+        for(var i = 0; i<3; i++){vector3.push(Math.ceil(Math.random() * 9));}
+        var checkCommutative = true;
+        var checkDistributive = true;
+        var checkAssociate = true;
+        var checkAdditiveInverse = true;
+        var checkAdditiveIdentity = true;
+        for(var i = 0; i<3; i++){
+            var constant1 = Math.ceil(Math.random()*9);
+            var constant2 = Math.ceil(Math.random()*9);
+            if((vector1[i] + vector2[i]) != (vector2[i] + vector1[i])){
+                checkCommutative = false;
+            }if((vector1[i] + -1*vector1[i]) != 0){
+                checkAdditiveInverse = false;
+            }if((vector1[i] + 0) != vector1[i]){
+                checkAdditiveIdentity = false;
+            }if(constant1*(vector1[i] +vector2[i]) != (constant1*vector1[i] + constant1*vector2[i])){
+                checkDistributive = false;
+            }if(constant1*(constant2*vector1[i]) != constant1*constant2*(vector1[i])){
+                checkAssociate = false;
+            }
+        }
+        question = 'Determine if the set of vectors forms a vector space: [" + vector1 + "], [" + vector2 + "], [" + vector3 + "].";
+        if(checkCommutative && checkAdditiveIdentity && checkAdditiveInverse && checkAssociate && checkDistributive){
+            answer = "The set of vectors forms a vector space.";
+        }else{
+            answer = "The set of vectors doesn't satisfy the axioms of addition and scalar multiplication.";
+        }
+    }else if(C_linear_transformations){
+        return null;
+    }else{
+        return null;
+    }
     // Return the question and answer in an array
     return [question, answer];
 }

@@ -4138,6 +4138,28 @@ function X_Generate(setting) {
         show: setting[2].topics[2].subtopics[2].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Organic Chemistry | Structure and Nomenclature of Organic Molecules&BIG",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Structure and Nomenclature of Organic Molecules | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Structure and Nomenclature of Organic Molecules | Molecular Structure",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Structure and Nomenclature of Organic Molecules | Nomenclature",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[0].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5353,6 +5375,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Reaction Enthalpy and Entropy Changes: ", loop_length, i);
                     re_q.push($X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.ReactionEnthalpyAndEntropyChanges(results[672], results[673], results[674]));
+                }
+            }
+            if (results[675] == true) {
+                loop_length = Number(results[676]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Structure and Nomenclature of Organic Molecules: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Organic_Chemistry.StructureAndNomenclatureOfOrganicMolecules(results[677], results[678]));
                 }
             }
 

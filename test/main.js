@@ -130,6 +130,9 @@ let Test = {
                 ele.msRequestFullscreen();
             }
         }
+        document.getElementById("pre_test").remove();
+        test_div.style.display = "block";
+        test_div.style.position = "flexed";
         full(test_div);
         test_div.style.backgroundColor = "white";
     },

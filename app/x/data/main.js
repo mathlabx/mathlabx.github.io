@@ -4226,6 +4226,28 @@ function X_Generate(setting) {
         show: setting[2].topics[3].subtopics[1].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Analytical Chemistry | Methods of Chemical Analysis&BIG",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Methods of Chemical Analysis | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Methods of Chemical Analysis | Basic Concepts of Chemical Analysis",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Methods of Chemical Analysis | Analytical Techniques",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[2].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5469,6 +5491,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Coordination Chemistry and Transition Metal Compounds: ", loop_length, i);
                     re_q.push($X.chemistry.University_Chemistry.Inorganic_Chemistry.CoordinationChemistryAndTransitionMetalCompounds(results[689], results[690]));
+                }
+            }
+            if (results[691] == true) {
+                loop_length = Number(results[692]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Methods of Chemical Analysis: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Analytical_Chemistry.MethodsOfChemicalAnalysis(results[693], results[694]));
                 }
             }
 

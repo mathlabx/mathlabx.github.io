@@ -3986,6 +3986,28 @@ function X_Generate(setting) {
         show: setting[2].topics[2].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Chemical Reaction Kinetics | Reaction Rates and Activation Energy&BIG",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Rates and Activation Energy | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Rates and Activation Energy | Reaction Rates",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Rates and Activation Energy | Activation Energy",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[1].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5159,6 +5181,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Covalent and Ionic Bonds: ", loop_length, i);
                     re_q.push($X.chemistry.High_School_Chemistry.Chemical_Bonds_and_Molecular_Structure.CovalentAndIonicBonds(results[645], results[646]));
+                }
+            }
+            if (results[647] == true) {
+                loop_length = Number(results[648]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Reaction Rates and Activation Energy: ", loop_length, i);
+                    re_q.push($X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.ReactionRatesAndActivationEnergy(results[649], results[650]));
                 }
             }
 

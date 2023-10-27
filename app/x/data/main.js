@@ -4160,6 +4160,28 @@ function X_Generate(setting) {
         show: setting[2].topics[3].subtopics[0].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Organic Chemistry | Reaction Mechanisms in Organic Chemistry&Reg",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Mechanisms in Organic Chemistry | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Mechanisms in Organic Chemistry | Different Types of Reactions",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Mechanisms in Organic Chemistry | Reaction Steps",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[0].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5382,6 +5404,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Structure and Nomenclature of Organic Molecules: ", loop_length, i);
                     re_q.push($X.chemistry.University_Chemistry.Organic_Chemistry.StructureAndNomenclatureOfOrganicMolecules(results[677], results[678]));
+                }
+            }
+            if (results[679] == true) {
+                loop_length = Number(results[680]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Reaction Mechanisms in Organic Chemistry: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Organic_Chemistry.ReactionMechanismsInOrganicChemistry(results[681], results[682]));
                 }
             }
 

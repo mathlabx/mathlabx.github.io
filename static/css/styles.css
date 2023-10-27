@@ -197,6 +197,17 @@ ins.adsbygoogle {
     -webkit-box-orient: vertical;
 }
 
+/* Style for the Flow Element Button */
+.flow-element button {
+    background-color: #DCB6FF;
+    color: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px 20px;
+    width: 80%;
+    display: inline-block;
+}
+
 /* Define the mobile bottom navigation styles */
 .mobile-bar {
     z-index: 1;
@@ -239,7 +250,7 @@ ins.adsbygoogle {
     width: 100%;
 }
 
-main{
+main {
     margin-bottom: 80px;
 }
 

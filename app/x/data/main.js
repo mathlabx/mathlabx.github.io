@@ -4111,6 +4111,33 @@ function X_Generate(setting) {
         show: setting[2].topics[2].subtopics[2].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Chemical Thermodynamics | Reaction Enthalpy and Entropy Changes&Reg",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Enthalpy and Entropy Changes | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Enthalpy and Entropy Changes | Reaction Enthalpy",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Enthalpy and Entropy Changes | Entropy Changes",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[2]._checked
+    });
+    Setting_Array.push({
+        Name: "Reaction Enthalpy and Entropy Changes | Reaction Thermodynamics",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[2]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5319,6 +5346,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Thermochemical Equations: ", loop_length, i);
                     re_q.push($X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.ThermochemicalEquations(results[667], results[668], results[669]));
+                }
+            }
+            if (results[670] == true) {
+                loop_length = Number(results[671]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Reaction Enthalpy and Entropy Changes: ", loop_length, i);
+                    re_q.push($X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.ReactionEnthalpyAndEntropyChanges(results[672], results[673], results[674]));
                 }
             }
 

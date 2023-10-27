@@ -4314,6 +4314,60 @@ function X_Generate(setting) {
         show: setting[2].topics[3].subtopics[3].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Nuclear Chemistry | Radioactive Decay Processes&BIG",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Radioactive Decay Processes | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Radioactive Decay Processes | Principles of Radioactive Decay",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Radioactive Decay Processes | Radioactive Decay",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Radioactive Decay Processes | Applications of Radioactive Decay",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[0]._checked
+    });
+    
+    Setting_Array.push({
+        Name: "Nuclear Chemistry | Nuclear Reactions and Nuclear Energy&Reg",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Nuclear Reactions and Nuclear Energy | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Nuclear Reactions and Nuclear Energy | Principles of Nuclear Reactions",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Nuclear Reactions and Nuclear Energy | Nuclear Reactions",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Nuclear Reactions and Nuclear Energy | Applications of Nuclear Energy",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[4].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5585,6 +5639,20 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Redox Reactions: ", loop_length, i);
                     re_q.push($X.chemistry.University_Chemistry.Properties_of_Matter.RedoxReactions(results[705], results[706]));
+                }
+            }
+            if (results[707] == true) {
+                loop_length = Number(results[708]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Radioactive Decay Processes: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Nuclear_Chemistry.RadioactiveDecayProcesses(results[709], results[710], results[711]));
+                }
+            }
+            if (results[712] == true) {
+                loop_length = Number(results[713]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Nuclear Reactions and Nuclear Energy: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Nuclear_Chemistry.NuclearReactionsAndNuclearEnergy(results[714], results[715], results[716]));
                 }
             }
 

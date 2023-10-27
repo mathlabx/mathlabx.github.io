@@ -19,7 +19,13 @@ console.log(result); // Output: ['Calculate the expectation for the discrete pro
 
 $X.math.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDistributions = function(C_discrete, C_continuous, C_expectation) {
     // Your code goes here
-
+    if(C_discrete){    
+        return null;
+    }else if(C_continuous){
+        return null;
+    }else if(C_expectation){
+        return null;
+    }
     // Return the question and answer in an array
     return [question, answer];
 }

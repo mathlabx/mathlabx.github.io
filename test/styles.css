@@ -1,6 +1,4 @@
-main{
-
-}
+main {}
 
 .test {
     display: none;
@@ -9,6 +7,19 @@ main{
     width: 100vw;
 }
 
-.pre-test{
-    
+.test-top-bar {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 15%;
+    width: 100vw;
+}
+
+#test-on{
+    float: left;
+    margin-left: 5%;
+}
+
+#test-time{
+    margin: 0 auto;
 }

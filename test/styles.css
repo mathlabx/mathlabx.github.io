@@ -17,10 +17,17 @@ main {}
 }
 
 #test-on {
+    position: fixed;
+    text-align: center;
     float: left;
-    margin-left: 5%;
+    width: 20vw;
+    padding: 20px 0 20px 0;
 }
 
 #test-time {
+    padding: 20px 0 20px 0;
+    width: 100vw;
+    text-align: center;
+    float: left;
     margin: 0 auto;
 }

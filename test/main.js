@@ -80,7 +80,7 @@ let Test = {
         pre_test.append(new_title);
         let new_no = document.createElement("h2");
         let test_length = Test.Questions.length;
-        new_no.innerHTML = test_length + "Questions";
+        new_no.innerHTML = "<b>" + test_length + "</b> Questions";
         pre_test.append(new_no);
         let next_botton = document.createElement("button");
         next_botton.innerHTML = "Next";

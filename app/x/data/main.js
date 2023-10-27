@@ -5491,28 +5491,28 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 loop_length = Number(results[611]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Definitions of Elements and Compounds: ", loop_length, i);
-                    re_q.push($X.chemistry.Elementary_Chemistry.Elements_and_Compounds.DefinitionsOfElementsAndCompounds(results[612], results[613], results[614]));
+                    re_q.push($X.chemistry.Middle_School_Chemistry.Elements_and_Compounds.DefinitionsOfElementsAndCompounds(results[612], results[613], results[614]));
                 }
             }
             if (results[615] == true) {
                 loop_length = Number(results[616]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Chemical Symbols and the Periodic-table: ", loop_length, i);
-                    re_q.push($X.chemistry.Elementary_Chemistry.Elements_and_Compounds.ChemicalSymbolsAndThePeriodicTable(results[617], results[618]));
+                    re_q.push($X.chemistry.Middle_School_Chemistry.Elements_and_Compounds.ChemicalSymbolsAndThePeriodicTable(results[617], results[618]));
                 }
             }
             if (results[619] == true) {
                 loop_length = Number(results[620]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Basic Concepts of Chemical Reactions: ", loop_length, i);
-                    re_q.push($X.chemistry.Elementary_Chemistry.Chemical_Reactions.BasicConceptsOfChemicalReactions(results[621], results[622], results[623]));
+                    re_q.push($X.chemistry.Middle_School_Chemistry.Chemical_Reactions.BasicConceptsOfChemicalReactions(results[621], results[622], results[623]));
                 }
             }
             if (results[624] == true) {
                 loop_length = Number(results[625]);
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Chemical Reaction Equations: ", loop_length, i);
-                    re_q.push($X.chemistry.Elementary_Chemistry.Chemical_Reactions.ChemicalReactionEquations(results[626], results[627], results[628]));
+                    re_q.push($X.chemistry.Middle_School_Chemistry.Chemical_Reactions.ChemicalReactionEquations(results[626], results[627], results[628]));
                 }
             }
             if (results[629] == true) {

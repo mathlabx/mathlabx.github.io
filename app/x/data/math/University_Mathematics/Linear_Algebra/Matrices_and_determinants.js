@@ -54,21 +54,25 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         if(randOperation == 0){
             question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}"; 
             const additionResult = addMatrices(matrix1, matrix2);
-            answer = "\\begin{bmatrix}" + matrixToString(additionResult) + "\\end{bmatrix}"
+            answer = "\\begin{bmatrix}" + matrixToString(additionResult) + "\\end{bmatrix}";
+            return [question, answer];
         }else if(randOperation == 1){
             question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} - \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}"; 
             const subtractionResult = subtractMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(subtractionResult) + "\\end{bmatrix}";
+            return [question, answer];
         }
         }else if(randOperation == 2){
             question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} x \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
             const multiplicationResult = multiplyMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(multiplicationResult) + "\\end{bmatrix}";
+            return [question, answer];
         }
         }else if(randOperation == 3){
             question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} ÷ \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}"; 
             const divisionResult = divideMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(divisionResult) + "\\end{bmatrix}";
+            return [question, answer];
         }
 
         function matrixToString(matrix) {

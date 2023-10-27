@@ -4182,6 +4182,50 @@ function X_Generate(setting) {
         show: setting[2].topics[3].subtopics[0].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Inorganic Chemistry | Metal and non-Metal Elements&BIG",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Metal and non-Metal Elements | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Metal and non-Metal Elements | Metal Properties",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[1].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Metal and non-Metal Elements | Non-metal Properties",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[1].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Inorganic Chemistry | Coordination Chemistry and Transition Metal Compounds&Reg",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Coordination Chemistry and Transition Metal Compounds | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Coordination Chemistry and Transition Metal Compounds | Coordination Concepts",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[1].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Coordination Chemistry and Transition Metal Compounds | Transition Metal Properties",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[1].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5411,6 +5455,20 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Reaction Mechanisms in Organic Chemistry: ", loop_length, i);
                     re_q.push($X.chemistry.University_Chemistry.Organic_Chemistry.ReactionMechanismsInOrganicChemistry(results[681], results[682]));
+                }
+            }
+            if (results[683] == true) {
+                loop_length = Number(results[684]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Metal and non-Metal Elements: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Inorganic_Chemistry.MetalAndNonMetalElements(results[685], results[686]));
+                }
+            }
+            if (results[687] == true) {
+                loop_length = Number(results[688]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Coordination Chemistry and Transition Metal Compounds: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Inorganic_Chemistry.CoordinationChemistryAndTransitionMetalCompounds(results[689], results[690]));
                 }
             }
 

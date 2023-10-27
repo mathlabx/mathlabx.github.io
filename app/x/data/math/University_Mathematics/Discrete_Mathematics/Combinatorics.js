@@ -19,9 +19,9 @@ console.log(result); // Output: ['How many ways can 5 books be arranged on a she
 $X.math.University_Mathematics.Discrete_Mathematics.Combinatorics = function(counting_principles, permutations_combinations) {
     // Your code goes here
     
-    if(counting_principles){
+    if(permutations_combinations){
         return null;
-    }else if(permutations_combinations){
+    }else if(counting_principles){
         function factorial(value){
     		var result = 1;
     		for(var i=value; i>0; i--){

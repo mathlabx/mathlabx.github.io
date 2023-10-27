@@ -63,8 +63,8 @@ $X.chemistry.Elementary_Chemistry.Matter_and_Properties.PropertiesOfMatter = fun
         if (selectedInput === "density") {
             var substance = generateRandomSubstance(); // Generate a random substance name
             var value = Math.floor(Math.random() * 100) + 1; // Generate a random value for density
-            question = `What is the density of ${substance} if its mass is 100 g and its volume is 50 cm^3?`;
-            answer = `The density of ${substance} is ${value} g/cm^3.`;
+            question = `What is the density of ${substance} if its mass is 100 g and its volume is 50 cm³?`;
+            answer = `The density of ${substance} is ${value} g/cm³.`;
         } else if (selectedInput === "solubility") {
             var compound = generateRandomCompound(); // Generate a random compound name
             var solubilityValue = generateRandomSolubility(); // Generate a random solubility value

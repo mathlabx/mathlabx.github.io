@@ -19,7 +19,56 @@ console.log(result); // Output: ['Find the eigenvalues of the matrix [[3, 1], [2
 
 $X.math.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors = function(C_eigenvalues, C_eigenvectors, C_eigenbases) {
     // Your code goes here
-
+    const determinant = m => 
+      m.length == 1 ?
+      m[0][0] :
+      m.length == 2 ? 
+      m[0][0]*m[1][1]-m[0][1]*m[1][0] :
+      m[0].reduce((r,e,i) => 
+        r+(-1)**(i+2)*e*determinant(m.slice(1).map(c => 
+          c.filter((_,j) => i != j))),0)
+    	  
+    var matrix = [];
+    var enigenvalues = [];
+    var eigenvectors = [];
+    function checkDeterminant(){
+    	var isGood = false;
+    	while(!isGood){
+    		var tempMatrix = [];
+    		for(var i =0; i<2;i++){
+    			var temp = [];
+    			for(var j =0; j<2; j++){
+    				temp.push(Math.ceil(Math.random()*5))
+    			}
+    			tempMatrix.push(temp);
+    		}
+    		
+    		if(determinant(tempMatrix) == 0){
+    			isGood = true
+    			matrix = tempMatrix;
+    		}
+    	}
+    }
+    function findEigenvalues(){
+    	var discriminant = Math.sqrt(((matrix[0][0]+matrix[1][1])*(matrix[0][0]+matrix[1][1])) - 4*(matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1]));
+    	enigenvalues.push(((matrix[0][0]+matrix[1][1]) - discriminant)/2);
+    	enigenvalues.push(((matrix[0][0]+matrix[1][1]) + discriminant)/2);
+    	console.log(enigenvalues);
+    }
+    function findEigenvectors(){
+    	for(var i=0;i<2;i++){
+    		var difference = [];
+    		var temp = [];
+    		difference.push(matrix[0][0] - enigenvalues[i]);
+    		difference.push(matrix[0][1]);
+    		temp.push(1);
+    		temp.push(-1*(difference[0]/difference[1]));
+    		eigenvectors.push(temp);
+    	}
+    	console.log(eigenvectors);
+    }
+    var question = "\\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}";
+    var answer = "\lambda = " + eigenvalues[0] + " \lambda = " + eigenvalues[1] + " v = (" +eigenvectors[0][0] + ", " + eigenvectors[0][1] + "), v = (" +eigenvectors[1][0] + ", " + eigenvectors[1][1] + ")";
     // Return the question and answer in an array
     return [question, answer];
 }

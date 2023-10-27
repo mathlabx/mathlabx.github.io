@@ -3942,6 +3942,50 @@ function X_Generate(setting) {
         show: setting[2].topics[1].subtopics[2].subtopics[1]._checked
     });
 
+    Setting_Array.push({
+        Name: "Chemical Bonds and Molecular Structure | Atomic and Molecular Structure&BIG",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Atomic and Molecular Structure | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Atomic and Molecular Structure | Basic Concepts of Atomic Structure",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[0].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Atomic and Molecular Structure | Composition of Molecules",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[0].subtopics[0]._checked
+    });
+
+    Setting_Array.push({
+        Name: "Chemical Bonds and Molecular Structure | Covalent and Ionic Bonds&Reg",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Covalent and Ionic Bonds | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Covalent and Ionic Bonds | Covalent Bonds",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[0].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Covalent and Ionic Bonds | Ionic Bonds",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[0].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5101,6 +5145,20 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Neutralization Reactions: ", loop_length, i);
                     re_q.push($X.chemistry.Middle_School_Chemistry.Acids_and_Bases.NeutralizationReactions(results[636], results[637], results[638]));
+                }
+            }
+            if (results[639] == true) {
+                loop_length = Number(results[640]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Atomic and Molecular Structure: ", loop_length, i);
+                    re_q.push($X.chemistry.High_School_Chemistry.Chemical_Bonds_and_Molecular_Structure.AtomicAndMolecularStructure(results[641], results[642]));
+                }
+            }
+            if (results[643] == true) {
+                loop_length = Number(results[644]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Covalent and Ionic Bonds: ", loop_length, i);
+                    re_q.push($X.chemistry.High_School_Chemistry.Chemical_Bonds_and_Molecular_Structure.CovalentAndIonicBonds(results[645], results[646]));
                 }
             }
 

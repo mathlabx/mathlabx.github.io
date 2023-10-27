@@ -55,7 +55,19 @@ $X.math.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformatio
             answer = "The set of vectors doesn't satisfy the axioms of addition and scalar multiplication.";
         }
     }else if(C_linear_transformations){
-        return null;
+        var basicVector1 = [];
+		var basicVector2 = [];
+        var originalVector = [];
+		var transformVector = [];
+        for(var i = 0; i<2; i++){basicVector1.push(Math.ceil(Math.random() * 9));}
+        for(var i = 0; i<2; i++){basicVector2.push(Math.ceil(Math.random() * 9));}
+        for(var i = 0; i<2; i++){originalVector.push(Math.ceil(Math.random() * 9));}
+		for(var i = 0; i<2; i++){
+			transformVector.push(originalVector[0] * basicVector1[i] + originalVector[1] * basicVector2[i]);
+		}
+		var question = "On a 2D coordinate plane, the plane is transformed and moved so that i lands on the coordinate [" + basicVector1 + "] and j lands on the coordinate [" + basicVector2 + "]. Where will a vector [" + originalVector + "] land after the transformtion?";
+		var answer = "The vector will land on the coordinate [" + transformVector + "]";
+        return [question, answer];
     }else{
         return null;
     }

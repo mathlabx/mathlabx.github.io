@@ -4248,6 +4248,28 @@ function X_Generate(setting) {
         show: setting[2].topics[3].subtopics[2].subtopics[0]._checked
     });
 
+    Setting_Array.push({
+        Name: "Analytical Chemistry | Mass Spectrometry and Infrared Spectroscopy&Reg",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mass Spectrometry and Infrared Spectroscopy | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mass Spectrometry and Infrared Spectroscopy | Mass Spectrometry",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[2].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Mass Spectrometry and Infrared Spectroscopy | Infrared Spectroscopy",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[2].subtopics[1]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5498,6 +5520,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Methods of Chemical Analysis: ", loop_length, i);
                     re_q.push($X.chemistry.University_Chemistry.Analytical_Chemistry.MethodsOfChemicalAnalysis(results[693], results[694]));
+                }
+            }
+            if (results[695] == true) {
+                loop_length = Number(results[696]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Mass Spectrometry and Infrared Spectroscopy: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Analytical_Chemistry.MassSpectrometryAndInfraredSpectroscopy(results[697], results[698]));
                 }
             }
 

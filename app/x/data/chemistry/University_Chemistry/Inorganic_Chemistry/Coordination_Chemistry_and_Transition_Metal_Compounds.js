@@ -16,7 +16,7 @@ const result = CoordinationChemistryAndTransitionMetalCompounds(true, false);
 console.log(result); // Output: ['What is the role of ligands in coordination chemistry?', 'The role of ligands in coordination chemistry is ...']
 */
 
-$X.chemistry.University_Chemistry.Inorganic.CoordinationChemistryAndTransitionMetalCompounds = function (coordinationConcepts, transitionMetalProperties) {
+$X.chemistry.University_Chemistry.Inorganic_Chemistry.CoordinationChemistryAndTransitionMetalCompounds = function (coordinationConcepts, transitionMetalProperties) {
     var question = "";
     var answer = "";
 

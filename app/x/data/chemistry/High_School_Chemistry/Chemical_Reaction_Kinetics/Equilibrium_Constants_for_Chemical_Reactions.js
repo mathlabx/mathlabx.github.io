@@ -16,7 +16,7 @@ const result = EquilibriumConstantsForChemicalReactions(true, false);
 console.log(result); // Output: ['Calculate the equilibrium constant (Kc) for the reaction.', 'The equilibrium constant (Kc) for the reaction is 3.42.']
 */
 
-$X.chemistry.High_School_Chemistry.EquilibriumConstantsForChemicalReactions = function (calculation, interpretation) {
+$X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.EquilibriumConstantsForChemicalReactions = function (calculation, interpretation) {
     var question = "";
     var answer = "";
 

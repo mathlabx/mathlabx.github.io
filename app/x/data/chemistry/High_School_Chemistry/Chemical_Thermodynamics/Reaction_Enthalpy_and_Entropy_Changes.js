@@ -17,7 +17,7 @@ const result = ReactionEnthalpyAndEntropyChanges(true, false, true);
 console.log(result); // Output: ['What is the enthalpy change for the given reaction?', 'The enthalpy change for the given reaction is -325 kJ/mol.']
 */
 
-$X.chemistry.High_School_Chemistry.ReactionEnthalpyAndEntropyChanges = function (reactionEnthalpy, entropyChanges, reactionThermodynamics) {
+$X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.ReactionEnthalpyAndEntropyChanges = function (reactionEnthalpy, entropyChanges, reactionThermodynamics) {
     var question = "";
     var answer = "";
 

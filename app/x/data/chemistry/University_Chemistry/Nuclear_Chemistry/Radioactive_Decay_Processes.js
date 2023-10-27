@@ -17,7 +17,7 @@ const result = RadioactiveDecayProcesses(true, false, true);
 console.log(result); // Output: ['What are the main principles governing radioactive decay?', 'The main principles governing radioactive decay include...']
 */
 
-$X.physics.University_Physics.NuclearPhysics.RadioactiveDecayProcesses = function (decayPrinciples, decayTypes, decayApplications) {
+$X.chemistry.University_Chemistry.Nuclear_Chemistry.RadioactiveDecayProcesses = function (decayPrinciples, decayTypes, decayApplications) {
     var question = "";
     var answer = "";
 

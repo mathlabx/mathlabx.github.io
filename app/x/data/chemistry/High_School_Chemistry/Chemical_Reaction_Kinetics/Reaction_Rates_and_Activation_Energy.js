@@ -16,7 +16,7 @@ const result = ReactionRatesAndActivationEnergy(true, false);
 console.log(result); // Output: ['What factors can affect the rate of a chemical reaction?', 'Temperature, concentration, catalysts, and surface area are some factors that can affect the rate of a chemical reaction.']
 */
 
-$X.chemistry.High_School_Chemistry.ReactionRatesAndActivationEnergy = function (reactionRates, activationEnergy) {
+$X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.ReactionRatesAndActivationEnergy = function (reactionRates, activationEnergy) {
     var question = "";
     var answer = "";
 

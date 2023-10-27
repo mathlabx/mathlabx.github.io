@@ -16,7 +16,7 @@ const result = StructureAndNomenclatureOfOrganicMolecules(true, false);
 console.log(result); // Output: ['What is the structure of the given organic molecule?', 'The structure of the given organic molecule is ...']
 */
 
-$X.chemistry.University_Chemistry.Organic.StructureAndNomenclatureOfOrganicMolecules = function (structure, nomenclature) {
+$X.chemistry.University_Chemistry.Organic_Chemistry.StructureAndNomenclatureOfOrganicMolecules = function (structure, nomenclature) {
     var question = "";
     var answer = "";
 

@@ -16,7 +16,7 @@ const result = CovalentAndIonicBonds(true, false);
 console.log(result); // Output: ['How are covalent bonds formed?', 'Covalent bonds are formed when two atoms share one or more pairs of electrons.']
 */
 
-$X.chemistry.High_School_Chemistry.CovalentAndIonicBonds = function (covalentBonds, ionicBonds) {
+$X.chemistry.High_School_Chemistry.Chemical_Bonds_and_Molecular_Structure.CovalentAndIonicBonds = function (covalentBonds, ionicBonds) {
     var question = "";
     var answer = "";
 

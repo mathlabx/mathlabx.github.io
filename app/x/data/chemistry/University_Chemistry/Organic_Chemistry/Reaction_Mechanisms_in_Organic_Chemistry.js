@@ -16,7 +16,7 @@ const result = ReactionMechanismsInOrganicChemistry(true, false);
 console.log(result); // Output: ['What is the type of the given organic reaction?', 'The type of the given organic reaction is ...']
 */
 
-$X.chemistry.University_Chemistry.Organic.ReactionMechanismsInOrganicChemistry = function (reactionTypes, reactionSteps) {
+$X.chemistry.University_Chemistry.Organic_Chemistry.ReactionMechanismsInOrganicChemistry = function (reactionTypes, reactionSteps) {
     var question = "";
     var answer = "";
 

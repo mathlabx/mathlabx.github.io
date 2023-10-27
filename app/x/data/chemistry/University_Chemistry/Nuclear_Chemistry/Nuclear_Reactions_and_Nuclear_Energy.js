@@ -17,7 +17,7 @@ const result = NuclearReactionsAndNuclearEnergy(true, false, true);
 console.log(result); // Output: ['What are the fundamental principles underlying nuclear reactions?', 'The fundamental principles underlying nuclear reactions include...']
 */
 
-$X.physics.University_Physics.NuclearPhysics.NuclearReactionsAndNuclearEnergy = function (reactionPrinciples, reactionTypes, energyApplications) {
+$X.chemistry.University_Chemistry.Nuclear_Chemistry.NuclearReactionsAndNuclearEnergy = function (reactionPrinciples, reactionTypes, energyApplications) {
     var question = "";
     var answer = "";
 

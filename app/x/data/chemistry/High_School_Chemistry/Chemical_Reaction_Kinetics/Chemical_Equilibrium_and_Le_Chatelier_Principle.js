@@ -16,7 +16,7 @@ const result = ChemicalEquilibriumAndLeChateliersPrinciple(true, false);
 console.log(result); // Output: ['What is the equilibrium constant expression for the reaction?', 'The equilibrium constant expression for the reaction is Kc = [C]^c[D]^d / [A]^a[B]^b.']
 */
 
-$X.chemistry.High_School_Chemistry.ChemicalEquilibriumAndLeChateliersPrinciple = function (equilibriumConstants, leChateliersPrinciple) {
+$X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.ChemicalEquilibriumAndLeChateliersPrinciple = function (equilibriumConstants, leChateliersPrinciple) {
     var question = "";
     var answer = "";
 

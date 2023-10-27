@@ -16,7 +16,7 @@ const result = SolubilityAndSolutionConcentration(true, false);
 console.log(result); // Output: ['What factors affect the solubility of a substance?', 'The solubility of a substance is affected by...']
 */
 
-$X.chemistry.University_Chemistry.Inorganic.SolubilityAndSolutionConcentration = function (solubility, solutionConcentration) {
+$X.chemistry.University_Chemistry.Properties_of_Matter.SolubilityAndSolutionConcentration = function (solubility, solutionConcentration) {
     var question = "";
     var answer = "";
 

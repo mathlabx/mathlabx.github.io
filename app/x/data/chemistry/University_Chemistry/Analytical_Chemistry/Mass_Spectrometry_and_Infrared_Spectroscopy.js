@@ -16,7 +16,7 @@ const result = MassSpectrometryAndInfraredSpectroscopy(true, false);
 console.log(result); // Output: ['What is the principle behind mass spectrometry?', 'The principle behind mass spectrometry involves...']
 */
 
-$X.chemistry.University_Chemistry.Analytical.MassSpectrometryAndInfraredSpectroscopy = function (massSpectrometry, infraredSpectroscopy) {
+$X.chemistry.University_Chemistry.Analytical_Chemistry.MassSpectrometryAndInfraredSpectroscopy = function (massSpectrometry, infraredSpectroscopy) {
     var question = "";
     var answer = "";
 

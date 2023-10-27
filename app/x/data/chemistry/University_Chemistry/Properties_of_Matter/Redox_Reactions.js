@@ -16,7 +16,7 @@ const result = RedoxReactions(true, false);
 console.log(result); // Output: ['What defines a redox reaction?', 'A redox reaction is defined as...']
 */
 
-$X.chemistry.University_Chemistry.Inorganic.RedoxReactions = function (redoxPrinciples, redoxIdentification) {
+$X.chemistry.University_Chemistry.Properties_of_Matter.RedoxReactions = function (redoxPrinciples, redoxIdentification) {
     var question = "";
     var answer = "";
 

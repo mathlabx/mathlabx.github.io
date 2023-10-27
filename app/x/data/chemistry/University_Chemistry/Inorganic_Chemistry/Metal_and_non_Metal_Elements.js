@@ -16,7 +16,7 @@ const result = MetalAndNonMetalElements(true, false);
 console.log(result); // Output: ['What are the distinguishing properties of metals?', 'The distinguishing properties of metals include ...']
 */
 
-$X.chemistry.University_Chemistry.Inorganic.MetalAndNonMetalElements = function (metalProperties, nonMetalProperties) {
+$X.chemistry.University_Chemistry.Inorganic_Chemistry.MetalAndNonMetalElements = function (metalProperties, nonMetalProperties) {
     var question = "";
     var answer = "";
 

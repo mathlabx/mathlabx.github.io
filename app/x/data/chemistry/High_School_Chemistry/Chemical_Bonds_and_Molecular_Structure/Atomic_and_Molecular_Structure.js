@@ -16,7 +16,7 @@ const result = AtomicAndMolecularStructure(true, false);
 console.log(result); // Output: ['What is the basic structure of an atom?', 'The basic structure of an atom consists of a nucleus containing protons and neutrons, surrounded by electrons in energy levels.']
 */
 
-$X.chemistry.High_School_Chemistry.AtomicAndMolecularStructure = function (atomicStructure, molecularComposition) {
+$X.chemistry.High_School_Chemistry.Chemical_Bonds_and_Molecular_Structure.AtomicAndMolecularStructure = function (atomicStructure, molecularComposition) {
     var question = "";
     var answer = "";
 

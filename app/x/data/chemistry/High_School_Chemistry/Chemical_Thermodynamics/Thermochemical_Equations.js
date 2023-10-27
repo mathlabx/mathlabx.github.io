@@ -17,7 +17,7 @@ const result = ThermochemicalEquations(true, false, true);
 console.log(result); // Output: ['What is the balanced thermochemical equation for the given enthalpy change?', 'The balanced thermochemical equation for the given enthalpy change is CH4 + 2O2 -> CO2 + 2H2O.']
 */
 
-$X.chemistry.High_School_Chemistry.ThermochemicalEquations = function (enthalpyChanges, heatReactions, balancingEquations) {
+$X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.ThermochemicalEquations = function (enthalpyChanges, heatReactions, balancingEquations) {
     var question = "";
     var answer = "";
 

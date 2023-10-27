@@ -16,7 +16,7 @@ const result = MethodsOfChemicalAnalysis(true, false);
 console.log(result); // Output: ['What are the key steps in a titration process?', 'The key steps in a titration process include...']
 */
 
-$X.chemistry.University_Chemistry.Analytical.MethodsOfChemicalAnalysis = function (basicConcepts, analyticalTechniques) {
+$X.chemistry.University_Chemistry.Analytical_Chemistry.MethodsOfChemicalAnalysis = function (basicConcepts, analyticalTechniques) {
     var question = "";
     var answer = "";
 

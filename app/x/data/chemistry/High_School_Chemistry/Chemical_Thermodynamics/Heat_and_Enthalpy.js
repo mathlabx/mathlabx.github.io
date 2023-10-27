@@ -18,7 +18,7 @@ const result = HeatAndEnthalpy(true, false, true, false);
 console.log(result); // Output: ['What is the heat of reaction for the given thermochemical equation?', 'The heat of reaction for the given thermochemical equation is -342 kJ/mol.']
 */
 
-$X.chemistry.High_School_Chemistry.HeatAndEnthalpy = function (heatTransfer, thermochemicalEquations, heatReactions, enthalpyChanges) {
+$X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.HeatAndEnthalpy = function (heatTransfer, thermochemicalEquations, heatReactions, enthalpyChanges) {
     var question = "";
     var answer = "";
 

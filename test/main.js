@@ -72,6 +72,7 @@ let Test = {
         Test.Settings.Set_Up();
         Test.Test_Taker.UID = APP.account.UID;
         Test.Test_Taker.CID = GetData.Class_ID;
+        Test.Questions = GetData.questions;
 
         let pre_test = document.getElementById("pre_test");
         let new_title = document.createElement("h1");
@@ -86,24 +87,24 @@ let Test = {
         next_botton.addEventListener("click", () => {
             pre_test.innerHTML = "";
             let information_title = document.createElement("h1");
-            information_title.innerHTML = "test informations";
+            information_title.innerHTML = "Test Iformations";
             pre_test.append(information_title);
             let new_p = document.createElement("p");
             new_p.innerHTML = `
-            Time Limit: ${Test.Settings.Timing.Time_Limit}
-            Show Remaining Time: ${Test.Settings.Timing.Show_remaining_time}
-            Automatic Reminder of Remaining Time: ${Test.Settings.Timing.Automatic_reminder_of_remaining_time}
-            Force full Screen: ${Test.Settings.Full_screen.Force_full_screen}
-            End Test on exit from Full-screen: ${Test.Settings.Anti_cheating.End_test_on_exit_from_full_screen}
-            End exam When Switching Apps/Tabs: ${Test.Settings.Anti_cheating.End_test_when_switching_apps_tabs}
-            Prevent copy-paste: ${Test.Settings.Anti_cheating.Prevent_copy_paste}
-            Typing no cheating guarantee agreement: ${Test.Settings.Anti_cheating.Typing_no_cheating_guarantee_agreement}
-            Enable calculator tool: ${Test.Settings.Tools.Enable_calculator_tool}
-            Enable periodic table: ${Test.Settings.Tools.Enable_periodic_table}
-            Eye protection mode: ${Test.Settings.Tools.Enable_eye_protection_mode}
-            Each question shows right or wrong: ${Test.Settings.Questions.Each_question_shows_right_or_wrong}
-            Number of submissions allowed per question: ${Test.Settings.Questions.Number_of_submissions_allowed_per_question}
-            Intelligent answer correction: ${Test.Settings.Questions.Intelligent_answer_correction}
+            Time Limit: <b>${Test.Settings.Timing.Time_Limit}</b></br>
+            Show Remaining Time: <b>${Test.Settings.Timing.Show_remaining_time}</b></br>
+            Automatic Reminder of Remaining Time: <b>${Test.Settings.Timing.Automatic_reminder_of_remaining_time}</b></br>
+            Force full Screen: <b>${Test.Settings.Full_screen.Force_full_screen}</b></br>
+            End Test on exit from Full-screen: <b>${Test.Settings.Anti_cheating.End_test_on_exit_from_full_screen}</b></br>
+            End exam When Switching Apps/Tabs: <b>${Test.Settings.Anti_cheating.End_test_when_switching_apps_tabs}</b></br>
+            Prevent copy-paste: <b>${Test.Settings.Anti_cheating.Prevent_copy_paste}</b></br>
+            Typing no cheating guarantee agreement: <b>${Test.Settings.Anti_cheating.Typing_no_cheating_guarantee_agreement}</b></br>
+            Enable calculator tool: <b>${Test.Settings.Tools.Enable_calculator_tool}</b></br>
+            Enable periodic table: <b>${Test.Settings.Tools.Enable_periodic_table}</b></br>
+            Eye protection mode: <b>${Test.Settings.Tools.Enable_eye_protection_mode}</b></br>
+            Each question shows right or wrong: <b>${Test.Settings.Questions.Each_question_shows_right_or_wrong}</b></br>
+            Number of submissions allowed per question: <b>${Test.Settings.Questions.Number_of_submissions_allowed_per_question}</b></br>
+            Intelligent answer correction: <b>${Test.Settings.Questions.Intelligent_answer_correction}
             `;
             pre_test.append(new_p);
             let start_button = document.createElement("button");

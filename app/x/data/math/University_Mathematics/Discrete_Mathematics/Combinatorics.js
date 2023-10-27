@@ -18,7 +18,46 @@ console.log(result); // Output: ['How many ways can 5 books be arranged on a she
 
 $X.math.University_Mathematics.Discrete_Mathematics.Combinatorics = function(counting_principles, permutations_combinations) {
     // Your code goes here
+    
+    if(counting_principles){
+        return null;
+    }else if(permutations_combinations){
+        function factorial(value){
+    		var result = 1;
+    		for(var i=value; i>0; i--){
+    			result = result*i;
+    		}
+    		return result;
+    	}
 
-    // Return the question and answer in an array
-    return [question, answer];
+        var randNumPeople = Math.ceil(Math.random() * 5);
+		const randNumPosition = randNumPeople - Math.ceil(Math.random() * randNumPeople) + 2;
+		randNumPeople++;
+		var question = "There are " + randNumPeople + " people running for positions. If there are " + randNumPosition + " position(s), "; 
+		var answer;
+		const randType = Math.floor(Math.random()*4);
+		if(randType == 0){
+			question += "how many ways can this be done?";
+			var result = (factorial(randNumPeople))/(factorial((randNumPeople-randNumPosition)));
+			answer = "There are " + result + " ways.";
+		}else if(randType == 1){
+			question += "how many ways can this be done if either Person A or Person B must to hold position X?";
+			var result = 2*((factorial((randNumPeople-1)))/((factorial((randNumPeople-randNumPosition)))));
+			answer = "There are " + result + " ways.";
+		}else if(randType == 2){
+			question += "how many ways can this be done if both Person A and Person B must to hold a position?";
+			var result = 2*((factorial(randNumPosition))/(factorial(2)*factorial((randNumPosition-2))))*(randNumPeople-2);
+			answer = "There are " + result + " ways.";
+		}else if(randType == 3){
+			question += "how many ways can this be done if Person A must to hold a position?";
+			var result = randNumPosition*((factorial((randNumPeople-1)))/((factorial((randNumPeople-randNumPosition)))));
+			answer = "There are " + result + " ways.";
+		}else if(randType == 4){
+			question += "how many ways can this be done if either Person A or Person B or both must to hold a position?";
+			var result = (2*randNumPosition*((factorial((randNumPeople-1)))/((factorial((randNumPeople-randNumPosition)))))) - 2*((factorial(randNumPosition))/(factorial(2)*factorial((randNumPosition-2))))*(randNumPeople-2);
+			answer = "There are " + result + " ways.";
+		}
+        // Return the question and answer in an array
+        return [question, answer];
+    }
 }

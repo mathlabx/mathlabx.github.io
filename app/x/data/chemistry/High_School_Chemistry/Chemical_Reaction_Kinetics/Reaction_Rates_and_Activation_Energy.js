@@ -20,16 +20,24 @@ $X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.ReactionRatesAndAc
     var question = "";
     var answer = "";
 
-    if (reactionRates) {
-        // Logic for questions related to reaction rates
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
+    if (reactionRates || activationEnergy) {
+        var selectedInputs = [];
+        if (reactionRates) selectedInputs.push("reactionRates");
+        if (activationEnergy) selectedInputs.push("activationEnergy");
 
-    if (activationEnergy) {
-        // Logic for questions related to activation energy
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        var selectedInput = selectedInputs[Math.floor(Math.random() * selectedInputs.length)];
+
+        if (selectedInput === "reactionRates") {
+            var factors = ["Temperature", "Concentration", "Catalysts", "Surface area"];
+            var selectedFactor = factors[Math.floor(Math.random() * factors.length)];
+            question = `What factors can affect the rate of a chemical reaction?`;
+            answer = `${selectedFactor}, among others, can affect the rate of a chemical reaction.`;
+        } else if (selectedInput === "activationEnergy") {
+            var randomComparison = Math.random() > 0.5 ? "higher" : "lower";
+            var activationEnergyValue = (Math.random() * 100).toFixed(2);
+            question = `Explain how the presence of a catalyst can affect the activation energy of a reaction.`;
+            answer = `The presence of a catalyst can lead to a ${randomComparison} activation energy for the reaction, thereby increasing the rate of the reaction.`;
+        }
     }
 
     // Return the question and answer in an array

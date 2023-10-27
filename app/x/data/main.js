@@ -4052,6 +4052,38 @@ function X_Generate(setting) {
         show: setting[2].topics[2].subtopics[1].subtopics[2]._checked
     });
 
+    Setting_Array.push({
+        Name: "Chemical Thermodynamics | Heat and Enthalpy&BIG",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat and Enthalpy | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat and Enthalpy | Heat Transfer",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat and Enthalpy | Thermochemical Equations",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat and Enthalpy | Heat Reactions",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[0]._checked
+    });
+    Setting_Array.push({
+        Name: "Heat and Enthalpy | Enthalpy Changes",
+        Typ: "checked",
+        show: setting[2].topics[2].subtopics[2].subtopics[0]._checked
+    });
+
 
     X_Operate.newPage();
     let General_settings = [
@@ -5246,6 +5278,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Equilibrium Constants for Chemical Reactions: ", loop_length, i);
                     re_q.push($X.chemistry.High_School_Chemistry.Chemical_Reaction_Kinetics.EquilibriumConstantsForChemicalReactions(results[657], results[658]));
+                }
+            }
+            if (results[659] == true) {
+                loop_length = Number(results[660]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Heat and Enthalpy: ", loop_length, i);
+                    re_q.push($X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.HeatAndEnthalpy(results[661], results[662], results[663], results[664]));
                 }
             }
 

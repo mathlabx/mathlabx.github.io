@@ -22,25 +22,28 @@ $X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.ReactionEnthalpyAndEn
     var answer = "";
 
     if (reactionEnthalpy) {
-        // Logic for questions related to reaction enthalpy
         var reactants = "H2 + Cl2";
         var products = "2HCl";
-        var enthalpyChange = (Math.random() * (500 - (-500)) + (-500)).toFixed(2); // Random enthalpy change between -500 and 500 kJ/mol
+        var enthalpyChange = (Math.random() * (500 - (-500)) + (-500)).toFixed(2);
 
-        question = `What is the enthalpy change for the reaction ${reactants} → ${products}?`;
+        question = `What is the enthalpy change for the reaction ${reactants} → ${products} when the reaction enthalpy is given?`;
         answer = `The enthalpy change for the reaction ${reactants} → ${products} is ${enthalpyChange} kJ/mol.`;
     }
 
     if (entropyChanges) {
-        // Logic for questions related to entropy changes
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        var substances = "A and B";
+        var initialEntropy = (Math.random() * 200).toFixed(2);
+        var finalEntropy = (Math.random() * 200).toFixed(2);
+
+        question = `Calculate the change in entropy when substances ${substances} undergo a phase change with initial entropy ${initialEntropy} J/K and final entropy ${finalEntropy} J/K.`;
+        answer = `The change in entropy when ${substances} undergo a phase change is ${finalEntropy - initialEntropy} J/K.`;
     }
 
     if (reactionThermodynamics) {
-        // Logic for questions related to reaction thermodynamics
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        var thermodynamicValue = (Math.random() * 500).toFixed(2);
+
+        question = `Explain the thermodynamics of the given reaction with an enthalpy change of ${thermodynamicValue} kJ/mol and an entropy change of ${thermodynamicValue} J/K.`;
+        answer = `The thermodynamics of the given reaction indicate an enthalpy change of ${thermodynamicValue} kJ/mol and an entropy change of ${thermodynamicValue} J/K.`;
     }
 
     // Return the question and answer in an array

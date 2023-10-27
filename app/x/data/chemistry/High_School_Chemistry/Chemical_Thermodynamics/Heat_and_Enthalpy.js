@@ -22,28 +22,35 @@ $X.chemistry.High_School_Chemistry.Chemical_Thermodynamics.HeatAndEnthalpy = fun
     var question = "";
     var answer = "";
 
-    if (heatTransfer) {
-        // Logic for questions related to heat transfer
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
+    if (heatTransfer || thermochemicalEquations || heatReactions || enthalpyChanges) {
+        var selectedInputs = [];
+        if (heatTransfer) selectedInputs.push("heatTransfer");
+        if (thermochemicalEquations) selectedInputs.push("thermochemicalEquations");
+        if (heatReactions) selectedInputs.push("heatReactions");
+        if (enthalpyChanges) selectedInputs.push("enthalpyChanges");
 
-    if (thermochemicalEquations) {
-        // Logic for questions related to thermochemical equations
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
+        var selectedInput = selectedInputs[Math.floor(Math.random() * selectedInputs.length)];
 
-    if (heatReactions) {
-        // Logic for questions related to heat reactions
-        // Generate questions and answers with randomly generated numerical values
-        // ...
-    }
-
-    if (enthalpyChanges) {
-        // Logic for questions related to enthalpy changes
-        // Generate questions and answers with randomly generated numerical values
-        // ...
+        if (selectedInput === "heatTransfer") {
+            var heatValues = (Math.random() * 500).toFixed(2);
+            var temperatureChange = (Math.random() * 10).toFixed(2);
+            question = `A substance absorbs ${heatValues} J of heat. If the temperature change is ${temperatureChange} °C, what is the specific heat capacity of the substance?`;
+            var specificHeatCapacity = (heatValues / temperatureChange).toFixed(2);
+            answer = `The specific heat capacity of the substance is ${specificHeatCapacity} J/°C.`;
+        } else if (selectedInput === "thermochemicalEquations") {
+            var heatOfReaction = (Math.random() * 500).toFixed(2);
+            question = `Given a thermochemical equation, calculate the heat of reaction.`;
+            answer = `The heat of reaction for the given thermochemical equation is ${heatOfReaction} kJ/mol.`;
+        } else if (selectedInput === "heatReactions") {
+            var temperatureEffect = Math.random() > 0.5 ? "increases" : "decreases";
+            question = `How does a change in temperature affect the rate of a chemical reaction?`;
+            answer = `An increase in temperature typically ${temperatureEffect} the rate of a chemical reaction.`;
+        } else if (selectedInput === "enthalpyChanges") {
+            var positiveOrNegative = Math.random() > 0.5 ? "positive" : "negative";
+            var enthalpyChangeValue = (Math.random() * 500).toFixed(2);
+            question = `Discuss the implications of a ${positiveOrNegative} enthalpy change in a chemical reaction.`;
+            answer = `A ${positiveOrNegative} enthalpy change suggests that the reaction is ${positiveOrNegative}, with an enthalpy change of ${enthalpyChangeValue} kJ/mol.`;
+        }
     }
 
     // Return the question and answer in an array

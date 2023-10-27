@@ -117,8 +117,21 @@ let Test = {
         pre_test.append(next_botton);
     },
     Start: function () {
+        let test_div = document.getElementById("test");
         Test_Star_Time = new Date().getTime();
-        
+        function full(ele) {
+            if (ele.requestFullscreen) {
+                ele.requestFullscreen();
+            } else if (ele.mozRequestFullScreen) {
+                ele.mozRequestFullScreen();
+            } else if (ele.webkitRequestFullscreen) {
+                ele.webkitRequestFullscreen();
+            } else if (ele.msRequestFullscreen) {
+                ele.msRequestFullscreen();
+            }
+        }
+        full(test_div);
+        test_div.style.backgroundColor = "white";
     },
     End: function () {
 

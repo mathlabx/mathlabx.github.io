@@ -4291,6 +4291,28 @@ function X_Generate(setting) {
         Typ: "checked",
         show: setting[2].topics[3].subtopics[3].subtopics[0]._checked
     });
+    
+    Setting_Array.push({
+        Name: "Properties of Matter | Redox Reactions&Reg",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[3].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Redox Reactions | Number of questions to generate",
+        Typ: "range",
+        Range: [1, 10000, 40],
+        show: setting[2].topics[3].subtopics[3].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Redox Reactions | Principles of Redox Reactions",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[3].subtopics[1]._checked
+    });
+    Setting_Array.push({
+        Name: "Redox Reactions | Identification of Redox Reactions",
+        Typ: "checked",
+        show: setting[2].topics[3].subtopics[3].subtopics[1]._checked
+    });
 
 
     X_Operate.newPage();
@@ -5556,6 +5578,13 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
                 for (let i = 0; i < loop_length; i++) {
                     gen_log("Generating - Solubility and Solution Concentration: ", loop_length, i);
                     re_q.push($X.chemistry.University_Chemistry.Properties_of_Matter.SolubilityAndSolutionConcentration(results[701], results[702]));
+                }
+            }
+            if (results[703] == true) {
+                loop_length = Number(results[704]);
+                for (let i = 0; i < loop_length; i++) {
+                    gen_log("Generating - Redox Reactions: ", loop_length, i);
+                    re_q.push($X.chemistry.University_Chemistry.Properties_of_Matter.RedoxReactions(results[705], results[706]));
                 }
             }
 

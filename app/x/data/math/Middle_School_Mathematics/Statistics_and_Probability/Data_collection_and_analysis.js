@@ -1,5 +1,14 @@
 /*
-数据收集/分析
+Data Collection and Analysis
+
+Description:
+This function generates a problem related to data collection and analysis. It randomly selects an analysis (mean, median, mode, or range) based on the provided boolean values. It generates a random set of data points, performs the specified analysis, and constructs a question asking for the specific analysis of the data set. It also provides the formula for calculating the respective analysis in the answer. The function returns the question and answer in an array.
+
+Example Usage:
+const result = Data_Collection_And_Analysis(true, false, false, false); // Example for calculating the mean
+console.log(result);
+// Example output: ["Calculate the mean of the following data set: [4, 12, 7, 1, 19].", "The mean is the sum of all the data points divided by the number of data points. For this data set, the mean is 8.60."]
+
 */
 
 $X.math.Middle_School_Mathematics.Statistics_and_Probability.Data_Collection_And_Analysis = function (mean, median, mode, range) {

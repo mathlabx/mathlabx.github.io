@@ -1,5 +1,18 @@
 /*
-Area_of_Triangle
+Triangle Area
+
+Description:
+This function generates a problem related to the calculation of the area of a triangle. It randomly generates the base and height within specified ranges, constructs a question based on these values, calculates the area using the appropriate formula, and provides the answer rounded to two decimal places.
+
+Outputs:
+- Array: An array containing the question and the answer.
+
+Example Usage:
+const result = TriangleArea();
+console.log(result);
+// Example output: ['Consider a triangle with base 6 units and height 4 units. Find the area of the triangle. Round to the nearest hundredth.', 'The area of a triangle with base 6 units and height 4 units is 12.00 square units.']
+// The question asks for the calculation of the area, and the answer provides the result rounded to two decimal places.
+
 */
 
 $X.math.Middle_School_Mathematics.Geometry.TriangleArea = function () {

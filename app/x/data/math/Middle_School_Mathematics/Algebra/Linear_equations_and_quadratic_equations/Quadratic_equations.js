@@ -1,22 +1,35 @@
 /*
-一元二次方程
+Quadratic Equations
 
-输入：(最小数，最大数)
-输出：[题干Katex格式，答案]
+Description:
+This function generates quadratic equation problems of the form ax^2 + bx + c = 0, where a, b, and c are random coefficients within the specified range. The function returns an array with the problem statement in the Katex format and the solution.
+
+Inputs:
+- min (number): The minimum value for the coefficients.
+- max (number): The maximum value for the coefficients.
+
+Outputs:
+- Array: An array containing the problem statement and the answer.
+
+Example Usage:
+const result = Quadratic_equations(1, 5);
+console.log(result); // Output: [['Solve the equation:', '3x^2 + 4x - 2 = 0'], 'x = \\frac{2}{3}']
+// The problem is to solve the quadratic equation 3x^2 + 4x - 2 = 0, and the solution is x = 2/3.
+
 */
 
 $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, max) {
     var answer;
     let valid = false;
     while (!valid) {
-        // 生成随机分数
+        // Generate random fractions
         function generateRandomFraction(min, max) {
             var numerator = Math.floor(Math.random() * (max - min + 1)) + min;
             var denominator = Math.floor(Math.random() * (max - min + 1)) + min;
             return [numerator, denominator];
         }
 
-        // 计算两个分数的最大公约数
+        // Find the greatest common divisor of two fractions
         function findGCD(a, b) {
             a = Math.abs(a);
             b = Math.abs(b);
@@ -49,7 +62,7 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             findGCD(numerator, denominator) > max
         );
 
-        // 简化分数
+        // Simplify the fraction
         function simplifyFraction(numerator, denominator) {
             var gcd = findGCD(numerator, denominator);
             var sign = (numerator < 0) === (denominator < 0) ? '' : '-';
@@ -58,13 +71,13 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
             return (numerator % denominator == 0) ? `${sign}${numerator / denominator}` : `${sign}\\frac{${numerator}}{${denominator}}`;
         }
 
-        // 构造题干
+        // Construct the problem statement
         var question = [
             `Solve the equation: `,
             `${a}x^2 + ${b}x + ${c} = 0`
         ];
 
-        // 构造答案
+        // Construct the answer
         if (discriminant === 0) {
             var x = -b / (2 * a);
             if (x % 1 !== 0) {
@@ -86,6 +99,6 @@ $X.math.Middle_School_Mathematics.Algebra.Quadratic_equations = function (min, m
         if (answer != "" && answer.length <= 40) valid = true;
     }
 
-    // 返回题干和答案
+    // Return the problem statement and the answer
     return [question, answer];
 }

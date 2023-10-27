@@ -1,8 +1,21 @@
 /*
-小数的乘除（有连乘/连除）
+Decimal Multiplication (with consecutive multiplications)
 
-输入：(最小数，最大数，几个数相乘/除，小数位数)
-输出：[题干，答案]
+Description:
+This function generates a multiplication problem involving decimal numbers. It generates a specified number of random decimal numbers with a specified number of decimal places. The function calculates the product of the generated numbers and returns the problem statement and the answer.
+
+Inputs:
+- min (number): The minimum value for the random numbers.
+- max (number): The maximum value for the random numbers.
+- numCount (number): The number of decimal numbers to be multiplied.
+- decimalPlaces (number): The number of decimal places for the generated numbers.
+
+Outputs:
+- Array: An array containing the problem statement and the answer.
+
+Example Usage:
+const result = Multiplication(1, 10, 3, 2);
+console.log(result); // Output: ['2.34 × 5.67 × 3.21 = ?', 38.123698] // The answer is the product of the three generated random decimal numbers.
 */
 
 $X.math.Elementary_Mathematics.Decimals.Multiplication = function (min, max, numCount, decimalPlaces) {
@@ -20,6 +33,26 @@ $X.math.Elementary_Mathematics.Decimals.Multiplication = function (min, max, num
     return [question, answer];
 }
 
+/*
+Decimal Multiplication with Context
+
+Description:
+This function generates a multiplication problem involving decimal numbers with context. It generates a specified number of random decimal numbers with a specified number of decimal places. The function calculates the product of the generated numbers and returns both the problem description and the answer.
+
+Inputs:
+- min (number): The minimum value for the random numbers.
+- max (number): The maximum value for the random numbers.
+- numCount (number): The number of decimal numbers to be multiplied.
+- decimalPlaces (number): The number of decimal places for the generated numbers.
+
+Outputs:
+- Array: An array containing the problem description and the answer.
+
+Example Usage:
+const result = Multiplication_w(1, 10, 3, 2);
+console.log(result); // Output: ['In a science experiment, you have 3 measurements. If you multiply them 2.34 × 5.67 × 3.21, what is the total product?', 38.123698] // The answer is the product of the three generated random decimal numbers.
+*/
+
 $X.math.Elementary_Mathematics.Decimals.Multiplication_w = function (min, max, numCount, decimalPlaces) {
     var question = "";
     var answer = 1;
@@ -30,7 +63,7 @@ $X.math.Elementary_Mathematics.Decimals.Multiplication_w = function (min, max, n
         answer *= num;
     }
 
-    // 随机选择一个情境
+    // Randomly select a context
     var scenarios = ["In a science experiment, ", "At a bakery, ", "In a recipe, ", "At a construction site, "];
     var randomScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
 
@@ -39,6 +72,26 @@ $X.math.Elementary_Mathematics.Decimals.Multiplication_w = function (min, max, n
     return [question, answer];
 }
 
+/*
+Decimal Division (with consecutive divisions)
+
+Description:
+This function generates a division problem involving decimal numbers. It generates a specified number of random decimal numbers with a specified number of decimal places. The function ensures that the divisor is not zero and calculates the result of consecutive divisions. It returns the problem statement and the answer.
+
+Inputs:
+- min (number): The minimum value for the random numbers.
+- max (number): The maximum value for the random numbers.
+- numCount (number): The number of decimal numbers to be divided.
+- decimalPlaces (number): The number of decimal places for the generated numbers.
+
+Outputs:
+- Array: An array containing the problem statement and the answer.
+
+Example Usage:
+const result = Division(1, 10, 3, 2);
+console.log(result); // Output: ['2.34 ÷ 5.67 ÷ 3.21 = ?', 0.1306] // The answer is the result of dividing the three generated random decimal numbers.
+*/
+
 $X.math.Elementary_Mathematics.Decimals.Division = function (min, max, numCount, decimalPlaces) {
     var question = "";
     var answer = 1;
@@ -46,12 +99,12 @@ $X.math.Elementary_Mathematics.Decimals.Division = function (min, max, numCount,
     for (var i = 0; i < numCount; i++) {
         var num = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
 
-        // 避免出现除数为零的情况
+        // Avoid the situation where the divisor is zero
         while (num === 0.0) {
             num = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
         }
 
-        // 将问题的小数位数设置为与答案相同的小数位数
+        // Set the decimal places of the question to match the answer
         if (i === 0) {
             question += num;
             answer = num;
@@ -66,6 +119,27 @@ $X.math.Elementary_Mathematics.Decimals.Division = function (min, max, numCount,
     return [question, answer];
 }
 
+
+/*
+Decimal Division with Context
+
+Description:
+This function generates a division problem involving decimal numbers with context. It generates a specified number of random decimal numbers with a specified number of decimal places. The function ensures that the divisor is not zero and calculates the result of consecutive divisions. It returns both the problem description and the answer.
+
+Inputs:
+- min (number): The minimum value for the random numbers.
+- max (number): The maximum value for the random numbers.
+- numCount (number): The number of decimal numbers to be divided.
+- decimalPlaces (number): The number of decimal places for the generated numbers.
+
+Outputs:
+- Array: An array containing the problem description and the answer.
+
+Example Usage:
+const result = Division_w(1, 10, 3, 2);
+console.log(result); // Output: ['In a science experiment, you have 3 measurements to distribute. If you divide them 2.34 ÷ 5.67 ÷ 3.21, what is the result in each division?', 0.1306] // The answer is the result of dividing the three generated random decimal numbers.
+*/
+
 $X.math.Elementary_Mathematics.Decimals.Division_w = function (min, max, numCount, decimalPlaces) {
     var question = "";
     var answer = 1;
@@ -73,12 +147,12 @@ $X.math.Elementary_Mathematics.Decimals.Division_w = function (min, max, numCoun
     for (var i = 0; i < numCount; i++) {
         var num = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
 
-        // 避免出现除数为零的情况
+        // Avoid the situation where the divisor is zero
         while (num === 0.0) {
             num = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
         }
 
-        // 将问题的小数位数设置为与答案相同的小数位数
+        // Set the decimal places of the question to match the answer
         if (i === 0) {
             question += num;
             answer = num;
@@ -88,7 +162,7 @@ $X.math.Elementary_Mathematics.Decimals.Division_w = function (min, max, numCoun
         }
     }
 
-    // 随机选择一个情境
+    // Randomly select a context
     var scenarios = ["In a science experiment, ", "At a bakery, ", "In a recipe, ", "At a construction site, "];
     var randomScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
 

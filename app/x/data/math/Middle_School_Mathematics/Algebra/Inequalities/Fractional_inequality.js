@@ -1,20 +1,25 @@
 /*
-# 分数不等式
- - 使用Katex表达函数
- - return[0]或者question是一个数组，用于表达多行的题比如["题目的说明","题目的公式*&&……@#……！*"]
- - return[1]或者answer可以是一个比如：1, "z=2", ...; 也可以是一个长度为2的数组来表达分数解，比如：[1,2]表达的是1/2
- - (min, max)是系数的最小和最大随机范围
- 
- 题目示例：
- - 1/x > 3 解：x < 1/3
-    - Katex: \frac{1}{x} > 3 解：x < \frac{1}{3}
- - (2x+3)/(5) - (x-1)/(3) >= 2  解：x ≥ 16
-    - Katex: \frac{2x+3}{5} - \frac{x-1}{3} \geq 2  解：x \geq 16
+Fractional Inequalities
+
+Description:
+This function generates fractional inequality problems using the Katex notation. The function generates inequalities of the form (ax+b)/c < d or (ax+b)/c >= d, where a, b, c, and d are random coefficients within the specified range. The function returns an array with the problem statement and the solution expressed in the Katex notation.
+
+Inputs:
+- min (number): The minimum value for the coefficients.
+- max (number): The maximum value for the coefficients.
+
+Outputs:
+- Array: An array containing the problem statement and the answer.
+
+Example Usage:
+const result = Fractional_inequality(1, 5);
+console.log(result); // Output: [['Solve the inequality:', '\\frac{3x}{4} > 2'], 'x < \\frac{8}{3}'] // The problem is to solve the inequality (3x/4) > 2, and the solution is x < 8/3.
+
 */
 
 $X.math.Middle_School_Mathematics.Algebra.Fractional_inequality = function (min, max) {
     const letters = "abcdefghijklmnopqrstuvwxyz";
-    const coefficients = [1, 2, 3, 4, 5]; // 可以根据需要添加更多的系数选项
+    const coefficients = [1, 2, 3, 4, 5]; // Additional coefficients can be added as needed
     const numerator1 = Math.floor(Math.random() * (max - min + 1)) + min;
     const denominator1 = Math.floor(Math.random() * (max - min + 1)) + min;
     const numerator2 = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -22,20 +27,20 @@ $X.math.Middle_School_Mathematics.Algebra.Fractional_inequality = function (min,
     const coefficient1 = coefficients[Math.floor(Math.random() * coefficients.length)];
     const coefficient2 = coefficients[Math.floor(Math.random() * coefficients.length)];
     const variable = letters.charAt(Math.floor(Math.random() * letters.length));
-    const operation = ["<", ">", "\\leq", "\\geq"][Math.floor(Math.random() * 4)]; // 随机选择一个操作符
-    const reciprocalOperation = operation === "<" ? ">" : "<"; // 根据选择的操作符获取倒数的操作符
+    const operation = ["<", ">", "\\leq", "\\geq"][Math.floor(Math.random() * 4)]; // Randomly select an operator
+    const reciprocalOperation = operation === "<" ? ">" : "<"; // Obtain the reciprocal operator based on the selected operator
     let question = [];
     let answer;
 
-    // 生成问题和答案
+    // Generate the problem and the answer
     if (Math.random() < 0.5) {
-        // 生成 < 或者 >
+        // Generate < or >
         const inequality = operation === "<" ? ">" : "<";
         question.push(`Solve the inequality: `);
         question.push(`\\frac{${coefficient1}${variable}${numerator1 !== 1 ? '' : ''}}{${denominator1 !== 1 ? denominator1 : ''}} ${inequality} ${coefficient2}`);
         answer = `${variable} ${reciprocalOperation} \\frac{${coefficient2}}{${coefficient1 * numerator1}}`;
     } else {
-        // 生成 \leq 或者 \geq
+        // Generate \\leq or \\geq
         const inequality = operation === "\\leq" ? "\\geq" : "\\leq";
         question.push(`Solve the inequality: `);
         question.push(`\\frac{${coefficient1}${variable}${numerator1 !== 1 ? '' : ''}}{${denominator1 !== 1 ? denominator1 : ''}} ${inequality} ${coefficient2}`);

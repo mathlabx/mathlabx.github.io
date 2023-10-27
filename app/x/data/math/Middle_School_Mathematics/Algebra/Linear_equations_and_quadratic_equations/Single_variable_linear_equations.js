@@ -1,38 +1,45 @@
-//一元一次方程（Single-variable linear equations）
-//2x + 3 = 7
-//5y - 8 = 12
-//如果一本书的原价是$20，现在打折50%，那么现在的价格是多少？
-//如果小明有10个苹果，他吃掉了3个，还剩下多少个？
 /*
-基本代数-一元一次方程
-- 数字题 Single_variable_linear_equations(系数最小值, 系数最大值,是否加法(布尔值),是否减法(布尔值)) return 一个数组[题干(字符串), 解(数字)]
-- 文字题 Single_variable_linear_equations_w(系数最小值, 系数最大值,是否加法(布尔值),是否减法(布尔值)) return 一个数组[题干(字符串), 解(数字)]
+Single-Variable Linear Equations
 
-输入：(最小数，最大数)
-输出：[题干Katex格式，答案]
-PS: 不会可以参考小学加减法
+Description:
+This function generates single-variable linear equation problems of the form ax + b = c, where a, b, and c are random coefficients within the specified range. The function returns an array with the problem statement and the solution.
+
+Inputs:
+- min (number): The minimum value for the coefficients.
+- max (number): The maximum value for the coefficients.
+- add (boolean): Determines whether the operation is addition or not.
+- sub (boolean): Determines whether the operation is subtraction or not.
+
+Outputs:
+- Array: An array containing the problem statement and the answer.
+
+Example Usage:
+const result = Single_variable_linear_equations(1, 5, true, false);
+console.log(result); // Output: ['Solve the equation: 3x + 4 = 9.', 'x = 5/3']
+// The problem is to solve the equation 3x + 4 = 9, and the solution is x = 5/3.
+
 */
 
-// 数字题 Single_variable_linear_equations
+// Numeric question: Single_variable_linear_equations
 $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations = function (min, max, add, sub) {
-    // 数组用于存储生成的问题
+    // Array to store generated questions
     let storedQuestions = [];
 
-    // 检查问题是否已存在的函数
+    // Function to check if the question already exists
     function checkIfQuestionExists(question) {
         return storedQuestions.includes(question);
     }
 
-    // 将小数转换为分数
+    // Convert decimal to fraction
     function convertToFractionIfDecimal(number) {
-        const tolerance = 1.0E-6; // 容差值，用于判断是否为小数
+        const tolerance = 1.0E-6; // Tolerance value for checking if the number is a decimal
 
         if (Math.abs(Math.round(number) - number) < tolerance) {
-            // 是整数
+            // It's an integer
             return number;
         } else {
-            // 是小数，将其转换为分数
-            const tolerance = 1.0E-6; // 容差值
+            // It's a decimal, convert to fraction
+            const tolerance = 1.0E-6; // Tolerance value
             let h1 = 1;
             let h2 = 0;
             let k1 = 0;
@@ -53,62 +60,62 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations = fun
         }
     }
 
-    // 生成唯一问题
+    // Generate unique question
     let question;
     let answer;
     do {
-        // 生成随机的因子
+        // Generate random factor
         let factor = Math.floor(Math.random() * (max - min + 1)) + min;
         let a = Math.floor(Math.random() * (max - min + 1)) + min;
         let b = Math.floor(Math.random() * (max - min + 1)) + min;
-        let c = a * factor + b; // 使用随机因子确保 c 不会太小或太大
+        let c = a * factor + b; // Using random factor to ensure c is not too small or too large
 
 
-        // 根据参数确定运算符
+        // Determine the operator based on the parameters
         let operator = add ? '+' : sub ? '-' : '+';
 
-        // 构建问题描述
+        // Construct the question statement
         question = `Solve the equation: ${a}x ${operator} ${b} = ${c}.`;
 
-        // 计算答案
+        // Calculate the answer
         answer = add ? (c - b) / a : sub ? (c + b) / a : (c - b) / a;
 
-        // 根据答案是否小数，将答案表示为分数
+        // Represent the answer as a fraction if it's a decimal
         answer = convertToFractionIfDecimal(answer);
     } while (checkIfQuestionExists(question));
 
-    // 存储问题以避免重复
+    // Store the question to avoid repetition
     storedQuestions.push(question);
 
     answer = "x = " + answer;
 
-    // 返回问题描述和答案
+    // Return the question statement and the answer
     return [question, answer];
 }
 
-// 文字题 Single_variable_linear_equations_w
+// Verbal question: Single_variable_linear_equations_w
 $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w = function (min, max, add, sub) {
-    // 数组用于存储生成的问题
+    // Array to store generated questions
     let storedQuestions = [];
 
-    // 检查问题是否已存在的函数
+    // Function to check if the question already exists
     function checkIfQuestionExists(question) {
         return storedQuestions.includes(question);
     }
 
-    // 生成唯一问题
+    // Generate unique question
     let question;
     let answer;
     do {
-        // 生成合理范围内的随机系数
+        // Generate random coefficients within a reasonable range
         let a = Math.floor(Math.random() * (max - min + 1)) + min;
         let b = Math.floor(Math.random() * (max - min + 1)) + min;
-        let c = a * 2 + b; // 确保 c 不会太小或太大
+        let c = a * 2 + b; // Ensure c is not too small or too large
 
-        // 根据参数确定运算符
+        // Determine the operator based on the parameters
         let operator = add ? 'plus' : sub ? 'minus' : 'plus';
 
-        // 创建潜在场景的数组
+        // Create an array of potential scenarios
         let scenarios = [
             `John has ${a} apples. He ${operator === 'plus' ? 'gives away' : 'gets'} ${b} apples. How many apples does he have now?`,
             `In a classroom, there are ${a} students. If ${b} students ${operator === 'plus' ? 'join' : 'leave'}, how many students are present?`,
@@ -121,13 +128,13 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w = f
             `Megan has ${a} marbles. She ${operator === 'plus' ? 'wins' : 'loses'} ${b} more marbles in a game. How many marbles does she have now?`,
         ];
 
-        // 随机选择一个场景
+        // Randomly select a scenario
         let randomScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
 
-        // 构建问题描述
+        // Construct the question statement
         question = `Solve the following equation: ${randomScenario}`;
 
-        // 计算答案
+        // Calculate the answer
         if (add) {
             answer = a - b;
         } else if (sub) {
@@ -137,9 +144,9 @@ $X.math.Middle_School_Mathematics.Algebra.Single_variable_linear_equations_w = f
         }
     } while (checkIfQuestionExists(question) || answer !== Math.floor(answer));
 
-    // 存储问题以避免重复
+    // Store the question to avoid repetition
     storedQuestions.push(question);
 
-    // 返回问题描述和答案
+    // Return the question statement and the answer
     return [question, answer];
 }

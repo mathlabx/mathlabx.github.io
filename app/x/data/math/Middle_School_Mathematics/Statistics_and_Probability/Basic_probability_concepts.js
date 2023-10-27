@@ -1,5 +1,14 @@
 /*
-基本概率
+Basic Probability Concepts
+
+Description:
+This function generates a problem related to basic probability concepts. It randomly selects a probability concept (experimental probability, theoretical probability, probability of events, or sample space) based on the provided boolean values. Using the randomly generated values, it calculates the probability or sample space and constructs a question asking for the specific probability or sample space. It also provides the formula for calculating the respective probability in the answer. The function returns the question and answer in an array.
+
+Example Usage:
+const result = Basic_Probability_Concepts(true, false, false, false); // Example for experimental probability
+console.log(result);
+// Example output: ["Find the experimental probability of an event with 7 favorable outcomes out of 12 total outcomes.", "Experimental probability is calculated as the ratio of favorable outcomes to total outcomes. For this event, the experimental probability is 0.58."]
+
 */
 
 $X.math.Middle_School_Mathematics.Statistics_and_Probability.Basic_Probability_Concepts = function (experimentalProbability, theoreticalProbability, probabilityOfEvents, sampleSpace) {

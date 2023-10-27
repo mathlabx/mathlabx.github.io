@@ -1,5 +1,14 @@
 /*
-三角学
+Trigonometry
+
+Description:
+This function generates a problem related to trigonometry. It randomly selects a trigonometric function (sine, cosine, or tangent) based on the provided boolean values. Using the randomly generated angle and the corresponding trigonometric function, it calculates the value of the function and constructs a question asking for the angle measurement. It also provides the formula for finding the angle using the inverse trigonometric functions in the answer. The function returns the question and answer in an array.
+
+Example Usage:
+const result = Trigonometry(true, false, false); // Example for sine
+console.log(result);
+// Example output: ["If the rounded to the nearest hundredth sine of an angle is 0.74, what is the measure of the angle in degrees?", "The measure of the angle can be found using the inverse sine function (arcsin). The angle is approximately 47.85 degrees."]
+
 */
 
 $X.math.Middle_School_Mathematics.Geometry.Trigonometry = function (sine, cosine, tangent) {

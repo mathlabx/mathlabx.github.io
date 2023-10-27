@@ -1,5 +1,15 @@
-/*相似图形
-例题（你要用英文）：一个长方形ABCD和另一个正方形EFGH是全等的（图形取决于进入哪个函数了），已知<A是10°/或边长（取决于进入哪个函数了），请计算<E的度数/或边长（取决于进入哪个函数了），长度和角度都要随机
+/*
+Similarity of Shapes
+
+Description:
+This function generates a problem related to the similarity of shapes. It considers various shapes such as triangles, squares, rectangles, parallelograms, trapezoids, and rhombuses. The function randomly selects whether to focus on side length or angle measure based on the provided boolean values. It then constructs a question regarding the corresponding properties of similar shapes and provides an answer based on the random properties generated. The function returns the question and answer in an array.
+
+Example Usage:
+const result = Similarity(true, false, true, false, false, true, false, false);
+console.log(result);
+// Example output: ["Rhombus ABCD is similar to rhombus EFGH with a scale factor of 2.6. If the side length of ABCD is 9 units, find the side length of EFGH.", "Since rhombus ABCD is similar to rhombus EFGH with a scale factor of 2.6, the side length of EFGH is 23.4 units. The side length of EFGH is found by multiplying the scale factor by the side length of ABCD."]
+// The question involves finding the side length of a rhombus EFGH based on the provided information, and the answer explains the process of finding the side length using the scale factor.
+
 */
 
 $X.math.Middle_School_Mathematics.Geometry.Similarity = function (C_side, C_angle, triangle, square, rectangle, parallelogram, trapezoid, rhombus) {

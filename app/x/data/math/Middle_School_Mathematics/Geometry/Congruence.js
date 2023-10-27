@@ -1,4 +1,29 @@
-/*全等图形*/
+/*
+Congruence
+
+Description:
+This function generates a problem related to the concept of congruence in various geometric shapes. It randomly selects shapes based on the provided boolean values and generates questions and answers for each case. The function returns the question and the corresponding answer.
+
+Inputs:
+- C_side: Boolean value indicating whether the problem involves the congruence of sides
+- C_angle: Boolean value indicating whether the problem involves the congruence of angles
+- triangle: Boolean value indicating whether the problem involves a triangle
+- square: Boolean value indicating whether the problem involves a square
+- rectangle: Boolean value indicating whether the problem involves a rectangle
+- parallelogram: Boolean value indicating whether the problem involves a parallelogram
+- trapezoid: Boolean value indicating whether the problem involves a trapezoid
+- rhombus: Boolean value indicating whether the problem involves a rhombus
+
+Outputs:
+- Array: An array containing the question and the answer.
+
+Example Usage:
+const result = Congruence(true, true, true, false, true, false, false);
+console.log(result);
+// Example output: ["Parallelogram ABCD is congruent to parallelogram EFGH. If the base AB has a length of 5 units, what is the length of EF?", "In congruent parallelograms, corresponding sides are equal. Hence, the length of EF is 5 units."]
+// The question involves the congruence of sides in a parallelogram, and the answer explains the property of corresponding sides in congruent shapes.
+
+*/
 
 $X.math.Middle_School_Mathematics.Geometry.Congruence = function (C_side, C_angle, triangle, square, rectangle, parallelogram, trapezoid, rhombus) {
     var shapes = {};

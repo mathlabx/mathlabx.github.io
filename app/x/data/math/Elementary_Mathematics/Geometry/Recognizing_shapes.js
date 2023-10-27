@@ -1,13 +1,35 @@
 /*
-识别形状
-给一些随机的数据或文字，判断是哪种图形
+Shape Recognition
 
-输入：(三角形，圆形，矩形，平行四边形，五边形，六边形，七边形，八边形，椭圆形，菱形，梯形，半圆形)
-输出：[题干，答案]
+Description:
+This function identifies a shape based on some random data or description. It randomly selects a shape from the given list and provides a description of that shape. It then asks the user to identify the shape based on the description.
+
+Inputs:
+- square (boolean): Whether to include a square in the options.
+- triangle (boolean): Whether to include a triangle in the options.
+- circle (boolean): Whether to include a circle in the options.
+- rectangle (boolean): Whether to include a rectangle in the options.
+- parallelogram (boolean): Whether to include a parallelogram in the options.
+- pentagon (boolean): Whether to include a pentagon in the options.
+- hexagon (boolean): Whether to include a hexagon in the options.
+- heptagon (boolean): Whether to include a heptagon in the options.
+- octagon (boolean): Whether to include an octagon in the options.
+- oval (boolean): Whether to include an oval in the options.
+- rhombus (boolean): Whether to include a rhombus in the options.
+- trapezoid (boolean): Whether to include a trapezoid in the options.
+- semicircle (boolean): Whether to include a semicircle in the options.
+
+Outputs:
+- Array: An array containing the problem statement and the answer.
+
+Example Usage:
+const result = Recognizing_shapes(true, false, false, true, false, false, false, false, false, false, false, false, false);
+console.log(result); // Output: ['What shape is described as follows: A shape with four right angles and two long sides and two short side.', 'Rectangle']
+
 */
 
 $X.math.Elementary_Mathematics.Geometry.Recognizing_shapes = function (square, triangle, circle, rectangle, parallelogram, pentagon, hexagon, heptagon, octagon, oval, rhombus, trapezoid, semicircle) {
-    // 定义可选的形状
+    // Defining available shapes
     var shapes = [
         { name: "Square", sides: 4, angles: 4, description: "A shape with four equal sides and four right angles." },
         { name: "Triangle", sides: 3, angles: 3, description: "A shape with three sides and three angles." },
@@ -24,7 +46,7 @@ $X.math.Elementary_Mathematics.Geometry.Recognizing_shapes = function (square, t
         { name: "Semicircle", sides: 0, angles: 0, description: "A shape that is half of a circle." }
     ];
 
-    // 随机选择一个可选的形状
+    // Randomly selecting an available shape
     var availableShapes = [];
     if (square) availableShapes.push(shapes[0]);
     if (triangle) availableShapes.push(shapes[1]);
@@ -46,7 +68,7 @@ $X.math.Elementary_Mathematics.Geometry.Recognizing_shapes = function (square, t
 
     var randomShape = availableShapes[Math.floor(Math.random() * availableShapes.length)];
 
-    // 随机生成问题描述
+    // Generating a random question description
     var question = "What shape is described as follows: " + randomShape.description;
     var answer = randomShape.name;
 

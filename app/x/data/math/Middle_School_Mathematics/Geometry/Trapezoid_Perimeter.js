@@ -1,5 +1,14 @@
 /*
-梯形-周长
+Trapezoid Perimeter
+
+Description:
+This function generates a problem related to finding the perimeter of a trapezoid. It randomly generates the values for the slant sides, upper base, and lower base of the trapezoid within specific ranges. Using these values, it calculates the perimeter of the trapezoid and constructs a question asking the user to find the perimeter. It also provides the formula for calculating the perimeter of a trapezoid in the answer. The function returns the question and answer in an array.
+
+Example Usage:
+const result = TrapezoidPerimeter();
+console.log(result);
+// Example output: ["A trapezoid has two slant sides 12 and 18 and two bases 7 and 25. Calculate the perimeter of this trapezoid.", "Add the four side lengths to get the perimeter, which is 62."]
+
 */
 
 $X.math.Middle_School_Mathematics.Geometry.TrapezoidPerimeter = function () {

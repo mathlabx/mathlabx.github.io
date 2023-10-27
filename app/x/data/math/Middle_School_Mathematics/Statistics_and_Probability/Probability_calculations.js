@@ -1,5 +1,14 @@
 /*
-计算概率
+Probability Calculations
+
+Description:
+This function generates a problem related to probability calculations. It randomly selects a type of calculation (probability value, combined probability, independent events, or dependent events) based on the provided boolean values. It generates random probabilities, performs the specified calculation, and constructs a question asking for the specific probability calculation. It also provides the formula for calculating the respective probability in the answer. The function returns the question and answer in an array.
+
+Example Usage:
+const result = Probability_Calculations(false, true, false, false); // Example for calculating combined probability
+console.log(result);
+// Example output: ["Determine the combined probability for two events with probabilities 0.34 and 0.12 respectively.", "The combined probability of independent events is the product of their individual probabilities. For these events, the combined probability is 0.04."]
+
 */
 
 $X.math.Middle_School_Mathematics.Statistics_and_Probability.Probability_Calculations = function (probabilityValue, combinedProbability, independentEvents, dependentEvents) {

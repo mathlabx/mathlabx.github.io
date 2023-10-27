@@ -1,5 +1,18 @@
 /*
-圆形-弧长
+Circle Arc Length
+
+Description:
+This function generates a problem related to the calculation of the arc length in a circle. It randomly generates a diameter and an angle within specified ranges, constructs a question based on them, and calculates the arc length using the appropriate formula. The answer is then provided, rounded to two decimal places.
+
+Outputs:
+- Array: An array containing the question and the answer.
+
+Example Usage:
+const result = CircleArcLength();
+console.log(result);
+// Example output: ['In a circle with diameter 7 units, if the central angle is 120 degrees, find the arc length. Round to the nearest hundredth.', 'The arc length of a circle with a diameter of 7 units and a central angle of 120 degrees is 7.33 units.']
+// The question asks for the calculation of the arc length, and the answer provides the result rounded to two decimal places.
+
 */
 
 $X.math.Middle_School_Mathematics.Geometry.CircleArcLength = function () {

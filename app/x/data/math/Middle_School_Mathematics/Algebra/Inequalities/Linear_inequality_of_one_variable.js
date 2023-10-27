@@ -45,6 +45,5 @@ $X.math.Middle_School_Mathematics.Algebra.Linear_inequality_of_one_variable = fu
                         answer = '';
         }
 
-        // 返回问题描述和答案
         return [question, answer];
 };

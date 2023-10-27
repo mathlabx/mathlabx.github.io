@@ -1,27 +1,31 @@
 /*
-整数的比较
+Integer Comparison
 
-输入：(最小数，最大数)
-输出：[题干，答案]
-输出讲解（计算题）：
-num1 > num2 返回 greater
-num1 < num2 返回 less
-num1 = num2 返回 equal
-输出讲解（文字题）：
-num1 > num2 返回 first
-num1 < num2 返回 second
-num1 = num2 返回 equal
+Description:
+This function generates an integer comparison problem. It generates two random integers within a specified range and compares them. The function returns both the problem statement and the comparison result, which can be 'greater', 'less', or 'equal'.
+
+Inputs:
+- min (number): The minimum value for the random integers.
+- max (number): The maximum value for the random integers.
+
+Outputs:
+- Array: An array containing the problem statement and the comparison result.
+
+Example Usage:
+const result = Comparing_integers(1, 10);
+console.log(result); // Output: ['Compare a and b. Is a greater, equal to, or less than b?', 'greater'] // The comparison result indicates that the first number is greater than the second number.
+
 */
 
 $X.math.Elementary_Mathematics.Integers.Comparing_integers = function (min, max) {
-    // 生成两个随机整数，位于指定范围内
+    // Generate two random integers within the specified range
     var num1 = Math.floor(Math.random() * (max - min + 1)) + min;
     var num2 = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    // 构造题干
+    // Construct the problem statement
     var question = "Compare " + num1 + " and " + num2 + ". Is " + num1 + " greater, equal to, or less than " + num2 + "?";
 
-    // 构造答案
+    // Construct the answer
     var answer;
     if (num1 > num2) {
         answer = "greater";
@@ -31,27 +35,47 @@ $X.math.Elementary_Mathematics.Integers.Comparing_integers = function (min, max)
         answer = "equal";
     }
 
-    // 返回题干和答案
+    // Return the problem statement and the answer
     return [question, answer];
 }
 
+
+/*
+Integer Comparison with Context
+
+Description:
+This function generates an integer comparison problem with context. It generates two random integers within a specified range and compares them. The function returns both the problem description and the comparison result, which can be 'first', 'second', or 'equal'.
+
+Inputs:
+- min (number): The minimum value for the random integers.
+- max (number): The maximum value for the random integers.
+
+Outputs:
+- Array: An array containing the problem description and the comparison result.
+
+Example Usage:
+const result = Comparing_integers_w(1, 10);
+console.log(result); // Output: ['In a classroom, there are n apples. In another classroom, there are m apples. Are there more apples in the first classroom or the second classroom?', 'first'] // The comparison result indicates that there are more apples in the first classroom than in the second classroom.
+
+*/
+
 $X.math.Elementary_Mathematics.Integers.Comparing_integers_w = function (min, max) {
-    // 生成两个随机整数，位于指定范围内
+    // Generate two random integers within the specified range
     var num1 = Math.floor(Math.random() * (max - min + 1)) + min;
     var num2 = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    // 随机选择一个场景和一个物体
+    // Select a random scenario and an object
     var scenarios = ["In a classroom, ", "On a farm, ", "At a zoo, ", "In a bakery, "];
     var objects = ["apples", "bananas", "books", "pencils", "toys"];
     var randomScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
     var randomObject = objects[Math.floor(Math.random() * objects.length)];
 
-    // 构造问题描述
+    // Construct the problem description
     var question = randomScenario + "there are " + num1 + " " + randomObject + ". ";
     question += "In another " + randomScenario + "there are " + num2 + " " + randomObject + ". ";
     question += "Are there more " + randomObject + " in the first " + randomScenario + " or the second " + randomScenario + "?";
 
-    // 构造答案
+    // Construct the answer
     var answer;
     if (num1 > num2) {
         answer = "first";
@@ -61,6 +85,6 @@ $X.math.Elementary_Mathematics.Integers.Comparing_integers_w = function (min, ma
         answer = "equal";
     }
 
-    // 返回问题描述和答案
+    // Return the problem description and the answer
     return [question, answer];
 }

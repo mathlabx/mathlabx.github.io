@@ -1,19 +1,31 @@
 /*
-小数的比较
+Decimal Comparison
 
-输入：(最小数，最大数，小数位数)
-输出：[题干，答案]
+Description:
+This function generates a comparison problem involving decimal numbers. It generates two random decimal numbers with a specified number of decimal places. The function randomly determines the comparison relationship (greater than, less than, or equal to) and returns the problem statement and the answer.
+
+Inputs:
+- min (number): The minimum value for the random numbers.
+- max (number): The maximum value for the random numbers.
+- decimalPlaces (number): The number of decimal places for the generated numbers.
+
+Outputs:
+- Array: An array containing the problem statement and the answer.
+
+Example Usage:
+const result = Comparing_decimals(1, 10, 2);
+console.log(result); // Output: ['is 2.34 < 5.67 ?', true] // The answer is determined based on the comparison relationship between the two generated random decimal numbers.
 */
 
 $X.math.Elementary_Mathematics.Decimals.Comparing_decimals = function (min, max, decimalPlaces) {
-    // 生成两个随机小数，小数位数由 decimalPlaces 指定
+    // Generate two random decimals with the number of decimal places specified by decimalPlaces
     var num1 = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
     var num2 = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
 
-    // 随机确定比较关系（大于、小于、或等于）
+    // Randomly determine the comparison relationship (less than, greater than, or equal to)
     var comparison;
     var answer;
-    var randomComparison = Math.floor(Math.random() * 3); // 0, 1, 2 分别代表 <, >, =
+    var randomComparison = Math.floor(Math.random() * 3); // 0, 1, 2 represent <, >, and =
 
     if (randomComparison === 0) {
         comparison = " < ";
@@ -26,21 +38,41 @@ $X.math.Elementary_Mathematics.Decimals.Comparing_decimals = function (min, max,
         answer = num1 === num2;
     }
 
-    // 构造题干
-    var question = "is " + num1 + comparison + num2 + "？";
+    // Construct the problem statement
+    var question = "is " + num1 + comparison + num2 + " ?";
 
-    // 返回题干和答案
+    // Return the problem statement and the answer
     return [question, answer];
 }
 
+
+/*
+Decimal Comparison with Context
+
+Description:
+This function generates a comparison problem involving decimal numbers with context. It generates two random decimal numbers with a specified number of decimal places. The function randomly determines the comparison relationship (greater than, less than, or equal to) and returns both the problem description and the answer.
+
+Inputs:
+- min (number): The minimum value for the random numbers.
+- max (number): The maximum value for the random numbers.
+- decimalPlaces (number): The number of decimal places for the generated numbers.
+
+Outputs:
+- Array: An array containing the problem description and the answer.
+
+Example Usage:
+const result = Comparing_decimals_w(1, 10, 2);
+console.log(result); // Output: ['Compare the two numbers: 2.34 and 5.67. Is 2.34 is less than 5.67 ?', true] // The answer is determined based on the comparison relationship between the two generated random decimal numbers.
+*/
+
 $X.math.Elementary_Mathematics.Decimals.Comparing_decimals_w = function (min, max, decimalPlaces) {
-    // 生成两个随机小数，小数位数由 decimalPlaces 指定
+    // Generate two random decimals with the number of decimal places specified by decimalPlaces
     var num1 = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
     var num2 = parseFloat((Math.random() * (max - min) + min).toFixed(decimalPlaces));
 
-    // 随机确定比较关系（大于、小于、或等于）
+    // Randomly determine the comparison relationship (greater than, less than, or equal to)
     var comparison;
-    var randomComparison = Math.floor(Math.random() * 3); // 0, 1, 2 分别代表 <, >, =
+    var randomComparison = Math.floor(Math.random() * 3); // 0, 1, 2 represent <, >, and =
 
     if (randomComparison === 0) {
         comparison = "is less than";
@@ -50,10 +82,10 @@ $X.math.Elementary_Mathematics.Decimals.Comparing_decimals_w = function (min, ma
         comparison = "is equal to";
     }
 
-    // 构造题干的文字描述
+    // Construct the problem description
     var question = "Compare the two numbers: " + num1 + " and " + num2 + ". Is " + num1 + " " + comparison + " " + num2 + "?";
 
-    // 计算答案
+    // Calculate the answer
     var answer = false;
     if (randomComparison === 0) {
         answer = num1 < num2;
@@ -63,6 +95,6 @@ $X.math.Elementary_Mathematics.Decimals.Comparing_decimals_w = function (min, ma
         answer = num1 === num2;
     }
 
-    // 返回题干和答案
+    // Return the problem description and the answer
     return [question, answer];
 }

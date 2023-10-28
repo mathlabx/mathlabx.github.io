@@ -119,6 +119,7 @@ let Test = {
                     let new_user_typ = document.createElement("div");
                     new_user_typ.id = "userText";
                     new_user_typ.style.width = "80%";
+                    new_user_typ.style.margin = "0 10% 0 10%";
                     new_user_typ.style.height = "150px";
                     new_user_typ.style.margin = "20px";
                     new_user_typ.contentEditable = "true";

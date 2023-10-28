@@ -40,6 +40,7 @@ main {}
 .test-qustions {
     color: #000;
     position: relative;
+    text-align: center;
     height: 80vh;
     width: 100vw;
     left: 0;

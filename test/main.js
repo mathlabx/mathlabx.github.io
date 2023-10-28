@@ -234,10 +234,12 @@ let Test = {
         test_div.style.position = "flexed";
         full(test_div);
         test_div.style.backgroundColor = "white";
+        let new_input = document.getElementById("test-input");
         let quesON_El = document.getElementById("test-on");
         let quesON = 0;
         Test.Answers = new Array(Test.Questions.length).fill("/");
         window.next_ques = function () {
+            new_input.value = "";
             let test_qustions_con = document.getElementById("test-qustions");
             let length = Array.isArray(Test.Questions[quesON][0]) ? Test.Questions[quesON][0].length : (typeof Test.Questions[quesON][0] === 'string' ? 1 : 0);
             for (let i = 0; i < length; i++) {
@@ -248,7 +250,6 @@ let Test = {
             }
             let next_button = document.getElementById("next_button");
             next_button.addEventListener("click", () => {
-                let new_input = document.getElementById("test-input");
                 Test.Answers[quesON] = new_input.value;
                 quesON += 1;
                 test_div_con.innerHTML = "";

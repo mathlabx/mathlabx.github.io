@@ -254,6 +254,7 @@ let Test = {
         let quesON_El = document.getElementById("test-on");
         let quesON = 0;
         Test.Answers = new Array(Test.Questions.length).fill("/");
+        let next_button = document.getElementById("next_button");
         window.next_ques = function () {
             new_input.value = "";
             quesON_El.innerHTML = `${quesON + 1} of ${Test.Questions.length}`;
@@ -265,7 +266,6 @@ let Test = {
                 else new_p.innerHTML = Test.Questions[quesON][0];
                 test_div_con.append(new_p);
             }
-            let next_button = document.getElementById("next_button");
             next_ques();
         }
         next_button.addEventListener("click", () => {

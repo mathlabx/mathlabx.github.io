@@ -19,7 +19,43 @@ console.log(result); // Output: ['Construct a 95% confidence interval for the me
 
 $X.math.University_Mathematics.Probability_and_Statistics.StatisticalInferenceAndHypothesisTesting = function (C_sampling, C_confidence_intervals, C_hypothesis_testing) {
     // Your code goes here
-
-    // Return the question and answer in an array
-    return [question, answer];
+    if(C_sampling){
+        var question;
+		var answer;
+		const methods = ["simple random sample", "systematic sampling", "stratified sampling", "cluster sampling", "convenience sample", "voluntary response sample", "judgement sampling", "snowball sampling"];
+		const randMeth = Math.floor(Math.random()* methods.length);
+		if(randMeth == 0){
+			question = "Which type of sampling method ensures that every member of the population has an equal chance of being selected?";
+			answer = methods[randMeth];
+		}else if(randMeth == 1){
+			question = "Which sampling method choses an individual at regular intervals?";
+			answer = methods[randMeth];
+		}else if(randMeth == 2){
+			question = "Which sampling method divides the population into subpopulations(strata) that may differ in important ways and takes random sample in each group?";
+			answer = methods[randMeth];
+		}else if(randMeth == 3){
+			question = "Which sampling method divides the population into subgroups where each subgroup have similar characteristics to the whole sample and takes random sample in each group?";
+			answer = methods[randMeth];
+		}else if(randMeth == 4){
+			question = "Which bias sampling method takes individuals who happen to be most accessible to the researcher?";
+			answer = methods[randMeth];
+		}else if(randMeth == 5){
+			question = "Which bias sampling method uses response from people that volunteer to respond?";
+			answer = methods[randMeth];
+		}else if(randMeth == 6){
+			question = "Which bias sampling method involves the researcher using their expertise to select a sample that is most useful to the purposes of the research?";
+			answer = methods[randMeth];
+		}else if(randMeth == 7){
+			question = "Which bias sampling method uses recruit participants to via other participants?";
+			answer = methods[randMeth];
+		}
+        // Return the question and answer in an array
+        return [question, answer];
+    }else if(C_confidence_intervals){
+        // Return the question and answer in an array
+        return [question, answer];
+    }else if(C_hypothesis_testing){
+        // Return the question and answer in an array
+        return [question, answer];
+    }
 }

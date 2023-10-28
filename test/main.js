@@ -237,7 +237,7 @@ let Test = {
         let quesON_El = document.getElementById("test-on");
         let quesON = 0;
         Test.Answers = new Array(Test.Questions.length).fill("/");
-        function next_ques() {
+        window.next_ques = function () {
             let test_qustions_con = document.getElementById("test-qustions");
             let length = Array.isArray(Test.Questions[quesON][0]) ? Test.Questions[quesON][0].length : (typeof Test.Questions[quesON][0] === 'string' ? Test.Questions[quesON][0].length : 0);
             for (let i = 0; i < length; i++) {
@@ -256,6 +256,7 @@ let Test = {
                 else next_ques();
             })();
         }
+        next_ques();
     },
     End: function () {
 

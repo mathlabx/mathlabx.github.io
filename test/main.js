@@ -110,6 +110,7 @@ let Test = {
             let start_button = document.createElement("button");
             start_button.innerHTML = "Start Test";
             start_button.addEventListener("click", () => {
+                pre_test.innerHTML = "";
                 if (Test.Settings.Anti_cheating.Typing_no_cheating_guarantee_agreement) {
                     let new_text = document.createElement("h2");
                     new_text.innerHTML = "Please type the agreement below.";

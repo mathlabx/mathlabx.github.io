@@ -148,11 +148,11 @@ window.addEventListener('load', function () {
                     const centerY = rect.top + rect.height / 2;
                     const mouseX = e.clientX - centerX;
                     const mouseY = centerY - e.clientY;
-                    const percentX = mouseX / (rect.width / 4);
-                    const percentY = mouseY / (rect.height / 4);
+                    const percentX = mouseX / (rect.width / 6);
+                    const percentY = mouseY / (rect.height / 6);
 
-                    const rY = percentX * 10;
-                    const rX = percentY * 10;
+                    const rY = percentX * 6;
+                    const rX = percentY * 6;
 
                     this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
 

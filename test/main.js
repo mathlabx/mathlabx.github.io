@@ -156,7 +156,7 @@ let Test = {
 
                 var startIndex = saveSelection();
                 var result = '';
-                var userTextContent = document.getElementById("userText").innerText;
+                var userTextContent = document.getElementById("userText").textContent;
 
                 for (var i = 0; i < userTextContent.length; i++) {
                     if (userTextContent[i].toLowerCase() === providedText[i].toLowerCase()) {
@@ -172,9 +172,9 @@ let Test = {
 
             function checkAgreement() {
                 var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
-                var userTextContent = document.getElementById("userText").innerText.toLowerCase().replace(/\n/g, '');
+                var userTextContent = document.getElementById("userText").textContent.trim();
 
-                if (userTextContent === providedText.toLowerCase()) {
+                if (userTextContent === providedText) {
                     Test.Start();
                 } else {
                     // alert("The text you entered does not match the agreement, please re-enter it.");

@@ -38,6 +38,7 @@ main {}
 }
 
 .test-qustions {
+    color: #000;
     position: relative;
     height: 80vh;
     width: 100vw;

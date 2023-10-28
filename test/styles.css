@@ -58,6 +58,12 @@ main {}
 }
 
 #next_button {
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    background-color: gray;
     position: fixed;
     text-align: center;
     right: 20px;

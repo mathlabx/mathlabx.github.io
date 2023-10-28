@@ -267,6 +267,7 @@ let Test = {
             }
             let next_button = document.getElementById("next_button");
             next_button.addEventListener("click", () => {
+                console.log(quesON);
                 next_button.style.display = "none";
                 Test.Answers[quesON] = new_input.value;
                 test_div_con.innerHTML = "";

@@ -213,25 +213,31 @@ let Test = {
         });
         pre_test.append(next_botton);
     },
+
+    Test_Started: false,
     Start: function () {
-        let test_div = document.getElementById("test");
-        Test_Star_Time = new Date().getTime();
-        function full(ele) {
-            if (ele.requestFullscreen) {
-                ele.requestFullscreen();
-            } else if (ele.mozRequestFullScreen) {
-                ele.mozRequestFullScreen();
-            } else if (ele.webkitRequestFullscreen) {
-                ele.webkitRequestFullscreen();
-            } else if (ele.msRequestFullscreen) {
-                ele.msRequestFullscreen();
+        if (!Test_Started) {
+            let test_div = document.getElementById("test");
+            Test_Star_Time = new Date().getTime();
+            function full(ele) {
+                if (ele.requestFullscreen) {
+                    ele.requestFullscreen();
+                } else if (ele.mozRequestFullScreen) {
+                    ele.mozRequestFullScreen();
+                } else if (ele.webkitRequestFullscreen) {
+                    ele.webkitRequestFullscreen();
+                } else if (ele.msRequestFullscreen) {
+                    ele.msRequestFullscreen();
+                }
             }
+            document.getElementById("pre_test").remove();
+            test_div.style.display = "block";
+            test_div.style.position = "flexed";
+            full(test_div);
+            test_div.style.backgroundColor = "white";
+
+            Test.Test_Started = true;
         }
-        document.getElementById("pre_test").remove();
-        test_div.style.display = "block";
-        test_div.style.position = "flexed";
-        full(test_div);
-        test_div.style.backgroundColor = "white";
     },
     End: function () {
 

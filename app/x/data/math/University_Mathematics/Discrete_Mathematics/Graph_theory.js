@@ -54,7 +54,24 @@ $X.math.University_Mathematics.Discrete_Mathematics.GraphTheory = function (grap
         // Return the question and answer in an array
         return [question, answer];
     }else if(graph_algorithms){
+	var question;
+	var answer;
+	const algorithms = ["Bellman-Ford Algorithm", "Borůvka’s algorithm", "Ford-Fulkerson Algorithm", "Edmonds–Karp algorithm"];
+	const randAlgor = Math.floor(Math.random() * algorithms.length);
+	if(randAlgor == 0){
+		question = "Which algorithms is use to determines the shortest path between a given source vertex and every other vertex in a graph?";
+		answer = algorithms[randAlgor];
+	}else if(randAlgor == 1){
+		question = "Which algorithms is use to find the minimum spanning tree for a graph with distinct edge weights (none of the edges have the same value)?";
+		answer = algorithms[randAlgor];
+	}else if(randAlgor == 2){
+		question = "Which algorithms is use to solve the maximum flow problem in a flow network?";
+		answer = algorithms[randAlgor];
+	}else if(randAlgor == 3){
+		question = "Which algorithms is an implementation of the Ford-Fulkerson method that uses BFS for finding augmenting paths?";
+		answer = algorithms[randAlgor];
+	}
         // Return the question and answer in an array
-        return null;
+        return [question, answer];
     }
 }

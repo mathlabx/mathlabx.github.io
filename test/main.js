@@ -252,7 +252,8 @@ let Test = {
                 Test.Answers[quesON] = new_input.value;
                 quesON++;
                 test_div_con.innerHTML = "";
-                next_ques();
+                if (quesON == Test.Questions.length) Test.End();
+                else next_ques();
             })();
         }
     },

@@ -174,12 +174,28 @@ let Test = {
                 var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
                 var userTextContent = document.getElementById("userText").textContent.trim();
 
-                if (userTextContent.stringWithSpaces.replace(/\s/g, '') === providedText.stringWithSpaces.replace(/\s/g, '')) {
+                var providedWords = providedText.split(/\s+/);
+                var userWords = userTextContent.split(/\s+/);
+
+                var isMatch = true;
+                if (providedWords.length === userWords.length) {
+                    for (var i = 0; i < providedWords.length; i++) {
+                        if (providedWords[i].toLowerCase() !== userWords[i].toLowerCase()) {
+                            isMatch = false;
+                            break;
+                        }
+                    }
+                } else {
+                    isMatch = false;
+                }
+
+                if (isMatch) {
                     Test.Start();
                 } else {
                     // alert("The text you entered does not match the agreement, please re-enter it.");
                 }
             }
+            
             pre_test.append(new_p);
             let start_button = document.createElement("button");
             start_button.innerHTML = "Start Test";

@@ -37,7 +37,7 @@ main {}
     text-decoration-color: green;
 }
 
-#test-qustions {
+.test-qustions {
     position: relative;
     height: 80vh;
     width: 100vw;

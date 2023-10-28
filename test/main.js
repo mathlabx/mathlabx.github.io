@@ -199,7 +199,7 @@ let Test = {
                     new_user_typ.style.height = "150px";
                     new_user_typ.style.margin = "20px";
                     new_user_typ.contentEditable = "true";
-                    new_user_typ.addEventListener("input", () => {
+                    new_user_typ.addEventListener("keyup", () => {
                         handleInput();
                         checkAgreement();
                     });
@@ -248,13 +248,15 @@ let Test = {
                 else new_p.innerHTML = Test.Questions[quesON][0];
                 test_div_con.append(new_p);
             }
-            quesON += 1;
             let next_button = document.getElementById("next_button");
             next_button.addEventListener("click", () => {
                 Test.Answers[quesON] = new_input.value;
                 test_div_con.innerHTML = "";
                 if (quesON == Test.Questions.length) Test.End();
-                else next_ques();
+                else {
+                    next_ques();
+                    quesON += 1;
+                }
             });
         }
         next_ques();

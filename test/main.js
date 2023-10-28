@@ -195,7 +195,7 @@ let Test = {
                     // alert("The text you entered does not match the agreement, please re-enter it.");
                 }
             }
-            
+
             pre_test.append(new_p);
             let start_button = document.createElement("button");
             start_button.innerHTML = "Start Test";

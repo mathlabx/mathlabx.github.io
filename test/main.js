@@ -270,8 +270,8 @@ let Test = {
                 test_div_con.innerHTML = "";
                 if (quesON == Test.Questions.length) Test.End();
                 else {
-                    next_ques();
                     quesON += 1;
+                    next_ques();
                 }
             });
         }

@@ -260,6 +260,8 @@ let Test = {
             let test_qustions_con = document.getElementById("test-qustions");
             let length = Array.isArray(Test.Questions[quesON][0]) ? Test.Questions[quesON][0].length : (typeof Test.Questions[quesON][0] === 'string' ? 1 : 0);
 
+            test_div_con.innerHTML = ""; // 清空题目内容
+
             for (let i = 0; i < length; i++) {
                 let new_p = document.createElement("p");
                 if (length >= 2) new_p.innerHTML = Test.Questions[quesON][0][i];
@@ -269,21 +271,19 @@ let Test = {
 
             let next_button = document.getElementById("next_button");
             next_button.addEventListener("click", handleNextButtonClick);
-
-            next_ques();
         }
+
         function handleNextButtonClick() {
             let next_button = document.getElementById("next_button");
             console.log(quesON);
             next_button.style.display = "none";
             Test.Answers[quesON] = new_input.value;
-            test_div_con.innerHTML = "";
 
-            if (quesON == Test.Questions.length) {
+            if (quesON == Test.Questions.length - 1) {
                 Test.End();
             } else {
                 quesON += 1;
-                next_ques();
+                next_ques(); // 在点击下一题按钮后再调用 next_ques 函数
             }
 
             setTimeout(() => {

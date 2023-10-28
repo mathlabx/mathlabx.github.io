@@ -20,7 +20,89 @@ $X.math.University_Mathematics.Discrete_Mathematics.Combinatorics = function(cou
     // Your code goes here
     
     if(permutations_combinations){
-        return null;
+	function combination(total, numChosen){
+		var result = (factorial(total))/(factorial(numChosen)*factorial((total-numChosen)));
+		return result;
+	}
+	function permutation(total, numChosen){
+		var result = (factorial(total))/(factorial((total-numChosen)));
+		return result;
+	}
+	function factorial(value){
+		var result = 1;
+		for(var i=value; i>0; i--){
+			result = result*i;
+		}
+		return result;
+	}
+	    
+        var question;
+	var answer;
+	const randType = Math.round(Math.random());
+	if(randType == 0){
+		const randQuestion = Math.floor(Math.random() * 3);
+		if(randQuestion == 0){
+			const randNumStudent = Math.ceil(Math.random()*5); 
+			const randGroup = Math.ceil(Math.random()*randNumStudent);
+			var randTotStud = randNumStudent*randGroup;
+			question = "How many ways can you choose " + randGroup +" distinct groups of " + randNumStudent + " students from total " + randTotStud + " students?";
+			answer = 1;
+			for(var i = 0; i < randGroup; i++){
+				answer *= combination(randTotStud, randNumStudent);
+				randTotStud = randTotStud - randNumStudent;
+			}
+		}else if(randQuestion == 1){
+			const randNumStud = Math.ceil(Math.random()*9);
+			const randNumTeach = Math.ceil(Math.random()*9);
+			const randStudCho = Math.ceil(Math.random()*randNumStud);
+			const randTeachCho = Math.ceil(Math.random()*randNumTeach);
+			question = "There are " + randNumStud + " students and " + randNumTeach + " teachers in a room. In how many ways we can choose " + randStudCho + " students and " + randTeachCho + " teachers from the room?", 
+			answer = combination(randNumStud, randStudCho) * combination(randNumTeach, randTeachCho);
+		}else if(randQuestion == 2){
+			const randLength = Math.ceil(Math.random() * 9);
+			const randElem = Math.ceil(Math.random() * randLength);
+			var set = [];
+			for(var i = 0; i < randLength; i++){set.push(Math.ceil(Math.random()*9));}
+			question = "Find the number of subsets of the set {" + set + "} having " + randElem + " elements";
+			answer = combination(randLength, randElem);
+		}
+	}else if(randType == 1){
+		const randQuestion = Math.floor(Math.random() * 3);
+		if(randQuestion == 0){
+			const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			const wordLenght = Math.ceil(Math.random() * letters.length);
+			var word = "";
+			var counter = 0;
+			while(word.length != wordLenght){
+				var lett = letters.charAt(Math.floor(Math.random() * wordLenght));
+				if(lett != "A" && lett != "E" && lett != "O" && lett != "I" && lett != "U" && counter < (wordLenght/2)){
+					word += lett;
+					counter++;
+				}else{
+					word += lett;
+				}
+			}
+			question = "In how ways can the letters of the word " + word + " be arranged so that the consonants occupy only the even positions?";
+			answer = permutation(Math.floor(wordLenght/2), counter) * permutation(Math.ceil(wordLenght/2), (wordLenght-counter));
+		}else if(randQuestion == 1){
+			const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			const wordLenght = Math.ceil(Math.random() * letters.length);
+			var word = "";
+			while(word.length != wordLenght){
+				var letter = letters.charAt(Math.floor(Math.random() * wordLenght));
+				if(word.indexOf(letter) == -1){
+					word += letter;
+				}
+			}
+			question = "In how many ways can the letters of the word '" + word + "' be arranged?"; 
+			answer = factorial(wordLenght);
+		}else if(randQuestion == 2){
+			const randNum = Math.ceil(Math.random() * 9);
+			question = "From a bunch of " + randNum + " different cards, how many ways we can permute it?";
+			answer = permutation(randNum, randNum);
+		}
+	}
+	    return [question, answer];
     }else if(counting_principles){
         function factorial(value){
     		var result = 1;

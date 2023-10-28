@@ -20,6 +20,7 @@ let Test = {
         CID: null
     },
     Questions: [],
+    Answers: [],
     Test_Time: 0.00,
     Used_Time: 0.00,
     Test_Star_Time: null,
@@ -215,6 +216,7 @@ let Test = {
     },
     Start: function () {
         let test_div = document.getElementById("test");
+        let test_div_con = document.getElementById("test-qustions");
         Test_Star_Time = new Date().getTime();
         function full(ele) {
             if (ele.requestFullscreen) {
@@ -232,6 +234,27 @@ let Test = {
         test_div.style.position = "flexed";
         full(test_div);
         test_div.style.backgroundColor = "white";
+        let quesON_El = document.getElementById("test-on");
+        let quesON = 0;
+        Test.Answers = new Array(Test.Questions.length).fill("/");
+        function next_ques() {
+            let test_qustions_con = document.getElementById("test-qustions");
+            let length = Array.isArray(Test.Questions[quesON][0]) ? Test.Questions[quesON][0].length : (typeof Test.Questions[quesON][0] === 'string' ? Test.Questions[quesON][0].length : 0);
+            for (let i = 0; i < length; i++) {
+                let new_p = document.createElement("p");
+                if (length >= 2) new_p.innerHTML = Test.Questions[quesON][0][i];
+                else new_p.innerHTML = Test.Questions[quesON][0];
+                test_div_con.append(new_p);
+            }
+            let next_button = document.getElementById("next_button");
+            next_button.addEventListener("click", () => {
+                let new_input = document.getElementById("test-input");
+                Test.Answers[quesON] = new_input.value;
+                quesON++;
+                test_div_con.innerHTML = "";
+                next_ques();
+            })();
+        }
     },
     End: function () {
 

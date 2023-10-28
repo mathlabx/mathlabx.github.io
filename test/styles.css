@@ -56,3 +56,9 @@ main {}
     display: flex;
     align-items: center;
 }
+
+#next_button {
+    position: fixed;
+    text-align: center;
+    right: 20px;
+}

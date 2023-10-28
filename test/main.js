@@ -272,7 +272,6 @@ let Test = {
 
             next_ques();
         }
-
         function handleNextButtonClick() {
             let next_button = document.getElementById("next_button");
             console.log(quesON);

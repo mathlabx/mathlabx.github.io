@@ -110,7 +110,97 @@ let Test = {
             let start_button = document.createElement("button");
             start_button.innerHTML = "Start Test";
             start_button.addEventListener("click", () => {
-                Test.Start();
+                if (Test.Settings.Anti_cheating.Typing_no_cheating_guarantee_agreement) {
+                    let new_user_typ = document.createElement("div");
+                    new_user_typ.id = "userText";
+                    new_user_typ.style.width = "80%";
+                    new_user_typ.style.height = "150px";
+                    new_user_typ.style.margin = "20px";
+                    new_user_typ.contentEditable = "true";
+                    new_user_typ.addEventListener("input", () => {
+                        var userText = document.getElementById("userText");
+
+                        function saveSelection() {
+                            var selection = window.getSelection();
+                            var range = selection.getRangeAt(0);
+                            var preSelectionRange = range.cloneRange();
+                            preSelectionRange.selectNodeContents(userText);
+                            preSelectionRange.setEnd(range.startContainer, range.startOffset);
+                            var start = preSelectionRange.toString().length;
+
+                            return start;
+                        }
+
+                        function restoreSelection(start) {
+                            var charIndex = 0;
+                            var range = document.createRange();
+                            range.setStart(userText, 0);
+                            range.collapse(true);
+                            var nodeStack = [userText], node, foundStart = false, stop = false;
+
+                            while (!stop && (node = nodeStack.pop())) {
+                                if (node.nodeType == 3) {
+                                    var nextCharIndex = charIndex + node.length;
+                                    if (!foundStart && start >= charIndex && start <= nextCharIndex) {
+                                        range.setStart(node, start - charIndex);
+                                        foundStart = true;
+                                    }
+                                    if (foundStart && start <= nextCharIndex) {
+                                        range.setEnd(node, start - charIndex);
+                                        stop = true;
+                                    }
+                                    charIndex = nextCharIndex;
+                                } else {
+                                    var i = node.childNodes.length;
+                                    while (i--) {
+                                        nodeStack.push(node.childNodes[i]);
+                                    }
+                                }
+                            }
+
+                            var selection = window.getSelection();
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                        }
+
+                        function handleInput() {
+                            var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
+
+                            var startIndex = saveSelection();
+                            var result = '';
+                            var userTextContent = userText.innerText;
+
+                            for (var i = 0; i < userTextContent.length; i++) {
+                                if (userTextContent[i].toLowerCase() === providedText[i].toLowerCase()) {
+                                    result += '<span class="underline">' + userTextContent[i] + '</span>';
+                                } else {
+                                    result += userTextContent[i];
+                                }
+                            }
+
+                            userText.innerHTML = result;
+                            restoreSelection(startIndex);
+                        }
+
+                        function checkAgreement() {
+                            var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
+                            var userTextContent = userText.innerText.toLowerCase().replace(/\n/g, '');
+
+                            if (userTextContent === providedText.toLowerCase()) {
+                                // 如果文本一致，可以继续进行考试
+                                alert("您已确认协议，可以开始考试！");
+                                // 在这里放置跳转到考试页面的代码
+                            } else {
+                                alert("您输入的文本与协议不一致，请重新输入。");
+                            }
+                        }
+
+                        handleInput();
+                    });
+                    pre_test.append();
+                } else {
+                    Test.Start();
+                }
             });
             pre_test.append(start_button);
         });

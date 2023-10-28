@@ -193,11 +193,9 @@ let Test = {
                             var userTextContent = userText.innerText.toLowerCase().replace(/\n/g, '');
 
                             if (userTextContent === providedText.toLowerCase()) {
-                                // 如果文本一致，可以继续进行考试
-                                alert("您已确认协议，可以开始考试！");
-                                // 在这里放置跳转到考试页面的代码
+                                Test.Start();
                             } else {
-                                alert("您输入的文本与协议不一致，请重新输入。");
+                                alert("The text you entered does not match the agreement, please re-enter it.");
                             }
                         }
 

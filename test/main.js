@@ -266,22 +266,22 @@ let Test = {
                 test_div_con.append(new_p);
             }
             let next_button = document.getElementById("next_button");
-            next_button.addEventListener("click", () => {
-                console.log(quesON);
-                next_button.style.display = "none";
-                Test.Answers[quesON] = new_input.value;
-                test_div_con.innerHTML = "";
-                if (quesON == Test.Questions.length) Test.End();
-                else {
-                    quesON += 1;
-                    next_ques();
-                }
-                setTimeout(() => {
-                    next_button.style.display = "";
-                }, 1000);
-            });
+            next_ques();
         }
-        next_ques();
+        next_button.addEventListener("click", () => {
+            console.log(quesON);
+            next_button.style.display = "none";
+            Test.Answers[quesON] = new_input.value;
+            test_div_con.innerHTML = "";
+            if (quesON == Test.Questions.length) Test.End();
+            else {
+                quesON += 1;
+                next_ques();
+            }
+            setTimeout(() => {
+                next_button.style.display = "";
+            }, 1000);
+        });
     },
     End: function () {
 

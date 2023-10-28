@@ -18,7 +18,43 @@ console.log(result); // Output: ['Explain what a spanning tree is...', 'A spanni
 
 $X.math.University_Mathematics.Discrete_Mathematics.GraphTheory = function (graph_properties, graph_algorithms) {
     // Your code goes here
-
-    // Return the question and answer in an array
-    return [question, answer];
+    if(graph_properties){
+        const properties = ["vertices", "edges", "weight", "degree", "path", "cycle", "connectedness", "planarity", "bipartiteness"];
+		const randProp = Math.floor(Math.random() * properties.length);
+		var question;
+		var answer;
+		if(randProp == 0){
+			question = "What property does the following definitation describe: 'The points where edges meet in a graph'";
+			answer = properties[randProp];
+		}else if(randProp == 1){
+			question = "What property does the following definitation describe: 'The connections between vertices'";
+			answer = properties[randProp];
+		}else if(randProp == 2){
+			question = "What property does the following definitation describe: 'the cost or distance between two vertices'";
+			answer = properties[randProp];
+		}else if(randProp == 3){
+			question = "What property does the following definitation describe: 'the number of edges that connect to it'";
+			answer = properties[randProp];
+		}else if(randProp == 4){
+			question = "What property does the following definitation describe: 'a sequence of vertices that are connected by edges'";
+			answer = properties[randProp];
+		}else if(randProp == 5){
+			question = "What property does the following definitation describe: 'a path that starts and ends at the same vertex'";
+			answer = properties[randProp];
+		}else if(randProp == 6){
+			question = "What property of the graph does the following definitation describe: 'there is a path between any two vertices'";
+			answer = properties[randProp];
+		}else if(randProp == 7){
+			question = "What property of the graph does the following definitation describe: 'it can be drawn on a plane without any edges crossing each other'";
+			answer = properties[randProp];
+		}else if(randProp == 8){
+			question = "What property of the graph does the following definitation describe: 'its vertices can be divided into two disjoint sets such that no two vertices in the same set are connected by an edge'";
+			answer = properties[randProp];
+    	}
+        // Return the question and answer in an array
+        return [question, answer];
+    }else if(graph_algorithms){
+        // Return the question and answer in an array
+        return null;
+    }
 }

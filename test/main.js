@@ -254,34 +254,43 @@ let Test = {
         let quesON_El = document.getElementById("test-on");
         let quesON = 0;
         Test.Answers = new Array(Test.Questions.length).fill("/");
-        let next_button = document.getElementById("next_button");
         window.next_ques = function () {
             new_input.value = "";
             quesON_El.innerHTML = `${quesON + 1} of ${Test.Questions.length}`;
             let test_qustions_con = document.getElementById("test-qustions");
             let length = Array.isArray(Test.Questions[quesON][0]) ? Test.Questions[quesON][0].length : (typeof Test.Questions[quesON][0] === 'string' ? 1 : 0);
+
             for (let i = 0; i < length; i++) {
                 let new_p = document.createElement("p");
                 if (length >= 2) new_p.innerHTML = Test.Questions[quesON][0][i];
                 else new_p.innerHTML = Test.Questions[quesON][0];
                 test_div_con.append(new_p);
             }
+
+            let next_button = document.getElementById("next_button");
+            next_button.addEventListener("click", handleNextButtonClick);
+
             next_ques();
         }
-        next_button.addEventListener("click", () => {
+
+        function handleNextButtonClick() {
+            let next_button = document.getElementById("next_button");
             console.log(quesON);
             next_button.style.display = "none";
             Test.Answers[quesON] = new_input.value;
             test_div_con.innerHTML = "";
-            if (quesON == Test.Questions.length) Test.End();
-            else {
+
+            if (quesON == Test.Questions.length) {
+                Test.End();
+            } else {
                 quesON += 1;
                 next_ques();
             }
+
             setTimeout(() => {
                 next_button.style.display = "";
             }, 1000);
-        });
+        }
     },
     End: function () {
 

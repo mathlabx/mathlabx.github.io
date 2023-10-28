@@ -256,6 +256,7 @@ let Test = {
         Test.Answers = new Array(Test.Questions.length).fill("/");
         window.next_ques = function () {
             new_input.value = "";
+            quesON_El.innerHTML = `${quesON + 1} of ${Test.Questions.length}`;
             let test_qustions_con = document.getElementById("test-qustions");
             let length = Array.isArray(Test.Questions[quesON][0]) ? Test.Questions[quesON][0].length : (typeof Test.Questions[quesON][0] === 'string' ? 1 : 0);
             for (let i = 0; i < length; i++) {

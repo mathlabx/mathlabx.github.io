@@ -106,13 +106,12 @@ let Test = {
             Number of submissions allowed per question: <b>${Test.Settings.Questions.Number_of_submissions_allowed_per_question}</b></br>
             Intelligent answer correction: <b>${Test.Settings.Questions.Intelligent_answer_correction}
             `;
-            var userText = document.getElementById("userText");
 
             function saveSelection() {
                 var selection = window.getSelection();
                 var range = selection.getRangeAt(0);
                 var preSelectionRange = range.cloneRange();
-                preSelectionRange.selectNodeContents(userText);
+                preSelectionRange.selectNodeContents(document.getElementById("userText"));
                 preSelectionRange.setEnd(range.startContainer, range.startOffset);
                 var start = preSelectionRange.toString().length;
 
@@ -122,9 +121,9 @@ let Test = {
             function restoreSelection(start) {
                 var charIndex = 0;
                 var range = document.createRange();
-                range.setStart(userText, 0);
+                range.setStart(document.getElementById("userText"), 0);
                 range.collapse(true);
-                var nodeStack = [userText], node, foundStart = false, stop = false;
+                var nodeStack = [document.getElementById("userText")], node, foundStart = false, stop = false;
 
                 while (!stop && (node = nodeStack.pop())) {
                     if (node.nodeType == 3) {
@@ -156,7 +155,7 @@ let Test = {
 
                 var startIndex = saveSelection();
                 var result = '';
-                var userTextContent = userText.innerText;
+                var userTextContent = document.getElementById("userText").innerText;
 
                 for (var i = 0; i < userTextContent.length; i++) {
                     if (userTextContent[i].toLowerCase() === providedText[i].toLowerCase()) {
@@ -166,13 +165,13 @@ let Test = {
                     }
                 }
 
-                userText.innerHTML = result;
+                document.getElementById("userText").innerHTML = result;
                 restoreSelection(startIndex);
             }
 
             function checkAgreement() {
                 var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
-                var userTextContent = userText.innerText.toLowerCase().replace(/\n/g, '');
+                var userTextContent = document.getElementById("userText").innerText.toLowerCase().replace(/\n/g, '');
 
                 if (userTextContent === providedText.toLowerCase()) {
                     Test.Start();

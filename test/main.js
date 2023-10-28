@@ -250,7 +250,7 @@ let Test = {
             next_button.addEventListener("click", () => {
                 let new_input = document.getElementById("test-input");
                 Test.Answers[quesON] = new_input.value;
-                quesON++;
+                quesON += 1;
                 test_div_con.innerHTML = "";
                 if (quesON == Test.Questions.length) Test.End();
                 else next_ques();

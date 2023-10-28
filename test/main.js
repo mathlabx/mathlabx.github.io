@@ -111,6 +111,10 @@ let Test = {
             start_button.innerHTML = "Start Test";
             start_button.addEventListener("click", () => {
                 if (Test.Settings.Anti_cheating.Typing_no_cheating_guarantee_agreement) {
+                    let new_text = document.createElement("h2");
+                    new_text.innerHTML = "Please type the agreement below.";
+                    let new_typ = document.createElement("p");
+                    new_typ.innerHTML = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
                     let new_user_typ = document.createElement("div");
                     new_user_typ.id = "userText";
                     new_user_typ.style.width = "80%";
@@ -197,7 +201,9 @@ let Test = {
 
                         handleInput();
                     });
-                    pre_test.append();
+                    pre_test.append(new_text);
+                    pre_test.append(new_typ);
+                    pre_test.append(new_user_typ);
                 } else {
                     Test.Start();
                 }

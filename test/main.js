@@ -106,6 +106,80 @@ let Test = {
             Number of submissions allowed per question: <b>${Test.Settings.Questions.Number_of_submissions_allowed_per_question}</b></br>
             Intelligent answer correction: <b>${Test.Settings.Questions.Intelligent_answer_correction}
             `;
+            var userText = document.getElementById("userText");
+
+            function saveSelection() {
+                var selection = window.getSelection();
+                var range = selection.getRangeAt(0);
+                var preSelectionRange = range.cloneRange();
+                preSelectionRange.selectNodeContents(userText);
+                preSelectionRange.setEnd(range.startContainer, range.startOffset);
+                var start = preSelectionRange.toString().length;
+
+                return start;
+            }
+
+            function restoreSelection(start) {
+                var charIndex = 0;
+                var range = document.createRange();
+                range.setStart(userText, 0);
+                range.collapse(true);
+                var nodeStack = [userText], node, foundStart = false, stop = false;
+
+                while (!stop && (node = nodeStack.pop())) {
+                    if (node.nodeType == 3) {
+                        var nextCharIndex = charIndex + node.length;
+                        if (!foundStart && start >= charIndex && start <= nextCharIndex) {
+                            range.setStart(node, start - charIndex);
+                            foundStart = true;
+                        }
+                        if (foundStart && start <= nextCharIndex) {
+                            range.setEnd(node, start - charIndex);
+                            stop = true;
+                        }
+                        charIndex = nextCharIndex;
+                    } else {
+                        var i = node.childNodes.length;
+                        while (i--) {
+                            nodeStack.push(node.childNodes[i]);
+                        }
+                    }
+                }
+
+                var selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+
+            function handleInput() {
+                var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
+
+                var startIndex = saveSelection();
+                var result = '';
+                var userTextContent = userText.innerText;
+
+                for (var i = 0; i < userTextContent.length; i++) {
+                    if (userTextContent[i].toLowerCase() === providedText[i].toLowerCase()) {
+                        result += '<span class="underline">' + userTextContent[i] + '</span>';
+                    } else {
+                        result += userTextContent[i];
+                    }
+                }
+
+                userText.innerHTML = result;
+                restoreSelection(startIndex);
+            }
+
+            function checkAgreement() {
+                var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
+                var userTextContent = userText.innerText.toLowerCase().replace(/\n/g, '');
+
+                if (userTextContent === providedText.toLowerCase()) {
+                    Test.Start();
+                } else {
+                    // alert("The text you entered does not match the agreement, please re-enter it.");
+                }
+            }
             pre_test.append(new_p);
             let start_button = document.createElement("button");
             start_button.innerHTML = "Start Test";
@@ -126,82 +200,8 @@ let Test = {
                     new_user_typ.style.margin = "20px";
                     new_user_typ.contentEditable = "true";
                     new_user_typ.addEventListener("input", () => {
-                        var userText = document.getElementById("userText");
-
-                        function saveSelection() {
-                            var selection = window.getSelection();
-                            var range = selection.getRangeAt(0);
-                            var preSelectionRange = range.cloneRange();
-                            preSelectionRange.selectNodeContents(userText);
-                            preSelectionRange.setEnd(range.startContainer, range.startOffset);
-                            var start = preSelectionRange.toString().length;
-
-                            return start;
-                        }
-
-                        function restoreSelection(start) {
-                            var charIndex = 0;
-                            var range = document.createRange();
-                            range.setStart(userText, 0);
-                            range.collapse(true);
-                            var nodeStack = [userText], node, foundStart = false, stop = false;
-
-                            while (!stop && (node = nodeStack.pop())) {
-                                if (node.nodeType == 3) {
-                                    var nextCharIndex = charIndex + node.length;
-                                    if (!foundStart && start >= charIndex && start <= nextCharIndex) {
-                                        range.setStart(node, start - charIndex);
-                                        foundStart = true;
-                                    }
-                                    if (foundStart && start <= nextCharIndex) {
-                                        range.setEnd(node, start - charIndex);
-                                        stop = true;
-                                    }
-                                    charIndex = nextCharIndex;
-                                } else {
-                                    var i = node.childNodes.length;
-                                    while (i--) {
-                                        nodeStack.push(node.childNodes[i]);
-                                    }
-                                }
-                            }
-
-                            var selection = window.getSelection();
-                            selection.removeAllRanges();
-                            selection.addRange(range);
-                        }
-
-                        function handleInput() {
-                            var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
-
-                            var startIndex = saveSelection();
-                            var result = '';
-                            var userTextContent = userText.innerText;
-
-                            for (var i = 0; i < userTextContent.length; i++) {
-                                if (userTextContent[i].toLowerCase() === providedText[i].toLowerCase()) {
-                                    result += '<span class="underline">' + userTextContent[i] + '</span>';
-                                } else {
-                                    result += userTextContent[i];
-                                }
-                            }
-
-                            userText.innerHTML = result;
-                            restoreSelection(startIndex);
-                        }
-
-                        function checkAgreement() {
-                            var providedText = "I promise to abide by the exam rules and complete the exam independently. I understand the consequences of violating the exam rules.";
-                            var userTextContent = userText.innerText.toLowerCase().replace(/\n/g, '');
-
-                            if (userTextContent === providedText.toLowerCase()) {
-                                Test.Start();
-                            } else {
-                                alert("The text you entered does not match the agreement, please re-enter it.");
-                            }
-                        }
-
                         handleInput();
+                        checkAgreement();
                     });
                     pre_test.append(new_text);
                     pre_test.append(new_typ);

@@ -59,7 +59,26 @@ $X.math.University_Mathematics.Complex_Analysis.ComplexNumbersAndFunctions = fun
 		var answer = "x1 = " + `${(Math.sqrt(constant1/complexNum1)).toFixed(2)}` + "i, x2 = " + `${(Math.sqrt(constant2/complexNum2)).toFixed(2)}` + "i";
 		return [question, answer];
 	} else if (C_complex_functions) {
-		return null;
+		const coefficient = Math.ceil(Math.random() * 9);
+		const complexNum = Math.ceil(Math.random() * 9);
+		const operations = ["+", "-", "*", "/"];
+		const randOper = Math.floor(Math.random() * operations.length);
+		var question;
+		var answer;
+		if(randOper == 0){
+			question = "Given f(x) = z^2, z = " + coefficient + "x " + operations[randOper] + " " + complexNum + "yi, put it in terms of x and y";
+			answer = "(" + (coefficient*coefficient) + "x^2 - " + (complexNum*complexNum) + "y^2) + " + (2*coefficient*complexNum) + "xyi";
+		}else if(randOper == 1){
+			question = "Given f(x) = z^2, z = " + coefficient + "x " + operations[randOper] + " " + complexNum + "yi, put it in terms of x and y";
+			answer = "(" + (coefficient*coefficient) + "x^2 - " + (complexNum*complexNum) + "y^2) - " + (2*coefficient*complexNum) + "xyi";
+		}else if(randOper == 2){
+			question = "Given f(x) = z^2, z = " + coefficient + "x " + operations[randOper] + " " + complexNum + "yi, put it in terms of x and y";
+			answer = "-(" + (coefficient*coefficient*complexNum*complexNum) + "x^2 * y^2)";
+		}else if(randOper == 3){
+			question = "Given f(x) = z^2, z = " + coefficient + "x " + operations[randOper] + " " + complexNum + "yi, put it in terms of x and y";
+			answer = "-(" + (coefficient*coefficient) + "x^2 / " + (complexNum*complexNum) + "y^2)";
+		}
+		return [question, answer];
 	}
 	// Return the question and answer in an array
 }

@@ -52,6 +52,23 @@ $X.math.University_Mathematics.Probability_and_Statistics.StatisticalInferenceAn
         // Return the question and answer in an array
         return [question, answer];
     }else if(C_confidence_intervals){
+    	function calcStandardError(prop){
+		const standError = Math.sqrt((prop*(1-prop))/100);
+		return standError;
+	}
+	var question;
+	var answer;
+	const probability = Math.random();
+	if(0.1585 < probability  &&  probability < 0.8385){
+		question = "Suppose a candidate has " + `${probability.toFixed(2)}` + " chance of winning a election, what is the confidence intervals? And with what confidence?";
+		answer = "With 68% confidence between " + `${(probability-calcStandardError(probability)).toFixed(2)}` + " and " + `${(probability+calcStandardError(probability)).toFixed(2)}` + " of voters will support this candidate."; 
+	}else if(.0235 < probability && probability < .9735){
+		question = "Suppose a candidate has " + `${probability.toFixed(2)}` + " chance of winning a election, what is the confidence intervals? And with what confidence?";
+		answer = "With 95% confidence between " + `${(probability-calcStandardError(probability)).toFixed(2)}` + " and " + `${(probability+calcStandardError(probability)).toFixed(2)}` + " of voters will support this candidate."; 
+	}else if(0 < probability  && probability < 1){
+		question = "Suppose a candidate has " + `${probability.toFixed(2)}` + " chance of winning a election, what is the confidence intervals? And with what confidence?";
+		answer = "With 99.7% confidence between " + `${(probability-calcStandardError(probability)).toFixed(2)}` + " and " + `${(probability+calcStandardError(probability)).toFixed(2)}` + " of voters will support this candidate."; 
+	}
         // Return the question and answer in an array
         return [question, answer];
     }else if(C_hypothesis_testing){

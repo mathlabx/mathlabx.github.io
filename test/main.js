@@ -335,8 +335,10 @@ let Test = {
         next_ques();
     },
     End: function () {
+        let Task_Index = Number(sessionStorage.getItem("Task_Index"));
         window_load(false, 0);
         const classDocRef = firestore.collection('classes').doc(Test.Test_Taker.CID);
+
         classDocRef.get().then((doc) => {
             if (doc.exists) {
                 User_Answer = [];
@@ -357,9 +359,12 @@ let Test = {
                     User_Answer: User_Answer
                 });
 
-                classDocRef.update({
-                    Task: firebase.firestore.FieldValue.arrayUnion({ ...taskArray[GetData.Task_index], UID: Test.Test_Taker.UID })
-                })
+                let updatedDoc = { ...doc.data() };
+                const Task = updatedDoc.Task[Task_Index];
+                const Task_Peple = Task[Test.Test_Taker.UID];
+                Task_Peple = taskArray;
+
+                classDocRef.update(updatedDoc)
                     .then(() => {
                         console.log('Data has been successfully set.');
                         //location.reload(); // 刷新页面
@@ -376,7 +381,6 @@ let Test = {
         });
     }
 }
-
 /*
 0 Timing | Time Limit
 1 Timing | Time Limit (min)
@@ -396,5 +400,5 @@ let Test = {
 */
 
 window.addEventListener("load", function () {
-    Test.Set_Up();
-});
+        Test.Set_Up();
+    });

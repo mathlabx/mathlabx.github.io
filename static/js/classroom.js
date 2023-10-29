@@ -76,6 +76,7 @@ function openTest(G, S, T, I) {
     const jsonStr = JSON.stringify(obj);
     // 将 JSON 字符串存储到 sessionStorage 中
     sessionStorage.setItem('myData', jsonStr);
+    sessionStorage.setItem("Task_Index", I);
     window.location = "https://app.mathscichem.com/app/x";
 }
 

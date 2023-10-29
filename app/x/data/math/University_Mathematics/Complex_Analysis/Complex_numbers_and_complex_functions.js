@@ -51,7 +51,13 @@ $X.math.University_Mathematics.Complex_Analysis.ComplexNumbersAndFunctions = fun
 		}
 		return [question, answer];
 	} else if (C_roots) {
-		return null;
+		const constant1 = Math.ceil(Math.random() * 9);
+		const constant2 = Math.ceil(Math.random() * 9);
+		const complexNum1 = Math.ceil(Math.random() * 9);
+		const complexNum2 = Math.ceil(Math.random() * 9);
+		var question = "Given the function f(x) = (" + constant1 + " + " + complexNum1 + "x^2)(" + constant2 + " + " + complexNum2 + "x^2), find the roots";
+		var answer = "x1 = " + `${(Math.sqrt(constant1/complexNum1)).toFixed(2)}` + "i, x2 = " + `${(Math.sqrt(constant2/complexNum2)).toFixed(2)}` + "i";
+		return [question, answer];
 	} else if (C_complex_functions) {
 		return null;
 	}

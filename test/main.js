@@ -14,6 +14,20 @@ function receiveObject() {
 
 let GetData = receiveObject();
 
+function containsKaTeXExpression(inputString) {
+    // 关键词数组，用于匹配KaTeX表达式
+    const keywords = ["\\frac", "\\sqrt", "\\sum", "\\int", "\\leq", "\\geq", "\\in", "\\mathbb", "^", "_", "|", "\\emptyset"]; // 添加更多关键词以匹配更多表达式
+
+    // 检查输入字符串是否包含关键词
+    for (const keyword of keywords) {
+        if (inputString.includes(keyword)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 let Test = {
     Test_Taker: {
         UID: null,
@@ -264,8 +278,13 @@ let Test = {
 
             for (let i = 0; i < length; i++) {
                 let new_p = document.createElement("p");
-                if (length >= 2) new_p.innerHTML = Test.Questions[quesON][0][i];
-                else new_p.innerHTML = Test.Questions[quesON][0];
+                if (containsKaTeXExpression(Test.Questions[quesON][0][i])) {
+                    if (length >= 2) katex.render(Test.Questions[quesON][0][i], new_p, { displayMode: true });
+                    else katex.render(Test.Questions[quesON][0], new_p, { displayMode: true });
+                } else {
+                    if (length >= 2) new_p.innerHTML = Test.Questions[quesON][0][i];
+                    else new_p.innerHTML = Test.Questions[quesON][0];
+                }
                 test_div_con.append(new_p);
             }
 

@@ -1,6 +1,7 @@
 main {}
 
 .test {
+    z-index: 100;
     display: none;
     position: fixed;
     height: 100vh;

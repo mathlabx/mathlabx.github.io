@@ -359,12 +359,21 @@ let Test = {
                     User_Answer: User_Answer
                 });
 
-                let updatedDoc = { ...doc.data() };
-                const Task = updatedDoc.Task[Task_Index];
-                const Task_Peple = Task.people[Test.Test_Taker.UID];
+                if (!doc.Task) {
+                    doc.Task = {};
+                }
+                if (!doc.Task[Task_Index]) {
+                    doc.Task[Task_Index] = {};
+                }
+                const Task = doc.Task[Task_Index];
+
+                if (!Task[Test.Test_Taker.UID]) {
+                    Task[Test.Test_Taker.UID] = {};
+                }
+                const Task_Peple = Task[Test.Test_Taker.UID];
                 Task_Peple = taskArray;
 
-                classDocRef.update(updatedDoc)
+                classDocRef.set(doc)
                     .then(() => {
                         console.log('Data has been successfully set.');
                         //location.reload(); // 刷新页面

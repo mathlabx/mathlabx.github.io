@@ -232,7 +232,6 @@ let Test = {
     },
     Start: function () {
         let test_div = document.getElementById("test");
-        let test_div_con = document.getElementById("test-qustions");
         Test_Star_Time = new Date().getTime();
         function full(ele) {
             if (ele.requestFullscreen) {

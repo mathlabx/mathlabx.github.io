@@ -319,7 +319,7 @@ let Test = {
             Test.Answers[quesON] = new_input.value;
             test_div_con.innerHTML = "";
 
-            if (quesON - 1 == Test.Questions.length) {
+            if (quesON + 1 == Test.Questions.length) {
                 Test.End();
             } else {
                 quesON += 1;

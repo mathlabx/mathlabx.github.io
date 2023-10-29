@@ -365,11 +365,11 @@ let Test = {
                 if (!doc.Task[Task_Index]) {
                     doc.Task[Task_Index] = {};
                 }
-                const Task = doc.Task[Task_Index];
+                let Task = doc.Task[Task_Index];
                 if (!Task[Test.Test_Taker.UID]) {
                     Task[Test.Test_Taker.UID] = {};
                 }
-                const Task_Peple = Task[Test.Test_Taker.UID];
+                let Task_Peple = Task[Test.Test_Taker.UID];
                 Task_Peple = taskArray;
 
                 classDocRef.update(doc)

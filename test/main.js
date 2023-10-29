@@ -333,7 +333,6 @@ let Test = {
 
         // Initial call to start the questions
         next_ques();
-
     },
     End: function () {
         window_load(false, 0);
@@ -359,7 +358,7 @@ let Test = {
                 });
 
                 classDocRef.update({
-                    ['Task.' + GetData.Task_index]: taskArray
+                    Task: firebase.firestore.FieldValue.arrayUnion({ ...taskArray[GetData.Task_index], UID: Test.Test_Taker.UID });
                 })
                     .then(() => {
                         console.log('Data has been successfully set.');

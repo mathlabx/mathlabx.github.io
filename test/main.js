@@ -349,7 +349,7 @@ let Test = {
                         Bot: Test.Answers[i]
                     });
                 }
-                let taskArray = doc.data().Task || [];
+                let taskArray = doc.data();
                 taskArray.push({
                     Completeness: true,
                     submitted_date: Date.now(),
@@ -360,20 +360,20 @@ let Test = {
                     User_Answer: User_Answer
                 });
 
-                if (!doc.Task) {
-                    doc.Task = {};
+                if (!taskArray.Task) {
+                    taskArray.Task = {};
                 }
-                if (!doc.Task[Task_Index]) {
-                    doc.Task[Task_Index] = {};
+                if (!taskArray.Task[Task_Index]) {
+                    taskArray.Task[Task_Index] = {};
                 }
-                let Task = doc.Task[Task_Index];
+                let Task = taskArray.Task[Task_Index];
                 if (!Task[Test.Test_Taker.UID]) {
                     Task[Test.Test_Taker.UID] = {};
                 }
                 let Task_Peple = Task[Test.Test_Taker.UID];
                 Task_Peple = taskArray;
 
-                classDocRef.update(doc)
+                classDocRef.update(taskArray)
                     .then(() => {
                         console.log('Data has been successfully set.');
                         //location.reload(); // 刷新页面

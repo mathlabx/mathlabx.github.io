@@ -55,7 +55,25 @@ $X.math.University_Mathematics.Probability_and_Statistics.StatisticalInferenceAn
         // Return the question and answer in an array
         return [question, answer];
     }else if(C_hypothesis_testing){
-        // Return the question and answer in an array
+	function calculateZScore(pMean, sMean, samS, stD){
+		const z_score = (sMean - pMean)/(stD/Math.sqrt(samS));
+		return z_score;
+	}
+	    
+        const type = ["height", "hair length", "weight", "lifespan", "salary per hour", "sleep time"];
+	const randType = Math.floor(Math.random()*type.length);
+	const samMean = Math.ceil(Math.random()*9);
+	const popMean = Math.ceil(Math.random()*9);
+	const sampleSize = Math.ceil(Math.random()*9) + 500;
+	const stD = Math.ceil(Math.random()*9);
+	const question = "Let's consider a hypothesis test for the average " + type[randType] + " of people in country X. Suppose our null hypothesis is that the average " + type[randType] + " is " + popMean + ". We gather a sample of " + sampleSize + " people and determine that their average " + type[randType] + " is " + samMean + ". The standard deviation of population is " + stD + ".";
+	var answer;
+	const z_score = calculateZScore(popMean, samMean, sampleSize, stD);
+	if(z_score > 1.96 || z_score < -1.96){
+		answer = "We will reject the null hypothesis as the z-score of " + `${z_score.toFixed(2)}` + " is very large and conclude that there is evidence to suggest that the average " + type[randType] + " of people in country X is greater than " + popMean;
+	}else{
+		answer = "We will accept the null hypothesis as the z-score of " + `${z_score.toFixed(2)}` + " is not large and conclude that there isn't evidence to suggest that the average " + type[randType] + " of people in country X is greater than " + popMean;
+	}
         return [question, answer];
     }
 }

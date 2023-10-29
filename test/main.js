@@ -358,7 +358,7 @@ let Test = {
                 });
 
                 classDocRef.update({
-                    Task: firebase.firestore.FieldValue.arrayUnion({ ...taskArray[GetData.Task_index], UID: Test.Test_Taker.UID });
+                    Task: firebase.firestore.FieldValue.arrayUnion({ ...taskArray[GetData.Task_index], UID: Test.Test_Taker.UID })
                 })
                     .then(() => {
                         console.log('Data has been successfully set.');

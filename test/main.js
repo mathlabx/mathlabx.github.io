@@ -358,9 +358,20 @@ let Test = {
                     Used_Time: Test.Used_Time,
                     User_Answer: User_Answer
                 });
+
+                if (!doc.Task) {
+                    doc.Task = {};
+                }
+                if (!doc.Task[Task_Index]) {
+                    doc.Task[Task_Index] = {};
+                }
                 const Task = doc.Task[Task_Index];
+                if (!Task[Test.Test_Taker.UID]) {
+                    Task[Test.Test_Taker.UID] = {};
+                }
                 const Task_Peple = Task[Test.Test_Taker.UID];
                 Task_Peple = taskArray;
+
                 classDocRef.update(doc)
                     .then(() => {
                         console.log('Data has been successfully set.');

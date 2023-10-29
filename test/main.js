@@ -29,7 +29,7 @@ function containsKaTeXExpression(inputString) {
 }
 
 let Test = {
-    startTimer = function (elementId, minutes, callback) {
+    startTimer: function (elementId, minutes, callback) {
         var worker = new Worker('countdown.js');
 
         var totalTimeInSeconds = 0;

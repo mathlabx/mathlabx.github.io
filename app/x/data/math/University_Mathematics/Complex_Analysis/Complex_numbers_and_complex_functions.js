@@ -25,7 +25,7 @@ $X.math.University_Mathematics.Complex_Analysis.ComplexNumbersAndFunctions = fun
 		const constant2 = Math.ceil(Math.random() * 9);
 		const complexNum1 = Math.ceil(Math.random() * 9);
 		const complexNum2 = Math.ceil(Math.random() * 9);
-		const randOper = 3;//Math.floor(Math.random() * operations.length);
+		const randOper = Math.floor(Math.random() * operations.length);
 		var question;
 		var answer;
 		if (randOper == 0) {

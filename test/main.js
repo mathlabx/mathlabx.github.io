@@ -340,6 +340,7 @@ let Test = {
         const classDocRef = firestore.collection('classes').doc(Test.Test_Taker.CID);
 
         classDocRef.get().then((doc) => {
+            console.log("doc", doc);
             if (doc.exists) {
                 User_Answer = [];
                 for (let i = 0; i < Test.Questions.length; i++) {

@@ -38,6 +38,7 @@ let Test = {
             if (e.data === 'timeOver') {
                 callback();
             } else if (typeof e.data === 'number') {
+                Test.Used_Time = e.data;
                 totalTimeInSeconds = e.data;
             } else {
                 document.getElementById(elementId).textContent = e.data;
@@ -336,6 +337,40 @@ let Test = {
     },
     End: function () {
         window_load(false, 0);
+        const classDocRef = firestore.collection('classes').doc(Test.Test_Taker.CID);
+        if (doc.exists) {
+            User_Answer = [];
+            for (let i = 0; i < Test.Questions.length; i++) {
+                User_Answer.push({
+                    User: Test.Answers[i],
+                    Bot: Test.Answers[i]
+                });
+            }
+            let taskArray = doc.data().Task || [];
+            taskArray.push({
+                Completeness: true,
+                submitted_date: Date.now(),
+                Test_Taker: Test.Test_Taker,
+                Test_Star_Time: Test.Test_Star_Time,
+                Test_End_Time: Test.Test_End_Time,
+                Used_Time: Test.Used_Time,
+                User_Answer: User_Answer
+            });
+
+            classDocRef.update({
+                ['Task.' + GetData.Task_index]: taskArray
+            })
+                .then(() => {
+                    console.log('Data has been successfully set.');
+                    //location.reload(); // 刷新页面
+                })
+                .catch((error) => {
+                    console.error('Error occurred while setting data:', error);
+                });
+        } else {
+            APP.log('No such class!');
+            window.location = "../";
+        }
     }
 }
 

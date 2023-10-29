@@ -63,13 +63,14 @@ function openCustomPopup() {
     }
 }
 
-function openTest(G, S, T) {
+function openTest(G, S, T, I) {
     let obj = {
         Typ: "Test",
         G_Setting: G,
         Setting: S,
         Task_settings: T,
-        Class_ID: receivedClass.code
+        Class_ID: receivedClass.code,
+        Task_index: I
     };
     // 将包含数组的对象转换为 JSON 字符串
     const jsonStr = JSON.stringify(obj);
@@ -152,7 +153,7 @@ const Class_Operate = {
                 new_GoToTest.innerHTML = "DO";
                 new_GoToTest.className = "new_GoToTest";
                 new_GoToTest.addEventListener("click", function () {
-                    openTest(Settings[0], Settings[1], Settings[2]);
+                    openTest(Settings[0], Settings[1], Settings[2], Settings[3]);
                 })
                 for (let i = 0; i < (people && people.length); i++) {
                     if (people[i].UID == APP.account.UID) {
@@ -391,7 +392,7 @@ function click_todo() {
     if (page_on != "todo") {
         div_container.innerHTML = "";
         for (let i = 0; Class_Data.Task && i < Class_Data.Task.length; i++) {
-            Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people, [Class_Data.Task[i].GL_Setting.General_settings, Class_Data.Task[i].GL_Setting.Question_settings, Class_Data.Task[i].GL_Setting.Task_settings]);
+            Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people, [Class_Data.Task[i].GL_Setting.General_settings, Class_Data.Task[i].GL_Setting.Question_settings, Class_Data.Task[i].GL_Setting.Task_settings, i]);
         }
         if (is_adm()) {
             Class_Operate.ADD_new_Task();

@@ -361,7 +361,7 @@ let Test = {
 
                 let updatedDoc = { ...doc.data() };
                 const Task = updatedDoc.Task[Task_Index];
-                const Task_Peple = Task[Test.Test_Taker.UID];
+                const Task_Peple = Task.people[Test.Test_Taker.UID];
                 Task_Peple = taskArray;
 
                 classDocRef.update(updatedDoc)
@@ -400,5 +400,5 @@ let Test = {
 */
 
 window.addEventListener("load", function () {
-        Test.Set_Up();
-    });
+    Test.Set_Up();
+});

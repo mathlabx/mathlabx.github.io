@@ -23,9 +23,22 @@ $X.math.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDist
         return null;
     }else if(C_continuous){
         return null;
-    }else if(C_expectation){
-        return null;
+    }else if(C_expectation){var question;
+		var answer;
+		const gain = Math.ceil(Math.random() * 100) + 10;
+		const lost = Math.ceil(Math.random() * 50) + gain;
+		const given = ["probability", "win/lose"];
+		const randGiven = Math.round(Math.random());
+		if(randGiven == 0){
+			const probability = Math.random();
+			question = "A local charity is hosting a game to collect funds. The cost to play the game is " + gain + " dollars. If the charity pays the winner " + lost + " dollar and the probability to win is " + `${probability.toFixed(2)}` + "%. What is the expected value for the charity winning on average?";
+			answer = "$" + (gain*(1-probability) - lost*probability);
+		}else if(randGiven == 1){
+			const bad = Math.ceil(Math.random() * 10);
+			question = "A electronic company just launch a new product and earns " + gain + " dollars for each product they sell. But they found that " + bad + " out of every 100 of their new product had some problem in it, so they decided to take back all the product that had a problem and give back the customer " + lost + " dollars. What is the expected value of profit per product?";
+			answer = "$" + `${(gain*(1-(bad/100)) - lost*(bad/100)).toFixed(2)}`;
+		}
+        // Return the question and answer in an array
+        return [question, answer];
     }
-    // Return the question and answer in an array
-    return [question, answer];
 }

@@ -29,6 +29,23 @@ function containsKaTeXExpression(inputString) {
 }
 
 let Test = {
+    startTimer = function (elementId, minutes, callback) {
+        var worker = new Worker('countdown.js');
+
+        var totalTimeInSeconds = 0;
+
+        worker.onmessage = function (e) {
+            if (e.data === 'timeOver') {
+                callback();
+            } else if (typeof e.data === 'number') {
+                totalTimeInSeconds = e.data;
+            } else {
+                document.getElementById(elementId).textContent = e.data;
+            }
+        };
+
+        worker.postMessage(minutes);
+    },
     Test_Taker: {
         UID: null,
         CID: null
@@ -264,7 +281,9 @@ let Test = {
         full(test_div);
         test_div.style.backgroundColor = "white";
         Test.Answers = new Array(Test.Questions.length).fill("/");
-
+        Test.startTimer("test-time", Test.Settings.Timing.Time_Limit, () => {
+            Test.End();
+        });
         let quesON = 0;
         let test_div_con = document.getElementById("test-qustions");
         let new_input = document.getElementById("test-input");
@@ -316,7 +335,7 @@ let Test = {
 
     },
     End: function () {
-
+        window_load(false, 0);
     }
 }
 

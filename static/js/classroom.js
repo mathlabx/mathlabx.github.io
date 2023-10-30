@@ -416,6 +416,10 @@ function click_setting() {
     if (page_on != "setting") {
         div_container.innerHTML = "";
         page_on = "setting";
+        
+        let new_code_title = document.createElement("h3");
+        new_code_title.innerHTML = "Class Code";
+        div_container.append(new_code_title);
 
         let class_id = document.createElement("h1");
         class_id.innerHTML = Class_Data.code;

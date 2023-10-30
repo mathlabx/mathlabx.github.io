@@ -20,7 +20,29 @@ PS: The answer should be in fractions (Katex), using GCF to calculate the simple
 
 $X.math.High_School_Mathematics.Sequences_and_Series.PropertiesOfSeries = function (C_convergence, C_divergence) {
     // Your code goes here
-
-    // Return the question and answer in an array
-    return [question, answer];
+    if(C_convergence){
+		var question;
+		var answer;
+		const constant = Math.ceil(Math.random()*9) + 1;
+		question = "Is the infinity series of 1/" + constant + "^x a convergence or divergence series?";
+		answer = "convergence series";
+		// Return the question and answer in an array
+        return [question, answer];
+	}else if(C_divergence){
+		const randFunc = Math.round(Math.random());
+		var question;
+		var answer;
+		if(randFunc == 0){
+			const constant = Math.ceil(Math.random()*9) + 1;
+			question = "Is the infinity series of " + constant + func[randFunc] + " a convergence or divergence series?";
+			answer = "divergence series";
+		}else if(randFunc == 1){
+			const constant = Math.ceil(Math.random()*9) + 1;
+			const power = Math.ceil(Math.random()*9) + 1;
+			question = "Is the infinity series of " + constant + func[randFunc] + power + " a convergence or divergence series?";
+			answer = "divergence series"; 
+		}
+		// Return the question and answer in an array
+        return [question, answer];	
+	}
 }

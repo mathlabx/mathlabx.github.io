@@ -373,6 +373,10 @@ let Test = {
                 let Task_Peple = Task[Test.Test_Taker.UID];
                 Task_Peple = test_data;
 
+                Task[Test.Test_Taker.UID] = Task_Peple;
+
+                taskArray.Task[Task_Index] = Task;
+
                 classDocRef.update(taskArray)
                     .then(() => {
                         console.log('Data has been successfully set.');

@@ -104,10 +104,10 @@ function main() {
 	}
 
 	// Step 8: Create equations for graphing
-	const equationGraph1 = `${e1} = ${a1}x + ${b1}y + ${c1}z + ${d1}w`;
-	const equationGraph2 = `${e2} = ${a2}x + ${b2}y + ${c2}z + ${d2}w`;
-	const equationGraph3 = `${e3} = ${a3}x + ${b3}y + ${c3}z + ${d3}w`;
-	const equationGraph4 = `${e4} = ${a4}x + ${b4}y + ${c4}z + ${d4}w`;
+	// const equationGraph1 = `${e1} = ${a1}x + ${b1}y + ${c1}z + ${d1}w`;
+	// const equationGraph2 = `${e2} = ${a2}x + ${b2}y + ${c2}z + ${d2}w`;
+	// const equationGraph3 = `${e3} = ${a3}x + ${b3}y + ${c3}z + ${d3}w`;
+	// const equationGraph4 = `${e4} = ${a4}x + ${b4}y + ${c4}z + ${d4}w`;
 	// const zValueGraph = `z = ${z}`;
 	// const wValueGraph = `w = ${w}`;
 

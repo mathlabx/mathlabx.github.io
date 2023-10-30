@@ -100,6 +100,55 @@ $X.math.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors = funct
         // Return the question and answer in an array
         return [question, answer];
     }else if(C_eigenbases){
-        return null;
+        var matrix = [];
+        var enigenvalues = [];
+        var enigenvectors= [];
+        function checkDeterminant(){
+        	var isGood = false;
+        	while(!isGood){
+        		var tempMatrix = [];
+        		for(var i =0; i<2;i++){
+        			var temp = [];
+        			for(var j =0; j<2; j++){
+        				temp.push(Math.ceil(Math.random()*5))
+        			}
+        			tempMatrix.push(temp);
+        		}
+        		
+        		if(determinant(tempMatrix) == 0){
+        			isGood = true
+        			matrix = tempMatrix;
+        		}
+        	}
+        }
+        function findEigenvalues(){
+        	var discriminant = Math.sqrt(((matrix[0][0]+matrix[1][1])*(matrix[0][0]+matrix[1][1])) - 4*(matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1]));
+        	enigenvalues.push(((matrix[0][0]+matrix[1][1]) - discriminant)/2);
+        	enigenvalues.push(((matrix[0][0]+matrix[1][1]) + discriminant)/2);
+        }
+        function findEigenvectors(){
+        	for(var i=0;i<2;i++){
+        		var difference = [];
+        		var temp = [];
+        		difference.push(matrix[0][0] - enigenvalues[i]);
+        		difference.push(matrix[0][1]);
+        		temp.push(1);
+        		temp.push(-1*(difference[0]/difference[1]));
+        		eigenvectors.push(temp);
+        	}
+        }
+        const eigenbase = [];
+        function makeEigenbase(){
+            for(var i = 0; i < 2; i++){
+                var temp = [];
+                temp.push(eigenvectors[0][i].toString());
+                temp.push(eigenvectors[1][i].toString());
+                eigenbase.push(temp);
+            }
+        }
+        var question = "Given the matrix \\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}. Determine the eigenbases?";
+        var answer = "\\begin{bmatrix}" + matrixToKaTeX(eigenbase) + "\\end{bmatrix}";
+        // Return the question and answer in an array
+        return [question, answer];
     }
 }

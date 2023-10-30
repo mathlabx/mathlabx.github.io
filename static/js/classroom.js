@@ -418,7 +418,7 @@ function click_setting() {
         page_on = "setting";
 
         let class_id = document.createElement("h1");
-        class_id.innerHTML = Class_Data.Class_ID;
+        class_id.innerHTML = Class_Data.code;
 
         class_id.addEventListener('click', function () {
             var textArea = document.createElement('textarea');

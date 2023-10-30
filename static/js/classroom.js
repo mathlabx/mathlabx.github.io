@@ -404,6 +404,25 @@ function click_setting() {
     if (page_on != "setting") {
         div_container.innerHTML = "";
         page_on = "setting";
+
+        for (let i = 0; i < classData.people.length; i++) {
+            let new_people = document.createElement("div");
+            new_people.className = "flow-element";
+            let people_name = document.createElement("h3");
+            serverStorage.getItem("User", APP.account.UID).then((data) => {
+                console.log(data);
+                if (data) {
+                    people_name.innerHTML = data.Name;
+                    /*
+                    data.Info
+                    data.Img
+                    data.Gender
+                    */
+                    new_people.append(people_name);
+                    div_container.append(new_people);
+                }
+            });
+        }
     }
 }
 

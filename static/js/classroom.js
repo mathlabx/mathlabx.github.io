@@ -423,7 +423,7 @@ function click_setting() {
 function main() {
     div_container = document.getElementById("container");
 
-    setTimeout(click_todo, 500);
+    click_todo();
 }
 
 window.addEventListener("load", function () {

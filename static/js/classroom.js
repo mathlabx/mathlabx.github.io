@@ -366,12 +366,12 @@ function from_UTC(utcTimestamp) {
 }
 
 function click_todo() {
-    let new_cover = document.createElement("div");
-    new_cover.className = "overlay";
-    div_container.append(new_cover);
-    document.querySelector('.overlay').style.display = 'none';
-
     if (page_on != "todo") {
+        let new_cover = document.createElement("div");
+        new_cover.className = "overlay";
+        div_container.append(new_cover);
+        document.querySelector('.overlay').style.display = 'none';
+
         div_container.innerHTML = "";
         for (let i = 0; Class_Data.Task && i < Class_Data.Task.length; i++) {
             Class_Operate.new_Task(Class_Data.Task[i].Title, [`Due ${from_UTC(Class_Data.Task[i].Due)[0]}`, Class_Data.Task[i].Due], Class_Data.Task[i].Description, Class_Data.Task[i].people, [Class_Data.Task[i].GL_Setting.General_settings, Class_Data.Task[i].GL_Setting.Question_settings, Class_Data.Task[i].GL_Setting.Task_settings, i]);
@@ -423,7 +423,7 @@ function click_setting() {
 function main() {
     div_container = document.getElementById("container");
 
-    setTimeout(500, click_todo);
+    setTimeout(click_todo, 500);
 }
 
 window.addEventListener("load", function () {

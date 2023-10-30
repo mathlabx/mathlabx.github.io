@@ -457,14 +457,14 @@ function Printing_problems_answers() {
         newWindow.document.write(`</hr>`);
         if (Array.isArray(gl_results[i][0])) {
             for (let j = 0; j < gl_results[i][0].length; j++) {
-                if (containsKaTeXExpression(gl_results[i][0][j])) {
+                if (containsKaTeXExpression(String(gl_results[i][0][j]))) {
                     newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${katex.renderToString(gl_results[i][0][j])}</p>`);
                 } else {
                     newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${gl_results[i][0][j]}</p>`);
                 }
             }
         } else {
-            if (containsKaTeXExpression(gl_results[i][0])) {
+            if (containsKaTeXExpression(String(gl_results[i][0]))) {
                 newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${katex.renderToString(gl_results[i][0])}</p>`);
             } else {
                 newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${gl_results[i][0]}</p>`);
@@ -479,7 +479,7 @@ function Printing_problems_answers() {
                 newWindow.document.write(`<p style='text-align: center; color: red;'>Invalid Array</p>`);
             }
         } else {
-            if (containsKaTeXExpression(gl_results[i][1])) {
+            if (containsKaTeXExpression(String(gl_results[i][1]))) {
                 newWindow.document.write(`<p style='text-align: center; color: red;'>${katex.renderToString(gl_results[i][1])}</p>`);
             } else {
                 newWindow.document.write(`<p style='text-align: center; color: red;'>${gl_results[i][1]}</p>`);

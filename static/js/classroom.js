@@ -409,7 +409,7 @@ function click_setting() {
             let new_people = document.createElement("div");
             new_people.className = "flow-element";
             let people_name = document.createElement("h3");
-            serverStorage.getItem("User", classData.people.user_id).then((data) => {
+            serverStorage.getItem("User", classData.people[i].user_id).then((data) => {
                 console.log(data);
                 if (data) {
                     people_name.innerHTML = data.Name;

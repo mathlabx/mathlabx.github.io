@@ -95,7 +95,25 @@ const Class_Operate = {
         let new_Completeness = document.createElement("span");
         new_Completeness.className = "new_Completeness";
         for (let i = 0; i < (people || []).length; i++) {
-            if (!people || people.length === 0) {
+            if (people[APP.account.UID].UID == APP.account.UID) {
+                if (people[APP.account.UID] && people[APP.account.UID].Completeness == true) {
+                    if (people[APP.account.UID].submitted_date <= Due_Date[1]) {
+                        new_Completeness.innerHTML = "turned in";
+                        new_Completeness.style.color = "green";
+                    } else {
+                        new_Completeness.innerHTML = "turned in late";
+                        new_Completeness.style.color = "yellow";
+                    }
+                } else {
+                    if ((people[APP.account.UID] && people[APP.account.UID].submitted_date || 0) >= Due_Date[1] || (!people[APP.account.UID] || !people[APP.account.UID].submitted_date && Due_Date[1] <= Date.now())) {
+                        new_Completeness.innerHTML = "missing";
+                        new_Completeness.style.color = "red";
+                    } else {
+                        new_Completeness.innerHTML = "assigned";
+                        new_Completeness.style.color = "gray";
+                    }
+                }
+            } else if (!people || people.length === 0) {
                 if (Due_Date[1] <= Date.now()) {
                     new_Completeness.innerHTML = "missing";
                     new_Completeness.style.color = "red";
@@ -103,30 +121,12 @@ const Class_Operate = {
                     new_Completeness.innerHTML = "assigned";
                     new_Completeness.style.color = "gray";
                 }
+            } else if (Due_Date[1] <= Date.now()) {
+                new_Completeness.innerHTML = "missing";
+                new_Completeness.style.color = "red";
             } else {
-                let currentPerson = people.find(person => person.UID === APP.account.UID);
-
-                if (currentPerson) {
-                    if (currentPerson.Completeness && currentPerson.submitted_date <= Due_Date[1]) {
-                        new_Completeness.innerHTML = "turned in";
-                        new_Completeness.style.color = "green";
-                    } else if (currentPerson.Completeness && currentPerson.submitted_date > Due_Date[1]) {
-                        new_Completeness.innerHTML = "turned in late";
-                        new_Completeness.style.color = "yellow";
-                    } else if (!currentPerson.Completeness && (currentPerson.submitted_date || 0) >= Due_Date[1]) {
-                        new_Completeness.innerHTML = "missing";
-                        new_Completeness.style.color = "red";
-                    } else {
-                        new_Completeness.innerHTML = "assigned";
-                        new_Completeness.style.color = "gray";
-                    }
-                } else if (Due_Date[1] <= Date.now()) {
-                    new_Completeness.innerHTML = "missing";
-                    new_Completeness.style.color = "red";
-                } else {
-                    new_Completeness.innerHTML = "assigned";
-                    new_Completeness.style.color = "gray";
-                }
+                new_Completeness.innerHTML = "assigned";
+                new_Completeness.style.color = "gray";
             }
         }
 
@@ -155,13 +155,9 @@ const Class_Operate = {
                     openTest(Settings[0], Settings[1], Settings[2], Settings[3]);
                 })
                 for (let i = 0; i < (people && people.length); i++) {
-                    const isUserInPeople = people && people.length && people[APP.account.UID] && people[APP.account.UID].UID === APP.account.UID;
-                    if (isUserInPeople) {
-                        const userCompleteness = people[APP.account.UID].Completeness;
-                        const userSubmittedDate = people[APP.account.UID].submitted_date;
-
-                        if (userCompleteness === true) {
-                            if (userSubmittedDate <= Due_Date[1]) {
+                    if (people[APP.account.UID].UID == APP.account.UID) {
+                        if (people[APP.account.UID] && people[APP.account.UID].Completeness === true) {
+                            if (people[APP.account.UID].submitted_date <= Due_Date[1]) {
                                 new_Completeness.innerHTML = "turned in";
                                 new_Completeness.style.color = "green";
                             } else {
@@ -169,7 +165,7 @@ const Class_Operate = {
                                 new_Completeness.style.color = "yellow";
                             }
                         } else {
-                            if (userSubmittedDate >= Due_Date[1] || !userSubmittedDate && Due_Date[1] <= Date.now()) {
+                            if ((people[APP.account.UID] && people[APP.account.UID].submitted_date >= Due_Date[1]) || (!people[APP.account.UID] || !people[APP.account.UID].submitted_date && Due_Date[1] <= Date.now())) {
                                 new_Completeness.innerHTML = "missing";
                                 new_Completeness.style.color = "red";
                             } else {
@@ -177,7 +173,15 @@ const Class_Operate = {
                                 new_Completeness.style.color = "gray";
                             }
                         }
-                    } else if (!people || !people.length || Due_Date[1] <= Date.now()) {
+                    } else if (!people || !people.length) {
+                        if (Due_Date[1] <= Date.now()) {
+                            new_Completeness.innerHTML = "missing";
+                            new_Completeness.style.color = "red";
+                        } else {
+                            new_Completeness.innerHTML = "assigned";
+                            new_Completeness.style.color = "gray";
+                        }
+                    } else if (Due_Date[1] <= Date.now()) {
                         new_Completeness.innerHTML = "missing";
                         new_Completeness.style.color = "red";
                     } else {

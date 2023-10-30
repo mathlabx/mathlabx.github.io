@@ -350,7 +350,7 @@ let Test = {
                     });
                 }
                 let taskArray = doc.data();
-                taskArray.push({
+                let test_data = {
                     Completeness: true,
                     submitted_date: Date.now(),
                     Test_Taker: Test.Test_Taker,
@@ -358,7 +358,7 @@ let Test = {
                     Test_End_Time: Test.Test_End_Time,
                     Used_Time: Test.Used_Time,
                     User_Answer: User_Answer
-                });
+                };
 
                 if (!taskArray.Task) {
                     taskArray.Task = {};
@@ -371,7 +371,7 @@ let Test = {
                     Task[Test.Test_Taker.UID] = {};
                 }
                 let Task_Peple = Task[Test.Test_Taker.UID];
-                Task_Peple = taskArray;
+                Task_Peple = test_data;
 
                 classDocRef.update(taskArray)
                     .then(() => {

@@ -1,10 +1,14 @@
 .search_bar {
-    width: 80%;
     padding: 10px;
     height: auto;
 }
 
 .search_bar>input {
-    width: 80%;
-    height: 10%;
+    height: 5vh;
+    font-family: 'Orbitron';
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #ffffff1c;
+    width: 98%;
 }

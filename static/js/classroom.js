@@ -381,6 +381,11 @@ function from_UTC(utcTimestamp) {
 }
 
 function click_todo() {
+    let new_cover = document.createElement("div");
+    new_cover.className = "overlay";
+    div_container.append(new_cover);
+    document.querySelector('.overlay').style.display = 'none';
+    
     if (page_on != "todo") {
         div_container.innerHTML = "";
         for (let i = 0; Class_Data.Task && i < Class_Data.Task.length; i++) {
@@ -432,12 +437,7 @@ function click_setting() {
 
 function main() {
     div_container = document.getElementById("container");
-    setTimeout(() => {
-        let new_cover = document.createElement("div");
-        new_cover.className = "overlay";
-        div_container.append(new_cover);
-        document.querySelector('.overlay').style.display = 'none';
-    }, 100);
+
     click_todo();
 }
 

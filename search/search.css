@@ -1,5 +1,7 @@
 .search_bar {
     width: 80%;
+    padding: 10px;
+    height: auto;
 }
 
 .search_bar>input {

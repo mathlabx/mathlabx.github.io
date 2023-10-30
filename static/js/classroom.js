@@ -397,19 +397,13 @@ function click_people() {
     if (page_on != "people") {
         div_container.innerHTML = "";
         page_on = "people";
-    }
-}
 
-function click_setting() {
-    if (page_on != "setting") {
-        div_container.innerHTML = "";
-        page_on = "setting";
 
-        for (let i = 0; i < classData.people.length; i++) {
+        for (let i = 0; i < Class_Data.people.length; i++) {
             let new_people = document.createElement("div");
             new_people.className = "flow-element";
             let people_name = document.createElement("h3");
-            serverStorage.getItem("User", classData.people[i].user_id).then((data) => {
+            serverStorage.getItem("User", Class_Data.people[i].user_id).then((data) => {
                 console.log(data);
                 if (data) {
                     people_name.innerHTML = data.Name;
@@ -423,6 +417,13 @@ function click_setting() {
                 }
             });
         }
+    }
+}
+
+function click_setting() {
+    if (page_on != "setting") {
+        div_container.innerHTML = "";
+        page_on = "setting";
     }
 }
 

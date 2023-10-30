@@ -20,14 +20,48 @@ PS: The answer should be in fractions (Katex), using GCF to calculate the simple
 
 $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSequences = function (C_arithmetic, C_geometric) {
     // Your code goes here
-    var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-    var randomMulti = Math.floor(Math.random() * (max - min + 1)) + min;
-    let coefficients = [];
-    for(let i = 0; i < 10; i++){
-        coefficients.push(radomNum + i * randomMulti);
-    }
-    if(difficulty === "easy"){
-        var question = "What is the next term of the arithmetic sequence? \n";
+    if(C_arithmetic){
+        var question;
+        var answer;
+        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        const randomMulti = Math.floor(Math.random() * (max - min + 1)) + min;
+        const randomDiff = Math.round(Math.random());
+        let coefficients = [];
+        for(let i = 0; i < 10; i++){
+            coefficients.push(radomNum + i * randomMulti);
+        }
+        if(randDiff == 0){
+            question = "What is the next term of the arithmetic sequence? \n";
+            answer;
+            for(let i = 0; i < coefficients.length; i++){
+                if(i%4 != 0){
+                    question += coefficients[i] + ", "; 
+                }else{
+                    question += "________, "; 
+                    answer += coefficients[i];
+                }
+            }
+        }else if(randDiff == 1){
+            const constant = Math.floor(Math.random() * (max - min + 1)) + min;
+            const bValue = Math.floor(Math.random() * (max - min + 1)) + min
+            const equation = "b(n) = b(n-1) + " + constant + "; b(1) = " + bValue;
+            const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            question = "Find the " + randomNum + " term in the sequence.";
+            answer;
+            for(let i = 1; i < randomNum; i++){
+                answer = bValue + constant;
+                bValue = answer;
+            }
+        }
+        return [question, answer];
+    }else if(C_geometric){
+        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        const randomMulti = Math.floor(Math.random() * (max - min + 1)) + min;
+        const coefficients = [];
+        for(let i = 0; i < 10; i++){
+            coefficients.push(radomNum * Math.pow(randomMulti,i));
+        }
+        var question = "What is the next term of the gemoetric sequence? \n";
         var answer;
         for(let i = 0; i < coefficients.length; i++){
             if(i%4 != 0){
@@ -37,18 +71,7 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
                 answer += coefficients[i];
             }
         }
-    }else if(difficulty === "median"){
-        var constant = Math.floor(Math.random() * (max - min + 1)) + min;
-        var bValue = Math.floor(Math.random() * (max - min + 1)) + min
-        var equation = "b(n) = b(n-1) + " + constant + "; b(1) = " + bValue;
-        var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-        var question = "Find the " + randomNum + " term in the sequence.";
-        var answer;
-        for(let i = 1; i < randomNum; i++){
-            answer = bValue + constant;
-            bValue = answer;
-        }
+        // Return the question and answer in an array
+        return [question, answer];
     }
-    // Return the question and answer in an array
-    return [question, answer];
 }

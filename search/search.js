@@ -329,5 +329,5 @@ window.addEventListener("load", () => {
             }
         }
         window_load(true, 900);
-    })(result);
+    });
 });

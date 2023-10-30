@@ -94,8 +94,15 @@ const Class_Operate = {
         new_due_date.innerHTML = Due_Date[0];
         let new_Completeness = document.createElement("span");
         new_Completeness.className = "new_Completeness";
-        //   for (let i = 0; i < (people || []).length; i++) {
-        if (people[APP.account.UID].UID == APP.account.UID) {
+        if (!people || people.length === 0) {
+            if (Due_Date[1] <= Date.now()) {
+                new_Completeness.innerHTML = "missing";
+                new_Completeness.style.color = "red";
+            } else {
+                new_Completeness.innerHTML = "assigned";
+                new_Completeness.style.color = "gray";
+            }
+        } else if (people[APP.account.UID].UID == APP.account.UID) {
             if (people[APP.account.UID] && people[APP.account.UID].Completeness == true) {
                 if (people[APP.account.UID].submitted_date <= Due_Date[1]) {
                     new_Completeness.innerHTML = "turned in";
@@ -113,14 +120,6 @@ const Class_Operate = {
                     new_Completeness.style.color = "gray";
                 }
             }
-        } else if (!people || people.length === 0) {
-            if (Due_Date[1] <= Date.now()) {
-                new_Completeness.innerHTML = "missing";
-                new_Completeness.style.color = "red";
-            } else {
-                new_Completeness.innerHTML = "assigned";
-                new_Completeness.style.color = "gray";
-            }
         } else if (Due_Date[1] <= Date.now()) {
             new_Completeness.innerHTML = "missing";
             new_Completeness.style.color = "red";
@@ -128,7 +127,6 @@ const Class_Operate = {
             new_Completeness.innerHTML = "assigned";
             new_Completeness.style.color = "gray";
         }
-        // }
 
         new_flow_block.append(task_title);
         new_flow_block.append(new_Completeness);
@@ -154,8 +152,15 @@ const Class_Operate = {
                 new_GoToTest.addEventListener("click", function () {
                     openTest(Settings[0], Settings[1], Settings[2], Settings[3]);
                 })
-                //    for (let i = 0; i < (people && people.length); i++) {
-                if (people[APP.account.UID].UID == APP.account.UID) {
+                if (!people || !people.length) {
+                    if (Due_Date[1] <= Date.now()) {
+                        new_Completeness.innerHTML = "missing";
+                        new_Completeness.style.color = "red";
+                    } else {
+                        new_Completeness.innerHTML = "assigned";
+                        new_Completeness.style.color = "gray";
+                    }
+                } else if (people[APP.account.UID].UID == APP.account.UID) {
                     if (people[APP.account.UID] && people[APP.account.UID].Completeness === true) {
                         if (people[APP.account.UID].submitted_date <= Due_Date[1]) {
                             new_Completeness.innerHTML = "turned in";
@@ -173,14 +178,6 @@ const Class_Operate = {
                             new_Completeness.style.color = "gray";
                         }
                     }
-                } else if (!people || !people.length) {
-                    if (Due_Date[1] <= Date.now()) {
-                        new_Completeness.innerHTML = "missing";
-                        new_Completeness.style.color = "red";
-                    } else {
-                        new_Completeness.innerHTML = "assigned";
-                        new_Completeness.style.color = "gray";
-                    }
                 } else if (Due_Date[1] <= Date.now()) {
                     new_Completeness.innerHTML = "missing";
                     new_Completeness.style.color = "red";
@@ -188,7 +185,6 @@ const Class_Operate = {
                     new_Completeness.innerHTML = "assigned";
                     new_Completeness.style.color = "gray";
                 }
-                //    }
                 let new_dis = document.createElement("p");
                 new_dis.className = "new_dis";
                 new_dis.innerHTML = Disciption;

@@ -416,6 +416,21 @@ function click_setting() {
     if (page_on != "setting") {
         div_container.innerHTML = "";
         page_on = "setting";
+
+        let class_id = document.createElement("h1");
+        class_id.innerHTML = Class_Data.Class_ID;
+
+        class_id.addEventListener('click', function () {
+            var textArea = document.createElement('textarea');
+            textArea.value = class_id.innerHTML;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            APP.log('Text has been copied!', 1000);
+        });
+
+        div_container.append(class_id);
     }
 }
 

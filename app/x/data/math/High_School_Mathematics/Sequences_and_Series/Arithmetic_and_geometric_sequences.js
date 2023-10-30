@@ -23,8 +23,8 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
     if(C_arithmetic){
         var question;
         var answer;
-        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-        const randomMulti = Math.floor(Math.random() * (max - min + 1)) + min;
+        const randomNum = Math.floor(Math.random() * 9);
+        const randomMulti = Math.floor(Math.random() * 9);
         const randomDiff = Math.round(Math.random());
         let coefficients = [];
         for(let i = 0; i < 10; i++){
@@ -42,10 +42,10 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
                 }
             }
         }else if(randDiff == 1){
-            const constant = Math.floor(Math.random() * (max - min + 1)) + min;
-            const bValue = Math.floor(Math.random() * (max - min + 1)) + min
+            const constant = Math.floor(Math.random() * 9);
+            const bValue = Math.floor(Math.random() * 9);
             const equation = "b(n) = b(n-1) + " + constant + "; b(1) = " + bValue;
-            const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            const randomNum = Math.floor(Math.random() * 9);
             question = "Find the " + randomNum + " term in the sequence.";
             answer;
             for(let i = 1; i < randomNum; i++){
@@ -55,8 +55,8 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
         }
         return [question, answer];
     }else if(C_geometric){
-        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-        const randomMulti = Math.floor(Math.random() * (max - min + 1)) + min;
+        const randomNum = Math.floor(Math.random() * 9);
+        const randomMulti = Math.floor(Math.random() * 9);
         const coefficients = [];
         for(let i = 0; i < 10; i++){
             coefficients.push(radomNum * Math.pow(randomMulti,i));

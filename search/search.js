@@ -96,7 +96,7 @@ function jaroWinklerSimilarity(s1, s2) {
 }
 
 // 模糊搜索函数
-function fuzzySearchApps(query, maxDistanceLevenshtein = 5, minSimilarityJaroWinkler = 0.3) {
+function fuzzySearchApps(query, maxDistanceLevenshtein = 5, minSimilarityJaroWinkler = 0.5) {
     const apps = APP.apps;
     const queryLower = query.toLowerCase();
     const matchedIndexesLevenshtein = [];

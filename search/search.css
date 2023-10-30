@@ -1,0 +1,8 @@
+.search_bar {
+    width: 80%;
+}
+
+.search_bar>input {
+    width: 80%;
+    height: 10%;
+}

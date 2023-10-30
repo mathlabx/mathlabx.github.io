@@ -365,13 +365,9 @@ $X.math.High_School_Mathematics.Calculus.CalculatingDerivativesAndApplications =
 		question = output[0];
 		answer = output[1];
 	} else {
-		const application = ["related rate", "optimization", "approximation", "tangent line"];
-		const randApp = 2; //Math.floor(Math.random() * application.length);
-		if(application[randApp] === "related rate"){
-			var output = makeRelatedRatesProblem();
-		}else if(application[randApp] === "optimization"){
-			var output = makeOptimizationProblem();
-		}else if(application[randApp] === "approximation"){
+		const application = ["approximation", "tangent line"];
+		const randApp = Math.floor(Math.random() * application.length);
+		if(application[randApp] === "approximation"){
 			var output = makeApproximationProblem(functionLength);
 			equation = output[0];
 			answer = output[1];

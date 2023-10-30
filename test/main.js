@@ -371,6 +371,9 @@ let Test = {
                     Task = {};
                     Task.people = {};
                 }
+                if (!Task.people) {
+                    Task.people = {};
+                }
                 if (!Task.people[Test.Test_Taker.UID]) {
                     Task.people[Test.Test_Taker.UID] = {};
                 }

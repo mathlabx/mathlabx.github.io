@@ -369,9 +369,7 @@ let Test = {
                 let Task = taskArray.Task[Task_Index];
                 if (!Task) {
                     Task = {};
-                }
-                if (!Task[Test.Test_Taker.UID]) {
-                    Task[Test.Test_Taker.UID] = {};
+                    Task.people = {};
                 }
                 if (!Task.people[Test.Test_Taker.UID]) {
                     Task.people[Test.Test_Taker.UID] = {};

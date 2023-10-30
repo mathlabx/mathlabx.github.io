@@ -53,7 +53,7 @@ $X.math.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors = funct
         	enigenvalues.push(((matrix[0][0]+matrix[1][1]) + discriminant)/2);
         	console.log(enigenvalues);
         }
-        var question = "Given the matrix \\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}. Determine the eigenvalues.";
+        var question = "Given the matrix \\begin{bmatrix}" + matrixToString(matrix) + "\\end{bmatrix}. Determine the eigenvalues.";
         var answer = "\lambda = " + eigenvalues[0] + " \lambda = " + eigenvalues[1];
         // Return the question and answer in an array
         return [question, answer];
@@ -95,7 +95,7 @@ $X.math.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors = funct
         		eigenvectors.push(temp);
         	}
         }
-        var question = "Given the matrix \\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}. Determine if there are eigenvectors for this matrix. If yes, what are the eigenvectors?";
+        var question = "Given the matrix \\begin{bmatrix}" + matrixToString(matrix) + "\\end{bmatrix}. Determine if there are eigenvectors for this matrix. If yes, what are the eigenvectors?";
         var answer = " v = (" +eigenvectors[0][0] + ", " + eigenvectors[0][1] + "), v = (" +eigenvectors[1][0] + ", " + eigenvectors[1][1] + ")";
         // Return the question and answer in an array
         return [question, answer];
@@ -146,7 +146,7 @@ $X.math.University_Mathematics.Linear_Algebra.EigenvaluesAndEigenvectors = funct
                 eigenbase.push(temp);
             }
         }
-        var question = "Given the matrix \\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}. Determine the eigenbases?";
+        var question = "Given the matrix \\begin{bmatrix}" + matrixToString(matrix) + "\\end{bmatrix}. Determine the eigenbases?";
         var answer = "\\begin{bmatrix}" + matrixToKaTeX(eigenbase) + "\\end{bmatrix}";
         // Return the question and answer in an array
         return [question, answer];

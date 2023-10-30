@@ -113,7 +113,6 @@ const Class_Operate = {
                         new_Completeness.style.color = "gray";
                     }
                 }
-                break;
             } else if (!people || people.length === 0) {
                 if (Due_Date[1] <= Date.now()) {
                     new_Completeness.innerHTML = "missing";
@@ -174,7 +173,6 @@ const Class_Operate = {
                                 new_Completeness.style.color = "gray";
                             }
                         }
-                        break;
                     } else if (!people || !people.length) {
                         if (Due_Date[1] <= Date.now()) {
                             new_Completeness.innerHTML = "missing";

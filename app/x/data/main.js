@@ -418,7 +418,7 @@ function Print() {
             Func: Printing_answers
         }
     ];
-    X_Operate.newResult(results.length, "Please select an option below to continue.", print_);
+    X_Operate.newResult(null, "Please select an option below to continue.", print_);
 }
 
 function Printing_problems() {

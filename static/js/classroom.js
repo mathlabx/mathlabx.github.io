@@ -400,22 +400,25 @@ function click_people() {
 
 
         for (let i = 0; i < Class_Data.people.length; i++) {
-            let new_people = document.createElement("div");
-            new_people.className = "flow-element";
-            let people_name = document.createElement("h3");
-            serverStorage.getItem("User", Class_Data.people[i].user_id).then((data) => {
-                console.log(data);
-                if (data) {
-                    people_name.innerHTML = data.Name;
-                    /*
-                    data.Info
-                    data.Img
-                    data.Gender
-                    */
-                    new_people.append(people_name);
-                    div_container.append(new_people);
-                }
-            });
+            (function (i) {
+                let new_people = document.createElement("div");
+                new_people.className = "flow-element";
+                serverStorage.getItem("User", Class_Data.people[i].user_id).then((data) => {
+                    console.log(data);
+
+                    if (data) {
+                        let people_name = document.createElement("h3");
+                        people_name.innerHTML = data.Name;
+                        /*
+                        data.Info
+                        data.Img
+                        data.Gender
+                        */
+                        new_people.append(people_name);
+                        div_container.append(new_people);
+                    }
+                });
+            })(i);
         }
     }
 }

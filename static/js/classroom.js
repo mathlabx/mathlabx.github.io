@@ -84,16 +84,6 @@ let div_container;
 
 const Class_Operate = {
     new_Task: (Task_Name, Due_Date, Disciption, people, Settings) => {
-        console.log("Task_Name", Task_Name);
-        window.Task_Name = Task_Name;
-        console.log("Due_Date", Due_Date);
-        window.Due_Date = Due_Date;
-        console.log("Disciption", Disciption);
-        window.Disciption = Disciption;
-        console.log("people", people);
-        window.people = people;
-        console.log("Settings", Settings);
-        window.Settings = Settings;
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
         let task_title = document.createElement("h2");
@@ -124,8 +114,15 @@ const Class_Operate = {
                     }
                 }
                 break;
-            }
-            if (Due_Date[1] <= Date.now()) {
+            } else if (!people || people.length === 0) {
+                if (Due_Date[1] <= Date.now()) {
+                    new_Completeness.innerHTML = "missing";
+                    new_Completeness.style.color = "red";
+                } else {
+                    new_Completeness.innerHTML = "assigned";
+                    new_Completeness.style.color = "gray";
+                }
+            } else if (Due_Date[1] <= Date.now()) {
                 new_Completeness.innerHTML = "missing";
                 new_Completeness.style.color = "red";
             } else {
@@ -133,15 +130,7 @@ const Class_Operate = {
                 new_Completeness.style.color = "gray";
             }
         }
-        if (!people || people.length === 0) {
-            if (Due_Date[1] <= Date.now()) {
-                new_Completeness.innerHTML = "missing";
-                new_Completeness.style.color = "red";
-            } else {
-                new_Completeness.innerHTML = "assigned";
-                new_Completeness.style.color = "gray";
-            }
-        }
+
         new_flow_block.append(task_title);
         new_flow_block.append(new_Completeness);
         new_flow_block.append(new_due_date);
@@ -186,17 +175,15 @@ const Class_Operate = {
                             }
                         }
                         break;
-                    }
-                    if (Due_Date[1] <= Date.now()) {
-                        new_Completeness.innerHTML = "missing";
-                        new_Completeness.style.color = "red";
-                    } else {
-                        new_Completeness.innerHTML = "assigned";
-                        new_Completeness.style.color = "gray";
-                    }
-                }
-                if (!people || !people.length) {
-                    if (Due_Date[1] <= Date.now()) {
+                    } else if (!people || !people.length) {
+                        if (Due_Date[1] <= Date.now()) {
+                            new_Completeness.innerHTML = "missing";
+                            new_Completeness.style.color = "red";
+                        } else {
+                            new_Completeness.innerHTML = "assigned";
+                            new_Completeness.style.color = "gray";
+                        }
+                    } else if (Due_Date[1] <= Date.now()) {
                         new_Completeness.innerHTML = "missing";
                         new_Completeness.style.color = "red";
                     } else {

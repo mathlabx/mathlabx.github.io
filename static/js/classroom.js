@@ -342,7 +342,7 @@ function to_UTC() {
 
 function from_UTC(utcTimestamp) {
     const today = new Date();
-    const offset = -(today.getTimezoneOffset() / 60);
+    const offset = today.getTimezoneOffset() / 60;
     const currentTimestamp = Date.now(); // 获取当前本地时间戳
     const localDate = new Date(utcTimestamp);
     const currentDate = new Date(currentTimestamp);
@@ -351,13 +351,10 @@ function from_UTC(utcTimestamp) {
     const timezoneOffset = localDate.getTimezoneOffset() * 60000;
 
     // 将 UTC 时间戳转换为本地时间戳
-    const localTimestamp = utcTimestamp + timezoneOffset;
+    const localTimestamp = utcTimestamp - timezoneOffset;
 
     // 将时间戳转换为日期
     const newLocalDate = new Date(localTimestamp);
-
-    //检查是否晚
-    let typ = "";
 
     // 检查日期是否为今天
     if (
@@ -368,15 +365,15 @@ function from_UTC(utcTimestamp) {
         // 返回今天的小时和分钟
         const hours = String(newLocalDate.getHours()).padStart(2, '0');
         const minutes = String(newLocalDate.getMinutes()).padStart(2, '0');
-        return [`Today, ${hours}:${minutes}`, typ];
+        return [`Today, ${hours}:${minutes}`];
     } else {
         // 返回日期和时间
         const year = newLocalDate.getFullYear();
         const month = String(newLocalDate.getMonth() + 1).padStart(2, '0');
         const day = String(newLocalDate.getDate()).padStart(2, '0');
-        const hours = String(((newLocalDate.getHours()) + offset)).padStart(2, '0');
+        const hours = String((newLocalDate.getHours() + offset)).padStart(2, '0');
         const minutes = String(newLocalDate.getMinutes()).padStart(2, '0');
-        return [`${year}-${month}-${day} ${hours}:${minutes}`, typ];
+        return [`${year}-${month}-${day} ${hours}:${minutes}`];
     }
 }
 
@@ -385,7 +382,7 @@ function click_todo() {
     new_cover.className = "overlay";
     div_container.append(new_cover);
     document.querySelector('.overlay').style.display = 'none';
-    
+
     if (page_on != "todo") {
         div_container.innerHTML = "";
         for (let i = 0; Class_Data.Task && i < Class_Data.Task.length; i++) {

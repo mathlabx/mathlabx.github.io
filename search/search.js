@@ -153,13 +153,12 @@ function fuzzySearchApps(query, maxDistanceLevenshtein = 3, minSimilarityJaroWin
 }
 
 window.addEventListener("load", () => {
-    let result = document.getElementById("result");
-    document.getElementById("search_bar").addEventListener("change", function (result) {
+    document.getElementById("search_bar").addEventListener("input", function () {
+        let result = document.getElementById("result");
         result.innerHTML = "";
 
         let search_index = fuzzySearchApps(document.getElementById("search_bar").value);
 
-        window_load(false, 0);
         function to_app(url) {
             window.location = url;
         }
@@ -328,6 +327,5 @@ window.addEventListener("load", () => {
                 if (shouldShowAd()) new_ads_flow();
             }
         }
-        window_load(true, 900);
     });
 });

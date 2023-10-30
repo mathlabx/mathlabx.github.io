@@ -85,10 +85,15 @@ let div_container;
 const Class_Operate = {
     new_Task: (Task_Name, Due_Date, Disciption, people, Settings) => {
         console.log("Task_Name", Task_Name);
+        document.Task_Name = Task_Name;
         console.log("Due_Date", Due_Date);
+        document.Due_Date = Due_Date;
         console.log("Disciption", Disciption);
+        document.Disciption = Disciption;
         console.log("people", people);
+        document.people = people;
         console.log("Settings", Settings);
+        document.Settings = Settings;
         let new_flow_block = document.createElement("div");
         new_flow_block.className = "flow-element";
         let task_title = document.createElement("h2");

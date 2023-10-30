@@ -20,7 +20,20 @@ console.log(result); // Output: ['Calculate the expectation for the discrete pro
 $X.math.University_Mathematics.Probability_and_Statistics.RandomVariablesAndDistributions = function(C_discrete, C_continuous, C_expectation) {
     // Your code goes here
     if(C_discrete){    
-        return null;
+        const concepts = ["A discrete probability distribution counts occurrences that have ___________.",
+				"Discrete distributions contrast with ___________, where outcomes can fall anywhere on a continuum.",
+				"Common examples of discrete distribution include the ________________________.",
+				"These distributions often involve statistical analyses of 'counts' or 'how many times' an ____________.",
+				"In finance, discrete distributions are used in options ________________."];
+		const blanks =["countable or finite outcomes",
+				"continuous distributions",
+				"binomial, Poisson, and Bernoulli distributions",
+				"event occurs",
+				"pricing and forecasting market shocks or recessions"];
+		const randCon = Math.floor(Math.random() * concepts.length);
+		const question = "Fill in the blank for the following concept of discrete probability distribution: " + concepts[randCon];
+		const answer = blanks[randCon];
+	    	return [question, answer];
     }else if(C_continuous){
         return null;
     }else if(C_expectation){var question;

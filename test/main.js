@@ -264,7 +264,7 @@ let Test = {
     },
     Start: function () {
         let test_div = document.getElementById("test");
-        Test_Star_Time = new Date().getTime();
+        Test.Test_Star_Time = new Date().getTime();
         function full(ele) {
             if (ele.requestFullscreen) {
                 ele.requestFullscreen();
@@ -335,6 +335,7 @@ let Test = {
         next_ques();
     },
     End: function () {
+        Test.Test_End_Time = new Date().getTime();
         let Task_Index = Number(sessionStorage.getItem("Task_Index"));
         window_load(false, 0);
         const classDocRef = firestore.collection('classes').doc(Test.Test_Taker.CID);

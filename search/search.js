@@ -299,7 +299,6 @@ window.addEventListener("load", () => {
             result.appendChild(customAdContainer);
         }
 
-        let result = document.getElementById("result");
         result.innerHTML = "";
         for (var i = 0; i < APP.apps.length; i++) {
             if (search_index.includes(i)) {

@@ -445,7 +445,9 @@ function Printing_problems() {
     }
 
     newWindow.onload = function () {
-        newWindow.print(); // 等到新窗口加载完成后触发打印
+        setTimeout(function () {
+            newWindow.print(); // 延迟一段时间后触发打印
+        }, 2000); // 可以根据需要调整延迟的时间
     };
 }
 
@@ -488,7 +490,9 @@ function Printing_problems_answers() {
     }
 
     newWindow.onload = function () {
-        newWindow.print(); // 等到新窗口加载完成后触发打印
+        setTimeout(function () {
+            newWindow.print(); // 延迟一段时间后触发打印
+        }, 2000); // 可以根据需要调整延迟的时间
     };
 }
 
@@ -515,7 +519,9 @@ function Printing_answers() {
     }
 
     newWindow.onload = function () {
-        newWindow.print(); // 等到新窗口加载完成后触发打印
+        setTimeout(function () {
+            newWindow.print(); // 延迟一段时间后触发打印
+        }, 2000); // 可以根据需要调整延迟的时间
     };
 }
 

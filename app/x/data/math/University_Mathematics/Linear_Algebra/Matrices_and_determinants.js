@@ -36,6 +36,8 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         const matrixColumn2 = Math.ceil(Math.random() * 4) + 1;
         const matrix1 = [];
         const matrix2 = [];
+        const matrix1Present = [];
+        const matrix2Present = [];
         for (var i = 0; i < matrixRow1; i++) {
             var temp = [];
             for (var j = 0; j < matrixColumn1; j++) {
@@ -50,23 +52,38 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
             }
             matrix2.push(temp);
         }
+        for (var i = 0; i < matrixRow1; i++) {
+            var temp = [];
+            for (var j = 0; j < matrixColumn1; j++) {
+                temp.push(`${(matrix1[i][j]).toFixed(2)}`);
+            }
+            matrix1Present.push(temp);
+        }
+        for (var i = 0; i < matrixColumn1; i++) {
+            var temp = [];
+            for (var j = 0; j < matrixColumn2; j++) {
+                temp.push(`${(matrix2[i][j]).toFixed(2)}`);
+            }
+            matrix2Present.push(temp);
+        }
+        
         if (randOperation == 0) {
-            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
+            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1Present) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2Present) + "\\end{bmatrix}";
             const additionResult = addMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(additionResult) + "\\end{bmatrix}";
             return [question, answer];
         } else if (randOperation == 1) {
-            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} - \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
+            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1Present) + "\\end{bmatrix} - \\begin{bmatrix}" + matrixToKaTeX(matrix2Present) + "\\end{bmatrix}";
             const subtractionResult = subtractMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(subtractionResult) + "\\end{bmatrix}";
             return [question, answer];
         } else if (randOperation == 2) {
-            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} x \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
+            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1Present) + "\\end{bmatrix} x \\begin{bmatrix}" + matrixToKaTeX(matrix2Present) + "\\end{bmatrix}";
             const multiplicationResult = multiplyMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(multiplicationResult) + "\\end{bmatrix}";
             return [question, answer];
         } else if (randOperation == 3) {
-            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} ÷ \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
+            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1Present) + "\\end{bmatrix} ÷ \\begin{bmatrix}" + matrixToKaTeX(matrix2Present) + "\\end{bmatrix}";
             const divisionResult = divideMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(divisionResult) + "\\end{bmatrix}";
             return [question, answer];
@@ -165,12 +182,20 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         var answer = 0;
         const matrixRow = Math.ceil(Math.random() * 4) + 1;
         const matrix = [];
+        const matrixPresent = [];
         for (var i = 0; i < matrixRow; i++) {
             var temp = [];
             for (var j = 0; j < matrixRow; j++) {
                 temp.push(Math.floor(Math.random() * 9));
             }
             matrix.push(temp);
+        }
+        for (var i = 0; i < matrixRow; i++) {
+            var temp = [];
+            for (var j = 0; j < matrixRow; j++) {
+                temp.push(matrix[i][j].toString());
+            }
+            matrixPresent.push(temp);
         }
         const matrixText = "\\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}";
         question = "Find the determinant of the matrix " + matrixText;

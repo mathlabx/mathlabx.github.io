@@ -197,7 +197,7 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
             }
             matrixPresent.push(temp);
         }
-        const matrixText = "\\begin{bmatrix}" + matrixToKaTeX(matrix) + "\\end{bmatrix}";
+        const matrixText = "\\begin{bmatrix}" + matrixToKaTeX(matrixPresent) + "\\end{bmatrix}";
         question = "Find the determinant of the matrix " + matrixText;
         answer = determinant(matrix);
         // Return the question and answer in an array

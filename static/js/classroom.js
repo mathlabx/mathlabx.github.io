@@ -416,15 +416,22 @@ function click_setting() {
     if (page_on != "setting") {
         div_container.innerHTML = "";
         page_on = "setting";
-        
+
+        let new_code_title_con = document.createElement("div");
+        new_code_title_con.className = "flow-element";
         let new_code_title = document.createElement("h3");
         new_code_title.innerHTML = "Class Code";
-        div_container.append(new_code_title);
+        new_code_title_con.append(new_code_title);
+        div_container.append(new_code_title_con);
 
+        let class_id_con = document.createElement("div");
+        class_id_con.className = "flow-element";
+        let class_id_copy = document.createElement("p");
+        class_id_copy.innerHTML = "click to copy";
         let class_id = document.createElement("h1");
         class_id.innerHTML = Class_Data.code;
 
-        class_id.addEventListener('click', function () {
+        class_id_con.addEventListener('click', function () {
             var textArea = document.createElement('textarea');
             textArea.value = class_id.innerHTML;
             document.body.appendChild(textArea);
@@ -434,7 +441,10 @@ function click_setting() {
             APP.log('Text has been copied!', 1000);
         });
 
-        div_container.append(class_id);
+        class_id_con.append(class_id_copy);
+        class_id_con.append(class_id);
+
+        div_container.append(class_id_con);
     }
 }
 

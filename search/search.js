@@ -114,7 +114,6 @@ function calculateNGramSimilarity(text1, text2, n) {
 }
 
 // 模糊搜索函数
-// 模糊搜索函数
 function fuzzySearchApps(query, maxDistanceLevenshtein = 3, minSimilarityJaroWinkler = 0.7, minSimilarityNGram = 0.4) {
     const apps = APP.apps;
     const queryWords = query.toLowerCase().split(' ');

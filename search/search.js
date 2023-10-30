@@ -95,12 +95,29 @@ function jaroWinklerSimilarity(s1, s2) {
     return weight;
 }
 
+// n-gram 模型
+function createNGrams(text, n) {
+    const nGrams = [];
+    for (let i = 0; i <= text.length - n; i++) {
+        nGrams.push(text.substr(i, n));
+    }
+    return nGrams;
+}
+
+function calculateNGramSimilarity(text1, text2, n) {
+    const nGramsText1 = createNGrams(text1, n);
+    const nGramsText2 = createNGrams(text2, n);
+    const setNGramsText1 = new Set(nGramsText1);
+    const setNGramsText2 = new Set(nGramsText2);
+    const intersection = new Set([...setNGramsText1].filter(x => setNGramsText2.has(x)));
+    return intersection.size / Math.min(setNGramsText1.size, setNGramsText2.size);
+}
+
 // 模糊搜索函数
-function fuzzySearchApps(query, maxDistanceLevenshtein = 5, minSimilarityJaroWinkler = 0.5) {
+function fuzzySearchApps(query, maxDistanceLevenshtein = 3, minSimilarityJaroWinkler = 0.7, minSimilarityNGram = 0.2) {
     const apps = APP.apps;
     const queryLower = query.toLowerCase();
-    const matchedIndexesLevenshtein = [];
-    const matchedIndexesJaroWinkler = [];
+    const matchedIndexes = [];
 
     for (let i = 0; i < apps.length; i++) {
         const app = apps[i];
@@ -115,17 +132,17 @@ function fuzzySearchApps(query, maxDistanceLevenshtein = 5, minSimilarityJaroWin
         const jaroWinklerSimilarityTitle = jaroWinklerSimilarity(queryLower, titleLower);
         const jaroWinklerSimilarityDescription = jaroWinklerSimilarity(queryLower, descriptionLower);
 
-        // 根据 Levenshtein 距离和 Jaro-Winkler 相似度判断是否匹配
-        if (levenshteinDistanceTitle <= maxDistanceLevenshtein || levenshteinDistanceDescription <= maxDistanceLevenshtein) {
-            matchedIndexesLevenshtein.push(i);
-        }
-        if (jaroWinklerSimilarityTitle >= minSimilarityJaroWinkler || jaroWinklerSimilarityDescription >= minSimilarityJaroWinkler) {
-            matchedIndexesJaroWinkler.push(i);
+        // 计算 n-gram 相似度
+        const nGramSimilarityTitle = calculateNGramSimilarity(queryLower, titleLower, 3);
+        const nGramSimilarityDescription = calculateNGramSimilarity(queryLower, descriptionLower, 3);
+
+        // 根据 Levenshtein 距离、Jaro-Winkler 相似度和 n-gram 相似度判断是否匹配
+        if (levenshteinDistanceTitle <= maxDistanceLevenshtein || levenshteinDistanceDescription <= maxDistanceLevenshtein ||
+            jaroWinklerSimilarityTitle >= minSimilarityJaroWinkler || jaroWinklerSimilarityDescription >= minSimilarityJaroWinkler ||
+            nGramSimilarityTitle >= minSimilarityNGram || nGramSimilarityDescription >= minSimilarityNGram) {
+            matchedIndexes.push(i);
         }
     }
-
-    // 合并两种算法的结果
-    const matchedIndexes = [...new Set([...matchedIndexesLevenshtein, ...matchedIndexesJaroWinkler])];
 
     return matchedIndexes;
 }

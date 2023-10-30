@@ -135,6 +135,7 @@ window.addEventListener('load', function () {
         let throttled = false;
 
         elements.forEach(element => {
+            const overlay = element.querySelector('.overlay');
             element.addEventListener('mousemove', throttle(handleMouseMove, 16));
             element.addEventListener('mouseenter', handleMouseEnter);
             element.addEventListener('mouseleave', handleMouseLeave);
@@ -151,10 +152,10 @@ window.addEventListener('load', function () {
                     const percentX = mouseX / (rect.width / 6);
                     const percentY = mouseY / (rect.height / 6);
 
-                    const rY = percentX * 2;
-                    const rX = percentY * 2;
+                    const rY = percentX * 3;
+                    const rX = percentY * 3;
 
-                    this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
+                    this.style.setProperty('--transform', `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`);
 
                     throttled = true;
                     setTimeout(() => {
@@ -170,7 +171,7 @@ window.addEventListener('load', function () {
 
         function handleMouseLeave() {
             this.mouseLeaveDelay = setTimeout(() => {
-                this.style.transform = 'none';
+                this.style.setProperty('--transform', 'none');
             }, 1000);
         }
 

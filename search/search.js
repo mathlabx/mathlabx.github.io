@@ -154,7 +154,7 @@ function fuzzySearchApps(query, maxDistanceLevenshtein = 3, minSimilarityJaroWin
 
 window.addEventListener("load", () => {
     let result = document.getElementById("result");
-    document.getElementById("search_bar").addEventListener("change", (result) => {
+    document.getElementById("search_bar").addEventListener("change", function (result) {
         result.innerHTML = "";
 
         let search_index = fuzzySearchApps(document.getElementById("search_bar").value);

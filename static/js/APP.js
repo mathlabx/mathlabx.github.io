@@ -149,13 +149,13 @@ window.addEventListener('load', function () {
                     const centerY = rect.top + rect.height / 2;
                     const mouseX = e.clientX - centerX;
                     const mouseY = centerY - e.clientY;
-                    const percentX = mouseX / (rect.width / 6);
-                    const percentY = mouseY / (rect.height / 6);
+                    const percentX = mouseX / (rect.width / 2); // 修改这里
+                    const percentY = mouseY / (rect.height / 2); // 修改这里
 
                     const rY = percentX * 3;
                     const rX = percentY * 3;
 
-                    this.style.setProperty('--transform', `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`);
+                    this.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
 
                     throttled = true;
                     setTimeout(() => {
@@ -164,6 +164,7 @@ window.addEventListener('load', function () {
                 });
             }
         }
+
 
         function handleMouseEnter() {
             clearTimeout(this.mouseLeaveDelay);

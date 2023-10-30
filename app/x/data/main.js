@@ -5664,8 +5664,6 @@ function $X_Generate_(general_settings, results, Task_settings, Class_ID) {
             let test_settings = Task_settings;
 
             if (Test_MOD) {
-                console.log(re_q);
-                alert(re_q);
                 let obj = {
                     questions: re_q,
                     settings: test_settings,

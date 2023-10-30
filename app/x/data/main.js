@@ -446,8 +446,10 @@ function Printing_problems() {
 
     newWindow.onload = function () {
         setTimeout(function () {
-            newWindow.print(); // 延迟一段时间后触发打印
-        }, 2000); // 可以根据需要调整延迟的时间
+            if (window.confirm("Print?")) {
+                newWindow.print();
+            }
+        }, 2000);
     };
 }
 
@@ -491,8 +493,10 @@ function Printing_problems_answers() {
 
     newWindow.onload = function () {
         setTimeout(function () {
-            newWindow.print(); // 延迟一段时间后触发打印
-        }, 2000); // 可以根据需要调整延迟的时间
+            if (window.confirm("Print?")) {
+                newWindow.print();
+            }
+        }, 2000);
     };
 }
 
@@ -520,8 +524,10 @@ function Printing_answers() {
 
     newWindow.onload = function () {
         setTimeout(function () {
-            newWindow.print(); // 延迟一段时间后触发打印
-        }, 2000); // 可以根据需要调整延迟的时间
+            if (window.confirm("Print?")) {
+                newWindow.print();
+            }
+        }, 2000);
     };
 }
 

@@ -352,6 +352,7 @@ let Test = {
                 }
                 let taskArray = doc.data();
                 let test_data = {
+                    UID: Test.Test_Taker.UID,
                     Completeness: true,
                     submitted_date: Date.now(),
                     Test_Taker: Test.Test_Taker,

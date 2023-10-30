@@ -403,8 +403,122 @@ function Regenerate() {
 }
 
 function Print() {
-
+    X_Operate.newPage();
+    let print_ = [
+        {
+            Name: "Printing problems",
+            Func: Printing_problems
+        },
+        {
+            Name: "Print problems + answers",
+            Func: Printing_problems_answers
+        },
+        {
+            Name: "Print answer",
+            Func: Printing_answers
+        }
+    ];
+    X_Operate.newResult(results.length, "Please select an option below to continue.", print_);
 }
+
+function Printing_problems() {
+    let newWindow = window.open();
+    newWindow.document.write("<h1 style='text-align: center;'>MPC Test</h1>");
+    katex.renderToString("\\sqrt{3x-1}+(1+x)^2");
+    for (let i = 0; i < gl_results.length; i++) {
+        newWindow.document.write(`</hr>`);
+        if (Array.isArray(gl_results[i][0])) {
+            for (let j = 0; j < gl_results[i][0].length; j++) {
+                if (containsKaTeXExpression(gl_results[i][0][j])) {
+                    newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${katex.renderToString(gl_results[i][0][j])}</p>`);
+                } else {
+                    newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${gl_results[i][0][j]}</p>`);
+                }
+            }
+        } else {
+            if (containsKaTeXExpression(gl_results[i][0])) {
+                newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${katex.renderToString(gl_results[i][0])}</p>`);
+            } else {
+                newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${gl_results[i][0]}</p>`);
+            }
+        }
+    }
+
+    newWindow.onload = function () {
+        newWindow.print(); // 等到新窗口加载完成后触发打印
+    };
+}
+
+function Printing_problems_answers() {
+    let newWindow = window.open();
+    newWindow.document.write("<h1 style='text-align: center;'>MPC Test</h1>");
+    katex.renderToString("\\sqrt{3x-1}+(1+x)^2");
+    for (let i = 0; i < gl_results.length; i++) {
+        newWindow.document.write(`</hr>`);
+        if (Array.isArray(gl_results[i][0])) {
+            for (let j = 0; j < gl_results[i][0].length; j++) {
+                if (containsKaTeXExpression(gl_results[i][0][j])) {
+                    newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${katex.renderToString(gl_results[i][0][j])}</p>`);
+                } else {
+                    newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${gl_results[i][0][j]}</p>`);
+                }
+            }
+        } else {
+            if (containsKaTeXExpression(gl_results[i][0])) {
+                newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${katex.renderToString(gl_results[i][0])}</p>`);
+            } else {
+                newWindow.document.write(`<p style='text-align: center;'>${String(i)}. ${gl_results[i][0]}</p>`);
+            }
+        }
+
+        if (Array.isArray(gl_results[i][1])) {
+            if (gl_results[i][1].length === 2) {
+                X_Operate.newStep("\\frac{" + gl_results[i][1][0] + "}{" + gl_results[i][1][1] + "}", true, true);
+                newWindow.document.write(katex.renderToString("<p style='text-align: center; color: red;'>\\frac{" + gl_results[i][1][0] + "}{" + gl_results[i][1][1] + "}</p>"));
+            } else {
+                newWindow.document.write(`<p style='text-align: center; color: red;'>Invalid Array</p>`);
+            }
+        } else {
+            if (containsKaTeXExpression(gl_results[i][1])) {
+                newWindow.document.write(`<p style='text-align: center; color: red;'>${katex.renderToString(gl_results[i][1])}</p>`);
+            } else {
+                newWindow.document.write(`<p style='text-align: center; color: red;'>${gl_results[i][1]}</p>`);
+            }
+        }
+    }
+
+    newWindow.onload = function () {
+        newWindow.print(); // 等到新窗口加载完成后触发打印
+    };
+}
+
+function Printing_answers() {
+    let newWindow = window.open();
+    newWindow.document.write("<h1 style='text-align: center;'>MPC Test</h1>");
+    katex.renderToString("\\sqrt{3x-1}+(1+x)^2");
+    for (let i = 0; i < gl_results.length; i++) {
+        newWindow.document.write(`</hr>`);
+        if (Array.isArray(gl_results[i][1])) {
+            if (gl_results[i][1].length === 2) {
+                X_Operate.newStep(String(i) + ". \\frac{" + gl_results[i][1][0] + "}{" + gl_results[i][1][1] + "}", true, true);
+                newWindow.document.write(katex.renderToString(String(i) + ". <p style='text-align: center; color: red;'>\\frac{" + gl_results[i][1][0] + "}{" + gl_results[i][1][1] + "}</p>"));
+            } else {
+                newWindow.document.write(`${String(i)}. <p style='text-align: center; color: red;'>Invalid Array</p>`);
+            }
+        } else {
+            if (containsKaTeXExpression(gl_results[i][1])) {
+                newWindow.document.write(`${String(i)}. <p style='text-align: center; color: red;'>${katex.renderToString(gl_results[i][1])}</p>`);
+            } else {
+                newWindow.document.write(`${String(i)}. <p style='text-align: center; color: red;'>${gl_results[i][1]}</p>`);
+            }
+        }
+    }
+
+    newWindow.onload = function () {
+        newWindow.print(); // 等到新窗口加载完成后触发打印
+    };
+}
+
 
 function X_Generate(setting) {
     Setting_Array = new Array();
@@ -4291,7 +4405,7 @@ function X_Generate(setting) {
         Typ: "checked",
         show: setting[2].topics[3].subtopics[3].subtopics[0]._checked
     });
-    
+
     Setting_Array.push({
         Name: "Properties of Matter | Redox Reactions&Reg",
         Typ: "checked",
@@ -4340,7 +4454,7 @@ function X_Generate(setting) {
         Typ: "checked",
         show: setting[2].topics[3].subtopics[4].subtopics[0]._checked
     });
-    
+
     Setting_Array.push({
         Name: "Nuclear Chemistry | Nuclear Reactions and Nuclear Energy&Reg",
         Typ: "checked",

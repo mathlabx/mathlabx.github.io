@@ -55,14 +55,14 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         for (var i = 0; i < matrixRow1; i++) {
             var temp = [];
             for (var j = 0; j < matrixColumn1; j++) {
-                temp.push(`${(matrix1[i][j]).toFixed(2)}`);
+                temp.push(matrix1[i][j].toString());
             }
             matrix1Present.push(temp);
         }
         for (var i = 0; i < matrixColumn1; i++) {
             var temp = [];
             for (var j = 0; j < matrixColumn2; j++) {
-                temp.push(`${(matrix2[i][j]).toFixed(2)}`);
+                temp.push(matrix2[i][j].toString()});
             }
             matrix2Present.push(temp);
         }

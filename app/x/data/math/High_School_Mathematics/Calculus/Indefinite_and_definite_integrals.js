@@ -171,7 +171,7 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 		if (!isNaN(fun)) {
 			return fun + "x";
 		} else if (fun === "x") {
-			return "x^2/2";
+			return "\\frac{"x^2"}{2}";
 		} else if (fun === "cos(x)") {
 			return "sin(x)";
 		} else if (fun === "sin(x)") {

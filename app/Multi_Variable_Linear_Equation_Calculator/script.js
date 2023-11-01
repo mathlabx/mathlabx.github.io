@@ -26,7 +26,6 @@ function main() {
 		// Prompt the user to enter n data values
 		Operate.newInput(Array.from({ length: (n + 1) * n }, (_, i) => `x${i + 1}`)).then((dataArray) => {
 			const values = dataArray.map((data, i) => parseInt(data));
-			console.log(values);
 			let solution = [];
 			let coefficientsArray = [];
 			for (var i = 0; i < n; i++) {
@@ -36,12 +35,14 @@ function main() {
 				}
 				coefficientsArray.push(temp);
 			}
-			console.log(coefficientsArray);
 			solution = solveEquation(coefficientsArray, coefficientsArray.length);
 			Operate.newSolution("Solution\\ to\\ the\\ equations:");
 			solution.forEach((solution) => {
 			    Operate.newStep("x = " + String(solution));
 			});
+
+			// // Step 10: Restart
+			Operate.newRestart();
 		});
 	});
 

@@ -79,7 +79,7 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 				}
 			}
 		}
-		equation = `\[ \int_{'+upper+'}^{'+lower+'} '+equation+' \,dx \] `;
+		equation = `\[ \int_{`+upper+`}^{`+lower+`} `+equation+` \,dx \] `;
 		const answer = upper - lower;
 		return [equation, answer];
 	}

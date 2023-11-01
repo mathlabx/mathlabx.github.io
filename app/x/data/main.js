@@ -4500,7 +4500,8 @@ function X_Generate(setting) {
         {
             Name: "Question Language | 1-En/2-Cn/3-Sp",
             Typ: "range",
-            Range: [1, 3, 1],
+            //Range: [1, 3, 1],
+            Range: [1, 1, 1],
             show: true
         },
         {

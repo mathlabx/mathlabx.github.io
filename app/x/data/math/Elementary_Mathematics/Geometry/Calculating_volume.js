@@ -21,7 +21,7 @@ console.log(result); // Output: ['Calculate the volume of a Cylinder with data: 
 
 */
 
-$X.math.Elementary_Mathematics.Geometry.volume = function (cube, sphere, cylinder, cone, pyramid, torus) {
+$X.math.Elementary_Mathematics.Geometry.volume = function (cube, sphere, hemisphere, cylinder, cone, squarepyramid, rectangularpyramid, triangularpyramid, ellipsoid, torus) {
     // Creating an array containing optional 3D shapes
     var shapes = [];
 
@@ -63,6 +63,10 @@ $X.math.Elementary_Mathematics.Geometry.volume = function (cube, sphere, cylinde
         // Example data setting for a sphere
         var radius = Math.random() * 10 + 1;
         shapeData = { radius: radius };
+    } else if (randomShape.name === "Hemisphere") {
+        // Example data setting for a sphere
+        var radius = Math.random() * 10 + 1;
+        shapeData = { radius: radius };
     } else if (randomShape.name === "Cylinder") {
         // Example data setting for a cylinder
         var radius = Math.random() * 10 + 1;
@@ -75,10 +79,10 @@ $X.math.Elementary_Mathematics.Geometry.volume = function (cube, sphere, cylinde
         shapeData = { radius: radius, height: height };
     } else if (randomShape.name === "Triangularpyramid") {
         // Example data setting for a triangular pyramid
-        var baseLength = Math.random() * 10 + 1;
+        var baseHeight = Math.random() * 10 + 1;
         var baseWidth = Math.random() * 10 + 1;
         var height = Math.random() * 10 + 1;
-        shapeData = { baseLength: baseLength, baseWidth: baseWidth, height: height };
+        shapeData = { baseHeight: baseHeight, baseWidth: baseWidth, height: height };
     } else if (randomShape.name === "Rectangularpyramid") {
         // Example data setting for a rectangular pyramid
         var baseLength = Math.random() * 10 + 1;
@@ -124,9 +128,33 @@ $X.math.Elementary_Mathematics.Geometry.volume = function (cube, sphere, cylinde
             // Example volume calculation logic for a sphere
             var volume = (4 * Math.PI * shapeData.radius * shapeData.radius * shapeData.radius) / 3;
             answer = `Given a sphere with radius ${shapeData.radius} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
+        } else if (randomShape.name === "Hemisphere") {
+            // Example volume calculation logic for a sphere
+            var volume = (2 * Math.PI * shapeData.radius * shapeData.radius * shapeData.radius) / 3;
+            answer = `Given a sphere with radius ${shapeData.radius} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
         } else if (randomShape.name === "Cone") {
             // Example volume calculation logic for a cone
             var volume = (Math.PI * shapeData.radius * shapeData.radius * shapeData.height) / 3;
+            answer = `Given a cone with base radius ${shapeData.radius} cm and height ${shapeData.height} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
+        } else if (randomShape.name === "Triangularpyramid") {
+            // Example volume calculation logic for a cone
+            var volume = (shapeData.baseHeight * shapeData.baseWidth * shapeData.height)/6;
+            answer = `Given a cone with base radius ${shapeData.radius} cm and height ${shapeData.height} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
+        } else if (randomShape.name === "Squarepyramid") {
+            // Example volume calculation logic for a cone
+            var volume = (shapeData.baseSide * shapeData.baseSide * shapeData.height)/3;
+            answer = `Given a cone with base radius ${shapeData.radius} cm and height ${shapeData.height} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
+        } else if (randomShape.name === "Rectangularpyramid") {
+            // Example volume calculation logic for a cone
+            var volume = (shapeData.baseHeight * shapeData.baseWidth * shapeData.height)/3;
+            answer = `Given a cone with base radius ${shapeData.radius} cm and height ${shapeData.height} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
+        } else if (randomShape.name === "Ellipsoid") {
+            // Example volume calculation logic for a cone
+            var volume = (4 * Math.PI * shapeData.length * shapeData.width * shapeData.height)/3;
+            answer = `Given a cone with base radius ${shapeData.radius} cm and height ${shapeData.height} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
+        } else if (randomShape.name === "Torus") {
+            // Example volume calculation logic for a cone
+            var volume = 2 * Math.PI * Math.PI * shapeData.majorRadius * shapeData.minorRadius * shapeData.minorRadius;
             answer = `Given a cone with base radius ${shapeData.radius} cm and height ${shapeData.height} cm, calculate the volume. Volume: ${volume.toFixed(2)} cm^3`;
         }
     }

@@ -46,6 +46,7 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 				}
 			}
 		}
+		equation = `\[ \int_`+equation+` \,dx \] `;
 		return [equation, answer];
 	}
 	function makeDefiniteEquation(oper, vari, leng, low, up) {

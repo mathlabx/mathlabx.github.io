@@ -43,7 +43,7 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
             }
         }else if(randDiff == 1){
             const constant = Math.floor(Math.random() * 9);
-            const bValue = Math.floor(Math.random() * 9);
+            var bValue = Math.floor(Math.random() * 9);
             const equation = "b(n) = b(n-1) + " + constant + "; b(1) = " + bValue;
             const randomNum = Math.floor(Math.random() * 9);
             question = "Find the " + randomNum + " term in the sequence.";

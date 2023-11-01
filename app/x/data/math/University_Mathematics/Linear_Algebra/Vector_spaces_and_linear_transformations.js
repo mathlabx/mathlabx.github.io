@@ -90,7 +90,7 @@ $X.math.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformatio
             matrix2.push(temp);
         }
         question = "Find the basis of the matrixs \\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
-        answer = "";
+        answer = 0;
     }
     // Return the question and answer in an array
     return [question, answer];

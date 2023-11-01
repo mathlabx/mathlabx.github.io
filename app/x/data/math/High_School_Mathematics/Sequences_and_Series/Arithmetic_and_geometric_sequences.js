@@ -25,7 +25,7 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
         var answer;
         const randomNum = Math.floor(Math.random() * 9);
         const randomMulti = Math.floor(Math.random() * 9);
-        const randomDiff = Math.round(Math.random());
+        const randDiff = Math.round(Math.random());
         let coefficients = [];
         for(let i = 0; i < 10; i++){
             coefficients.push(randomNum + i * randomMulti);

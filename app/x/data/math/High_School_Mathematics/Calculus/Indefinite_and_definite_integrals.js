@@ -29,25 +29,25 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 			if (i != leng - 1) {
 				if (vari[varNum] === "const") {
 					const temp = Math.ceil(Math.random() * leng);
-					equation += temp + " " + oper[operNum] + " ";
+					equation += " "  + temp + " " + oper[operNum] + " ";
 					answer += solveIndefiniteIntergal(temp) + " " + oper[operNum] + " ";
 				}else if(vari[varNum] === "1/x" || vari[varNum] === "1/sqrt(1-x^2)" || vari[varNum] === "1/1+x^2"){
-					equation += "\\frac{1}{" + (vari[varNum].substring(vari[varNum].indexOf("/"))+1)+"} " + oper[operNum] + " ";
+					equation += " \\frac{1}{" + (vari[varNum].substring(vari[varNum].indexOf("/")+1))+"} " + oper[operNum] + " ";
 					answer += solveIndefiniteIntergal(vari[varNum]) + " " + oper[operNum] + " ";
 				}else {
-					equation += vari[varNum] + " " + oper[operNum] + " ";
+					equation += " "  + vari[varNum] + " " + oper[operNum] + " ";
 					answer += solveIndefiniteIntergal(vari[varNum]) + " " + oper[operNum] + " ";
 				}
 			} else {
 				if (vari[varNum] === "const") {
 					const temp = Math.ceil(Math.random() * leng);
-					equation += temp;
+					equation += " "  + temp;
 					answer += solveIndefiniteIntergal(temp) + " + C";
 				}else if(vari[varNum] === "1/x" || vari[varNum] === "1/sqrt(1-x^2)" || vari[varNum] === "1/1+x^2"){
-					equation += "\\frac{1}{" + (vari[varNum].substring(vari[varNum].indexOf("/"))+1)+"}";
+					equation += " \\frac{1}{" + (vari[varNum].substring(vari[varNum].indexOf("/")+1))+"}";
 					answer += solveIndefiniteIntergal(vari[varNum]) + " + C";
 				}else {
-					equation += vari[varNum];
+					equation += " "  + vari[varNum];
 					answer += solveIndefiniteIntergal(vari[varNum]) + " + C";
 				}
 			}
@@ -65,22 +65,30 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 			if (i != leng - 1) {
 				if (vari[varNum] === "const") {
 					const temp = Math.ceil(Math.random() * leng);
-					equation += temp + " " + oper[operNum] + " ";
+					equation += " "  + temp + " " + oper[operNum] + " ";
 					lower += solveDefiniteIntergal(temp, low);
 					upper += solveDefiniteIntergal(temp, up);
+				} else if(vari[varNum] === "1/x" || vari[varNum] === "1/sqrt(1-x^2)" || vari[varNum] === "1/1+x^2"){
+					equation += " \\frac{1}{" + (vari[varNum].substring(vari[varNum].indexOf("/")+1))+"}";
+					lower += solveDefiniteIntergal(vari[varNum], low);
+					upper += solveDefiniteIntergal(vari[varNum], up);
 				} else {
-					equation += vari[varNum] + " " + oper[operNum] + " ";
+					equation += " "  + vari[varNum] + " " + oper[operNum] + " ";
 					lower += solveDefiniteIntergal(vari[varNum], low);
 					upper += solveDefiniteIntergal(vari[varNum], up);
 				}
 			} else {
 				if (vari[varNum] === "const") {
 					const temp = Math.ceil(Math.random() * leng);
-					equation += temp;
+					equation += " "  + temp;
 					lower += solveDefiniteIntergal(temp, low);
 					upper += solveDefiniteIntergal(temp, up);
+				} else if(vari[varNum] === "1/x" || vari[varNum] === "1/sqrt(1-x^2)" || vari[varNum] === "1/1+x^2"){
+					equation += " \\frac{1}{" + (vari[varNum].substring(vari[varNum].indexOf("/")+1))+"} " + oper[operNum] + " ";
+					lower += solveDefiniteIntergal(vari[varNum], low);
+					upper += solveDefiniteIntergal(vari[varNum], up);
 				} else {
-					equation += vari[varNum];
+					equation += " "  + vari[varNum];
 					lower += solveDefiniteIntergal(vari[varNum], low);
 					upper += solveDefiniteIntergal(vari[varNum], up);
 				}

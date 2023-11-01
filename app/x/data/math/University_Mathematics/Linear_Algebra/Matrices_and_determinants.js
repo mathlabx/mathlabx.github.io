@@ -50,13 +50,33 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
             }
             matrix2.push(temp);
         }
-        
+
         if (randOperation == 0) {
+            const matrixRow2 = matrixRow1;
+            const matrixColumn2 = matrixColumn1;
+            for (var i = 0; i < matrixRow2; i++) {
+                var temp = [];
+                for (var j = 0; j < matrixColumn2; j++) {
+                    temp.push(Math.floor(Math.random() * 9));
+                }
+                matrix2.push(temp);
+            }
             question = ""; //"\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
             const additionResult = addMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(additionResult) + "\\end{bmatrix}";
             return [question, answer];
         } else if (randOperation == 1) {
+            const matrixRow2 = matrixRow1;
+            const matrixColumn2 = matrixColumn1;
+            for (var i = 0; i < matrixRow2; i++) {
+                var temp = [];
+                for (var j = 0; j < matrixColumn2; j++) {
+                    temp.push(Math.floor(Math.random() * 9));
+                }
+                matrix2.push(temp);
+            }
+            const matrixRow2 = matrixRow1;
+            const matrixColumn2 = matrixColumn1;
             question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} - \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
             const subtractionResult = subtractMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(subtractionResult) + "\\end{bmatrix}";

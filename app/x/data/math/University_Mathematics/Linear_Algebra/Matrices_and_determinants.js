@@ -18,6 +18,11 @@ console.log(result); // Output: ['Find the determinant of the following 2x2 matr
 */
 
 $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function (C_matrix_operations, C_matrix_properties, C_determinants) {
+
+    function matrixToKaTeX(matrix) {
+        return matrix.map(row => row.join(" & ")).join("\\\\");
+    }
+
     const determinant = m =>
         m.length == 1 ?
             m[0][0] :

@@ -37,9 +37,7 @@ function main() {
 				coefficientsArray.push(temp);
 			}
 			console.log(coefficientsArray);
-			// let solution = [];
-			// let coefficientsArray = [[a1, b1, c1, d1, e1], [a2, b2, c2, d2, e2], [a3, b3, c3, d3, e3], [a4, b4, c4, d4, e4]];
-			solution = solveEquation(coefficientsArray, n);
+			solution = solveEquation(coefficientsArray, coefficientsArray.length);
 			Operate.newSolution("Solution\\ to\\ the\\ equations:");
 			solution.forEach((solution) => {
 			    Operate.newStep(String(solution));

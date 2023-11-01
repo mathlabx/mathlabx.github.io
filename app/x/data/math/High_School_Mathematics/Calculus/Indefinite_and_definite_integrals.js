@@ -69,19 +69,19 @@ $X.math.High_School_Mathematics.Calculus.IndefiniteAndDefiniteIntegrals = functi
 			} else {
 				if (vari[varNum] === "const") {
 					const temp = Math.ceil(Math.random() * leng);
-					equation += temp + "dx";
+					equation += temp;
 					lower += solveDefiniteIntergal(temp, low);
 					upper += solveDefiniteIntergal(temp, up);
 				} else {
-					equation += vari[varNum] + "dx";
+					equation += vari[varNum];
 					lower += solveDefiniteIntergal(vari[varNum], low);
 					upper += solveDefiniteIntergal(vari[varNum], up);
 				}
 			}
 		}
 		const answer = upper - lower;
-		upper = upper.toString();
-		lower = lower.toString();
+		upper = `${upper.toFixed(2)}`;
+		lower = `${lower.toFixed(2)}`;
 		equation = `\[ \int_{`+upper+`}^{`+lower+`} `+equation+` \,dx \] `;
 		return [equation, answer];
 	}

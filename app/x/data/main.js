@@ -307,7 +307,7 @@ function View_Results() {
 
 function containsKaTeXExpression(inputString) {
     // 关键词数组，用于匹配KaTeX表达式
-    const keywords = ["\\frac", "\\sqrt", "\\sum", "\\int", "\\leq", "\\geq", "\\in", "\\mathbb", "^", "_", "|", "\\emptyset"]; // 添加更多关键词以匹配更多表达式
+    const keywords = ["\\frac", "\\sqrt", "\\sum", "\\int", "\\leq", "\\geq", "\\in", "\\mathbb", "^", "_", "|", "\\emptyset", "bmatrix"]; // 添加更多关键词以匹配更多表达式
 
     // 检查输入字符串是否包含关键词
     for (const keyword of keywords) {

@@ -33,7 +33,6 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         const randOperation = 0;//Math.floor(Math.random() * 4);
         const matrixRow1 = Math.ceil(Math.random() * 4) + 1;
         const matrixColumn1 = Math.ceil(Math.random() * 4) + 1;
-        const matrixColumn2 = Math.ceil(Math.random() * 4) + 1;
         const matrix1 = [];
         const matrix2 = [];
         for (var i = 0; i < matrixRow1; i++) {
@@ -43,9 +42,9 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
             }
             matrix1.push(temp);
         }
-        for (var i = 0; i < matrixColumn1; i++) {
+        for (var i = 0; i < matrixRow1; i++) {
             var temp = [];
-            for (var j = 0; j < matrixColumn2; j++) {
+            for (var j = 0; j < matrixColumn1; j++) {
                 temp.push(Math.floor(Math.random() * 9));
             }
             matrix2.push(temp);

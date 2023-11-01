@@ -40,7 +40,7 @@ function main() {
 			solution = solveEquation(coefficientsArray, coefficientsArray.length);
 			Operate.newSolution("Solution\\ to\\ the\\ equations:");
 			solution.forEach((solution) => {
-			    Operate.newStep(String(solution));
+			    Operate.newStep("x = " + String(solution));
 			});
 		});
 	});

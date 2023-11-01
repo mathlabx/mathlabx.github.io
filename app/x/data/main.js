@@ -2417,23 +2417,23 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Sequences and Series | Summation of sequences&Reg",
         Typ: "checked",
-        show: setting[0].topics[2].subtopics[1].subtopics[1]._checked
+        show: false
     });
     Setting_Array.push({
         Name: "Summation of sequences | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
-        show: setting[0].topics[2].subtopics[1].subtopics[1]._checked
+        show: false
     });
     Setting_Array.push({
         Name: "Summation of sequences | Arithmetic Sequences",
         Typ: "checked",
-        show: setting[0].topics[2].subtopics[1].subtopics[1]._checked
+        show: false
     });
     Setting_Array.push({
         Name: "Summation of sequences | Geometric Sequences",
         Typ: "checked",
-        show: setting[0].topics[2].subtopics[1].subtopics[1]._checked
+        show: false
     });
 
     Setting_Array.push({
@@ -2797,27 +2797,27 @@ function X_Generate(setting) {
     Setting_Array.push({
         Name: "Discrete Mathematics | Graph Theory&BIG",
         Typ: "checked",
-        show: setting[0].topics[3].subtopics[5].subtopics[0]._checked
+        show: false
     });
     Setting_Array.push({
         Name: "Graph Theory | Number of questions to generate",
         Typ: "range",
         Range: [1, 10000, 40],
-        show: setting[0].topics[3].subtopics[5].subtopics[0]._checked
+        show: false
     });
     Setting_Array.push({
         Name: "Graph Theory | Related to Graph Properties",
         Typ: "checked",
-        show: setting[0].topics[3].subtopics[5].subtopics[0]._checked
+        show: false
     });
     Setting_Array.push({
         Name: "Graph Theory | Related to Graph Algorithms",
         Typ: "checked",
-        show: setting[0].topics[3].subtopics[5].subtopics[0]._checked
+        show: false
     });
 
     Setting_Array.push({
-        Name: "Discrete Mathematics | Combinatorics&Reg",
+        Name: "Discrete Mathematics | Combinatorics&BIG",
         Typ: "checked",
         show: setting[0].topics[3].subtopics[5].subtopics[1]._checked
     });

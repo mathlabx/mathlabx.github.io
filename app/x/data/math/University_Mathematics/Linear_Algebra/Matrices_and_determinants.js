@@ -64,8 +64,6 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
             answer = "\\begin{bmatrix}" + matrixToString(additionResult) + "\\end{bmatrix}";
             return [question, answer];
         } else if (randOperation == 1) {
-            const matrixRow2 = matrixRow1;
-            const matrixColumn2 = matrixColumn1;
             for (var i = 0; i < matrixRow2; i++) {
                 var temp = [];
                 for (var j = 0; j < matrixColumn2; j++) {

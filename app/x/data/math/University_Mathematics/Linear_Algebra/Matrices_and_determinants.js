@@ -30,7 +30,7 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
     if (C_matrix_operations) {
         var question;
         var answer;
-        const randOperation = 0;//Math.floor(Math.random() * 4);
+        const randOperation = Math.floor(Math.random() * 4);
         const matrixRow1 = 3;
         const matrixColumn1 = 3;
         const matrix1 = [];

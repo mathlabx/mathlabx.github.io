@@ -69,7 +69,28 @@ $X.math.University_Mathematics.Linear_Algebra.VectorSpacesAndLinearTransformatio
         var answer = "The vector will land on the coordinate [" + transformVector + "]";
         return [question, answer];
     } else {
-        return null;
+        var question;
+        var answer;
+        const matrixRow1 = 2;
+        const matrixColumn1 = 2;
+        const matrix1 = [];
+        const matrix2 = [];
+        for (var i = 0; i < matrixRow1; i++) {
+            var temp = [];
+            for (var j = 0; j < matrixColumn1; j++) {
+                temp.push(Math.floor(Math.random() * 9));
+            }
+            matrix1.push(temp);
+        }
+        for (var i = 0; i < matrixRow1; i++) {
+            var temp = [];
+            for (var j = 0; j < matrixColumn1; j++) {
+                temp.push(Math.floor(Math.random() * 9));
+            }
+            matrix2.push(temp);
+        }
+        question = "Find the basis of the matrixs \\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
+        answer = "";
     }
     // Return the question and answer in an array
     return [question, answer];

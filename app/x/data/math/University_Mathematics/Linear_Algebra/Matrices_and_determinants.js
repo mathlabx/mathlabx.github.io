@@ -52,7 +52,7 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         }
 
         if (randOperation == 0) {
-            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
+            question = ""; //"\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
             const additionResult = addMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(additionResult) + "\\end{bmatrix}";
             return [question, answer];

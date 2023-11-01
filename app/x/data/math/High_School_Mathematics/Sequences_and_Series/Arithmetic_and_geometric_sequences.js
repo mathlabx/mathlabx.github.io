@@ -28,7 +28,7 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
         const randomDiff = Math.round(Math.random());
         let coefficients = [];
         for(let i = 0; i < 10; i++){
-            coefficients.push(radomNum + i * randomMulti);
+            coefficients.push(randomNum + i * randomMulti);
         }
         if(randDiff == 0){
             question = "What is the next term of the arithmetic sequence? \n";
@@ -59,7 +59,7 @@ $X.math.High_School_Mathematics.Sequences_and_Series.ArithmeticAndGeometricSeque
         const randomMulti = Math.floor(Math.random() * 9);
         const coefficients = [];
         for(let i = 0; i < 10; i++){
-            coefficients.push(radomNum * Math.pow(randomMulti,i));
+            coefficients.push(randomNum * Math.pow(randomMulti,i));
         }
         var question = "What is the next term of the gemoetric sequence? \n";
         var answer;

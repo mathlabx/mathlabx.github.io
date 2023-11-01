@@ -30,7 +30,7 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
     if (C_matrix_operations) {
         var question;
         var answer;
-        const randOperation = Math.floor(Math.random() * 4);
+        const randOperation = 0;//Math.floor(Math.random() * 4);
         const matrixRow1 = Math.ceil(Math.random() * 4) + 1;
         const matrixColumn1 = Math.ceil(Math.random() * 4) + 1;
         const matrixColumn2 = Math.ceil(Math.random() * 4) + 1;
@@ -52,7 +52,7 @@ $X.math.University_Mathematics.Linear_Algebra.MatricesAndDeterminants = function
         }
         
         if (randOperation == 0) {
-            question = "\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
+            question = ""; //"\\begin{bmatrix}" + matrixToKaTeX(matrix1) + "\\end{bmatrix} + \\begin{bmatrix}" + matrixToKaTeX(matrix2) + "\\end{bmatrix}";
             const additionResult = addMatrices(matrix1, matrix2);
             answer = "\\begin{bmatrix}" + matrixToString(additionResult) + "\\end{bmatrix}";
             return [question, answer];
